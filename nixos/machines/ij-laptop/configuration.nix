@@ -22,9 +22,14 @@
      wget vim binutils firefox unzip zip docker zsh
   ];
 
-  services.printing.enable = true;
-  sound.enable = true;
+  hardware.bluetooth.enable = false;
+  hardware.enableAllFirmware = true;
   hardware.pulseaudio.enable = true;
+
+  services = {
+    printing.enable = true;
+    openssh.enable = true;
+  }
 
   users.users.ij = {
 	isNormalUser = true;

@@ -123,9 +123,22 @@ Pick the needed step
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
 $> mkdir -p /mnt/home/$LOCAL_USER/.config/nixpkgs/
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/config.nix" > /mnt/home/$LOCAL_USER/.config/nixpkgs/config.nix
+$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/$MACHINE_NAME.nix" > /mnt/home/$LOCAL_USER/config/nixpkgs/home.nix
 ```
 
 # Reboot
 ```bash
 $> reboot
+```
+
+# First boot
+Login as root, set password for your added user.
+
+# First user login
+Login as your new user and setup `home-manager`
+```bash
+$> nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+$> nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+$> nix-channel --update
+$> nix-shell '<home-manager>' -A install
 ```
