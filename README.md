@@ -141,4 +141,5 @@ $> nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz
 $> nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 $> nix-channel --update
 $> nix-shell '<home-manager>' -A install
+$> home-manager switch
 ```
