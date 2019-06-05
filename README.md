@@ -124,3 +124,8 @@ $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/confi
 $> mkdir -p /mnt/home/$LOCAL_USER/.config/nixpkgs/
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/config.nix" > /mnt/home/$LOCAL_USER/.config/nixpkgs/config.nix
 ```
+
+# Reboot
+```bash
+$> reboot
+```
