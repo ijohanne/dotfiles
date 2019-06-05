@@ -29,8 +29,8 @@ in
         package = pkgs.gnome3.adwaita-icon-theme;
       };
       theme = {
-        name = "Adapta-Nokto-Eta";
-        package = pkgs.adapta-gtk-theme;
+        name = "Equilux";
+        package = pkgs.equilux-theme;
       };
   };
 
