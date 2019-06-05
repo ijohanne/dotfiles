@@ -1,19 +1,17 @@
 { pkgs, ... }:
 
 let 
+  user_realname = "Ian Johannesen";
+  user_email = "ij@concordium.com";
   dotfiles = "/home/ij/.dotfiles";
-  git_p2p_client = "/home/ij/git/concordium/p2p-client";
 in
 {
   nixpkgs.overlays = [ (import ./overlays/package-upgrades) ];
 
   home.packages = with pkgs; [
     htop
-    vscode
-    git-lfs
     slack
     riot-desktop
-    git
     stack
     kubectl
     rustup
@@ -107,11 +105,14 @@ in
 
   programs.git = {
     enable = true;
-    userEmail = "ij@concordium.com";
+    userName = "${user_realname}";
+    userEmail = "${user_email}";
+    lfs.enable = true;
   };
 
   programs.direnv.enable = true;
   programs.htop.enable = true;
+  programs.vscode.enable = true;
 
   programs.zsh = {
     enable = true;
