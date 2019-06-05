@@ -15,6 +15,7 @@ in
     stack
     kubectl
     rustup
+    thunderbird
   ];
 
   fonts.fontconfig.enable = true;
