@@ -25,7 +25,7 @@ $> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
 ```
 
 # Enable ZFS on encrypted storage
-(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`
+(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`)
 ```bash
 $> zpool create -o ashift=12 -O mountpoint=none zroot /dev/disk/by-id/dm-uuid-CRYPT-LUKS1-deadbeef-decrypted-disk-name
 $> zfs create zroot/root -o mountpoint=legacy
@@ -52,7 +52,10 @@ $> nixos-generate-config --root /mnt
 ```
 
 # Replace ZFS/LUKS bootloader elements
-(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`
+(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`)
+
+
+
 Replace the `boot.*` section(s) of `/mnt/etc/nixos/configuration.nix` with the following
 ```
   boot.initrd.luks.devices.decrypted-disk-name = {
@@ -76,16 +79,22 @@ Replace the `boot.*` section(s) of `/mnt/etc/nixos/configuration.nix` with the f
   };
 ```
 
-# Set `hostId` and `hostName`
+# Set `hostId`
 ZFS needs the `hostId`, which is found by running `head -c 8 /etc/machine-id` and then inserted into `/mnt/etc/nixos/configuration.nix` under the property `networking.hostId`
+
+# Set `hostName`
 Add `networking.hostName` and set it to the name of the machine.
 
 # Setup user home directory
-mkdir -p /mnt/home/$LOCAL_USER/
+```bash
+$> mkdir -p /mnt/home/$LOCAL_USER/
+```
 
-# Clone
-mkdir -p /mnt/home/$LOCAL_USER/.config
-git clone --recursive https://gitlab.com/ijohanne/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
+# Clone the git repository
+```bash
+$> mkdir -p /mnt/home/$LOCAL_USER/.config
+$> git clone --recursive https://gitlab.com/ijohanne/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
+```
 
 # Link configs
 Copy the newly generated configs to git
