@@ -5,6 +5,13 @@ $> echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
 $> nix-env -i git git-crypt
 ```
 
+# Set local variables
+Export the needed variables for this guide
+```bash
+$> export LOCAL_USER="ij" # Adapt as needed
+$> export MACHINE_NAME"ij-laptop" # Adapt as needed
+```
+
 # Setup partitions
 Setup 2 partitions
 * efi (code - ef00, last sector - +200M)
@@ -99,8 +106,21 @@ $> git clone --recursive https://gitlab.com/ijohanne/dotfiles /mnt/home/$LOCAL_U
 # Link configs
 Copy the newly generated configs to git
 ```bash
-$> mkdir -p /mnt/home/ij/.dotfiles/nixos/machines/$MACHINE_NAME
+$> mkdir -p /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
 $> mv /mnt/etc/nixos/configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
 $> mv /mnt/etc/nixos/hardware-configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
 $> printf "import /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
+```
+
+# Installation (live-cd fixups)
+Pick the needed step
+* Install NixOS `nixos-install`
+* Rebuild configuration only `nixos-install --no-bootloader --no-root-passwd --no-channel-copy`
+* Enter a chroot to perform post-setup steps (if needed) `nixos-enter`
+
+# Post-install setup
+```bash
+$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
+$> mkdir -p /mnt/home/$LOCAL_USER/.config/nixpkgs/
+$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/config.nix" > /mnt/home/$LOCAL_USER/.config/nixpkgs/config.nix
 ```
