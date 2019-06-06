@@ -112,6 +112,11 @@ $> mv /mnt/etc/nixos/hardware-configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/
 $> printf "import /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
 ```
 
+# Adapt configs as needed
+Enable needed elements (see sample configs already in repo)
+* Bluetooth
+* Users
+
 # Installation (live-cd fixups)
 Pick the needed step
 * Install NixOS `nixos-install`
