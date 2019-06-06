@@ -12,12 +12,14 @@ in
     htop
     slack
     riot-desktop
-    stack
     kubectl
     rustup
     thunderbird
+    llvm 
     libreoffice
     spotify
+    llvm
+    clang
   ];
 
   fonts.fontconfig.enable = true;

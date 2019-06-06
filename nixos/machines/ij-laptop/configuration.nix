@@ -27,8 +27,15 @@
     enable = true;
     package = pkgs.pulseaudioFull;
   };
-
-  hardware.bluetooth.enable = true;
+  
+  hardware.bluetooth = {
+    enable = true;
+      extraConfig = ''
+      [General]
+        Enable=Source,Sink,Media,Socket
+        ControllerMode = bredr
+    '';
+  };
 
   services = {
     printing.enable = true;
