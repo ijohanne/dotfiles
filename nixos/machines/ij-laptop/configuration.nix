@@ -33,6 +33,7 @@
   services = {
     printing.enable = true;
     openssh.enable = true;
+    dbus.packages = [ pkgs.blueman ];
   };
 
   users.users.ij = {
