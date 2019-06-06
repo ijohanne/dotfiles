@@ -16,6 +16,8 @@ in
     kubectl
     rustup
     thunderbird
+    libreoffice
+    spotify
   ];
 
   fonts.fontconfig.enable = true;
