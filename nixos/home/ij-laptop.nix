@@ -20,6 +20,7 @@ in
     spotify
     llvm
     clang
+    stack
   ];
 
   fonts.fontconfig.enable = true;
@@ -146,7 +147,7 @@ in
   services.gnome-keyring.enable = true;
   services.gpg-agent.enable = true;
   services.network-manager-applet.enable = true;
-  services.blueman-applet.enable = true;
+  #services.blueman-applet.enable = true;
 
   home.file = {
   };

@@ -6,6 +6,12 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      bluez = pkgs.bluez5;
+   };
+  };
+
   networking.hostName = "ij-laptop";
   networking.networkmanager.enable = true;
   networking.hostId = "d4c95480";
@@ -19,7 +25,7 @@
   time.timeZone = "Europe/Madrid";
 
   environment.systemPackages = with pkgs; [
-     wget vim binutils firefox unzip zip docker zsh
+     wget binutils unzip zip docker zsh
   ];
 
   hardware.enableAllFirmware = true;
