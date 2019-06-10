@@ -13,14 +13,9 @@ in
     slack
     riot-desktop
     kubectl
-    rustup
     thunderbird
-    llvm 
     libreoffice
     spotify
-    llvm
-    clang
-    stack
   ];
 
   fonts.fontconfig.enable = true;
