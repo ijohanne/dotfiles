@@ -18,6 +18,20 @@ Setup 2 partitions
 * encrypted zfs (code: default, last sector - rest of disk)
 ```bash
 $> gdisk /dev/sdb
+gdisk> o
+gdisk> Y
+gdisk> n
+gdisk> <enter>
+gdisk> <enter>
+gdisk> +200M
+gdisk> ef00
+gdisk> n
+gdisk> <enter>
+gdisk> <enter>
+gdisk> <enter>
+gdisk> <enter>
+gdisk> w
+gdisk> Y
 ```
 
 # Format the EFI partition
@@ -50,7 +64,7 @@ $> mount /dev/sdb1 /mnt/efi
 $> dd if=/dev/urandom of=./keyfile.bin bs=1024 count=4
 $> cryptsetup luksAddKey /dev/sdb2 ./keyfile.bin
 $> mkdir /mnt/boot
-$> echo ./keyfile.bin | cpio -o -H newc -R +0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.keys.gz`
+$> echo ./keyfile.bin | cpio -o -H newc -R +0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.keys.gz
 ```
 
 # Generate NixOS config
@@ -161,4 +175,12 @@ Update the local user repo
 ```bash
 $> nix-channel --update
 $> home-manager switch
+```
+
+# Import a ZFS pool when booted on the live CD
+```bash
+$> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
+$> zpool import
+$> mount -t zfs zpool/root /mnt
+$> mount -t vfat /dev/sdb1 /mnt
 ```
