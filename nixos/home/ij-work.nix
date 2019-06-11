@@ -10,5 +10,6 @@
       ./common/programs.nix
       ./common/services.nix
       ./common/files.nix
+      ./common/environment.nix
     ];
 }
