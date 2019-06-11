@@ -148,3 +148,17 @@ $> nix-channel --update
 $> nix-shell '<home-manager>' -A install
 $> home-manager switch
 ```
+
+# Maintenance
+Update the system
+```bash
+$> sudo nix-channel --update
+$> sudo nixos-rebuild switch
+$> sudo reboot
+```
+
+Update the local user repo
+```bash
+$> nix-channel --update
+$> home-manager switch
+```
