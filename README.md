@@ -176,3 +176,11 @@ Update the local user repo
 $> nix-channel --update
 $> home-manager switch
 ```
+
+# Import a ZFS pool when booted on the live CD
+```bash
+$> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
+$> zpool import
+$> mount -t zfs zpool/root /mnt
+$> mount -t vfat /dev/sdb1 /mnt
+```
