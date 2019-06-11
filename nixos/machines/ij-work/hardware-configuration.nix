@@ -18,12 +18,12 @@
     };
 
   fileSystems."/efi" =
-    { device = "/dev/disk/by-uuid/7C20-5B78";
+    { device = "/dev/disk/by-uuid/EBA8-7D73";
       fsType = "vfat";
     };
 
   boot.initrd.luks.devices.decrypted-disk-name = {
-    device = "/dev/disk/by-uuid/55766568-7907-4916-9243-27d583aec775";
+    device = "/dev/disk/by-uuid/6e06a844-d428-4e2f-b3c1-91a7581cdb08";
   };
 
   swapDevices = [ ];

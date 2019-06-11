@@ -10,6 +10,6 @@
       ../common/general.nix
     ];
 
-  networking.hostName = "ij-laptop";
-  networking.hostId = "d4c95480";
+  networking.hostName = "ij-work";
+  networking.hostId = "81727bb7";
 }
