@@ -10,5 +10,6 @@
     libreoffice
     spotify
     stack
+    rustup
   ];
 }

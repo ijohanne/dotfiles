@@ -79,7 +79,12 @@
 
   programs.direnv.enable = true;
   programs.htop.enable = true;
-  programs.vscode.enable = true;
+  programs.vscode = {
+    enable = true;
+    extensions = [
+      pkgs.vscode-extensions.bbenoist.Nix
+    ];
+  };
   
   programs.zsh = {
     enable = true;
