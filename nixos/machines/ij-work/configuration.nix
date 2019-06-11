@@ -12,9 +12,9 @@
    };
   };
 
-  networking.hostName = "ij-laptop";
+  networking.hostName = "ij-work";
   networking.networkmanager.enable = true;
-  networking.hostId = "d4c95480";
+  networking.hostId = "81727bb7";
 
   i18n = {
      consoleFont = "Lat2-Terminus16";
