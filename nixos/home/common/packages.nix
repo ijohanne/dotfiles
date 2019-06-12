@@ -11,5 +11,7 @@
     spotify
     stack
     rustup
+    pavucontrol
+    xlockmore
   ];
 }
