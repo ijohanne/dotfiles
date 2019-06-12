@@ -20,9 +20,13 @@
   ];
 
   services = {
-    printing.enable = true;
     openssh.enable = true;
     dbus.packages = [ pkgs.blueman ];
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ];
   };
 
   system.stateVersion = "19.03";
