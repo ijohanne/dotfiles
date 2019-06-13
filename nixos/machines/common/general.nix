@@ -33,15 +33,17 @@
 
   services.xserver = {
     enable = true;
+    autorun = false;
     layout = "us";
-    desktopManager =  {
-      gnome3.enable = true;
-      default = "gnome3";
+    desktopManager = {
+      default = "none";
+      xterm.enable = false;
     };
-    displayManager.lightdm  = {
-      enable = true;
-    };
+    displayManager.lightdm.enable = true;
+    #windowManager.i3.enable = true;
   };
+
+  programs.sway.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }

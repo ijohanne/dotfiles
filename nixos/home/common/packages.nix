@@ -13,5 +13,7 @@
     rustup
     pavucontrol
     xlockmore
+    rofi
+    xautolock
   ];
 }
