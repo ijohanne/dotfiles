@@ -2,6 +2,8 @@
 
 {
     home.sessionVariables = {
-        EDITOR = "vim";
+      EDITOR = "vim";
+      GDK_BACKEND= "wayland";
+      CLUTTER_BACKEND = "wayland";
     };
 }
