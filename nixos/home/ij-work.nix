@@ -15,7 +15,7 @@
 
   programs.vscode = {
     userSettings = {
-      "window.zoomLevel" = -3;
+      "window.zoomLevel" = -2;
     };
   };
 
