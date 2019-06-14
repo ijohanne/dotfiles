@@ -15,5 +15,7 @@
     xlockmore
     rofi
     xautolock
+    bemenu
+    termite
   ];
 }
