@@ -77,6 +77,14 @@
     lfs.enable = true;
   };
 
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host gitlab.com
+        IdentityFile ~/.ssh/id_ed25519_unixpimps_201611
+    '';
+  };
+
   programs.direnv.enable = true;
   programs.htop.enable = true;
   programs.vscode = {
