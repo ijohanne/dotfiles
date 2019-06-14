@@ -12,10 +12,8 @@
     stack
     rustup
     pavucontrol
-    xlockmore
-    rofi
-    xautolock
     bemenu
     termite
+    lsof
   ];
 }
