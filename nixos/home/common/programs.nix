@@ -81,6 +81,8 @@
     enable = true;
     extraConfig = ''
       Host gitlab.com
+        Hostname gitlab.com
+        User git
         IdentityFile ~/.ssh/id_ed25519_unixpimps_201611
     '';
   };
