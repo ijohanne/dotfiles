@@ -15,5 +15,6 @@
     bemenu
     termite
     lsof
+    inconsolata
   ];
 }

@@ -12,4 +12,11 @@
       ./common/files.nix
       ./common/environment.nix
     ];
+
+  programs.vscode = {
+    userSettings = {
+      "window.zoomLevel" = -2;
+    };
+  };
+
 }

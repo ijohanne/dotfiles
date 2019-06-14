@@ -55,6 +55,9 @@
     extensions = [
       pkgs.vscode-extensions.bbenoist.Nix
     ];
+    userSettings = {
+      "editor.fontFamily" = "'Inconsolata'";
+    };
   };
   
   programs.zsh = {
