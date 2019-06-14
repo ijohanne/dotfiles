@@ -16,5 +16,6 @@
     termite
     lsof
     inconsolata
+    zathura
   ];
 }
