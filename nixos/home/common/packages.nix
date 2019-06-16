@@ -17,5 +17,7 @@
     lsof
     inconsolata
     zathura
+    seafile-client
+    mako
   ];
 }
