@@ -151,3 +151,5 @@ bar {
 #
 # Window bar font
 #
+
+exec ~/.dotfiles/sway/autorun.sh
