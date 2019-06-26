@@ -22,5 +22,6 @@
     whois
     skype
     nixfmt
+    ripgrep
   ];
 }
