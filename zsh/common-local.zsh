@@ -33,3 +33,7 @@ if [ ! -d $HOME/.cache/oh-my-zsh ] ;
 then 
     mkdir -p $HOME/.cache/oh-my-zsh
 fi
+
+fn nixfmt-recursive() {
+  find . -name \*nix -exec nixfmt {} \;
+}

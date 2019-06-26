@@ -12,9 +12,9 @@
     enable = true;
     extraConfig = ''
 
-            [General]
-            Enable=Source,Sink,Media,Socket
-          '';
+      [General]
+      Enable=Source,Sink,Media,Socket
+    '';
   };
 
   boot.initrd.luks.devices.decrypted-disk-name = { keyFile = "/keyfile.bin"; };
