@@ -1,5 +1,1 @@
-self: super:
-let
-  unstable = import <unstable> {};
-  in {
-  }
+self: super: let unstable = import <unstable> { }; in { }

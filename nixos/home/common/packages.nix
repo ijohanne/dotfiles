@@ -21,5 +21,6 @@
     mako
     whois
     skype
+    nixfmt
   ];
 }

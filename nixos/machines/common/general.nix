@@ -1,22 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      bluez = pkgs.bluez5;
-   };
-  };
-  
+  nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
+
   i18n = {
-     consoleFont = "Lat2-Terminus16";
-     consoleKeyMap = "us";
-     defaultLocale = "en_US.UTF-8";
+    consoleFont = "Lat2-Terminus16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
   };
 
   time.timeZone = "Europe/Madrid";
 
   environment.systemPackages = with pkgs; [
-     wget binutils unzip zip docker zsh
+    wget
+    binutils
+    unzip
+    zip
+    docker
+    zsh
   ];
 
   services = {

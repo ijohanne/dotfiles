@@ -7,18 +7,17 @@
     extraModules = [ pkgs.pulseaudio-modules-bt ];
     package = pkgs.pulseaudioFull;
   };
-  
+
   hardware.bluetooth = {
     enable = true;
-    extraConfig = "
-      [General]
-      Enable=Source,Sink,Media,Socket
-    ";
+    extraConfig = ''
+
+            [General]
+            Enable=Source,Sink,Media,Socket
+          '';
   };
 
-  boot.initrd.luks.devices.decrypted-disk-name = {
-    keyFile = "/keyfile.bin";
-  };
+  boot.initrd.luks.devices.decrypted-disk-name = { keyFile = "/keyfile.bin"; };
 
   boot.loader = {
     efi.efiSysMountPoint = "/efi";
