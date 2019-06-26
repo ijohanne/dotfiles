@@ -19,5 +19,7 @@
     zathura
     seafile-client
     mako
+    whois
+    skype
   ];
 }
