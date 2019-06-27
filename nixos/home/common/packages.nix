@@ -23,5 +23,6 @@
     skype
     nixfmt
     ripgrep
+    mtr
   ];
 }
