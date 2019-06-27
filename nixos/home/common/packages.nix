@@ -24,5 +24,6 @@
     nixfmt
     ripgrep
     mtr
+    mkpasswd
   ];
 }
