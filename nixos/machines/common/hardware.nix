@@ -33,4 +33,7 @@
     grub.efiInstallAsRemovable = true;
     efi.canTouchEfiVariables = false;
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
 }
