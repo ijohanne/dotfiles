@@ -10,7 +10,7 @@ output DP-3 resolution 3840x2160 position 3840,0
 
 exec swayidle \
           timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' \
+          timeout 3600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
 
