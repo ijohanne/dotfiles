@@ -45,4 +45,6 @@
   programs.sway.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.docker.enable = true;
 }

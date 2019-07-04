@@ -26,5 +26,6 @@
     mtr
     mkpasswd
     feh
+    docker-compose
   ];
 }

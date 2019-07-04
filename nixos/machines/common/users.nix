@@ -5,8 +5,15 @@
     isNormalUser = true;
     name = "ij";
     group = "adm";
-    extraGroups =
-    [ "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" ];
+    extraGroups = [
+      "wheel"
+      "disk"
+      "audio"
+      "video"
+      "networkmanager"
+      "systemd-journal"
+      "docker"
+    ];
     createHome = true;
     uid = 1000;
     home = "/home/ij";
