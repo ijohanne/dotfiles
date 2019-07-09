@@ -27,5 +27,6 @@
     mkpasswd
     feh
     docker-compose
+    haskellPackages.hp2pretty
   ];
 }
