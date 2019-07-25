@@ -54,12 +54,6 @@
     cpuCountFromZero = true;
   };
 
-  programs.vscode = {
-    enable = true;
-    extensions = [ pkgs.vscode-extensions.bbenoist.Nix ];
-    userSettings = { "editor.fontFamily" = "'Inconsolata'"; };
-  };
-
   programs.zsh = {
     enable = true;
     history.extended = true;
@@ -72,11 +66,6 @@
     initExtra = ''
       source $HOME/.dotfiles/zsh/common-local.zsh
     '';
-  };
-
-  programs.firefox = {
-    enable = true;
-    enableIcedTea = true;
   };
 
   programs.home-manager = {

@@ -5,8 +5,10 @@
 
   imports = [
     ./common/fonts-themes.nix
-    ./common/packages.nix
-    ./common/programs.nix
+    ./common/packages.shell.nix
+    ./common/packages.x11.nix
+    ./common/programs.shell.nix
+    ./common/programs.x11.nix
     ./common/services.nix
     ./common/files.nix
     ./common/environment.nix
