@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.sessionVariables = { EDITOR = "vim"; };
+  home.sessionVariables = {
+    EDITOR = "vim";
+    TERM = "xterm";
+  };
 }
