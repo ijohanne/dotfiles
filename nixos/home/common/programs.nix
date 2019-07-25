@@ -45,7 +45,15 @@
   };
 
   programs.direnv.enable = true;
-  programs.htop.enable = true;
+
+  programs.htop = {
+    enable = true;
+    treeView = true;
+    showThreadNames = true;
+    detailedCpuTime = true;
+    cpuCountFromZero = true;
+  };
+
   programs.vscode = {
     enable = true;
     extensions = [ pkgs.vscode-extensions.bbenoist.Nix ];
