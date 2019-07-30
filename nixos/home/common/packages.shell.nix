@@ -14,5 +14,6 @@
     mkpasswd
     docker-compose
     haskellPackages.hp2pretty
+    ldns
   ];
 }
