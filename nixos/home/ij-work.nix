@@ -8,7 +8,8 @@
     ./common/packages.shell.nix
     ./common/packages.x11.nix
     ./common/programs.shell.nix
-    ./common/services.x11.nix
+    ./common/programs.x11.nix
+    ./common/services.nix
     ./common/files.nix
     ./common/environment.nix
   ];
