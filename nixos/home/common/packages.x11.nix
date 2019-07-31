@@ -16,5 +16,7 @@
     mako
     skype
     feh
+    vpnc
+    openconnect
   ];
 }
