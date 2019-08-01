@@ -16,5 +16,6 @@
     haskellPackages.hp2pretty
     ldns
     texlive.combined.scheme-full
+    imagemagick
   ];
 }
