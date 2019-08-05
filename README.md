@@ -1,3 +1,9 @@
+# Prerequisite information
+The block device used in this guide is exclusively catered to the USB flash
+devices being `/dev/sda` and the new disk for NixOS to be installed on to be
+`/dev/sdb`. However this needs to be udpated to reflect the local installation
+(such as the main device to install NixOS on is a NVMe disk, and as such the
+block device to use would most likely be `/dev/nvme0n1` instead).
 # Setup needed software
 ```bash
 $> mkdir -p ~/.config/nixpkgs
