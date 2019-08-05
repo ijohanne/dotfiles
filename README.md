@@ -168,8 +168,7 @@ $> home-manager switch
 # Maintenance
 Update the system
 ```bash
-$> sudo nix-channel --update
-$> sudo nixos-rebuild switch
+$> sudo nixos-rebuild switch --upgrade
 $> sudo reboot
 ```
 
