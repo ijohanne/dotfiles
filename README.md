@@ -9,7 +9,7 @@ $> nix-env -i git git-crypt
 Export the needed variables for this guide
 ```bash
 $> export LOCAL_USER="ij" # Adapt as needed
-$> export MACHINE_NAME"ij-laptop" # Adapt as needed
+$> export MACHINE_NAME="ij-laptop" # Adapt as needed
 ```
 
 # Setup partitions
@@ -40,6 +40,8 @@ $> mkfs.vfat -n NIXOS_BOOT /dev/sdb1
 ```
 
 # Setup encryption
+(if you change the `decrypted-disk-name` below, make sure to change it in the
+rest of the guide when applicable)
 ```bash
 $> cryptsetup luksFormat /dev/sdb2
 $> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
