@@ -1,7 +1,7 @@
 # Prerequisite information
 The block device used in this guide is exclusively catered to the USB flash
 devices being `/dev/sda` and the new disk for NixOS to be installed on to be
-`/dev/sdb`. However this needs to be udpated to reflect the local installation
+`/dev/sdb`. However this needs to be updated to reflect the local installation
 (such as the main device to install NixOS on is a NVMe disk, and as such the
 block device to use would most likely be `/dev/nvme0n1` instead).
 # Setup needed software
@@ -16,6 +16,9 @@ Export the needed variables for this guide
 ```bash
 $> export LOCAL_USER="ij" # Adapt as needed
 $> export MACHINE_NAME="ij-laptop" # Adapt as needed
+$> export DISK_DEVICE="/dev/sdb" # Adapt as needed
+$> export BOOT_DEVICE="/dev/sdb1" # Adapt as needed
+$> export MAIN_DEVICE="/dev/sdb2" # Adapt as needed
 ```
 
 # Setup partitions
@@ -23,7 +26,7 @@ Setup 2 partitions
 * efi (code - ef00, last sector - +200M)
 * encrypted zfs (code: default, last sector - rest of disk)
 ```bash
-$> gdisk /dev/sdb
+$> gdisk $DISK_DEVICE
 gdisk> o
 gdisk> Y
 gdisk> n
@@ -42,15 +45,15 @@ gdisk> Y
 
 # Format the EFI partition
 ```bash
-$> mkfs.vfat -n NIXOS_BOOT /dev/sdb1
+$> mkfs.vfat -n NIXOS_BOOT $BOOT_DEVICE
 ```
 
 # Setup encryption
 (if you change the `decrypted-disk-name` below, make sure to change it in the
 rest of the guide when applicable)
 ```bash
-$> cryptsetup luksFormat /dev/sdb2
-$> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
+$> cryptsetup luksFormat $MAIN_DEVICE
+$> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
 ```
 
 # Enable ZFS on encrypted storage
@@ -64,13 +67,13 @@ $> zfs create zroot/root -o mountpoint=legacy
 ```bash
 $> mount -t zfs zroot/root /mnt
 $> mkdir /mnt/efi
-$> mount /dev/sdb1 /mnt/efi
+$> mount $BOOT_DEVICE /mnt/efi
 ```
 
 # Enable extra LUKS key for only needing one password when booting
 ```bash
 $> dd if=/dev/urandom of=./keyfile.bin bs=1024 count=4
-$> cryptsetup luksAddKey /dev/sdb2 ./keyfile.bin
+$> cryptsetup luksAddKey $MAIN_DEVICE ./keyfile.bin
 $> mkdir /mnt/boot
 $> echo ./keyfile.bin | cpio -o -H newc -R +0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.keys.gz
 ```
@@ -186,8 +189,8 @@ $> home-manager switch
 
 # Import a ZFS pool when booted on the live CD
 ```bash
-$> cryptsetup luksOpen /dev/sdb2 decrypted-disk-name
+$> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
 $> zpool import
 $> mount -t zfs zpool/root /mnt
-$> mount -t vfat /dev/sdb1 /mnt
+$> mount -t vfat $BOOT_DEVICE /mnt
 ```
