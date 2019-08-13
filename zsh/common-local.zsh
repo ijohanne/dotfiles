@@ -37,3 +37,5 @@ fi
 fn nixfmt-recursive() {
   find . -name \*nix -exec nixfmt {} \;
 }
+
+source $HOME/.dotfiles/zsh/zsh-nix-shell/nix-shell.plugin.zsh
