@@ -34,7 +34,7 @@ function get_nix_shell_status() {
 
 # Override theme prompt with 24h and remove hg
 PROMPT=$'%{\e[0;34m%}%B┌─[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;36m%}%m%{\e[0;34m%}%B]%b%{\e[0m%} - %b%{\e[0;34m%}%B[%b%{\e[1;37m%}%~%{\e[0;34m%}%B]%b%{\e[0m%} - %{\e[0;34m%}%B[%b%{\e[0;33m%}'%D{"%Y-%m-%d %H:%M:%S"}%b$'%{\e[0;34m%}%B]%b%{\e[0m%}
-%{\e[0;34m%}%B└─%B[%{\e[1;35m%}%?$(retcode)%{\e[0;34m%}%B] <$(mygit)> <$(get_nix_shell_status)> %{\e[0m%}%b '
+%{\e[0;34m%}%B└─%B[%{\e[1;35m%}%?$(retcode)%{\e[0;34m%}%B] <$(mygit)$(get_nix_shell_status)> %{\e[0m%}%b '
 
 if [ ! -d $HOME/.cache/oh-my-zsh ] ;
 then 
