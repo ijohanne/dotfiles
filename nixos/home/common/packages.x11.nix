@@ -18,5 +18,7 @@
     feh
     vpnc
     openconnect
-  ];
+    obs-studio
+  ]
+  ;
 }
