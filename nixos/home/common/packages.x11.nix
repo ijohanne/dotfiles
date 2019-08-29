@@ -19,6 +19,5 @@
     vpnc
     openconnect
     obs-studio
-  ]
-  ;
+  ];
 }

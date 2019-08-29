@@ -1,10 +1,11 @@
 { pkgs, ... }:
 
-{
+let vpkgs = pkgs.vimPlugins;
+in {
 
   programs.vim = {
     enable = true;
-    plugins = [ "sensible" "colors-solarized" "fugitive" ];
+    plugins = [ vpkgs.sensible vpkgs.colors-solarized vpkgs.fugitive ];
     settings = {
       ignorecase = true;
       expandtab = true;
