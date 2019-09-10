@@ -41,6 +41,10 @@ bindsym $mod+l exec 'swaylock -f -c 000000'
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
+    # screenshots
+    bindsym $mod+g exec grim $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+    bindsym $mod+Shift+g exec slurp | grim -g - $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+
 #
 # Moving around:
 #

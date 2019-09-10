@@ -21,5 +21,6 @@
     obs-studio
     grim
     slurp
+    xdg-user-dirs
   ];
 }
