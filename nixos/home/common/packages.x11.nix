@@ -19,5 +19,7 @@
     vpnc
     openconnect
     obs-studio
+    grim
+    slurp
   ];
 }
