@@ -17,5 +17,6 @@
     ldns
     texlive.combined.scheme-full
     imagemagick
+    dive
   ];
 }
