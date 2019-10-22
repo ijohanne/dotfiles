@@ -28,12 +28,13 @@
       extraInitrd = "/boot/initrd.keys.gz";
       enableCryptodisk = true;
       zfsSupport = true;
+      copyKernels = true;
     };
 
     grub.efiInstallAsRemovable = true;
     efi.canTouchEfiVariables = false;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_5_1;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
 }

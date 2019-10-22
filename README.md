@@ -4,6 +4,13 @@ devices being `/dev/sda` and the new disk for NixOS to be installed on to be
 `/dev/sdb`. However this needs to be updated to reflect the local installation
 (such as the main device to install NixOS on is a NVMe disk, and as such the
 block device to use would most likely be `/dev/nvme0n1` instead).
+
+# Start wifi (optional)
+You may need to adapt the interface to reflect the one on your device.
+```bash
+wpa_supplicant -B -i wlo1 -c <(wpa_passphrase 'SSID' 'PSK')
+```
+
 # Setup needed software
 ```bash
 $> mkdir -p ~/.config/nixpkgs
