@@ -4,8 +4,10 @@
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
 
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
+    console = {
+      font = "Lat2-Terminus16";
+      keymap = "us";
+    };
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -41,7 +43,6 @@
     autorun = false;
     layout = "us";
     desktopManager = {
-      default = "none";
       xterm.enable = false;
     };
   };
