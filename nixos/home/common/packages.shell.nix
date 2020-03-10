@@ -8,7 +8,7 @@
     rustup
     lsof
     whois
-    nixfmt
+    haskellPackages.nixfmt
     ripgrep
     mtr
     mkpasswd
