@@ -15,6 +15,8 @@ wpa_supplicant -B -i wlo1 -c <(wpa_passphrase 'SSID' 'PSK')
 ```bash
 $> mkdir -p ~/.config/nixpkgs
 $> echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
+$> nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
+$> nix-channel --update
 $> nix-env -i git git-crypt
 ```
 
@@ -59,7 +61,7 @@ $> mkfs.vfat -n NIXOS_BOOT $BOOT_DEVICE
 (if you change the `decrypted-disk-name` below, make sure to change it in the
 rest of the guide when applicable)
 ```bash
-$> cryptsetup luksFormat $MAIN_DEVICE
+$> cryptsetup luksFormat $MAIN_DEVICE --type luks1
 $> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
 ```
 
@@ -92,7 +94,6 @@ $> nixos-generate-config --root /mnt
 
 # Replace ZFS/LUKS bootloader elements
 (NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`)
-
 
 
 Replace the `boot.*` section(s) of `/mnt/etc/nixos/configuration.nix` with the following
@@ -169,13 +170,15 @@ $> reboot
 ```
 
 # First boot
-Login as root, set password for your added user.
+Login as root, set password for your added user, and swap to unstable as below
+```bash
+$> nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
+```
 
 # First user login
 Login as your new user and setup `home-manager`
 ```bash
 $> nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-$> nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 $> nix-channel --update
 $> nix-shell '<home-manager>' -A install
 $> home-manager switch
@@ -198,6 +201,8 @@ $> home-manager switch
 ```bash
 $> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
 $> zpool import
-$> mount -t zfs zpool/root /mnt
-$> mount -t vfat $BOOT_DEVICE /mnt
+$> # You may need to do the following for each
+$> zpool import -f POOL_ID_FROM_ABOVE
+$> mount -t zfs zroot/root /mnt
+$> mount $BOOT_DEVICE /mnt/efi
 ```

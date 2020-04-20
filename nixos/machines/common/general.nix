@@ -4,9 +4,12 @@
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
 
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+  };
+  
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
   };
 
   time.timeZone = "Europe/Madrid";
@@ -34,19 +37,22 @@
     drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ];
   };
 
-  system.stateVersion = "19.03";
-
   services.xserver = {
     enable = true;
     autorun = false;
     layout = "us";
     desktopManager = {
-      default = "none";
       xterm.enable = false;
+    };
+    displayManager = {
+      defaultSession = "sway";
     };
   };
 
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
 

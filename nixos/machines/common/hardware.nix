@@ -10,11 +10,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    extraConfig = ''
-
-      [General]
-      Enable=Source,Sink,Media,Socket
-    '';
+    config.General.Enable = "Source,Sink,Media,Socket";
   };
 
   boot.initrd.luks.devices.decrypted-disk-name = { keyFile = "/keyfile.bin"; };
@@ -35,6 +31,5 @@
     efi.canTouchEfiVariables = false;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
+  boot.kernelPackages = pkgs.linuxPackages_5_6;
 }

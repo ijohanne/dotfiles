@@ -11,4 +11,5 @@
 
   networking.hostName = "ij-work";
   networking.hostId = "81727bb7";
+  system.stateVersion = "19.03";
 }

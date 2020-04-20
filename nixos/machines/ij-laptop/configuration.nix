@@ -11,6 +11,7 @@
 
   networking.hostName = "ij-laptop";
   networking.hostId = "d4c95480";
+  system.stateVersion = "19.03";
 
   services.openvpn.servers.office-vpn = {
     config = "config /home/ij/.config/vpn/ij-mobile.ovpn";
