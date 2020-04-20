@@ -11,6 +11,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  hardware.cpu.amd.updateMicrocode = true;
+  powerManagement.cpuFreqGovernor = "ondemand";
 
   fileSystems."/" = {
     device = "zroot/root";
