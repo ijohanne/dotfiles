@@ -3,10 +3,8 @@
 {
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
 
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-  
+  i18n = { defaultLocale = "en_US.UTF-8"; };
+
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -41,12 +39,8 @@
     enable = true;
     autorun = false;
     layout = "us";
-    desktopManager = {
-      xterm.enable = false;
-    };
-    displayManager = {
-      defaultSession = "sway";
-    };
+    desktopManager = { xterm.enable = false; };
+    displayManager = { defaultSession = "sway"; };
   };
 
   programs.sway = {
