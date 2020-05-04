@@ -13,4 +13,8 @@
     ./common/files.nix
     ./common/environment.nix
   ];
+
+  home.sessionVariables = {
+    DRI_PRIME = "1";
+  };
 }

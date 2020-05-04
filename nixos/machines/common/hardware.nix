@@ -13,6 +13,17 @@
     config.General.Enable = "Source,Sink,Media,Socket";
   };
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      vaapiIntel
+      intel-media-driver
+    ];
+  };
+
   boot.initrd.luks.devices.decrypted-disk-name = { keyFile = "/keyfile.bin"; };
 
   boot.loader = {

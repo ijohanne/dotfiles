@@ -35,7 +35,7 @@ in {
     slack
     riot-desktop
     thunderbird
-    libreoffice
+    #libreoffice
     spotify
     pavucontrol
     bemenu
