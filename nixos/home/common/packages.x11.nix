@@ -16,10 +16,10 @@ let
         sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
       }
       {
-        name = "nix-env-selector";
-        publisher = "arrterian";
-        version = "0.1.1";
-        sha256 = "0fbpldyk7p3apvndhjzil4442czdgk7jgl96nl5kkdmqk4x7basm";
+        name = "vscode-direnv";
+        publisher = "Rubymaniac";
+        version = "0.0.1";
+        sha256 = "18pd0fh85dr6c10hlq0jail9vm639rgrzfk20avkql3qbq6wk9ky";
       }
       {
         name = "rust";

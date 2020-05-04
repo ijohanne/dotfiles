@@ -51,9 +51,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "devicemapper";
-    extraOptions = "--storage-opt  dm.basesize=50G";
+  virtualisation = {
+    docker = {
+      enable = true;
+      storageDriver = "devicemapper";
+      extraOptions = "--storage-opt  dm.basesize=50G";
+    };
+    libvirtd.enable = true;
   };
 }

@@ -45,8 +45,6 @@ in {
     lfs.enable = true;
   };
 
-  programs.direnv.enable = true;
-
   programs.htop = {
     enable = true;
     treeView = true;
@@ -72,6 +70,11 @@ in {
   programs.home-manager = {
     enable = true;
     path = "..";
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
 }
