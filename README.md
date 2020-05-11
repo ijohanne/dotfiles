@@ -170,9 +170,10 @@ $> reboot
 ```
 
 # First boot
-Login as root, set password for your added user, and swap to unstable as below
+Login as root, set password for your added user, and swap to unstable as below (`nixos-unstable` is used instead of `nixpkgs-unstable` as we're using NixOS and want the full tests to pass).
 ```bash
-$> nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
+$> sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+$> nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 ```
 
 # First user login
