@@ -26,6 +26,7 @@
 
   boot.initrd.luks.devices.decrypted-disk-name = {
     device = "/dev/disk/by-uuid/32db0649-dd5a-44a9-b4ad-a69fe2383ce4";
+    keyFile = "/keyfile.bin";
   };
 
   boot.loader = {

@@ -33,7 +33,7 @@ let
 in {
   home.packages = with pkgs; [
     slack
-    riot-desktop
+    element-desktop
     thunderbird
     libreoffice
     spotify

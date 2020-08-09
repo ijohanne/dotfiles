@@ -29,15 +29,15 @@ in {
     ];
   };
 
-  boot.initrd.luks.devices.decrypted-disk-name = { keyFile = "/keyfile.bin"; };
+  boot.initrd.secrets = {
+    "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
+  };
 
   boot.loader = {
     efi.efiSysMountPoint = "/efi";
-
     grub = {
       device = "nodev";
       efiSupport = true;
-      extraInitrd = "/boot/initrd.keys.gz";
       enableCryptodisk = true;
       zfsSupport = true;
       copyKernels = true;
@@ -47,5 +47,5 @@ in {
     efi.canTouchEfiVariables = false;
   };
 
-  boot.kernelPackages = unstable.linuxPackages_5_6;
+  boot.kernelPackages = unstable.linuxPackages_testing;
 }

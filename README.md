@@ -84,7 +84,8 @@ $> mount $BOOT_DEVICE /mnt/efi
 $> dd if=/dev/urandom of=./keyfile.bin bs=1024 count=4
 $> cryptsetup luksAddKey $MAIN_DEVICE ./keyfile.bin
 $> mkdir /mnt/boot
-$> echo ./keyfile.bin | cpio -o -H newc -R +0:+0 --reproducible | gzip -9 > /mnt/boot/initrd.keys.gz
+$> mkdir -p /etc/secrets/initrd
+$> cp keyfile.bin /etc/secrets/initrd/keyfile.bin
 ```
 
 # Generate NixOS config
@@ -103,15 +104,20 @@ Replace the `boot.*` section(s) of `/mnt/etc/nixos/configuration.nix` with the f
     keyFile = "/keyfile.bin";
   };
 
+  boot.initrd.secrets = {
+    "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
+  };
+
+
   boot.loader = {
     efi.efiSysMountPoint = "/efi";
 
     grub = {
       device = "nodev";
       efiSupport = true;
-      extraInitrd = "/boot/initrd.keys.gz";
       enableCryptodisk = true;
       zfsSupport = true;
+      copyKernels = true;
     };
 
     grub.efiInstallAsRemovable = true;
