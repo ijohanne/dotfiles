@@ -46,7 +46,6 @@ in {
     mako
     skype
     feh
-    vpnc
     openconnect
     obs-studio
     grim
