@@ -41,7 +41,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Ian Johannesen";
-    userEmail = "ij@concordium.com";
+    userEmail = "ij@opsplaza.com";
     lfs.enable = true;
   };
 
