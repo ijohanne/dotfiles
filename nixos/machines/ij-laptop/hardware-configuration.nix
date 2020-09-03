@@ -25,6 +25,7 @@
 
   boot.initrd.luks.devices.decrypted-disk-name = {
     device = "/dev/disk/by-uuid/55766568-7907-4916-9243-27d583aec775";
+    keyFile = "/keyfile.bin";
   };
 
   swapDevices = [ ];
