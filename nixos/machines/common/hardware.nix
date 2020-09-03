@@ -48,4 +48,5 @@ in {
   };
 
   boot.kernelPackages = unstable.linuxPackages_testing;
+  boot.zfs.enableUnstable = true;
 }
