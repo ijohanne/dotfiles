@@ -213,3 +213,9 @@ $> zpool import -f POOL_ID_FROM_ABOVE
 $> mount -t zfs zroot/root /mnt
 $> mount $BOOT_DEVICE /mnt/efi
 ```
+
+# Raspberry Pi
+## Build image
+```bash
+nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=sd-card-rpi4.nix --argstr system aarch64-linux
+```
