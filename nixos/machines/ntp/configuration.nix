@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/network-rpi.nix
     ../common/users.nix
     ../common/general-rpi.nix
 

@@ -6,8 +6,10 @@
   imports = [
     ./common/fonts-themes.nix
     ./common/packages.shell.nix
+    ./common/packages.tex.nix
     ./common/programs.shell.nix
     ./common/files.nix
     ./common/environment.nix
+    ./common/services.shell.nix
   ];
 }

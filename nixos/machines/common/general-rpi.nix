@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-   boot= {
+  boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     loader = {
       grub.enable = false;
@@ -44,9 +44,7 @@
     };
   };
 
-  services.xserver = {
-    enable = false;
-  };
+  services.xserver = { enable = false; };
 
   nixpkgs.config.allowUnfree = true;
 }
