@@ -59,7 +59,6 @@ in {
     enableAutosuggestions = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "zsh_reload" "kubectl" "ssh-agent" ];
       theme = "rkj-repos";
     };
     initExtra = ''

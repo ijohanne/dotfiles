@@ -10,6 +10,7 @@
     ./common/packages.x11.nix
     ./common/programs.shell.nix
     ./common/programs.x11.nix
+    ./common/programs.local.nix
     ./common/services.shell.nix
     ./common/services.x11.nix
     ./common/files.nix
