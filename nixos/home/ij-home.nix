@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
-{
+let
+  nixgenerators = import (builtins.fetchTarball
+    "https://github.com/nix-community/nixos-generators/archive/master.tar.gz")
+    { };
+in {
   nixpkgs.overlays = [ (import ./overlays/package-upgrades) ];
 
   imports = [
@@ -13,4 +17,6 @@
     ./common/files.nix
     ./common/environment.nix
   ];
+
+  home.packages = [ nixgenerators ];
 }

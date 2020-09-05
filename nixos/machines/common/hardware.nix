@@ -29,9 +29,7 @@ in {
     ];
   };
 
-  boot.initrd.secrets = {
-    "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
-  };
+  boot.initrd.secrets = { "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin"; };
 
   boot.loader = {
     efi.efiSysMountPoint = "/efi";

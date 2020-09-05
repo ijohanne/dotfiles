@@ -13,6 +13,7 @@
       "networkmanager"
       "systemd-journal"
       "docker"
+      "dialout"
     ];
     createHome = true;
     uid = 1000;
@@ -24,4 +25,6 @@
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
   users.mutableUsers = true;
+
+  nix.trustedUsers = [ "ij" ];
 }

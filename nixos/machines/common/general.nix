@@ -41,7 +41,7 @@
     layout = "us";
     desktopManager = { xterm.enable = false; };
     displayManager = { defaultSession = "sway"; };
-    videoDrivers = [ "amdgpu" ];  
+    videoDrivers = [ "amdgpu" ];
   };
 
   programs.sway = {
