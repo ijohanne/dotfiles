@@ -1,7 +1,16 @@
-{ pkgs, ... }:
+let 
+  home-manager = (import ./nix/sources.nix).home-manager;
+in {
+  programs = {
+    home-manager = {
+      enable = true;
+      path = "${home-manager}";
+    };
+  };
 
-{
-  nixpkgs.overlays = [ (import ./overlays/package-upgrades) ];
+  nixpkgs.overlays = [
+    (import ./nix).neovim-overlay
+  ];
 
   imports = [
     ./common/fonts-themes.nix
@@ -18,5 +27,5 @@
   ];
 
   programs.vscode = { userSettings = { "window.zoomLevel" = -1; }; };
-
+  
 }

@@ -1,6 +1,7 @@
-{ pkgs, ... }:
-
-{
+let
+  sources = import ../nix;
+  pkgs = import sources.nixpkgs { overlays = [];};
+in {
   fonts.fontconfig.enable = true;
   gtk = {
     enable = true;

@@ -1,42 +1,14 @@
-{ pkgs, ... }:
-
-let vpkgs = pkgs.vimPlugins;
+let
+  sources = import ../nix;
+  pkgs = import sources.nixpkgs { overlays = [sources.neovim-overlay];};
 in {
-
-  programs.vim = {
-    enable = true;
-    plugins = [ vpkgs.sensible vpkgs.colors-solarized vpkgs.fugitive ];
-    settings = {
-      ignorecase = true;
-      expandtab = true;
-      history = 1000;
-      tabstop = 4;
-    };
-    extraConfig = ''
-      set cuc cul        " Crosshair
-      set cc=80          " 80 column lines
-      set linebreak      " Break lines at word (requires Wrap lines)
-      set textwidth=80   " Line wrap (number of cols)
-      set showmatch      " Highlight matching brace
-      set visualbell     " Use visual bell (no beeping)
-      set hlsearch       " Highlight all search results
-      set smartcase      " Enable smart-case search
-      set shiftwidth=4   " Number of auto-indent spaces
-      set smartindent    " Enable smart-indent
-      imap fd <Esc>
-      set mouse=a
-      ""
-      "" Auto-switch theme
-      let hour = strftime("%H")
-      if 6 <= hour && hour < 18
-        set background=light
-      else
-        set background=dark
-      endif
-      let g:solarized_termcolors=256
-      colorscheme solarized
-    '';
-  };
+  home.packages = with pkgs;  with stdenv.lib; [
+    rnix-lsp
+    neovim-remote
+    lua
+    ctags
+    nodePackages.vim-language-server
+  ] ++ optionals stdenv.isLinux [ python-language-server ] ;
 
   programs.git = {
     enable = true;
@@ -66,14 +38,52 @@ in {
     '';
   };
 
-  programs.home-manager = {
-    enable = true;
-    path = "..";
-  };
-
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
   };
+  
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
+    package = pkgs.neovim-nightly;
+    extraConfig = builtins.readFile ../../../nvim/init.vim;
+    plugins = with pkgs.vimPlugins; [
+            completion-nvim
+            diagnostic-nvim
+            fzf-vim
+            fzfWrapper
+            indentLine
+            lightline-vim
+            neoformat
+            nvim-lspconfig
+            onedark-vim
+            splitjoin-vim
+            vim-commentary
+            vim-dirvish
+            vim-dispatch
+            vim-easy-align
+            vim-eunuch
+            vim-fugitive
+            vim-gitgutter
+            vim-gutentags
+            vim-polyglot
+            vim-repeat
+            vim-rhubarb
+            vim-sensible
+            vim-sleuth
+            vim-slime
+            vim-surround
+            vim-tmux-navigator
+            vim-unimpaired
+            vim-vinegar
+            vimtex
+            direnv-vim
+          ];
+    };
 
 }

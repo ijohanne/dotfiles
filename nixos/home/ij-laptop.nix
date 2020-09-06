@@ -1,7 +1,14 @@
-{ pkgs, ... }:
-
-{
-  nixpkgs.overlays = [ (import ./overlays/package-upgrades) ];
+let
+  sources = import ./nix;
+  home-manager = sources.home-manager;
+  pkgs = import sources.nixpkgs { overlays = [ sources.neovim-overlay];};
+in {
+  programs = {
+    home-manager = {
+      enable = true;
+      path = "${home-manager}";
+    };
+  };
 
   imports = [
     ./common/fonts-themes.nix

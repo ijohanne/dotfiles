@@ -1,0 +1,86 @@
+{
+    "NUR": {
+        "branch": "master",
+        "description": "Nix User Repository: User contributed nix packages [maintainer=@Mic92]",
+        "homepage": "",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "4fb230545539196556b98da74b167d0a5fec2b43",
+        "sha256": "0xsg68fl9c3rx1rgjyw46ikjzwxr0mnxaq22193nlhks3qg641i2",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/NUR/archive/4fb230545539196556b98da74b167d0a5fec2b43.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "home-manager": {
+        "branch": "master",
+        "description": "Manage a user environment using Nix",
+        "homepage": "https://rycee.gitlab.io/home-manager/",
+        "owner": "rycee",
+        "repo": "home-manager",
+        "rev": "4ebb7d1715d77269e8bf0eea3c84c8f8e8cd5caa",
+        "sha256": "1fzwvl82jibg15acbx8qjq0kci5f50pdrx6zii9qrzanf89g1jqw",
+        "type": "tarball",
+        "url": "https://github.com/rycee/home-manager/archive/4ebb7d1715d77269e8bf0eea3c84c8f8e8cd5caa.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "neovim-overlay": {
+        "branch": "master",
+        "description": "Neovim overlay [maintainer=@mjlbach] ",
+        "homepage": "https://github.com/mjlbach/neovim-nightly-overlay",
+        "owner": "mjlbach",
+        "repo": "neovim-nightly-overlay",
+        "rev": "70fc0155899d80423f1a1ee61c41b22e92c3139a",
+        "sha256": "1rrmlb1h4zwwlv3jk3jqj3ka23rw694wd84c8j3hg0srwvyzlsd8",
+        "type": "tarball",
+        "url": "https://github.com/mjlbach/neovim-nightly-overlay/archive/70fc0155899d80423f1a1ee61c41b22e92c3139a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b",
+        "sha256": "0mghc1j0rd15spdjx81bayjqr0khc062cs25y5dcfzlxk4ynyc6m",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixos": {
+        "branch": "nixos-20.03",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs-channels",
+        "rev": "51d115ac89d676345b05a0694b23bd2691bf708a",
+        "sha256": "1gfjaa25nq4vprs13h30wasjxh79i67jj28v54lkj4ilqjhgh2rs",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/51d115ac89d676345b05a0694b23bd2691bf708a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixos-unstable": {
+        "branch": "nixos-unstable",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs-channels",
+        "rev": "c59ea8b8a0e7f927e7291c14ea6cd1bd3a16ff38",
+        "sha256": "1ak7jqx94fjhc68xh1lh35kh3w3ndbadprrb762qgvcfb8351x8v",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/c59ea8b8a0e7f927e7291c14ea6cd1bd3a16ff38.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixpkgs-unstable",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs-channels",
+        "rev": "49f820d217f4069472ca8f8f96d1c5681a747f7d",
+        "sha256": "0dg33j2a0w11gsk6vlkwry4zgfm0wxqbmf00s2mirvvwr26mbqww",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/49f820d217f4069472ca8f8f96d1c5681a747f7d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
