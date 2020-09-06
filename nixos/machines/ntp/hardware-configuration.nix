@@ -21,9 +21,8 @@
 
   hardware.deviceTree = {
     enable = true;
-    overlays = [ 
-      "${pkgs.raspberrypifw}/share/raspberrypi/boot/overlays/pps-gpio.dtbo" 
-    ];
+    overlays =
+      [ "${pkgs.raspberrypifw}/share/raspberrypi/boot/overlays/pps-gpio.dtbo" ];
 
   };
 

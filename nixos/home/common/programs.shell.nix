@@ -7,7 +7,9 @@ in {
   home.packages = with pkgs;
     with stdenv.lib;
     [ rnix-lsp neovim-remote lua ctags nodePackages.vim-language-server ]
-    ++ optionals stdenv.isLinux [ python-language-server ];
+    ++ optionals
+    (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
+    [ python-language-server ];
 
   programs.git = {
     enable = true;
