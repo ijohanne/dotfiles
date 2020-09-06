@@ -14,5 +14,6 @@ in {
     ldns
     imagemagick
     niv
+    perl
   ];
 }

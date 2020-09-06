@@ -6,8 +6,14 @@ let
 in {
   home.packages = with pkgs;
     with stdenv.lib;
-    [ rnix-lsp neovim-remote lua ctags nodePackages.vim-language-server ]
-    ++ optionals
+    [
+      rnix-lsp
+      neovim-remote
+      lua
+      ctags
+      nodePackages.vim-language-server
+      rust-analyzer
+    ] ++ optionals
     (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
     [ python-language-server ];
 
@@ -57,7 +63,7 @@ in {
     withNodeJs = true;
     withPython3 = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../../../nvim/init.vim;
+    extraConfig = builtins.readFile ../../../neovim/init.vim;
     plugins = with pkgs.vimPlugins; [
       completion-nvim
       diagnostic-nvim
