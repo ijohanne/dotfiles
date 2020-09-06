@@ -1,6 +1,7 @@
-{ pkgs, config, ... }:
-
+{ config, ... }:
 let
+  sources = import ../nix;
+  pkgs = import sources.nixpkgs { overlays = [ ]; };
   dots = "${config.home.homeDirectory}/.dotfiles";
   vscodeConfigFilePath = if pkgs.stdenv.hostPlatform.isDarwin then
     "Library/Application Support/Code/User/settings.json"

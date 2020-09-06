@@ -1,11 +1,13 @@
-{ pkgs, ... }:
-
-let
-  nixgenerators = import (builtins.fetchTarball
-    "https://github.com/nix-community/nixos-generators/archive/master.tar.gz")
-    { };
+let home-manager = (import ./nix/sources.nix).home-manager;
 in {
-  nixpkgs.overlays = [ (import ./overlays/package-upgrades) ];
+  programs = {
+    home-manager = {
+      enable = true;
+      path = "${home-manager}";
+    };
+  };
+
+  nixpkgs.overlays = [ (import ./nix).neovim-overlay ];
 
   imports = [
     ./common/fonts-themes.nix
@@ -21,5 +23,4 @@ in {
     ./common/environment.nix
   ];
 
-  home.packages = [ nixgenerators ];
 }

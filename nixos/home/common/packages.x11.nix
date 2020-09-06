@@ -52,5 +52,6 @@ in {
     slurp
     xdg-user-dirs
     vscode-with-extensions
+    wl-clipboard
   ];
 }

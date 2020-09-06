@@ -1,5 +1,1 @@
-{ pkgs, ... }:
-
-{
-  allowUnfree = true;
-}
+{ allowUnfree = true; }
