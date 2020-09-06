@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd $(dirname $0)
 if [ -z "$1" ]; then
     echo "Missing argument for which machine to link to"
     exit 1;

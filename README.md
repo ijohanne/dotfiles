@@ -182,7 +182,7 @@ $> sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 Login as your new user and setup `home-manager`
 ```bash
 $> MACHINE_NAME="ij-laptop" # Change machine name here
-$> ( cd $HOME/.dotfiles && ./activate.sh $MACHINE_NAME )
+$> $HOME/.dotfiles/activate.sh $MACHINE_NAME
 ```
 
 # Maintenance
