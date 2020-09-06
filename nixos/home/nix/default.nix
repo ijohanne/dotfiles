@@ -1,10 +1,8 @@
-let
-  sources = import ./sources.nix;
-in
-rec {
+let sources = import ./sources.nix;
+in rec {
   home-manager = sources.home-manager;
-  pkgs = sources.nixos-unstable;
   nixpkgs = sources.nixpkgs;
-  nur = import sources.NUR;
+  nur = sources.NUR;
   neovim-overlay = import sources.neovim-overlay;
+  mozilla-overlay = import sources.mozilla-overlay;
 }

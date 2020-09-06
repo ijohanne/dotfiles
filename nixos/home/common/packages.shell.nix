@@ -1,11 +1,9 @@
 let
   sources = import ../nix;
-  pkgs = import sources.nixpkgs { overlays = [];};
+  pkgs = import sources.nixpkgs { overlays = [ ]; };
 in {
   home.packages = with pkgs; [
-    htop
     kubectl
-    rustup
     lsof
     whois
     haskellPackages.nixfmt
