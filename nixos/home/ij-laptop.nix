@@ -1,6 +1,4 @@
-let
-  sources = import ./nix;
-  pkgs = import sources.nixpkgs { overlays = [ ]; };
+let sources = import ./nix;
 in {
   programs = {
     home-manager = {
