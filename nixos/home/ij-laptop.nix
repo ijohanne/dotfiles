@@ -1,12 +1,11 @@
 let
   sources = import ./nix;
-  home-manager = sources.home-manager;
-  pkgs = import sources.nixpkgs { overlays = [ sources.neovim-overlay ]; };
+  pkgs = import sources.nixpkgs { overlays = [ ]; };
 in {
   programs = {
     home-manager = {
       enable = true;
-      path = "${home-manager}";
+      path = "${sources.home-manager}";
     };
   };
 

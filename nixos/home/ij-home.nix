@@ -1,13 +1,11 @@
-let home-manager = (import ./nix/sources.nix).home-manager;
+let sources = import ./nix;
 in {
   programs = {
     home-manager = {
       enable = true;
-      path = "${home-manager}";
+      path = "${sources.home-manager}";
     };
   };
-
-  nixpkgs.overlays = [ (import ./nix).neovim-overlay ];
 
   imports = [
     ./common/fonts-themes.nix
