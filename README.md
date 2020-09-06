@@ -139,7 +139,7 @@ $> mkdir -p /mnt/home/$LOCAL_USER/
 # Clone the git repository
 ```bash
 $> mkdir -p /mnt/home/$LOCAL_USER/.config
-$> git clone --recursive https://gitlab.com/ijohanne/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
+$> git clone --recursive https://github.com/ijohanne/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
 ```
 
 # Link configs
@@ -165,9 +165,6 @@ Pick the needed step
 # Post-install setup
 ```bash
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
-$> mkdir -p /mnt/home/$LOCAL_USER/.config/nixpkgs/
-$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/config.nix" > /mnt/home/$LOCAL_USER/.config/nixpkgs/config.nix
-$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/home/$MACHINE_NAME.nix" > /mnt/home/$LOCAL_USER/.config/nixpkgs/home.nix
 ```
 
 # Reboot
@@ -179,16 +176,13 @@ $> reboot
 Login as root, set password for your added user, and swap to unstable as below (`nixos-unstable` is used instead of `nixpkgs-unstable` as we're using NixOS and want the full tests to pass).
 ```bash
 $> sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-$> nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 ```
 
 # First user login
 Login as your new user and setup `home-manager`
 ```bash
-$> nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-$> nix-channel --update
-$> nix-shell '<home-manager>' -A install
-$> home-manager switch
+$> MACHINE_NAME="ij-laptop" # Change machine name here
+$> ( cd $HOME/.dotfiles && ./activate.sh $MACHINE_NAME )
 ```
 
 # Maintenance
@@ -200,8 +194,9 @@ $> sudo reboot
 
 Update the local user repo
 ```bash
-$> nix-channel --update
+$> $HOME/.dotfiles/update-niv.sh
 $> home-manager switch
+$> ( cd $HOME/.dotfiles && git add . && git commit -m "Niv updates" && git push )
 ```
 
 # Import a ZFS pool when booted on the live CD
