@@ -3,8 +3,12 @@ set autoindent
 filetype plugin indent on
 syntax on
 
-" Direnv support
-packadd! direnv-vim
+" Map nerdtree
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusWithFlags = 1
+
+" Use gitignore to avoid fuzzies
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " set synmaxcol=120
 set expandtab

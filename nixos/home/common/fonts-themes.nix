@@ -3,6 +3,7 @@ let
   pkgs = import sources.nixpkgs { overlays = [ ]; };
 in {
   fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [ inconsolata-nerdfont ];
   gtk = {
     enable = true;
     font = {

@@ -3,6 +3,7 @@ let
   pkgs = import sources.nixpkgs {
     overlays = [ sources.neovim-overlay sources.mozilla-overlay ];
   };
+  vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
 in {
   home.packages = with pkgs;
     with stdenv.lib;
@@ -64,7 +65,7 @@ in {
     withPython3 = true;
     package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ../../../neovim/init.vim;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with vimPlugins; [
       completion-nvim
       diagnostic-nvim
       fzf-vim
@@ -95,6 +96,11 @@ in {
       vim-vinegar
       vimtex
       direnv-vim
+      nerdtree
+      vim-nerdtree-tabs
+      vim-nerdtree-syntax-highlight
+      vim-devicons
+      ctrlp-vim
     ];
   };
 
