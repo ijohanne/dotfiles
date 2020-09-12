@@ -1,8 +1,3 @@
-# initialize ssh-agent
-if (( ! ${+SSH_AUTH_SOCK} )); then
-  eval $(ssh-agent)
-fi
-
 # Hook direnv
 emulate zsh -c "$(direnv export zsh)"
 
@@ -224,3 +219,10 @@ zstyle -e :urlglobber url-other-schema \
 fn nixfmt-recursive() {
   find . -name \*nix -type f -exec nixfmt {} \;
 }
+
+# initialize ssh-agent
+if (( ! ${+SSH_AUTH_SOCK} )); then
+  eval $(ssh-agent)
+fi
+
+export TERM=xterm
