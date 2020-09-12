@@ -3,11 +3,23 @@ let
   pkgs = import sources.nixpkgs {
     overlays = [ sources.neovim-overlay sources.mozilla-overlay ];
   };
+  vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
 in {
   home.packages = with pkgs;
     with stdenv.lib;
-    [ rnix-lsp neovim-remote lua ctags nodePackages.vim-language-server ]
-    ++ optionals
+    [
+      rnix-lsp
+      neovim-remote
+      lua
+      nix-zsh-completions
+      zsh-powerlevel10k
+      zoxide
+      fzf
+      ctags
+      nodePackages.vim-language-server
+      nodePackages.vscode-json-languageserver-bin
+      rust-analyzer
+    ] ++ optionals
     (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
     [ python-language-server ];
 
@@ -16,11 +28,6 @@ in {
     userName = "Ian Johannesen";
     userEmail = "ij@opsplaza.com";
     lfs.enable = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.htop = {
@@ -35,18 +42,26 @@ in {
     enable = true;
     history.extended = true;
     enableAutosuggestions = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "rkj-repos";
-    };
-    initExtra = ''
-      source $HOME/.dotfiles/zsh/common-local.zsh
-    '';
+    initExtraBeforeCompInit = builtins.readFile ../../../zsh/common-local.zsh;
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.fetchFromGitHub {
+          inherit (sources.powerlevel10k) owner repo rev sha256;
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          inherit (sources.zsh-syntax-highlighting) owner repo rev sha256;
+        };
+      }
+    ];
   };
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
+    enableNixDirenvIntegration = true;
   };
 
   programs.neovim = {
@@ -57,8 +72,8 @@ in {
     withNodeJs = true;
     withPython3 = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../../../nvim/init.vim;
-    plugins = with pkgs.vimPlugins; [
+    extraConfig = builtins.readFile ../../../neovim/init.vim;
+    plugins = with vimPlugins; [
       completion-nvim
       diagnostic-nvim
       fzf-vim
@@ -89,6 +104,11 @@ in {
       vim-vinegar
       vimtex
       direnv-vim
+      nerdtree
+      vim-nerdtree-tabs
+      vim-nerdtree-syntax-highlight
+      vim-devicons
+      ctrlp-vim
     ];
   };
 

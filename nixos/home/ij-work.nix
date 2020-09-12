@@ -16,7 +16,6 @@ in {
     ./common/programs.x11.nix
     ./common/services.shell.nix
     ./common/services.x11.nix
-    ./common/services.local.nix
     ./common/files.nix
     ./common/environment.nix
   ];

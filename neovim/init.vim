@@ -3,8 +3,12 @@ set autoindent
 filetype plugin indent on
 syntax on
 
-" Direnv support
-packadd! direnv-vim
+" Map nerdtree
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusWithFlags = 1
+
+" Use gitignore to avoid fuzzies
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " set synmaxcol=120
 set expandtab
@@ -339,7 +343,7 @@ packadd! nvim-lspconfig
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
   end
 
-  local servers = {'gopls', 'rls', 'sumneko_lua', 'tsserver', 'vimls', 'jsonls', 'html', 'ghcide', 'rnix'}
+  local servers = {'gopls', 'rust_analyzer', 'sumneko_lua', 'tsserver', 'vimls', 'html', 'ghcide', 'rnix'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
@@ -348,6 +352,10 @@ packadd! nvim-lspconfig
   nvim_lsp['pyls_ms'].setup {
     on_attach = on_attach,
     cmd = {"python-language-server"}
+  }
+  nvim_lsp['jsonls'].setup {
+    on_attach = on_attach,
+    cmd = {"json-languageserver"}
   }
 EOF
 
