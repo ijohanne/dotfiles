@@ -217,7 +217,7 @@ nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=sd-ca
 
 # Remote builders
 On certain platforms builds are really slow, e.g. Raspberry Pi, so it makes sense to use remote builders. 
-Make sure to have the proper SSH public key set to a trusted user in [users.nix](nixos/machines/common/users.nix) on the builder machine, and also make sure to enable `boot.binfmt.emulatedSystems` for the needed platforms (see [ij-home configuration](nixos/machines/ij-home/configuration.nix) for details).
+Make sure to have the proper SSH public key set to a trusted user in [users.nix](nixos/machines/common/users.nix) on the builder machine, and also make sure to enable `boot.binfmt.emulatedSystems` for the needed platforms (see [ij-home configuration](nixos/machines/ij-home/hardware-configuration.nix) for details).
 
 The key has to be in `~root/.ssh` and the following is needed as part of the `~root/.ssh/config`, but remember to replace the `HostName`, `Port` and `User` part.
 
