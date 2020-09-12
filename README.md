@@ -214,3 +214,16 @@ $> mount $BOOT_DEVICE /mnt/efi
 ```bash
 nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=sd-card-rpi4.nix --argstr system aarch64-linux
 ```
+
+# Remote builders
+Make sure to have the proper SSH public key set to a trusted user in [users.nix](nixos/machines/common/users.nix).
+The key has to be in `~root/.ssh` and the following is needed as part of the `~root/.ssh/config`, but remember to replace the `HostName`, `Port` and `User` part.
+```
+Host builder
+        HostName 10.255.101.17
+        Port 22
+        User ij
+        IdentitiesOnly yes
+        IdentityFile /root/.ssh/nix_remote
+```
+The remainder of the config can be seen in [ntp config](nixos/machines/ntp.nix).
