@@ -18,17 +18,18 @@
   * [Clone the git repository](#clone-the-git-repository)
   * [Link configs](#link-configs)
   * [Adapt configs as needed](#adapt-configs-as-needed)
-  * [Post-install setup](#post-install-setup)
-  * [Reboot](#reboot)
+- [Post-install setup](#post-install-setup)
+- [Reboot](#reboot)
 - [First boot](#first-boot)
 - [First user login](#first-user-login)
 - [Maintenance](#maintenance)
 - [Installation (live-cd fixups)](#installation--live-cd-fixups-)
   * [Import a ZFS pool when booted on the live CD](#import-a-zfs-pool-when-booted-on-the-live-cd)
-- [Building a Raspberry Pi](#building-a-raspberry-pi)
+- [Setting up a Raspberry Pi](#setting-up-a-raspberry-pi)
+  * [Building the image and writing it to a SD card](#building-the-image-and-writing-it-to-a-sd-card)
+  * [Installation on the device](#installation-on-the-device)
+  * [Local user setup](#local-user-setup)
 - [Remote builders](#remote-builders)
-
-# NixOS installation
 
 ## Prerequisite information
 The block device used in this guide is exclusively catered to the USB flash
@@ -241,10 +242,45 @@ $> mount -t zfs zroot/root /mnt
 $> mount $BOOT_DEVICE /mnt/efi
 ```
 
-# Building a Raspberry Pi
+# Setting up a Raspberry Pi 
+## Building the image and writing it to a SD card
+Copy and adapt the [sd-card-rpi4.nix](nixos/machines/sd-card-rpi4.nix) as needed (include your own SSH key)
 ```bash
-nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=sd-card-rpi4.nix --argstr system aarch64-linux
+$> nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage \
+    -I nixos-config=nixos/machines/sd-card-rpi4.nix \
+    --argstr system aarch64-linux
 ```
+When the build completes it will print the location of the image file
+```bash
+/nix/store/zzi6jl5v9xh535g029yyq4jh1nr3j58a-nixos-sd-image-20.09pre239318.c59ea8b8a0e-aarch64-linux.img
+```
+Insert an SD card and write it to the proper device (change the device as needed)
+```bash
+$> sudo dd if=/nix/store/zzi6jl5v9xh535g029yyq4jh1nr3j58a-nixos-sd-image-20.09pre239318.c59ea8b8a0e-aarch64-linux.img \
+  of=/dev/sde bs=64K status=progress
+$> sudo eject /dev/sde
+```
+## Installation on the device
+You can now put the SD card in your Raspberry Pi, and it will be configured with your SSH key for the `nixos` user. To complete the installation do the following (following the example from the NTP server)
+```bash
+$> export LOCAL_USER="ij"    # Update this as needed
+$> export MACHINE_NAME="ntp" # Update this as needed
+$> mkdir -p /home/$LOCAL_USER
+$> git clone --recursive https://github.com/ijohanne/dotfiles /home/$LOCAL_USER/.dotfiles
+$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /etc/nixos/configuration.nix
+$> nixos-rebuild switch --upgrade
+$> passwd $LOCAL_USER # Don't forget to set the password for your local user, as we're now using `nix-install`
+$> reboot
+```
+## Local user setup
+When the Raspberry Pi is booted login as your local user and complete the local setup
+```bash
+$> export LOCAL_USER="ij"    # Update this as needed
+$> export MACHINE_NAME="ntp" # Update this as needed
+$> sudo chown -R $LOCAL_USER:adm $HOME/.dotfiles
+$> $HOME/.dotfiles/activate.sh $MACHINE_NAME
+```
+Logout and login again - and the local user setup will be activated.
 
 # Remote builders
 On certain platforms builds are really slow, e.g. Raspberry Pi, so it makes sense to use remote builders. 
