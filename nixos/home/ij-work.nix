@@ -20,6 +20,4 @@ in {
     ./common/environment.nix
   ];
 
-  programs.vscode = { userSettings = { "window.zoomLevel" = -1; }; };
-
 }

@@ -26,18 +26,18 @@
     '';
   };
 
-  nix.buildMachines = [ {
-   hostName = "builder";
-	 systems = ["x86_64-linux" "aarch64-linux"];
-	 maxJobs = 4;
-	 speedFactor = 2;
-	 supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-	 mandatoryFeatures = [ ];
-	}] ;
-	nix.distributedBuilds = true;
-	# optional, useful when the builder has a faster internet connection than yours
-	nix.extraOptions = ''
-		builders-use-substitutes = true
-        '';
+  nix.buildMachines = [{
+    hostName = "builder";
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    maxJobs = 4;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    mandatoryFeatures = [ ];
+  }];
+  nix.distributedBuilds = true;
+  # optional, useful when the builder has a faster internet connection than yours
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
 }
 

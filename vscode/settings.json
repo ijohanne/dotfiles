@@ -1,4 +1,0 @@
-{
-    "editor.fontFamily": "'Inconsolata'",
-    "nixEnvSelector.nixShellConfig": "shell.nix",
-}
