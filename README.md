@@ -226,4 +226,4 @@ Host builder
         IdentitiesOnly yes
         IdentityFile /root/.ssh/nix_remote
 ```
-The remainder of the config can be seen in [ntp config](nixos/machines/ntp.nix).
+The remainder of the config can be seen in [ntp config](nixos/machines/ntp/configuration.nix).
