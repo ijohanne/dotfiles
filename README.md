@@ -23,7 +23,7 @@
   * [First boot](#first-boot)
   * [First user login](#first-user-login)
 - [Maintenance](#maintenance)
-- [Installation (live-cd fixups)](#installation--live-cd-fixups-)
+- [Installation (live-cd fixups)](#installation-live-cd-fixups)
   * [Import a ZFS pool when booted on the live CD](#import-a-zfs-pool-when-booted-on-the-live-cd)
 - [Setting up a Raspberry Pi](#setting-up-a-raspberry-pi)
   * [Building the image and writing it to a SD card](#building-the-image-and-writing-it-to-a-sd-card)
