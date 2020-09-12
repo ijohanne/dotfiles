@@ -1,5 +1,7 @@
 # initialize ssh-agent
-eval $(ssh-agent)
+if (( ! ${+SSH_AUTH_SOCK} )); then
+  eval $(ssh-agent)
+fi
 
 # Hook direnv
 emulate zsh -c "$(direnv export zsh)"
