@@ -43,7 +43,7 @@ in {
     enable = true;
     history.extended = true;
     enableAutosuggestions = true;
-    initExtraBeforeCompInit = builtins.readFile ../../../zsh/common-local.zsh;
+    initExtraBeforeCompInit = builtins.readFile ../../../configs/zsh/common-local.zsh;
     plugins = [
       {
         name = "powerlevel10k";
@@ -73,7 +73,7 @@ in {
     withNodeJs = true;
     withPython3 = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../../../neovim/init.vim;
+    extraConfig = builtins.readFile ../../../configs/neovim/init.vim;
     plugins = with vimPlugins; [
       completion-nvim
       diagnostic-nvim

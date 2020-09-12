@@ -5,7 +5,7 @@ let
   dots = "${config.home.homeDirectory}/.dotfiles";
 in {
   home.file = {
-    ".config/sway/config".source = "${dots}/sway/config";
+    ".config/sway/config".source = "${dots}/configs/sway/config";
     ".dircolors".source = sources.LS_COLORS.outPath + "/LS_COLORS";
   };
 }
