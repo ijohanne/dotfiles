@@ -1,3 +1,5 @@
+This repository contains my NixOS and home-manager configs, configuration for Neovim, sway, et all, and documentation on how to use the setup provided here.
+
 # Table of contents
 - [NixOS installation](#nixos-installation)
   * [Prerequisite information](#prerequisite-information)
