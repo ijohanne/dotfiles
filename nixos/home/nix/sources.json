@@ -1,14 +1,26 @@
 {
+    "LS_COLORS": {
+        "branch": "master",
+        "description": "A collection of LS_COLORS definitions; needs your contribution!",
+        "homepage": "",
+        "owner": "trapd00r",
+        "repo": "LS_COLORS",
+        "rev": "8256268e688d23892cab1785a8b0ea6e4353c3f4",
+        "sha256": "1zrb4niz26mk42s88d0az2r1j1cjn509fbg2p7iny6p0a0b3mp02",
+        "type": "tarball",
+        "url": "https://github.com/trapd00r/LS_COLORS/archive/8256268e688d23892cab1785a8b0ea6e4353c3f4.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "NUR": {
         "branch": "master",
         "description": "Nix User Repository: User contributed nix packages [maintainer=@Mic92]",
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "93f8dbbb84f6ac577241792d61a66ef7eadb722a",
-        "sha256": "027v3jn9h93xci8j7y3w44zpvgrdz5gz702ama1wybx7hdvf1q3n",
+        "rev": "21bcbd246088e1fee7f484e8d7a3e3135350d905",
+        "sha256": "0im2rzxr8j3jqq42g3r1nq91vl2hj9hn5imclypyx2q9ckcp3dnd",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/93f8dbbb84f6ac577241792d61a66ef7eadb722a.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/21bcbd246088e1fee7f484e8d7a3e3135350d905.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
@@ -17,10 +29,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "249650a07ee2d949fa599f3177a8c234adbd1bee",
-        "sha256": "0x858b7i15kx74aqwgi2n5ls7zjhcky95z9vbxfdlawmaz371dma",
+        "rev": "605a8fc92e2bb346b17d102d94d37af23c9b7d4e",
+        "sha256": "1cjxmhwn5vmb26x4zzmh1kgiv6xngb7ra61wgdlai6afw454v6ww",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/249650a07ee2d949fa599f3177a8c234adbd1bee.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/605a8fc92e2bb346b17d102d94d37af23c9b7d4e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -41,10 +53,10 @@
         "homepage": "https://github.com/mjlbach/neovim-nightly-overlay",
         "owner": "mjlbach",
         "repo": "neovim-nightly-overlay",
-        "rev": "70fc0155899d80423f1a1ee61c41b22e92c3139a",
-        "sha256": "1rrmlb1h4zwwlv3jk3jqj3ka23rw694wd84c8j3hg0srwvyzlsd8",
+        "rev": "36e15faf50fa751f299af980950ff9e5bee3c74d",
+        "sha256": "10x67gjdz4igbaik65dmrzly3y83k70lsl6i0i707hfqxjnkg73d",
         "type": "tarball",
-        "url": "https://github.com/mjlbach/neovim-nightly-overlay/archive/70fc0155899d80423f1a1ee61c41b22e92c3139a.tar.gz",
+        "url": "https://github.com/mjlbach/neovim-nightly-overlay/archive/36e15faf50fa751f299af980950ff9e5bee3c74d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -53,10 +65,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b",
-        "sha256": "0mghc1j0rd15spdjx81bayjqr0khc062cs25y5dcfzlxk4ynyc6m",
+        "rev": "dd13098d01eaa6be68237e7e38f96782b0480755",
+        "sha256": "1cfjdbsn0219fjzam1k7nqzkz8fb1ypab50rhyj026qbklqq2kvq",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/dd13098d01eaa6be68237e7e38f96782b0480755.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -65,10 +77,34 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f",
-        "sha256": "0aky9mf72bxh2l09chj5x38nk2a3rw8w28dr0gg8sk24ix0mz0w2",
+        "rev": "7c0afd436447b1cc65bb50fe29f7e4b9be11d03b",
+        "sha256": "0mmksi33lf8zqf9ky78w21vfy42hhjpgdfx3gwsspm02l88ssdxk",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/7c0afd436447b1cc65bb50fe29f7e4b9be11d03b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "powerlevel10k": {
+        "branch": "master",
+        "description": "A Zsh theme",
+        "homepage": "",
+        "owner": "romkatv",
+        "repo": "powerlevel10k",
+        "rev": "afb854d2796989e154029277b2bf1ac12586fddf",
+        "sha256": "0qjbmmzg4skr53dy75gyh60dwrx47cayjwgkva56w2kxk6v8vzfk",
+        "type": "tarball",
+        "url": "https://github.com/romkatv/powerlevel10k/archive/afb854d2796989e154029277b2bf1ac12586fddf.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-syntax-highlighting": {
+        "branch": "master",
+        "description": "This package provides syntax highlighting for the shell zsh.",
+        "homepage": "",
+        "owner": "zsh-users",
+        "repo": "zsh-syntax-highlighting",
+        "rev": "62c5575848f1f0a96161243d18497c247c9f52df",
+        "sha256": "0s1cjm8psjwmrg8qdhdg48qyvp8nqk7bdgvqivgc5v9m27m7h5cg",
+        "type": "tarball",
+        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/62c5575848f1f0a96161243d18497c247c9f52df.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

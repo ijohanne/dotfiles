@@ -3,7 +3,7 @@ let
   pkgs = import sources.nixpkgs { overlays = [ ]; };
 in {
   home.packages = with pkgs; [
-    kubectl
+    #    kubectl
     lsof
     whois
     haskellPackages.nixfmt

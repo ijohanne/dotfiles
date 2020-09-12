@@ -11,8 +11,13 @@ in {
       rnix-lsp
       neovim-remote
       lua
+      nix-zsh-completions
+      zsh-powerlevel10k
+      zoxide
+      fzf
       ctags
       nodePackages.vim-language-server
+      nodePackages.vscode-json-languageserver-bin
       rust-analyzer
     ] ++ optionals
     (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
@@ -23,11 +28,6 @@ in {
     userName = "Ian Johannesen";
     userEmail = "ij@opsplaza.com";
     lfs.enable = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.htop = {
@@ -42,18 +42,26 @@ in {
     enable = true;
     history.extended = true;
     enableAutosuggestions = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "rkj-repos";
-    };
-    initExtra = ''
-      source $HOME/.dotfiles/zsh/common-local.zsh
-    '';
+    initExtraBeforeCompInit = builtins.readFile ../../../zsh/common-local.zsh;
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.fetchFromGitHub {
+          inherit (sources.powerlevel10k) owner repo rev sha256;
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          inherit (sources.zsh-syntax-highlighting) owner repo rev sha256;
+        };
+      }
+    ];
   };
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
+    enableNixDirenvIntegration = true;
   };
 
   programs.neovim = {

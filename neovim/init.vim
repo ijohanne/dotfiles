@@ -343,7 +343,7 @@ packadd! nvim-lspconfig
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
   end
 
-  local servers = {'gopls', 'rust_analyzer', 'sumneko_lua', 'tsserver', 'vimls', 'jsonls', 'html', 'ghcide', 'rnix'}
+  local servers = {'gopls', 'rust_analyzer', 'sumneko_lua', 'tsserver', 'vimls', 'html', 'ghcide', 'rnix'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
@@ -352,6 +352,10 @@ packadd! nvim-lspconfig
   nvim_lsp['pyls_ms'].setup {
     on_attach = on_attach,
     cmd = {"python-language-server"}
+  }
+  nvim_lsp['jsonls'].setup {
+    on_attach = on_attach,
+    cmd = {"json-languageserver"}
   }
 EOF
 
