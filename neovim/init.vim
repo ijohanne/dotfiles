@@ -404,3 +404,5 @@ let g:completion_chain_complete_list = {
 " Formatters 
 let g:neoformat_enabled_python = [ 'black' ]
 
+" Use global clipboard
+set clipboard=unnamed,unnamedplus
