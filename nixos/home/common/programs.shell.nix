@@ -16,10 +16,13 @@ in {
       zoxide
       fzf
       ctags
-      nodePackages.vim-language-server
-      nodePackages.vscode-json-languageserver-bin
       rust-analyzer
-    ] ++ optionals
+    ] ++ (with pkgs.nodePackages; [
+      typescript-language-server
+      vim-language-server
+      vscode-json-languageserver-bin
+      vscode-html-languageserver-bin
+    ]) ++ optionals
     (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
     [ python-language-server ];
 
@@ -43,7 +46,8 @@ in {
     enable = true;
     history.extended = true;
     enableAutosuggestions = true;
-    initExtraBeforeCompInit = builtins.readFile ../../../configs/zsh/common-local.zsh;
+    initExtraBeforeCompInit =
+      builtins.readFile ../../../configs/zsh/common-local.zsh;
     plugins = [
       {
         name = "powerlevel10k";
