@@ -141,7 +141,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command "$HOME/.dotfiles/sway/bar.sh"
+    status_command "$HOME/.config/sway/bar.sh"
 
     colors {
         statusline #ffffff
@@ -156,4 +156,4 @@ bar {
 # Window bar font
 #
 
-exec "$HOME/.dotfiles/sway/autorun.sh"
+exec "$HOME/.config/sway/autorun.sh"

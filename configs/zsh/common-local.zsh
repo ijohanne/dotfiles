@@ -164,7 +164,7 @@ bindkey '^x^e' edit-command-line
 
 # Prompt configuration
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/.dotfiles/zsh/p10k-lean.zsh
+source $HOME/.zsh/p10k-lean.zsh
 
 alias ls="ls --color=auto"
 alias ll="ls -alh --color=auto"
@@ -225,4 +225,5 @@ if (( ! ${+SSH_AUTH_SOCK} )); then
   eval $(ssh-agent)
 fi
 
+export POWERLEVEL9K_INSTANT_PROMPT="quiet"
 export TERM=xterm

@@ -5,7 +5,8 @@ let
   dots = "${config.home.homeDirectory}/.dotfiles";
 in {
   home.file = {
-    ".config/sway/config".source = "${dots}/configs/sway/config";
+    ".zsh/p10k-lean.zsh".source = "${dots}/configs/zsh/p10k-lean.zsh";
+    ".config/sway".source = "${dots}/configs/sway";
     ".dircolors".source = sources.LS_COLORS.outPath + "/LS_COLORS";
   };
 }
