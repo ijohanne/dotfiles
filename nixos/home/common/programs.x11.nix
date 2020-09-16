@@ -1,4 +1,6 @@
-let sources = import ../nix;
+let
+  sources = import ../nix;
+  pkgs = import sources.nixpkgs { };
 in {
   programs.firefox = {
     enable = true;
@@ -8,5 +10,10 @@ in {
       reddit-enhancement-suite
     ];
   };
+
+  home.packages = with pkgs; [ alacritty libsixel ];
+
+  xdg.configFile."alacritty/alacritty.yml".source =
+    ../../../configs/terminal/alacritty.yml;
 
 }

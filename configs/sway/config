@@ -2,7 +2,7 @@
 # General settings
 #
 set $mod Mod4
-set $term termite
+set $term alacritty
 set $menu dmenu_path | bemenu --fn 'Inconsolata 18' --nb '#323232' --fb '#323232' --tb '#323232' --hb '#323232' | xargs swaymsg exec
 output * bg $HOME/.dotfiles/backgrounds/* fill
 output DP-2 resolution 3840x2160 position 0,0 scale 1.0

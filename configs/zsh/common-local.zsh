@@ -227,3 +227,4 @@ fi
 
 export POWERLEVEL9K_INSTANT_PROMPT="quiet"
 export TERM=xterm
+alias top=htop

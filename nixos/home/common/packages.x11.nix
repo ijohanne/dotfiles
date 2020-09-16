@@ -10,7 +10,6 @@ in {
     spotify
     pavucontrol
     bemenu
-    termite
     inconsolata
     zathura
     seafile-client
