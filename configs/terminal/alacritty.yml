@@ -324,7 +324,7 @@ colors:
   #save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
-# dynamic_title: true
+  dynamic_title: true
 
 #cursor:
   # Cursor style
@@ -352,7 +352,7 @@ colors:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #

@@ -61,6 +61,12 @@ in {
           inherit (sources.zsh-syntax-highlighting) owner repo rev sha256;
         };
       }
+      {
+        name = "zsh-titles";
+        src = pkgs.fetchFromGitHub {
+          inherit (sources.zsh-titles) owner repo rev sha256;
+        };
+      }
     ];
   };
 

@@ -166,6 +166,9 @@ bindkey '^x^e' edit-command-line
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.zsh/p10k-lean.zsh
 
+# Terminal title
+source ~/.zsh/plugins/zsh-titles/titles.plugin.zsh
+
 alias ls="ls --color=auto"
 alias ll="ls -alh --color=auto"
 alias l="ls --color=auto"
@@ -226,5 +229,5 @@ if (( ! ${+SSH_AUTH_SOCK} )); then
 fi
 
 export POWERLEVEL9K_INSTANT_PROMPT="quiet"
-export TERM=xterm
 alias top=htop
+alias ssh="TERM=xterm ssh"

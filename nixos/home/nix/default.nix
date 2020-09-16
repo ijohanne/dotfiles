@@ -10,4 +10,5 @@ in rec {
   powerlevel10k = sources.powerlevel10k;
   LS_COLORS = sources.LS_COLORS;
   zsh-syntax-highlighting = sources.zsh-syntax-highlighting;
+  zsh-titles = sources.zsh-titles;
 }

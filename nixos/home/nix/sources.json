@@ -106,5 +106,17 @@
         "type": "tarball",
         "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/62c5575848f1f0a96161243d18497c247c9f52df.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-titles": {
+        "branch": "master",
+        "description": "This package provides dynamic setting of terminal window titles.",
+        "homepage": "",
+        "owner": "jreese",
+        "repo": "zsh-titles",
+        "rev": "b7d46d79f074e34ab733b48874533fe30d9ef2b6",
+        "sha256": "0rca9a22vz11pnkks5vlspfnmd3m1s38hz901gvgfa39ch3va9ad",
+        "type": "tarball",
+        "url": "https://github.com/jreese/zsh-titles/archive/b7d46d79f074e34ab733b48874533fe30d9ef2b6.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
