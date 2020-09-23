@@ -1,11 +1,7 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
-let
-  pkgs = import (builtins.fetchTarball {
-    inherit ((import ../../nix/sources.nix).nixpkgs) url sha256;
-  }) { config = config.nixpkgs.config; };
 
-in {
+{
   users.users.ij = {
     isNormalUser = true;
     name = "ij";

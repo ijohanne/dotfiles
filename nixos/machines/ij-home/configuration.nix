@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs {} , ... }:
 
 {
   imports = [

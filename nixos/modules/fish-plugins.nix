@@ -1,5 +1,6 @@
-{ pkgs }:
-let sources = import ../nix;
+{pkgs}:
+let
+  sources = import ../nix;
 in {
   bass = {
     name = "bass";

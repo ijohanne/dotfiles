@@ -1,3 +1,5 @@
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs {}, ... }:
+
 {
   imports = [
     ./hardware-configuration.nix

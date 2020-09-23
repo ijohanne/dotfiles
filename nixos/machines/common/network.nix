@@ -1,1 +1,5 @@
-{ networking.networkmanager.enable = true; }
+{ config, pkgs, ... }:
+
+{
+  networking.networkmanager.enable = true;
+}

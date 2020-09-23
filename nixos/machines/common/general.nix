@@ -1,10 +1,6 @@
-{ config, ... }:
-let
-  pkgs = import (builtins.fetchTarball {
-    inherit ((import ../../nix/sources.nix).nixpkgs) url sha256;
-  }) { config = config.nixpkgs.config; };
+{ config, pkgs, ... }:
 
-in {
+{
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
 
   i18n = { defaultLocale = "en_US.UTF-8"; };
@@ -16,7 +12,13 @@ in {
 
   time.timeZone = "Europe/Madrid";
 
-  environment.systemPackages = with pkgs; [ wget binutils unzip zip docker ];
+  environment.systemPackages = with pkgs; [
+    wget
+    binutils
+    unzip
+    zip
+    docker
+  ];
 
   services = {
     openssh = {

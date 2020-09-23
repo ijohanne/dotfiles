@@ -1,9 +1,6 @@
-{ config, ... }:
-let
-  pkgs = import (builtins.fetchTarball {
-    inherit ((import ../../nix/sources.nix).nixpkgs) url sha256;
-  }) { config = config.nixpkgs.config; };
-in {
+{ config, pkgs, ... }:
+
+{
   hardware.enableAllFirmware = true;
   hardware.pulseaudio = {
     enable = true;

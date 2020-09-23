@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5bfe6004e1784b703202ad63b73e6c8bac2d146c",
-        "sha256": "0hkyxscpdhmynwwm8i6idrgkgknjw65fj9gcvs4rxf395j1vyrq8",
+        "rev": "ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f",
+        "sha256": "0aky9mf72bxh2l09chj5x38nk2a3rw8w28dr0gg8sk24ix0mz0w2",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5bfe6004e1784b703202ad63b73e6c8bac2d146c.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
