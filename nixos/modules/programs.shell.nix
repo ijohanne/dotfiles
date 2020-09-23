@@ -4,18 +4,12 @@ let
     overlays = [ sources.neovim-overlay sources.mozilla-overlay ];
   };
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
+  fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
   home.packages = with pkgs;
     with stdenv.lib;
-    [
-      rnix-lsp
-      neovim-remote
-      lua
-      zoxide
-      fzf
-      ctags
-      rust-analyzer
-    ] ++ (with pkgs.nodePackages; [
+    [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer ]
+    ++ (with pkgs.nodePackages; [
       typescript-language-server
       vim-language-server
       vscode-json-languageserver-bin
@@ -124,7 +118,16 @@ in {
     };
   };
 
-  programs.fish = { enable = true; };
+  programs.fish = {
+    enable = true;
+    shellInit = builtins.readFile ../../configs/fish/init.fish;
+    plugins = with fishPlugins; [
+      bass
+      oh-my-fish-plugin-ssh
+      oh-my-fish-plugin-foreign-env
+      fish-ssh-agent
+    ];
+  };
 
   programs.direnv = {
     enable = true;
