@@ -1,5 +1,5 @@
 let
-  sources = import ./nixos/home/nix;
+  sources = import ./nixos/nix;
   nixpkgs = sources."nixpkgs";
   pkgs = import nixpkgs { };
 in pkgs.mkShell rec {

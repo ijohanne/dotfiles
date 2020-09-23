@@ -11,8 +11,6 @@ in {
       rnix-lsp
       neovim-remote
       lua
-      nix-zsh-completions
-      zsh-powerlevel10k
       zoxide
       fzf
       ctags
@@ -42,33 +40,91 @@ in {
     cpuCountFromZero = true;
   };
 
-  programs.zsh = {
+  programs.starship = {
+    enableFishIntegration = true;
     enable = true;
-    history.extended = true;
-    enableAutosuggestions = true;
-    initExtraBeforeCompInit =
-      builtins.readFile ../../../configs/zsh/common-local.zsh;
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.fetchFromGitHub {
-          inherit (sources.powerlevel10k) owner repo rev sha256;
-        };
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          inherit (sources.zsh-syntax-highlighting) owner repo rev sha256;
-        };
-      }
-      {
-        name = "zsh-titles";
-        src = pkgs.fetchFromGitHub {
-          inherit (sources.zsh-titles) owner repo rev sha256;
-        };
-      }
-    ];
+    settings = {
+      add_newline = false;
+      prompt_order = [
+        "username"
+        "hostname"
+        "kubernetes"
+        "directory"
+        "git_branch"
+        "git_commit"
+        "git_state"
+        "git_status"
+        "hg_branch"
+        "docker_context"
+        "package"
+        "dotnet"
+        "elixir"
+        "elm"
+        "erlang"
+        "golang"
+        "java"
+        "julia"
+        "nim"
+        "nodejs"
+        "ocaml"
+        "php"
+        "purescript"
+        "python"
+        "ruby"
+        "rust"
+        "terraform"
+        "zig"
+        "nix_shell"
+        "conda"
+        "memory_usage"
+        "aws"
+        "env_var"
+        "crystal"
+        "cmd_duration"
+        "custom"
+        "line_break"
+        "jobs"
+        "battery"
+        "time"
+        "character"
+      ];
+      scan_timeout = 10;
+      character.symbol = "➜";
+      battery = {
+        full_symbol = "🔋";
+        charging_symbol = "⚡️";
+        discharging_symbol = "🔋";
+        display = [
+          {
+            threshold = 10;
+            style = "red";
+          }
+          {
+            threshold = 30;
+            style = "yellow";
+          }
+          {
+            threshold = 100;
+            style = "green";
+          }
+        ];
+      };
+
+      username = {
+        show_always = true;
+        style_user = "blue";
+      };
+
+      hostname = {
+        ssh_only = false;
+        style = "cyan";
+        prefix = "⟪";
+        suffix = "⟫";
+      };
+    };
   };
+
+  programs.fish = { enable = true; };
 
   programs.direnv = {
     enable = true;
@@ -83,7 +139,7 @@ in {
     withNodeJs = true;
     withPython3 = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../../../configs/neovim/init.vim;
+    extraConfig = builtins.readFile ../../configs/neovim/init.vim;
     plugins = with vimPlugins; [
       completion-nvim
       diagnostic-nvim
@@ -120,6 +176,7 @@ in {
       vim-nerdtree-syntax-highlight
       vim-devicons
       ctrlp-vim
+      nvim-lsp-extensions
     ];
   };
 

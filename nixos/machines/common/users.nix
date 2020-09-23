@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 
+
 {
   users.users.ij = {
     isNormalUser = true;
@@ -24,8 +25,11 @@
     ];
   };
 
-  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
+  users.defaultUserShell = pkgs.fish;
   users.mutableUsers = true;
 
   nix.trustedUsers = [ "ij" ];
+
+  programs.fish.enable = true;
+  programs.zsh.enable = true;
 }

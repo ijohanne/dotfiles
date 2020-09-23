@@ -5,6 +5,6 @@ if [ -z "$1" ]; then
     exit 1;
 fi
 mkdir -p $HOME/.config/nixpkgs
-ln -s $HOME/.dotfiles/nixos/home/$1.nix $HOME/.config/nixpkgs/home.nix
-ln -s $HOME/.dotfiles/nixos/home/config.nix $HOME/.config/nixpkgs/config.nix
+ln -sf $HOME/.dotfiles/nixos/machines/$1/home.nix $HOME/.config/nixpkgs/home.nix
+ln -sf $HOME/.dotfiles/nixos/machines/pkgs-config.nix $HOME/.config/nixpkgs/config.nix
 nix-shell --run "home-manager switch"

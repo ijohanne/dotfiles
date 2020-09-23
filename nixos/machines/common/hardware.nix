@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import (builtins.fetchTarball
-    "https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz") {
-      config = config.nixpkgs.config;
-    };
-in {
+{
   hardware.enableAllFirmware = true;
   hardware.pulseaudio = {
     enable = true;
@@ -45,6 +40,6 @@ in {
     efi.canTouchEfiVariables = false;
   };
 
-  boot.kernelPackages = unstable.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.zfs.enableUnstable = true;
 }

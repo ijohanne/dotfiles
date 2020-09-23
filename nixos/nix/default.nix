@@ -7,8 +7,5 @@ in rec {
   nur = import sources.NUR { inherit pkgs; };
   neovim-overlay = import sources.neovim-overlay;
   mozilla-overlay = import sources.mozilla-overlay;
-  powerlevel10k = sources.powerlevel10k;
   LS_COLORS = sources.LS_COLORS;
-  zsh-syntax-highlighting = sources.zsh-syntax-highlighting;
-  zsh-titles = sources.zsh-titles;
 }

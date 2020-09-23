@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs {}, ... }:
 
 {
   boot = {
@@ -33,7 +33,6 @@
     unzip
     zip
     docker
-    zsh
   ];
 
   services = {

@@ -50,8 +50,18 @@ set ignorecase
 set smartcase
 
 "Decrease update time
-set updatetime=250
+set updatetime=300
 set signcolumn=yes
+" Show diagnostic popup on cursor hold
+autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+
+" Goto previous/next diagnostic warning/error
+nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
+nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+
+" Enable type inlay hints
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+\ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
 
 "Set colorscheme
 packadd! onedark-vim
@@ -324,7 +334,7 @@ packadd! nvim-lspconfig
 
   local on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    -- require'diagnostic'.on_attach()
+    require'diagnostic'.on_attach()
     require'completion'.on_attach()
 
     -- Mappings.
@@ -363,6 +373,11 @@ command! -buffer -nargs=0 LspShowLineDiagnostics lua require'jumpLoc'.openLineDi
 nnoremap <buffer><silent> <C-h> <Cmd>LspShowLineDiagnostics<CR>
 
 let g:diagnostic_auto_popup_while_jump = 1
+" Visualize diagnostics
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_trimmed_virtual_text = '40'
+" Don't show diagnostics while in insert mode
+let g:diagnostic_insert_delay = 1
 
 command! Format  execute 'lua vim.lsp.buf.formatting()'
 

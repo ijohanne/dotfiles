@@ -18,7 +18,6 @@
     unzip
     zip
     docker
-    zsh
   ];
 
   services = {
