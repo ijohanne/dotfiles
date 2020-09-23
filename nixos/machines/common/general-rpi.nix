@@ -1,6 +1,11 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs {}, ... }:
+{ config, ... }:
 
-{
+let
+  pkgs = import (builtins.fetchTarball {
+    inherit ((import ../../nix/sources.nix).nixpkgs) url sha256;
+  }) { config = config.nixpkgs.config; };
+
+in {
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     loader = {
@@ -27,13 +32,7 @@
     keyMap = "us";
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    binutils
-    unzip
-    zip
-    docker
-  ];
+  environment.systemPackages = with pkgs; [ wget binutils unzip zip docker ];
 
   services = {
     openssh = {
