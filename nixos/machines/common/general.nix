@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ... }:
 
 {
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
@@ -12,13 +12,7 @@
 
   time.timeZone = "Europe/Madrid";
 
-  environment.systemPackages = with pkgs; [
-    wget
-    binutils
-    unzip
-    zip
-    docker
-  ];
+  environment.systemPackages = with pkgs; [ wget binutils unzip zip docker ];
 
   services = {
     openssh = {

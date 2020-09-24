@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ... }:
 
 {
   users.users.ij = {

@@ -1,4 +1,6 @@
 {
+  imports = [ ./packages.nix ];
+
   home.sessionVariables = {
     EDITOR = "vim";
     TERM = "xterm";

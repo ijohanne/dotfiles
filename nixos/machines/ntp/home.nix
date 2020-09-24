@@ -14,6 +14,7 @@ in {
     ../../modules/files.nix
     ../../modules/environment.nix
     ../../modules/services.shell.nix
+    ../../modules/packages.nix
   ];
 
   dconf.enable = false;

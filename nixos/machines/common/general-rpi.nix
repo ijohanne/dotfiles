@@ -1,4 +1,5 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs {}, ... }:
+{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ...
+}:
 
 {
   boot = {
@@ -27,13 +28,7 @@
     keyMap = "us";
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    binutils
-    unzip
-    zip
-    docker
-  ];
+  environment.systemPackages = with pkgs; [ wget binutils unzip zip docker ];
 
   services = {
     openssh = {

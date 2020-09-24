@@ -1,5 +1,5 @@
-let
-  sources = import ../nix;
-  pkgs = import sources.nixpkgs { overlays = [ ]; };
-in { home.packages = with pkgs; [ texlive.combined.scheme-full ]; }
+{ pkgs, ... }: {
+  imports = [ ./packages.nix ];
+  home.packages = with pkgs; [ texlive.combined.scheme-full ];
+}
 

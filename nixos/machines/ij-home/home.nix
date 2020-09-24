@@ -18,6 +18,7 @@ in {
     ../../modules/services.x11.nix
     ../../modules/files.nix
     ../../modules/environment.nix
+    ../../modules/packages.nix
   ];
 
 }

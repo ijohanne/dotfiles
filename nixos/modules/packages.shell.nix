@@ -1,7 +1,5 @@
-let
-  sources = import ../nix;
-  pkgs = import sources.nixpkgs { overlays = [ ]; };
-in {
+{ pkgs, ... }: {
+  imports = [ ./packages.nix ];
   home.packages = with pkgs; [
     #    kubectl
     lsof

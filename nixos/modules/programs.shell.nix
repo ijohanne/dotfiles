@@ -1,11 +1,10 @@
+{ pkgs, ... }:
 let
-  sources = import ../nix;
-  pkgs = import sources.nixpkgs {
-    overlays = [ sources.neovim-overlay sources.mozilla-overlay ];
-  };
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
+  imports = [ ./packages.nix ];
+
   home.packages = with pkgs;
     with stdenv.lib;
     [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer ]

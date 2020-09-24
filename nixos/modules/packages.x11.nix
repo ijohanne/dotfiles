@@ -1,8 +1,6 @@
-let
-  sources = import ../nix;
-  pkgs = import sources.nixpkgs { overlays = [ ]; };
-in {
-  home.packages = with pkgs; [
+{ pkgs, ... }: {
+  imports = [ ./packages.nix ];
+  home.packages = with pkgs.unstable; [
     slack
     element-desktop
     thunderbird

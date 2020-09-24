@@ -71,16 +71,16 @@
         "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/efda5b357451dbb0431f983cca679ae3cd9b9829.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "neovim-overlay": {
+    "neovim": {
         "branch": "master",
-        "description": "Neovim overlay [maintainer=@mjlbach] ",
-        "homepage": "https://github.com/mjlbach/neovim-nightly-overlay",
-        "owner": "mjlbach",
-        "repo": "neovim-nightly-overlay",
-        "rev": "36e15faf50fa751f299af980950ff9e5bee3c74d",
-        "sha256": "10x67gjdz4igbaik65dmrzly3y83k70lsl6i0i707hfqxjnkg73d",
+        "description": "Vim-fork focused on extensibility and usability",
+        "homepage": "https://neovim.io",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "4f8d98e583beb4c1abd5d57b9898548396633030",
+        "sha256": "0rk7d23h6060lr2ph48anyykbvslrw0zqfnxsmhn63vzlzrniqc7",
         "type": "tarball",
-        "url": "https://github.com/mjlbach/neovim-nightly-overlay/archive/36e15faf50fa751f299af980950ff9e5bee3c74d.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/4f8d98e583beb4c1abd5d57b9898548396633030.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f",
-        "sha256": "0aky9mf72bxh2l09chj5x38nk2a3rw8w28dr0gg8sk24ix0mz0w2",
+        "rev": "7e4b7ecd00e76d3f12c511e593d0189246b6323d",
+        "sha256": "16nf76y13wkx74qkr8id9b13wapxhb2ix5qp3hhzrsgygwpi6s6d",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/ce6bc4dbc7821bc271e6ae5d25b57075c4ce877f.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/7e4b7ecd00e76d3f12c511e593d0189246b6323d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
