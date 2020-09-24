@@ -1,12 +1,4 @@
-let sources = import ../../nix;
-in {
-  programs = {
-    home-manager = {
-      enable = true;
-      path = "${sources.home-manager}";
-    };
-  };
-
+{
   imports = [
     ../../modules/fonts-themes.nix
     ../../modules/packages.shell.nix

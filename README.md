@@ -20,9 +20,9 @@ This repository contains my NixOS and home-manager configs, configuration for Ne
   * [Clone the git repository](#clone-the-git-repository)
   * [Link configs](#link-configs)
   * [Adapt configs as needed](#adapt-configs-as-needed)
+  * [Execute install](#execute-install)
   * [Post-install setup](#post-install-setup)
   * [Reboot](#reboot)
-  * [First boot](#first-boot)
   * [First user login](#first-user-login)
 - [Maintenance](#maintenance)
 - [Installation (live-cd fixups)](#installation-live-cd-fixups)
@@ -191,6 +191,11 @@ Enable needed elements (see sample configs already in repo)
 * Bluetooth
 * Users
 
+## Execute install
+```bash
+$> nixos-install
+```
+
 ## Post-install setup
 ```bash
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
@@ -199,12 +204,6 @@ $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/confi
 ## Reboot
 ```bash
 $> reboot
-```
-
-## First boot
-Login as root, set password for your added user, and swap to unstable as below (`nixos-unstable` is used instead of `nixpkgs-unstable` as we're using NixOS and want the full tests to pass).
-```bash
-$> sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 ```
 
 ## First user login
@@ -217,7 +216,7 @@ $> $HOME/.dotfiles/activate.sh $MACHINE_NAME
 # Maintenance
 Update the system
 ```bash
-$> sudo nixos-rebuild switch --upgrade
+$> nixos-rebuild switch
 $> sudo reboot
 ```
 
@@ -270,7 +269,7 @@ $> export MACHINE_NAME="ntp" # Update this as needed
 $> mkdir -p /home/$LOCAL_USER
 $> git clone --recursive https://github.com/ijohanne/dotfiles /home/$LOCAL_USER/.dotfiles
 $> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /etc/nixos/configuration.nix
-$> nixos-rebuild switch --upgrade
+$> $HOME/.dotfiles/nixos-rebuild.sh switch
 $> passwd $LOCAL_USER # Don't forget to set the password for your local user, as we're now using `nix-install`
 $> reboot
 ```

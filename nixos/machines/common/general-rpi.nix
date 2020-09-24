@@ -1,7 +1,6 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ...
-}:
+{ config, pkgs, ... }: {
+  nixpkgs.config.allowUnfree = true;
 
-{
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     loader = {

@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  imports = [ ./packages.nix ];
-
   programs.firefox = {
     enable = true;
     extensions = with pkgs.nur.rycee.firefox-addons; [

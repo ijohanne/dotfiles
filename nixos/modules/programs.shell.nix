@@ -1,9 +1,16 @@
 { pkgs, ... }:
 let
+  sources = import ../nix/sources.nix;
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
-  imports = [ ./packages.nix ];
+
+  programs = {
+    home-manager = {
+      enable = true;
+      path = "${sources.home-manager}";
+    };
+  };
 
   home.packages = with pkgs;
     with stdenv.lib;

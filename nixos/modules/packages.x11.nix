@@ -1,6 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./packages.nix ];
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     slack
     element-desktop
     thunderbird

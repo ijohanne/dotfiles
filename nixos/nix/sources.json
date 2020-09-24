@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "21bcbd246088e1fee7f484e8d7a3e3135350d905",
-        "sha256": "0im2rzxr8j3jqq42g3r1nq91vl2hj9hn5imclypyx2q9ckcp3dnd",
+        "rev": "db2d66991e8068db7a7e1a617901f8e732147fe6",
+        "sha256": "04bcay1pnwv9986ps433nwsl4k2xxk516ica36zn3f36w7ql0zhj",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/21bcbd246088e1fee7f484e8d7a3e3135350d905.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/db2d66991e8068db7a7e1a617901f8e732147fe6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -53,10 +53,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "605a8fc92e2bb346b17d102d94d37af23c9b7d4e",
-        "sha256": "1cjxmhwn5vmb26x4zzmh1kgiv6xngb7ra61wgdlai6afw454v6ww",
+        "rev": "690d93c22a8812c303a52786022f3f0441dfd06a",
+        "sha256": "1xh8c6h9dqivixhbdiac9zzw0rvbj5f43xairg2njnk7jar3q098",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/605a8fc92e2bb346b17d102d94d37af23c9b7d4e.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/690d93c22a8812c303a52786022f3f0441dfd06a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -77,10 +77,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "4f8d98e583beb4c1abd5d57b9898548396633030",
-        "sha256": "0rk7d23h6060lr2ph48anyykbvslrw0zqfnxsmhn63vzlzrniqc7",
+        "rev": "b9ceac4650a7d7b731828a4fb82b92d01e88752b",
+        "sha256": "0h97693mjl5xbgzbpnvy817rlwcb8zhrh4xgg555qhgx9n4k6vz8",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/4f8d98e583beb4c1abd5d57b9898548396633030.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/b9ceac4650a7d7b731828a4fb82b92d01e88752b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -89,10 +89,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "dd13098d01eaa6be68237e7e38f96782b0480755",
-        "sha256": "1cfjdbsn0219fjzam1k7nqzkz8fb1ypab50rhyj026qbklqq2kvq",
+        "rev": "29ddaaf4e099c3ac0647f5b652469dfc79cd3b53",
+        "sha256": "1va6myp07gkspgxfch8z3rs9nyvys6jmgzkys6a2c4j09qxp1bs0",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/dd13098d01eaa6be68237e7e38f96782b0480755.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/29ddaaf4e099c3ac0647f5b652469dfc79cd3b53.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7e4b7ecd00e76d3f12c511e593d0189246b6323d",
-        "sha256": "16nf76y13wkx74qkr8id9b13wapxhb2ix5qp3hhzrsgygwpi6s6d",
+        "rev": "f5061117b2b1b4df42190238d8d496337d8d9fd3",
+        "sha256": "0fklc57arqy3dr5g5maghawk8smxxg26nankr2la3064d8fflcdi",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/7e4b7ecd00e76d3f12c511e593d0189246b6323d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/f5061117b2b1b4df42190238d8d496337d8d9fd3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {

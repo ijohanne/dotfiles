@@ -1,7 +1,8 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ... }:
+{ config, pkgs, ... }:
 
 {
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
+  nixpkgs.config.allowUnfree = true;
 
   i18n = { defaultLocale = "en_US.UTF-8"; };
 
@@ -41,8 +42,6 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   virtualisation = {
     docker = {

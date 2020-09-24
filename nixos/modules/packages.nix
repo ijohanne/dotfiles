@@ -3,7 +3,6 @@ in { pkgs, config, lib, ... }: {
   nixpkgs.overlays = [
     (self: super: rec {
       inherit sources;
-      unstable = import sources.nixpkgs { };
       mozilla-overlay = (import sources.mozilla-overlay { }).packages;
 
       neovim-nightly = pkgs.neovim-unwrapped.overrideAttrs (_: {

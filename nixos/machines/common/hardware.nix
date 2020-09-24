@@ -1,4 +1,4 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ... }:
+{ config, pkgs, ... }:
 
 {
   hardware.enableAllFirmware = true;
@@ -43,3 +43,4 @@
   boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.zfs.enableUnstable = true;
 }
+

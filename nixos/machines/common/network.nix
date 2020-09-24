@@ -1,4 +1,4 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ... }:
+{ config, pkgs, ... }:
 
 {
   networking.networkmanager.enable = true;

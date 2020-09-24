@@ -1,12 +1,10 @@
-{ config, sources ? import ../../nixpkgs, pkgs ? import sources.nixpkgs { }, ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../common/users.nix
     ../common/general-rpi.nix
-
   ];
 
   networking.hostName = "ntp";

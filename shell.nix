@@ -1,5 +1,5 @@
 let
-  sources = import ./nixos/nix;
+  sources = import ./nixos/nix/sources.nix;
   nixpkgs = sources."nixpkgs";
   pkgs = import nixpkgs { };
 in pkgs.mkShell rec {
@@ -10,6 +10,5 @@ in pkgs.mkShell rec {
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${sources."home-manager"}"
-    export HOME_MANAGER_CONFIG="$HOME/.config/nixpkgs/home.nix"
   '';
 }
