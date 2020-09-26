@@ -28,7 +28,7 @@ in {
   fish-fzf = {
     name = "fish-fzf";
     src = pkgs.fetchFromGitHub {
-      inherit (sources.fish-fzf ) owner repo rev sha256;
+      inherit (sources.fish-fzf) owner repo rev sha256;
     };
   };
 }

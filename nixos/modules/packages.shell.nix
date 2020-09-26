@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    #    kubectl
     lsof
     whois
     haskellPackages.nixfmt
@@ -12,5 +11,6 @@
     imagemagick
     niv
     perl
+    gitAndTools.gh
   ];
 }
