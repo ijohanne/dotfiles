@@ -35,6 +35,18 @@
         "url": "https://github.com/edc/bass/archive/50eba266b0d8a952c7230fca1114cbc9fbbdfbd4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "fish-fzf": {
+        "branch": "main",
+        "description": "fzf fish plugin",
+        "homepage": null,
+        "owner": "patrickf3139",
+        "repo": "fzf.fish",
+        "rev": "87cf0d4d0a1b878751d62a7bef89c03aa8a1e905",
+        "sha256": "01g5xs6j9z2wqsv634gk407hixlpxwnyhcr9j7xn6lyhjllqwy7r",
+        "type": "tarball",
+        "url": "https://github.com/patrickf3139/fzf.fish/archive/87cf0d4d0a1b878751d62a7bef89c03aa8a1e905.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "fish-ssh-agent": {
         "branch": "master",
         "description": "ssh-agent fish plugin",

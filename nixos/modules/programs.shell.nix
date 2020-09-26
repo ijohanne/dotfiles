@@ -14,7 +14,7 @@ in {
 
   home.packages = with pkgs;
     with stdenv.lib;
-    [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer ]
+    [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer bat fd ]
     ++ (with pkgs.nodePackages; [
       typescript-language-server
       vim-language-server
@@ -131,6 +131,7 @@ in {
       bass
       oh-my-fish-plugin-ssh
       oh-my-fish-plugin-foreign-env
+      fish-fzf
       fish-ssh-agent
     ];
   };

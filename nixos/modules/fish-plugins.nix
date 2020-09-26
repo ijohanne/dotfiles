@@ -25,5 +25,11 @@ in {
       inherit (sources.fish-ssh-agent) owner repo rev sha256;
     };
   };
+  fish-fzf = {
+    name = "fish-fzf";
+    src = pkgs.fetchFromGitHub {
+      inherit (sources.fish-fzf ) owner repo rev sha256;
+    };
+  };
 }
 
