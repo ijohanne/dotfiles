@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
   nixpkgs.config.allowUnfree = true;
 
@@ -24,9 +25,17 @@
     dbus.packages = [ pkgs.blueman ];
   };
 
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ];
+  services.printing = { drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ]; };
+
+  hardware.printers = {
+    ensurePrinters = [{
+      description = "Home - HP OfficeJet 3830";
+      name = "officejet_3830";
+      deviceUri = "ipp://10.255.100.2/ipp/print";
+      ppdOptions = { PageSize = "A4"; };
+      model = "drv:///hp/hpcups.drv/hp-officejet_3830_series.ppd";
+    }];
+    ensureDefaultPrinter = "officejet_3830";
   };
 
   services.xserver = {
@@ -51,4 +60,8 @@
     };
     libvirtd.enable = true;
   };
+
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 }
