@@ -1,10 +1,9 @@
 let sources = import ../nix/sources.nix;
 in { pkgs, config, lib, ... }: {
   nixpkgs.overlays = [
+    (import sources.mozilla-overlay)
     (self: super: rec {
       inherit sources;
-      mozilla-overlay = (import sources.mozilla-overlay { }).packages;
-
       neovim-nightly = pkgs.neovim-unwrapped.overrideAttrs (_: {
         pname = "neovim-nightly";
         version = "master";

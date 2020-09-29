@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.firefox = {
     enable = true;
+    package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });
     extensions = with pkgs.nur.rycee.firefox-addons; [
       ublock-origin
       lastpass-password-manager
