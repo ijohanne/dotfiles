@@ -59,6 +59,7 @@ $> nix-env -i git git-crypt
 Export the needed variables for this guide
 ```bash
 $> export LOCAL_USER="ij" # Adapt as needed
+$> export MACHINE_TYPE="nixos" 
 $> export MACHINE_NAME="ij-laptop" # Adapt as needed
 $> export DISK_DEVICE="/dev/sdb" # Adapt as needed
 $> export BOOT_DEVICE="/dev/sdb1" # Adapt as needed
@@ -180,10 +181,10 @@ $> git clone --recursive https://github.com/ijohanne/dotfiles /mnt/home/$LOCAL_U
 ## Link configs
 Copy the newly generated configs to git
 ```bash
-$> mkdir -p /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
-$> mv /mnt/etc/nixos/configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
-$> mv /mnt/etc/nixos/hardware-configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME
-$> printf "import /mnt/home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
+$> mkdir -p /mnt/home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME
+$> mv /mnt/etc/nixos/configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME
+$> mv /mnt/etc/nixos/hardware-configuration.nix /mnt/home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME
+$> printf "import /mnt/home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
 ```
 
 ## Adapt configs as needed
@@ -198,7 +199,7 @@ $> nixos-install
 
 ## Post-install setup
 ```bash
-$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
+$> printf "import /home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME/configuration.nix" > /mnt/etc/nixos/configuration.nix
 ```
 
 ## Reboot
@@ -210,7 +211,8 @@ $> reboot
 Login as your new user and setup `home-manager`
 ```bash
 $> MACHINE_NAME="ij-laptop" # Change machine name here
-$> $HOME/.dotfiles/activate.sh $MACHINE_NAME
+$> MACHINE_TYPE="nixos"
+$> $HOME/.dotfiles/activate.sh $MACHINE_TYPE $MACHINE_NAME
 ```
 
 # Maintenance
@@ -245,10 +247,10 @@ $> mount $BOOT_DEVICE /mnt/efi
 
 # Setting up a Raspberry Pi 
 ## Building the image and writing it to a SD card
-Copy and adapt the [sd-card-rpi4.nix](nixos/machines/sd-card-rpi4.nix) as needed (include your own SSH key)
+Copy and adapt the [sd-card-rpi4.nix](nixos/sd-card-rpi4.nix) as needed (include your own SSH key)
 ```bash
 $> nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage \
-    -I nixos-config=nixos/machines/sd-card-rpi4.nix \
+    -I nixos-config=nixos/sd-card-rpi4.nix \
     --argstr system aarch64-linux
 ```
 When the build completes it will print the location of the image file
@@ -266,9 +268,10 @@ You can now put the SD card in your Raspberry Pi, and it will be configured with
 ```bash
 $> export LOCAL_USER="ij"    # Update this as needed
 $> export MACHINE_NAME="ntp" # Update this as needed
+$> export MACHINE_TYPE="nixos"
 $> mkdir -p /home/$LOCAL_USER
 $> git clone --recursive https://github.com/ijohanne/dotfiles /home/$LOCAL_USER/.dotfiles
-$> printf "import /home/$LOCAL_USER/.dotfiles/nixos/machines/$MACHINE_NAME/configuration.nix" > /etc/nixos/configuration.nix
+$> printf "import /home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME/configuration.nix" > /etc/nixos/configuration.nix
 $> $HOME/.dotfiles/nixos-rebuild.sh switch
 $> passwd $LOCAL_USER # Don't forget to set the password for your local user, as we're now using `nix-install`
 $> reboot
@@ -278,14 +281,15 @@ When the Raspberry Pi is booted login as your local user and complete the local 
 ```bash
 $> export LOCAL_USER="ij"    # Update this as needed
 $> export MACHINE_NAME="ntp" # Update this as needed
+$> export MACHINE_TYPE="nixos"
 $> sudo chown -R $LOCAL_USER:adm $HOME/.dotfiles
-$> $HOME/.dotfiles/activate.sh $MACHINE_NAME
+$> $HOME/.dotfiles/activate.sh $MACHINE_TYPE $MACHINE_NAME
 ```
 Logout and login again - and the local user setup will be activated.
 
 # Remote builders
 On certain platforms builds are really slow, e.g. Raspberry Pi, so it makes sense to use remote builders. 
-Make sure to have the proper SSH public key set to a trusted user in [users.nix](nixos/machines/common/users.nix) on the builder machine, and also make sure to enable `boot.binfmt.emulatedSystems` for the needed platforms (see [ij-home configuration](nixos/machines/ij-home/hardware-configuration.nix) for details).
+Make sure to have the proper SSH public key set to a trusted user in [users.nix](machines/common/users.nix) on the builder machine, and also make sure to enable `boot.binfmt.emulatedSystems` for the needed platforms (see [ij-home configuration](machines/ij-home/hardware-configuration.nix) for details).
 
 The key has to be in `~root/.ssh` and the following is needed as part of the `~root/.ssh/config`, but remember to replace the `HostName`, `Port` and `User` part.
 
@@ -298,4 +302,4 @@ Host builder
         IdentityFile /root/.ssh/nix_remote
 ```
 
-The remainder of the config can be seen in [ntp config](nixos/machines/ntp/configuration.nix).
+The remainder of the config can be seen in [ntp config](machines/ntp/configuration.nix).

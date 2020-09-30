@@ -3,11 +3,11 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/hardware.nix
-    ../common/network.nix
-    ../common/users.nix
-    ../common/general.nix
-    ../common/packages.nix
+    ../../../modules/hardware/hardware.nix
+    ../../../modules/hardware/network.nix
+    ../../../modules/hardware/users.nix
+    ../../../modules/hardware/general.nix
+    ../../../modules/hardware/packages.nix
   ];
 
   networking.hostName = "ij-laptop";

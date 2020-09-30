@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  sources = import ../nix/sources.nix;
+  sources = import ../../nix/sources.nix;
   dots = "${config.home.homeDirectory}/.dotfiles";
 in {
   home.file = {

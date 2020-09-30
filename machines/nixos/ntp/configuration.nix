@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../common/hardware-rpi.nix
-    ../common/general-rpi.nix
-    ../common/users.nix
-    ../common/packages.nix
+    ../../../modules/hardware/hardware-rpi.nix
+    ../../../modules/hardware/general-rpi.nix
+    ../../../modules/hardware/users.nix
+    ../../../modules/hardware/packages.nix
   ];
 
   networking.hostName = "ntp";

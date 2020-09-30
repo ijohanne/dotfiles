@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  sources = import ../nix/sources.nix;
+  sources = import ../../nix/sources.nix;
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
