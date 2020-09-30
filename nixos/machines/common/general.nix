@@ -3,7 +3,6 @@
 {
 
   nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
-  nixpkgs.config.allowUnfree = true;
 
   i18n = { defaultLocale = "en_US.UTF-8"; };
 

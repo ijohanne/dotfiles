@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-  nixpkgs.config.allowUnfree = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;

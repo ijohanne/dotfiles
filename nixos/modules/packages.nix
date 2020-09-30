@@ -12,7 +12,10 @@ in { pkgs, config, lib, ... }: {
         };
       });
 
-      nur = (import sources.NUR { pkgs = import sources.nixpkgs { }; }).repos;
+      nur = (import sources.NUR {
+        pkgs = import sources.nixpkgs { config.allowUnfree = true; };
+      }).repos;
     })
   ];
+  nixpkgs.config.allowUnfree = true;
 }

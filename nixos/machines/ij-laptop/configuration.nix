@@ -7,6 +7,7 @@
     ../common/network.nix
     ../common/users.nix
     ../common/general.nix
+    ../common/packages.nix
   ];
 
   networking.hostName = "ij-laptop";
