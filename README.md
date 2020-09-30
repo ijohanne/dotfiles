@@ -247,10 +247,10 @@ $> mount $BOOT_DEVICE /mnt/efi
 
 # Setting up a Raspberry Pi 
 ## Building the image and writing it to a SD card
-Copy and adapt the [sd-card-rpi4.nix](nixos/sd-card-rpi4.nix) as needed (include your own SSH key)
+Copy and adapt the [sd-card-rpi4.nix](machines/nixos/sd-card-rpi4.nix) as needed (include your own SSH key)
 ```bash
 $> nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage \
-    -I nixos-config=nixos/sd-card-rpi4.nix \
+    -I nixos-config=machines/nixos/sd-card-rpi4.nix \
     --argstr system aarch64-linux
 ```
 When the build completes it will print the location of the image file
