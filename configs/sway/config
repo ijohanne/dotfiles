@@ -127,12 +127,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Sound
-#
-bindsym $mod+space+equal exec "pactl set-sink-volume @DEFAULT_SINK@ +2%"
-bindsym $mod+space+minus exec "pactl set-sink-volume @DEFAULT_SINK@ -2%"
-
-#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.

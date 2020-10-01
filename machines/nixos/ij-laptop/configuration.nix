@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/machines/hardware.nix
+    ../../../modules/machines/hardware-laptops.nix
     ../../../modules/machines/network.nix
     ../../../modules/machines/users.nix
     ../../../modules/machines/general.nix
