@@ -7,6 +7,18 @@
       lastpass-password-manager
       reddit-enhancement-suite
     ];
+    profiles.default = {
+      id = 0;
+      settings = {
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "extensions.autoDisableScopes" = 0;
+        "browser.uidensity" = 1;
+        "browser.search.openintab" = true;
+        "xpinstall.signatures.required" = false;
+        "extensions.update.enabled" = false;
+      };
+
+    };
   };
 
   home.packages = with pkgs; [ alacritty libsixel ];
