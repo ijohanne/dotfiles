@@ -16,8 +16,10 @@
         "browser.search.openintab" = true;
         "xpinstall.signatures.required" = false;
         "extensions.update.enabled" = false;
+        "identity.fxaccounts.enabled" = false;
+        "signon.rememberSignons" = false;
+        "signon.rememberSignons.visibilityToggle" = false;
       };
-
     };
   };
 
