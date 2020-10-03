@@ -41,9 +41,8 @@ devices being `/dev/sda` and the new disk for NixOS to be installed on to be
 block device to use would most likely be `/dev/nvme0n1` instead).
 
 ## Start wifi (optional)
-You may need to adapt the interface to reflect the one on your device.
 ```bash
-wpa_supplicant -B -i wlo1 -c <(wpa_passphrase 'SSID' 'PSK')
+$> nmcli device wifi connect SSID-Name password wireless-password
 ```
 
 ## Setup needed software
@@ -194,7 +193,7 @@ Enable needed elements (see sample configs already in repo)
 
 ## Execute install
 ```bash
-$> nixos-install
+$> /mnt/home/$LOCAL_USER/.dotfiles/nixos-install.sh
 ```
 
 ## Post-install setup
