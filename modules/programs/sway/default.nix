@@ -27,7 +27,7 @@
     wrapperFeatures.gtk = true;
 
     extraConfig = ''
-      default_border pixel 0
+      default_border pixel 1
       exec ${pkgs.swayidle}/bin/swayidle \
           timeout 300 '${pkgs.swaylock}/bin/swaylock -f -c 000000' \
           timeout 3600 'swaymsg "output * dpms off"' \
