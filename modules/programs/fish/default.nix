@@ -5,7 +5,7 @@ let
   dots = "${config.home.homeDirectory}/.dotfiles";
 in {
 
-    programs.fish = {
+  programs.fish = {
     enable = true;
     shellInit = builtins.readFile ../../../configs/fish/init.fish;
     plugins = with fishPlugins; [

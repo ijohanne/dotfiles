@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.lorri.enable = true;

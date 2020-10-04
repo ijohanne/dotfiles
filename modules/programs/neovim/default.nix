@@ -4,7 +4,7 @@ let
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
 in {
 
-    home.packages = with pkgs;
+  home.packages = with pkgs;
     with stdenv.lib;
     [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer bat fd ]
     ++ (with pkgs.nodePackages; [
@@ -16,7 +16,7 @@ in {
     (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
     [ python-language-server ];
 
-    programs.neovim = {
+  programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
@@ -65,7 +65,5 @@ in {
     ];
   };
 
-  home.sessionVariables = {
-    EDITOR = "${pkgs.neovim-nightly}";
-  };
+  home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}"; };
 }

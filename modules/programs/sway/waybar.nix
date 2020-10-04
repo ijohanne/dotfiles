@@ -8,9 +8,7 @@ in {
   options.services.waybar = with lib; {
     enable = mkEnableOption "waybar";
 
-    config = mkOption {
-      type = types.attrs;
-    };
+    config = mkOption { type = types.attrs; };
   };
 
   config = lib.mkIf cfg.enable {
