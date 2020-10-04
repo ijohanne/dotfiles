@@ -1,9 +1,22 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
 
   imports = [ ./waybar.nix ];
   home.file.".wallpapers".source = ../../../backgrounds;
+
+  home.packages = with pkgs; [
+    bemenu
+    mako
+    grim
+    slurp
+    xdg-user-dirs
+    wl-clipboard
+    wofi
+    dmenu
+    xwayland
+    swayidle
+    swaylock
+    libappindicator-gtk3
+  ];
 
   wayland.windowManager.sway = let
     wallpaperCommand = "find ~/.wallpapers/* | shuf -n 1";
@@ -15,11 +28,11 @@
 
     extraConfig = ''
       default_border pixel 0
-      exec swayidle \
-          timeout 300 'swaylock -f -c 000000' \
+      exec ${pkgs.swayidle}/bin/swayidle \
+          timeout 300 '${pkgs.swaylock}/bin/swaylock -f -c 000000' \
           timeout 3600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+          before-sleep '${pkgs.swaylock}/bin/swaylock -f -c 000000'
     '';
 
     config = {
@@ -36,7 +49,7 @@
 
       fonts = [ "DejaVu Sans 11" ];
       terminal = "alacritty";
-      menu = "wofi --show drun";
+      menu = "${pkgs.wofi}/bin/wofi --show drun";
 
       startup = [
         {
@@ -89,7 +102,7 @@
 
         "${modifier}+Shift+q" = "kill";
 
-        "${modifier}+d" = "exec ${pkgs.wofi} --show drun";
+        "${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
         "${modifier}+l" = "exec 'swaylock -f -c 000000'";
 
         "${modifier}+b" = "split h";
@@ -146,22 +159,20 @@
       memory = { format = " {}%"; };
       modules-center = [ "clock" ];
       modules-left = [ "sway/workspaces" "sway/mode" "tray" ];
-      modules-right = [ "temperature" "battery" ];
+      modules-right = [ "battery" "cpu" "memory" "pulseaudio" ];
       pulseaudio = {
         format = "{icon} {volume}%";
         format-icons = [ "" "" ];
         format-muted = "";
       };
       "sway/workspaces" = {
-        all-outputs = true;
+        all-outputs = false;
         disable-scroll = true;
+        format = "{name}";
       };
-      temperature = {
-        critical-threshold = 90;
-        format = "{icon} {temperatureC}°C";
-        format-icons = [ "" "" "" "" "" ];
-        hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
-        interval = 1;
+      "sway/window" = {
+        format = "{}";
+        max-length = 50;
       };
     };
   };

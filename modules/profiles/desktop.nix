@@ -30,15 +30,10 @@
     inconsolata
     zathura
     seafile-client
-    mako
     skype
     feh
     openconnect
     obs-studio
-    grim
-    slurp
-    xdg-user-dirs
-    wl-clipboard
     lsof
     whois
     haskellPackages.nixfmt
