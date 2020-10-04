@@ -1,4 +1,4 @@
-let sources = import ../../nix/sources.nix;
+let sources = import ../nix/sources.nix;
 in { pkgs, config, lib, ... }: {
   nixpkgs.overlays = [
     (import sources.mozilla-overlay)

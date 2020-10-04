@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{pkgs,...}:
+
+{
   programs.firefox = {
     enable = true;
     package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });
@@ -22,10 +24,5 @@
       };
     };
   };
-
-  home.packages = with pkgs; [ alacritty libsixel ];
-
-  xdg.configFile."alacritty/alacritty.yml".source =
-    ../../configs/terminal/alacritty.yml;
 }
 
