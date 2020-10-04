@@ -14,7 +14,6 @@
     ../programs/firefox.nix
     ../programs/lorri.nix
     ../programs/gpg-agent.nix
-    ../programs/network-manager.nix
     ../programs/tex.nix
     ../fonts-themes.nix
   ];

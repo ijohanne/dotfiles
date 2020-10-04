@@ -27,12 +27,13 @@
     wrapperFeatures.gtk = true;
 
     extraConfig = ''
-      default_border pixel 1
+      default_border normal 1
       exec ${pkgs.swayidle}/bin/swayidle \
           timeout 300 '${pkgs.swaylock}/bin/swaylock -f -c 000000' \
           timeout 3600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
           before-sleep '${pkgs.swaylock}/bin/swaylock -f -c 000000'
+      workspace 1
     '';
 
     config = {
@@ -47,7 +48,7 @@
 
       bars = [ ];
 
-      fonts = [ "DejaVu Sans 11" ];
+      fonts = [ "Inconsolata Nerd Font 10" ];
       terminal = "alacritty";
       menu = "${pkgs.wofi}/bin/wofi --show drun";
 
@@ -78,7 +79,6 @@
         "${modifier}+Shift+space" = "floating toggle";
         "${modifier}+space" = "focus mode_toggle";
 
-        "${modifier}+1" = "workspace 1";
         "${modifier}+2" = "workspace 2";
         "${modifier}+3" = "workspace 3";
         "${modifier}+4" = "workspace 4";
@@ -88,6 +88,7 @@
         "${modifier}+8" = "workspace 8";
         "${modifier}+9" = "workspace 9";
         "${modifier}+0" = "workspace 10";
+        "${modifier}+1" = "workspace 1";
 
         "${modifier}+Shift+1" = "move container to workspace 1";
         "${modifier}+Shift+2" = "move container to workspace 2";
@@ -103,7 +104,7 @@
         "${modifier}+Shift+q" = "kill";
 
         "${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
-        "${modifier}+l" = "exec 'swaylock -f -c 000000'";
+        "${modifier}+l" = "exec '${pkgs.swaylock}/bin/swaylock -f -c 000000'";
 
         "${modifier}+b" = "split h";
         "${modifier}+v" = "split v";
