@@ -139,6 +139,7 @@ in {
   programs.direnv = {
     enable = true;
     enableNixDirenvIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.neovim = {
