@@ -15,6 +15,11 @@
 
     extraConfig = ''
       default_border pixel 0
+      exec swayidle \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 3600 'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
     '';
 
     config = {
@@ -45,7 +50,7 @@
       ];
 
       keybindings = {
-        "${modifier}+Return" = "exec ${pkgs.alacritty}";
+        "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
 
         "${modifier}+Left" = "focus left";
         "${modifier}+Down" = "focus down";
@@ -85,7 +90,7 @@
         "${modifier}+Shift+q" = "kill";
 
         "${modifier}+d" = "exec ${pkgs.wofi} --show drun";
-        "${modifier}+l" = "exec sudo ${pkgs.physlock}";
+        "${modifier}+l" = "exec 'swaylock -f -c 000000'";
 
         "${modifier}+b" = "split h";
         "${modifier}+v" = "split v";
