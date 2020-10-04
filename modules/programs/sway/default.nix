@@ -106,13 +106,13 @@
         "${modifier}+r" = "mode resize";
 
         "XF86AudioRaiseVolume" =
-          "exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%";
+          "exec ${pkgs.pulseaudio}/bin/pactl -s 127.0.0.1 set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" =
-          "exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%";
+          "exec ${pkgs.pulseaudio}/bin/pactl -s 127.0.0.1 set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" =
-          "exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle";
+          "exec ${pkgs.pulseaudio}/bin/pactl -s 127.0.0.1 set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioMicMute" =
-          "exec pactl set-source-mute $(pacmd list-sources |awk '/* index:/{print $3}') toggle";
+          "exec ${pkgs.pulseaudio}/bin/pactl -s 127.0.0.1 set-source-mute @DEFAULT_SOURCE@ toggle";
         "XF86MonBrightnessDown" =
           "exec ${pkgs.brightnessctl}/bin/brightnessctl set 2%-";
         "XF86MonBrightnessUp" =
