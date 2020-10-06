@@ -17,5 +17,6 @@
     ./ripgrep
     ./whois
     ./bind
+    ./tcpdump
   ];
 }
