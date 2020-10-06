@@ -48,7 +48,7 @@
 
       bars = [ ];
 
-      fonts = [ "Inconsolata Nerd Font 10" ];
+      fonts = [ "Inconsolata 10" ];
       terminal = "alacritty";
       menu = "${pkgs.wofi}/bin/wofi --show drun";
 

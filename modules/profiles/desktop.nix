@@ -15,6 +15,7 @@
     ../programs/lorri.nix
     ../programs/gpg-agent.nix
     ../programs/tex.nix
+    ../programs/shell-utils.nix
     ../fonts-themes.nix
   ];
 
@@ -42,9 +43,6 @@
     docker-compose
     ldns
     imagemagick
-    niv
-    perl
-    gitAndTools.gh
   ];
 
   home.sessionVariables = {

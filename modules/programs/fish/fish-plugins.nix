@@ -31,5 +31,12 @@ in {
       inherit (sources.fish-fzf) owner repo rev sha256;
     };
   };
+  fish-exa = {
+    name = "fish-exa";
+    src = pkgs.fetchFromGitHub {
+      inherit (sources.fish-exa) owner repo rev sha256;
+    };
+  };
+
 }
 
