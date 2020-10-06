@@ -4,6 +4,7 @@ in { pkgs, config, lib, ... }: {
     (import sources.mozilla-overlay)
     (self: super: rec {
       inherit sources;
+      niv = import sources.niv { };
       neovim-nightly = pkgs.neovim-unwrapped.overrideAttrs (_: {
         pname = "neovim-nightly";
         version = "master";

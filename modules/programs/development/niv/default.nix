@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ niv ]; }
+{ pkgs, ... }: { home.packages = with pkgs.niv; [ niv ]; }
