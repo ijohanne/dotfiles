@@ -7,7 +7,7 @@
     ../../../modules/machines/network.nix
     ../../../modules/machines/users.nix
     ../../../modules/machines/general.nix
-
+    ../../../modules/machines/packages.nix
   ];
 
   networking.hostName = "ij-home";
