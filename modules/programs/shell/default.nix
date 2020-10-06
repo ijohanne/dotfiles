@@ -18,5 +18,9 @@
     ./whois
     ./bind
     ./tcpdump
+    ./bat
+    ./fd
+    ./fzf
+    ./zoxide
   ];
 }

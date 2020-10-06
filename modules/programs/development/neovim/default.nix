@@ -6,7 +6,7 @@ in {
 
   home.packages = with pkgs;
     with stdenv.lib;
-    [ rnix-lsp neovim-remote lua zoxide fzf ctags rust-analyzer bat fd ]
+    [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
     ++ (with pkgs.nodePackages; [
       typescript-language-server
       vim-language-server
