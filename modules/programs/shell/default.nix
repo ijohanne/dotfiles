@@ -16,5 +16,6 @@
     ./nixfmt
     ./ripgrep
     ./whois
+    ./bind
   ];
 }
