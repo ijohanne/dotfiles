@@ -21,6 +21,8 @@
         "identity.fxaccounts.enabled" = false;
         "signon.rememberSignons" = false;
         "signon.rememberSignons.visibilityToggle" = false;
+        "media.eme.enabled" = true;
+        "browser.eme.ui.enabled" = true;
       };
     };
   };
