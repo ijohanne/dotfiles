@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [ inconsolata-nerdfont ];
+  home.packages = with pkgs; [ inconsolata inconsolata-nerdfont ];
   gtk = {
     enable = true;
     font = {

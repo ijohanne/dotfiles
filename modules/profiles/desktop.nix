@@ -8,6 +8,7 @@
     ../programs/development
     ../programs/window-managers
     ../programs/tex
+    ../programs/x11
     ../fonts-themes.nix
   ];
 

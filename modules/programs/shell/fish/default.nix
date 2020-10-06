@@ -13,6 +13,7 @@ in {
       eval (${pkgs.coreutils}/bin/dircolors -c "${sources.LS_COLORS.outPath}/LS_COLORS")
       source ${fishPlugins.fish-exa.src}/functions/l.fish
       source ${fishPlugins.fish-exa.src}/functions/ll.fish
+      alias top=ytop
     '';
     plugins = with fishPlugins; [
       bass
