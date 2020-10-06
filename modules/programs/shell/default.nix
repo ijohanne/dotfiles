@@ -1,0 +1,20 @@
+{
+  imports = [
+    ./du-dust
+    ./exa
+    ./ytop
+    ./starship
+    ./tokei
+    ./procs
+    ./gpg-agent
+    ./fish
+    ./imagemagick
+    ./ldns
+    ./lsof
+    ./mkpasswd
+    ./mtr
+    ./nixfmt
+    ./ripgrep
+    ./whois
+  ];
+}
