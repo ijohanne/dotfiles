@@ -22,5 +22,6 @@
     ./fd
     ./fzf
     ./zoxide
+    ./tmux
   ];
 }
