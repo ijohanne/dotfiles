@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "08839c9ad3bbbb478bf8839dfd7d2eeba000ea9a",
-        "sha256": "0mr5dwb40wgpdihlwyb4n47wis12kni6hmr88mxkxyyhz2fym296",
+        "rev": "daa897dedb71f6bc4be2e00fff0c349370ea5441",
+        "sha256": "1zlyfxvz2fqmynh1ihd8lshi3l7ywsic273xjfmql59kikgv2789",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/08839c9ad3bbbb478bf8839dfd7d2eeba000ea9a.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/daa897dedb71f6bc4be2e00fff0c349370ea5441.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -101,10 +101,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "753a86c01a02383df5faab3831a5d275c81f0b6d",
-        "sha256": "06s25v6sx8031hpzbnd1q60giaz3gl49j6f1vf3lpzbzp0a5cxqj",
+        "rev": "a260d5def363ca30f0473365ea514f2dedd0d0ba",
+        "sha256": "0mz7b4k9l9c5z8ssf04z8798hzixc5lpfp2r87y1pbzqcz6nzxfh",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/753a86c01a02383df5faab3831a5d275c81f0b6d.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/a260d5def363ca30f0473365ea514f2dedd0d0ba.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -120,15 +120,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "nixos-unstable",
+        "branch": "nixos-unstable-small",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "84d74ae9c9cbed73274b8e4e00be14688ffc93fe",
-        "sha256": "0ww70kl08rpcsxb9xdx8m48vz41dpss4hh3vvsmswll35l158x0v",
+        "rev": "0d47426f37d6517ef6ab095df1f9d4e7395e8981",
+        "sha256": "11cv64a0b9hd4ds1gjd0pdfma1gfkfnrv7pzny0mfa566pdnx98a",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/84d74ae9c9cbed73274b8e4e00be14688ffc93fe.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/0d47426f37d6517ef6ab095df1f9d4e7395e8981.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
