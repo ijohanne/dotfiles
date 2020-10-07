@@ -2,6 +2,7 @@ let sources = import ../nix/sources.nix;
 in { pkgs, config, lib, ... }: {
   nixpkgs.overlays = [
     (import sources.mozilla-overlay)
+    (import ../localpkgs)
     (self: super: rec {
       inherit sources;
       niv = import sources.niv { };

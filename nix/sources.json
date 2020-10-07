@@ -35,6 +35,18 @@
         "url": "https://github.com/edc/bass/archive/50eba266b0d8a952c7230fca1114cbc9fbbdfbd4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "bottom": {
+        "branch": "master",
+        "description": "Yet another cross-platform graphical process/system monitor.",
+        "homepage": "",
+        "owner": "ClementTsang",
+        "repo": "bottom",
+        "rev": "5675d8192cbe94d7dbc3370315396a11a3aca02e",
+        "sha256": "02lz4ajqqjxy4gzr8vglbyhjqah6x9rvrj5jd6s9xx7iyf1818kx",
+        "type": "tarball",
+        "url": "https://github.com/ClementTsang/bottom/archive/5675d8192cbe94d7dbc3370315396a11a3aca02e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "fish-exa": {
         "branch": "master",
         "description": "fish exa plugin",

@@ -2,7 +2,6 @@
   imports = [
     ./du-dust
     ./exa
-    ./ytop
     ./starship
     ./tokei
     ./procs
@@ -24,6 +23,7 @@
     ./zoxide
     ./tmux
     ./onefetch
+    ./bottom
   ];
 }
 
