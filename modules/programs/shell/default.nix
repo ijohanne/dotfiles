@@ -23,5 +23,7 @@
     ./fzf
     ./zoxide
     ./tmux
+    ./onefetch
   ];
 }
+

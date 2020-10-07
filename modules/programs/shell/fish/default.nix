@@ -14,7 +14,7 @@ in {
       source ${fishPlugins.fish-exa.src}/functions/l.fish
       source ${fishPlugins.fish-exa.src}/functions/ll.fish
       alias top=ytop
-      alisa du=dust
+      alias du=dust
     '';
     plugins = with fishPlugins; [
       bass
