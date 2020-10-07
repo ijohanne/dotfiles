@@ -8,6 +8,7 @@
       ublock-origin
       lastpass-password-manager
       reddit-enhancement-suite
+      facebook-container
     ];
     profiles.default = {
       id = 0;
