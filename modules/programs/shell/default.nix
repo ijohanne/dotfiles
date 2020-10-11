@@ -24,6 +24,7 @@
     ./tmux
     ./onefetch
     ./bottom
+    ./nix-linter
   ];
 }
 

@@ -1,7 +1,5 @@
 { pkgs, ... }:
-let
-  sources = import ../../../../nix/sources.nix;
-  vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
+let vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
 in {
 
   home.packages = with pkgs;

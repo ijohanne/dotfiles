@@ -1,1 +1,1 @@
-self: super: { bottom = self.callPackage ./bottom.nix { }; }
+self: _: { bottom = self.callPackage ./bottom.nix { }; }

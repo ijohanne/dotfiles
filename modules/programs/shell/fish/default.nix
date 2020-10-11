@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   sources = import ../../../../nix/sources.nix;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
-  dots = "${config.home.homeDirectory}/.dotfiles";
 in {
 
   home.packages = with pkgs; [ python3Minimal ];

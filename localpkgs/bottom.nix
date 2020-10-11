@@ -1,13 +1,14 @@
-{ system ? builtins.currentSystem, pkgs ? import <nixpkgs> { inherit system; }
-, ... }:
+{ pkgs, ... }:
 
 with pkgs;
 let
-  rustPlatform = makeRustPlatform {
-    rustc = cargo;
-    cargo = cargo;
-  };
   sources = import ../nix/sources.nix;
+  rustPlatform = let rust = pkgs.latest.rustChannels.stable.rust;
+  in pkgs.makeRustPlatform {
+    cargo = rust;
+    rustc = rust;
+  };
+  inherit (pkgs) lib;
 in rustPlatform.buildRustPackage rec {
   name = "bottom-${version}";
   version = "master";

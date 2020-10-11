@@ -131,6 +131,18 @@
         "url": "https://github.com/nmattia/niv/archive/9d35b9e4837ab88517210b1701127612c260eccf.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nix-linter": {
+        "branch": "master",
+        "description": "Linter for the Nix expression language",
+        "homepage": "",
+        "owner": "Synthetica9",
+        "repo": "nix-linter",
+        "rev": "2516a8cda41f9bb553a1c3eca38e3dd94ebf53de",
+        "sha256": "07mn2c9v67wsm57jlxv9pqac9hahw4618vngmj2sfbgihx8997kb",
+        "type": "tarball",
+        "url": "https://github.com/Synthetica9/nix-linter/archive/2516a8cda41f9bb553a1c3eca38e3dd94ebf53de.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "nixos-unstable-small",
         "description": "Nix Packages collection",
@@ -165,6 +177,18 @@
         "sha256": "1rr9ngjkj08anf8d33g53gzi0scsa5ryyqiz16xis1fad7mn44bb",
         "type": "tarball",
         "url": "https://github.com/oh-my-fish/plugin-ssh/archive/850ec718f23d4182c0fc751adc04e9318e451f21.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "pre-commit-hooks-nix": {
+        "branch": "master",
+        "description": "Seamless integration of https://pre-commit.com git hooks with Nix.",
+        "homepage": "",
+        "owner": "cachix",
+        "repo": "pre-commit-hooks.nix",
+        "rev": "938e2c8bd2a36d67aabbd3976731049c175ab3e8",
+        "sha256": "0rp962rs4hghmzi4xn2l720jnzy043rjbh2hdbz7qk4nvnq2fp5d",
+        "type": "tarball",
+        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/938e2c8bd2a36d67aabbd3976731049c175ab3e8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
