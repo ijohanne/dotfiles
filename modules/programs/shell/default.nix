@@ -25,6 +25,7 @@
     ./onefetch
     ./bottom
     ./nix-linter
+    ./shfmt
   ];
 }
 
