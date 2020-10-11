@@ -17,6 +17,10 @@ in pkgs.mkShell rec {
   buildInputs = with pkgs; [
     (import sources.niv { }).niv
     (import sources.home-manager { inherit pkgs; }).home-manager
+    shellcheck
+    shfmt
+    nixfmt
+    (import sources.nix-linter { inherit pkgs; }).nix-linter
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${sources."home-manager"}"
