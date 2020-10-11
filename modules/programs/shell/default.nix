@@ -26,6 +26,7 @@
     ./bottom
     ./nix-linter
     ./shfmt
+    ./shellcheck
   ];
 }
 
