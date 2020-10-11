@@ -2,10 +2,11 @@ let
   sources = import ./nix/sources.nix;
   nixpkgs = sources."nixpkgs";
   pkgs = import nixpkgs { };
+  gis = import sources.gitignore { };
   nix-pre-commit-hooks = import sources.pre-commit-hooks-nix;
 in pkgs.mkShell rec {
   pre-commit-check = nix-pre-commit-hooks.run {
-    src = ./.;
+    src = gis.gitignoreSource ./.;
     hooks = {
       shellcheck.enable = true;
       nix-linter.enable = true;
