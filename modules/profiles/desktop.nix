@@ -12,5 +12,7 @@
     ../fonts-themes.nix
   ];
 
+  dotfiles.neovim.languageServers = true;
+
 }
 

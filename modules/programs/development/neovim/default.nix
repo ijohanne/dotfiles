@@ -6,7 +6,7 @@ let
 in {
   options.dotfiles.neovim = {
     languageServers = mkOption {
-      default = true;
+      default = false;
       type = lib.types.bool;
       description = "Enable language servers";
     };

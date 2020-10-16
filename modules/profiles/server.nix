@@ -7,7 +7,5 @@
     ../programs/shell
     ../programs/home-manager.nix
   ];
-
-  dotfiles.neovim.langaugeServers = false;
 }
 
