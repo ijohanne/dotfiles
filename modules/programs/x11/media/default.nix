@@ -1,5 +1,5 @@
 {
-  imports = [ ./feh ./spotify ./obs-studio ./pavucontrol ];
+  imports = [ ./feh ./spotify ./obs-studio ./pavucontrol ./vlc ];
 
 }
 

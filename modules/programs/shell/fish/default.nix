@@ -17,6 +17,7 @@ in {
       home-manager = "$HOME/.dotfiles/home-manager.sh";
       nixos-rebuild = "$HOME/.dotfiles/nixos-rebuild.sh";
       nix = "$HOME/.dotfiles/nix.sh";
+      niv-update = "$HOME/.dotfiles/update-niv.sh";
     };
     plugins = with fishPlugins; [
       bass
