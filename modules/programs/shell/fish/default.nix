@@ -8,10 +8,12 @@ in {
 
   programs.fish = {
     enable = true;
-    shellInit = builtins.readFile ../../../../configs/fish/init.fish + ''
+    shellInit = ''
       eval (${pkgs.coreutils}/bin/dircolors -c "${sources.LS_COLORS.outPath}/LS_COLORS")
       source ${fishPlugins.fish-exa.src}/functions/l.fish
       source ${fishPlugins.fish-exa.src}/functions/ll.fish
+      set --erase fish_greeting
+      ${pkgs.zoxide}/bin/zoxide init fish | source
     '';
     shellAliases = {
       home-manager = "$HOME/.dotfiles/home-manager.sh";
@@ -27,6 +29,23 @@ in {
       fish-ssh-agent
       fish-exa
     ];
+    functions = {
+      fish_greeting = { body = ""; };
+      fish_title = {
+        body = ''
+          echo (hostname): (pwd): $argv[1]
+          switch "$TERM"
+            case 'screen*'
+              if set -q SSH_CLIENT
+                set maybehost (hostname):
+              else
+               set maybehost ""
+             end
+            echo -ne "\\ek"$maybehost(status current-command)"\\e\\" >/dev/tty
+          end
+        '';
+      };
+    };
   };
 
 }
