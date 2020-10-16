@@ -25,7 +25,7 @@ function fish_title
     end
 end
 
-alias home-manager="$HOME/.dotfiles/home-manager.sh"
-alias nixos-rebuild="$HOME/.dotfiles/nixos-rebuild.sh"
-alias nixfmt-recursive="find . -name \*nix -type f -exec nixfmt {} \;"
+#alias home-manager="$HOME/.dotfiles/home-manager.sh"
+#alias nixos-rebuild="$HOME/.dotfiles/nixos-rebuild.sh"
+#alias nixfmt-recursive="find . -name \*nix -type f -exec nixfmt {} \;"
 
