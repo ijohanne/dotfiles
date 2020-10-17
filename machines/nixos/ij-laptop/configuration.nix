@@ -1,14 +1,9 @@
 { ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../../modules/machines/hardware.nix
-    ../../../modules/machines/network.nix
-    ../../../modules/machines/users.nix
-    ../../../modules/machines/general.nix
-    ../../../modules/machines/packages.nix
-  ];
+  imports = [ ./hardware-configuration.nix ../../../modules/machines ];
+
+  dotfiles.machines.desktop = true;
 
   networking.hostName = "ij-laptop";
   networking.hostId = "d035f711";

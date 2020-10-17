@@ -1,12 +1,9 @@
 { ... }:
 
 {
-  imports = [
-    ../../../modules/machines/hardware-rpi.nix
-    ../../../modules/machines/general-rpi.nix
-    ../../../modules/machines/users.nix
-    ../../../modules/machines/packages.nix
-  ];
+  imports = [ ../../../modules/machines ];
+
+  dotfiles.machines.rpi = true;
 
   networking.hostName = "ntp";
   system.stateVersion = "20.09";
