@@ -30,6 +30,7 @@ in {
         nixos-rebuild = "$HOME/.dotfiles/nixos-rebuild.sh";
         nix = "$HOME/.dotfiles/nix.sh";
         niv-update = "$HOME/.dotfiles/update-niv.sh";
+        nix-shell = "$HOME/.dotfiles/nix-shell.sh";
       };
       plugins = with fishPlugins;
         [
