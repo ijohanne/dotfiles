@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ bat ];
-
+  config = lib.mkIf (config.dotfiles.shell.bat.enable) {
+    home.packages = with pkgs; [ bat ];
+  };
 }
+

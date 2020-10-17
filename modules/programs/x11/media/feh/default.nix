@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ feh ];
-
+  config = lib.mkIf (config.dotfiles.x11.media.feh) {
+    home.packages = with pkgs; [ feh ];
+  };
 }
+

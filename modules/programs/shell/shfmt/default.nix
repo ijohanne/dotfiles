@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ shfmt ];
+  config = lib.mkIf (config.dotfiles.shell.shfmt.enable) {
+    home.packages = with pkgs; [ shfmt ];
+  };
 
 }
 

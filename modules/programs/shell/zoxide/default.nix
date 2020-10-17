@@ -1,6 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ zoxide ];
+  config = lib.mkIf (config.dotfiles.shell.zoxide.enable) {
+    home.packages = with pkgs; [ zoxide ];
+  };
 
 }
+

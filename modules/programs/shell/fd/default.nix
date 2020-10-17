@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ fd ];
+  config = lib.mkIf (config.dotfiles.shell.fd.enable) {
+    home.packages = with pkgs; [ fd ];
+  };
 
 }

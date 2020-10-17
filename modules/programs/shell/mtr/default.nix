@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ mtr ];
+  config = lib.mkIf (config.dotfiles.shell.mtr.enable) {
+    home.packages = with pkgs; [ mtr ];
+  };
 
 }

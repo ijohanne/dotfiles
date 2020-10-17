@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ obs-studio ];
-
+  config = lib.mkIf (config.dotfiles.x11.media.obs-studio) {
+    home.packages = with pkgs; [ obs-studio ];
+  };
 }
+

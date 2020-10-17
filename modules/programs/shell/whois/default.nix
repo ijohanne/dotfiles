@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ whois ];
-
+  config = lib.mkIf (config.dotfiles.shell.whois.enable) {
+    home.packages = with pkgs; [ whois ];
+  };
 }
+

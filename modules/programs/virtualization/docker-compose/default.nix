@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ docker-compose ];
-
+  config = lib.mkIf (config.dotfiles.virtualization.docker-compose) {
+    home.packages = with pkgs; [ docker-compose ];
+  };
 }
+

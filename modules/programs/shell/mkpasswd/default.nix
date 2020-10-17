@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ mkpasswd ];
+  config = lib.mkIf (config.dotfiles.shell.mkpasswd.enable) {
+    home.packages = with pkgs; [ mkpasswd ];
+  };
 
 }

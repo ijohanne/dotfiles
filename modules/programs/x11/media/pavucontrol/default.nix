@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ pavucontrol ];
-
+  config = lib.mkIf (config.dotfiles.x11.media.pavucontrol) {
+    home.packages = with pkgs; [ pavucontrol ];
+  };
 }
+

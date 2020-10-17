@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ seafile-client ];
-
+  config = lib.mkIf (config.dotfiles.x11.office.seafile-client) {
+    home.packages = with pkgs; [ seafile-client ];
+  };
 }
+

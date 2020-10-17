@@ -1,19 +1,19 @@
 { pkgs, lib, config, ... }:
 with lib;
 let
-  cfg = config.dotfiles.neovim;
+  cfg = config.dotfiles.development-tools.neovim;
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
 in {
-  options.dotfiles.neovim = {
-    languageServers = mkOption {
+  options.dotfiles.development-tools.neovim = {
+    language-servers.enable = mkOption {
       default = false;
       type = lib.types.bool;
       description = "Enable language servers";
     };
   };
 
-  config = {
-    home.packages = lib.mkIf (cfg.languageServers) (with pkgs;
+  config = lib.mkIf (cfg.enable) {
+    home.packages = lib.mkIf (cfg.language-servers.enable) (with pkgs;
       with stdenv.lib;
       [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
       ++ (with pkgs.nodePackages; [
@@ -35,7 +35,7 @@ in {
       package = pkgs.neovim-nightly;
       extraConfig = lib.concatStrings
         ([ (builtins.readFile ../../../../configs/neovim/init.vim) ]
-          ++ optionals (cfg.languageServers)
+          ++ optionals (cfg.language-servers.enable)
           [ (builtins.readFile ../../../../configs/neovim/lsp.vim) ]);
       plugins = with vimPlugins;
         [
@@ -69,7 +69,7 @@ in {
           vim-nerdtree-syntax-highlight
           vim-devicons
           ctrlp-vim
-        ] ++ optionals (cfg.languageServers) [
+        ] ++ optionals (cfg.language-servers.enable) [
           vim-gutentags
           completion-nvim
           diagnostic-nvim

@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ zathura ];
-
+  config = lib.mkIf (config.dotfiles.x11.office.zathura) {
+    home.packages = with pkgs; [ zathura ];
+  };
 }
+

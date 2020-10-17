@@ -1,10 +1,12 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let dots = "${config.home.homeDirectory}/.dotfiles";
 in {
-  home.packages = with pkgs; [ procs ];
+  config = lib.mkIf (config.dotfiles.shell.procs.enable) {
+    home.packages = with pkgs; [ procs ];
 
-  xdg.configFile = {
-    "procs/config.toml".source = "${dots}/configs/procs/config.toml";
+    xdg.configFile = {
+      "procs/config.toml".source = "${dots}/configs/procs/config.toml";
+    };
   };
 }
 

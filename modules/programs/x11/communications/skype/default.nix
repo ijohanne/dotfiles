@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ skype ];
+  config = lib.mkIf (config.dotfiles.x11.communications.skype) {
+    home.packages = with pkgs; [ skype ];
+  };
 
 }

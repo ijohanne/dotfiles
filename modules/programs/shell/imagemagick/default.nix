@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ imagemagick ];
-
+  config = lib.mkIf (config.dotfiles.shell.imagemagick.enable) {
+    home.packages = with pkgs; [ imagemagick ];
+  };
 }
+

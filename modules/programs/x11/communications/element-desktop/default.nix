@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ element-desktop ];
+  config = lib.mkIf (config.dotfiles.x11.communications.element-desktop) {
+    home.packages = with pkgs; [ element-desktop ];
+  };
 
 }

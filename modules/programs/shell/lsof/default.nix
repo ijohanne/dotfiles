@@ -1,6 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ lsof ];
+  config = lib.mkIf (config.dotfiles.shell.lsof.enable) {
+    home.packages = with pkgs; [ lsof ];
+  };
 
 }
+

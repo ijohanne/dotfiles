@@ -2,7 +2,7 @@
 
 with pkgs;
 let
-  sources = import ../nix/sources.nix;
+  sources = import ../../nix/sources.nix;
   rustPlatform = let rust = pkgs.latest.rustChannels.stable.rust;
   in pkgs.makeRustPlatform {
     cargo = rust;

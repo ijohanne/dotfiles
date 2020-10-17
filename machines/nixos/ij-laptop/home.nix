@@ -1,6 +1,1 @@
-{
-  imports =
-    [ ../../../modules/profiles/desktop.nix ../../../modules/packages.nix ];
-
-  home.sessionVariables = { DRI_PRIME = "1"; };
-}
+{ imports = [ ../../../modules/profiles/desktop.nix ]; }

@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [ spotify ];
-
+  config = lib.mkIf (config.dotfiles.x11.media.spotify) {
+    home.packages = with pkgs; [ spotify ];
+  };
 }
+

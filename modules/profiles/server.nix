@@ -1,11 +1,6 @@
-{ ... }:
-
 {
-  imports = [
-    ../programs/development/neovim
-    ../programs/development/git
-    ../programs/shell
-    ../programs/home-manager.nix
-  ];
+  imports = [ ../programs ];
+  dotfiles.shell.enable = true;
+  dotfiles.development-tools.enable = true;
 }
 
