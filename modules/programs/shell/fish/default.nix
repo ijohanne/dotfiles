@@ -1,21 +1,29 @@
 { pkgs, lib, config, ... }:
-
+with lib;
 let
   sources = import ../../../../nix/sources.nix;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
-
   config = lib.mkIf (config.dotfiles.shell.fish.enable) {
     home.packages = with pkgs; [ python3Minimal ];
 
     programs.fish = {
       enable = true;
-      shellInit = ''
+      shellInit = let
+        exaStr = if config.dotfiles.shell.exa.enable then ''
+          source ${fishPlugins.fish-exa.src}/functions/l.fish
+          source ${fishPlugins.fish-exa.src}/functions/ll.fish
+        '' else
+          "";
+        zoxideStr = if config.dotfiles.shell.zoxide.enable then ''
+          ${pkgs.zoxide}/bin/zoxide init fish | source
+            '' else
+          "";
+      in ''
         eval (${pkgs.coreutils}/bin/dircolors -c "${sources.LS_COLORS.outPath}/LS_COLORS")
-        source ${fishPlugins.fish-exa.src}/functions/l.fish
-        source ${fishPlugins.fish-exa.src}/functions/ll.fish
         set --erase fish_greeting
-        ${pkgs.zoxide}/bin/zoxide init fish | source
+        ${exaStr}
+        ${zoxideStr}
       '';
       shellAliases = {
         home-manager = "$HOME/.dotfiles/home-manager.sh";
@@ -23,14 +31,14 @@ in {
         nix = "$HOME/.dotfiles/nix.sh";
         niv-update = "$HOME/.dotfiles/update-niv.sh";
       };
-      plugins = with fishPlugins; [
-        bass
-        oh-my-fish-plugin-ssh
-        oh-my-fish-plugin-foreign-env
-        fish-fzf
-        fish-ssh-agent
-        fish-exa
-      ];
+      plugins = with fishPlugins;
+        [
+          bass
+          oh-my-fish-plugin-ssh
+          oh-my-fish-plugin-foreign-env
+          fish-ssh-agent
+        ] ++ optionals (config.dotfiles.shell.fzf.enable) [ fish-fzf ]
+        ++ optionals (config.dotfiles.shell.exa.enable) [ fish-exa ];
       functions = {
         fish_greeting = { body = ""; };
         fish_title = {
