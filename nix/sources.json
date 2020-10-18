@@ -107,6 +107,18 @@
         "url": "https://github.com/rycee/home-manager/archive/e7d5531cfa770afc591f8dc5542eb4fba9962885.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "lfs": {
+        "branch": "master",
+        "description": "A thing to get information on your mounted disks",
+        "homepage": "",
+        "owner": "Canop",
+        "repo": "lfs",
+        "rev": "2d62e227bf864577e4705b4677f10b22c0939889",
+        "sha256": "15q4wf8hp80i8pjwxbf55f4gfzcwbv4g6qmafadvrj3qc66a8s68",
+        "type": "tarball",
+        "url": "https://github.com/Canop/lfs/archive/2d62e227bf864577e4705b4677f10b22c0939889.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "mozilla-overlay": {
         "branch": "master",
         "description": "Mozilla overlay",

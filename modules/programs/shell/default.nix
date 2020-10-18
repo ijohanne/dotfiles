@@ -138,6 +138,37 @@ in {
       type = lib.types.bool;
       description = "Enable shellcheck app";
     };
+    lfs.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable lfs app";
+    };
+    broot.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable broot app";
+    };
+    jq.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable jq app";
+    };
+    rq.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable rq app";
+    };
+
+    httpie.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable httpie app";
+    };
+    tig.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable tig app";
+    };
   };
 
   imports = [
@@ -168,6 +199,12 @@ in {
     ./nix-linter
     ./shfmt
     ./shellcheck
+    ./lfs
+    ./broot
+    ./jq
+    ./rq
+    ./httpie
+    ./tig
   ];
 
   config = lib.mkIf (cfg.enable) {
@@ -198,6 +235,12 @@ in {
     dotfiles.shell.nix-linter.enable = true;
     dotfiles.shell.shfmt.enable = true;
     dotfiles.shell.shellcheck.enable = true;
+    dotfiles.shell.lfs.enable = true;
+    dotfiles.shell.broot.enable = true;
+    dotfiles.shell.jq.enable = true;
+    dotfiles.shell.rq.enable = true;
+    dotfiles.shell.httpie.enable = true;
+    dotfiles.shell.tig.enable = true;
   };
 
 }
