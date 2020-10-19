@@ -13,7 +13,7 @@ in rustPlatform.buildRustPackage rec {
   name = "lfs-${version}";
   version = "master";
   src = pkgs.fetchFromGitHub { inherit (sources.lfs) owner repo rev sha256; };
-  cargoSha256 = "1v35563zp1sikk92sp0420gk242pa5khm926ixjwhdk8cxp6nqws";
+  cargoSha256 = "02mgmimp4dbq8ahhrs9np665c5pl6z997zmxlz1g3pw14x3dw2h9";
   buildInputs = [ ];
   CARGO_HOME = "$(mktemp -d cargo-home.XXX)";
 

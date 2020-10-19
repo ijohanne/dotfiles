@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "02588b383f5504d1bdfbf1bf7425fd84c9bae5e6",
-        "sha256": "0m7fjqjr0dgyqwbxafdk8mnlappv956y64rc86qyhzw2ppc9lhsd",
+        "rev": "c031fbab75cd4781bf39500120de17d2989e83dd",
+        "sha256": "1piaap6pzl86q8cmp79j5axfq6az5mcly4ygp57riwxv4wv65nd6",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/02588b383f5504d1bdfbf1bf7425fd84c9bae5e6.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/c031fbab75cd4781bf39500120de17d2989e83dd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "ClementTsang",
         "repo": "bottom",
-        "rev": "914079868f0bc5d1b709953bd8aaf0486ba32f65",
-        "sha256": "1qkf7i55ixy6lli4ws841pnwx0v4a0dxh1jajnw3lnf1mpc5gx3s",
+        "rev": "05b39d29ae4f3a3dd3f88c69ba3e29a1f9035c37",
+        "sha256": "1cw6asq9chl62xbxiwr63hsapbf17ccyaq0m5f5h0bd2rzjfh23g",
         "type": "tarball",
-        "url": "https://github.com/ClementTsang/bottom/archive/914079868f0bc5d1b709953bd8aaf0486ba32f65.tar.gz",
+        "url": "https://github.com/ClementTsang/bottom/archive/05b39d29ae4f3a3dd3f88c69ba3e29a1f9035c37.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-exa": {
@@ -65,10 +65,10 @@
         "homepage": null,
         "owner": "patrickf3139",
         "repo": "fzf.fish",
-        "rev": "915646734f9c9026db4ea563019398627be7c550",
-        "sha256": "1gi6mi61lc7j1rvqhgs37jqqkni3jm3diq0m8dcbgy528z8rxgdn",
+        "rev": "2487971fef69202b6a6ba9c7f9a932a85466f3ef",
+        "sha256": "1m6k1a0pzznb3wjxjw84qp3nrrf1jscncynzqig4zifypbn3fvyf",
         "type": "tarball",
-        "url": "https://github.com/patrickf3139/fzf.fish/archive/915646734f9c9026db4ea563019398627be7c550.tar.gz",
+        "url": "https://github.com/patrickf3139/fzf.fish/archive/2487971fef69202b6a6ba9c7f9a932a85466f3ef.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-ssh-agent": {
@@ -113,10 +113,10 @@
         "homepage": "",
         "owner": "Canop",
         "repo": "lfs",
-        "rev": "2d62e227bf864577e4705b4677f10b22c0939889",
-        "sha256": "15q4wf8hp80i8pjwxbf55f4gfzcwbv4g6qmafadvrj3qc66a8s68",
+        "rev": "84dd2fe74084aaa7aef8ed52a4fb2e6399174ebe",
+        "sha256": "0afr8z1ix6pr4vbkjqnl85x97pcc9hayfdnkwxarnd5i6c2m6v5d",
         "type": "tarball",
-        "url": "https://github.com/Canop/lfs/archive/2d62e227bf864577e4705b4677f10b22c0939889.tar.gz",
+        "url": "https://github.com/Canop/lfs/archive/84dd2fe74084aaa7aef8ed52a4fb2e6399174ebe.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -137,10 +137,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "0af18a6a4325d24bf4c386edb81c2f3776dab787",
-        "sha256": "0ki16a12ga88xby9d70raqr7g5m3bf6ihl0dl1jp08wwp2wwxh3l",
+        "rev": "eaee3d9297d114c81b05dd4ed104373eeb87bc11",
+        "sha256": "03ac0sxgcwy5nwrp7ffra64v5jhb1aw4kf0a9gfg6vz6v9v3ppgj",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/0af18a6a4325d24bf4c386edb81c2f3776dab787.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/eaee3d9297d114c81b05dd4ed104373eeb87bc11.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
