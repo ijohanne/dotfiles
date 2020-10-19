@@ -72,39 +72,39 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-ssh-agent": {
-        "branch": "master",
+        "branch": "features/dont_spawn_remotely_if_forwarded",
         "description": "ssh-agent fish plugin",
         "homepage": null,
-        "owner": "danhper",
+        "owner": "ijohanne",
         "repo": "fish-ssh-agent",
-        "rev": "ce90d80aa9549c626f9c5fc5a964536de015a192",
-        "sha256": "03zj5g7dxkhqpp9lijxxlnyx4cc7nqpapj5iqfv7swavyximicyi",
+        "rev": "2cd9d08904bb126e29edc60b8646ea1587649a27",
+        "sha256": "0ycfk15pgydrjaddkprh3q5hzrl0myh9v2sav7241n1irn6yfg76",
         "type": "tarball",
-        "url": "https://github.com/danhper/fish-ssh-agent/archive/ce90d80aa9549c626f9c5fc5a964536de015a192.tar.gz",
+        "url": "https://github.com/ijohanne/fish-ssh-agent/archive/2cd9d08904bb126e29edc60b8646ea1587649a27.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
         "branch": "master",
-        "description": "Nix function for filtering local git sources",
+        "description": "A collection of useful .gitignore templates",
         "homepage": "",
-        "owner": "hercules-ci",
+        "owner": "github",
         "repo": "gitignore",
-        "rev": "c4662e662462e7bf3c2a968483478a665d00e717",
-        "sha256": "1npnx0h6bd0d7ql93ka7azhj40zgjp815fw2r6smg8ch9p7mzdlx",
+        "rev": "218a941be92679ce67d0484547e3e142b2f5f6f0",
+        "sha256": "1yal0x4mixq9rdj9v4v1597p20nvxrpbpwfp6rl4draf20kmdnl8",
         "type": "tarball",
-        "url": "https://github.com/hercules-ci/gitignore/archive/c4662e662462e7bf3c2a968483478a665d00e717.tar.gz",
+        "url": "https://github.com/github/gitignore/archive/218a941be92679ce67d0484547e3e142b2f5f6f0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
         "homepage": "https://rycee.gitlab.io/home-manager/",
-        "owner": "rycee",
+        "owner": "nix-community",
         "repo": "home-manager",
         "rev": "e7d5531cfa770afc591f8dc5542eb4fba9962885",
         "sha256": "0gx4pl4hfl08kswalzqbbrzcgpjzkd84h7r4nvvf5hkkhflx5ng5",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/e7d5531cfa770afc591f8dc5542eb4fba9962885.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/e7d5531cfa770afc591f8dc5542eb4fba9962885.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "lfs": {
@@ -153,6 +153,18 @@
         "sha256": "0q50xhnm8g2yfyakrh0nly4swyygxpi0a8cb9gp65wcakcgvzvdh",
         "type": "tarball",
         "url": "https://github.com/nmattia/niv/archive/9d35b9e4837ab88517210b1701127612c260eccf.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nix-gitignore": {
+        "branch": "master",
+        "description": "Nix function for filtering local git sources",
+        "homepage": "",
+        "owner": "hercules-ci",
+        "repo": "gitignore",
+        "rev": "c4662e662462e7bf3c2a968483478a665d00e717",
+        "sha256": "1npnx0h6bd0d7ql93ka7azhj40zgjp815fw2r6smg8ch9p7mzdlx",
+        "type": "tarball",
+        "url": "https://github.com/hercules-ci/gitignore/archive/c4662e662462e7bf3c2a968483478a665d00e717.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-linter": {
@@ -209,10 +221,10 @@
         "homepage": "",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "938e2c8bd2a36d67aabbd3976731049c175ab3e8",
-        "sha256": "0rp962rs4hghmzi4xn2l720jnzy043rjbh2hdbz7qk4nvnq2fp5d",
+        "rev": "519988762d02e8ed7204723349f15cc31cb8a38e",
+        "sha256": "169nhrg3bkvm0zqnrciapbpdvqdy3i772ijx9zjv6490i6ilp072",
         "type": "tarball",
-        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/938e2c8bd2a36d67aabbd3976731049c175ab3e8.tar.gz",
+        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/519988762d02e8ed7204723349f15cc31cb8a38e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

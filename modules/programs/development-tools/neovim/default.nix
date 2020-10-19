@@ -3,6 +3,7 @@ with lib;
 let
   cfg = config.dotfiles.development-tools.neovim;
   vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
+  dotfilesLib = pkgs.callPackage ../../lib.nix { };
 in {
   options.dotfiles.development-tools.neovim = {
     language-servers.enable = mkOption {
@@ -24,6 +25,10 @@ in {
       ]) ++ optionals
       (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
       [ python-language-server ]);
+
+    programs.git.ignores =
+      dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
+      ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore";
 
     programs.neovim = {
       enable = true;
