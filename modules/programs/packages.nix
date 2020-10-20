@@ -20,4 +20,8 @@ in { pkgs, ... }: {
     })
   ];
   nixpkgs.config.allowUnfree = true;
+  home.sessionVariables = {
+    NIX_PATH =
+      "nixpkgs=${sources.nixpkgs}:home-manager=${sources.home-manager}:nixos-config=/etc/nixos/configuration.nix";
+  };
 }
