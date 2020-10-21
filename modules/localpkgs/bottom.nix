@@ -1,4 +1,4 @@
-{ pkgs, darwin, stdenv, ... }:
+{ pkgs, installShellFiles, darwin, stdenv, ... }:
 
 with pkgs;
 let
@@ -15,9 +15,17 @@ in rustPlatform.buildRustPackage rec {
   src =
     pkgs.fetchFromGitHub { inherit (sources.bottom) owner repo rev sha256; };
   cargoSha256 = "1m0njsvz2zx4abfiaz7n20ysldmc4lkzm2s46wyb86xjd1az1zg8";
+  nativeBuildInputs = [ installShellFiles ]
+    ++ stdenv.lib.optionals stdenv.isLinux [ pkg-config ];
   buildInputs = stdenv.lib.optional stdenv.hostPlatform.isDarwin
     darwin.apple_sdk.frameworks.IOKit;
   doCheck = false;
+  postInstall = ''
+    target_dir=$(ls $releaseDir/build/bottom-*/out/btm.bash | head -n1 | xargs dirname)
+    installShellCompletion --bash --name btm.bash $target_dir/btm.bash
+    installShellCompletion --fish --name btm.fish $target_dir/btm.fish
+    installShellCompletion --zsh --name _btm $target_dir/_btm
+  '';
   meta = with lib; {
     homepage = "https://github.com/ClementTsang/bottom";
     description =
