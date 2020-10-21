@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, darwin, stdenv, ... }:
 
 with pkgs;
 let
@@ -10,16 +10,14 @@ let
   };
   inherit (pkgs) lib;
 in rustPlatform.buildRustPackage rec {
-  name = "bottom-${version}";
+  pname = "bottom";
   version = "master";
   src =
     pkgs.fetchFromGitHub { inherit (sources.bottom) owner repo rev sha256; };
   cargoSha256 = "1m0njsvz2zx4abfiaz7n20ysldmc4lkzm2s46wyb86xjd1az1zg8";
-  buildInputs = [ ];
-  # Cargo fails the check due to read-only file system
+  buildInputs = stdenv.lib.optional stdenv.hostPlatform.isDarwin
+    darwin.apple_sdk.frameworks.IOKit;
   doCheck = false;
-  CARGO_HOME = "$(mktemp -d cargo-home.XXX)";
-
   meta = with lib; {
     homepage = "https://github.com/ClementTsang/bottom";
     description =
