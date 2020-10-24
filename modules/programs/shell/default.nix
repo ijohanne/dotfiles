@@ -169,6 +169,11 @@ in {
       type = lib.types.bool;
       description = "Enable tig app";
     };
+    nix-tree.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable nix-tree app";
+    };
   };
 
   imports = [
@@ -205,6 +210,7 @@ in {
     ./rq
     ./httpie
     ./tig
+    ./nix-tree
   ];
 
   config = lib.mkIf (cfg.enable) {
@@ -241,6 +247,7 @@ in {
     dotfiles.shell.rq.enable = true;
     dotfiles.shell.httpie.enable = true;
     dotfiles.shell.tig.enable = true;
+    dotfiles.shell.nix-tree.enable = true;
   };
 
 }

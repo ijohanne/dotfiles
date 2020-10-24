@@ -223,7 +223,7 @@ $> sudo reboot
 
 Update the local user repo
 ```bash
-$> $HOME/.dotfiles/update-niv.sh
+$> niv-home update
 $> home-manager switch
 $> ( cd $HOME/.dotfiles && git add . && git commit -m "Niv updates" && git push )
 ```
