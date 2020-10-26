@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "8aa60fa39fc24d3cdce8ab580147ca38d6a26e20",
-        "sha256": "1v34pmkd0vmsl94a5ijhi0lf2zln8rs6g52kfyjnd0adrkyg813g",
+        "rev": "0f97a0afe1764f686d6fe0735c123548e023248f",
+        "sha256": "0lymbnx3p0khs8jck2gwwg4c2ssbk8acmk6vmlnim9zv5mhksffr",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/8aa60fa39fc24d3cdce8ab580147ca38d6a26e20.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/0f97a0afe1764f686d6fe0735c123548e023248f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "ClementTsang",
         "repo": "bottom",
-        "rev": "05b39d29ae4f3a3dd3f88c69ba3e29a1f9035c37",
-        "sha256": "1cw6asq9chl62xbxiwr63hsapbf17ccyaq0m5f5h0bd2rzjfh23g",
+        "rev": "01a5e6b44e00f70152a8e3d3d2972315a4ff30f1",
+        "sha256": "1n0ibg82zmp33qh4pas9r8c9y0ngsqlmbq4gxgkl3l8wz6g31jhf",
         "type": "tarball",
-        "url": "https://github.com/ClementTsang/bottom/archive/05b39d29ae4f3a3dd3f88c69ba3e29a1f9035c37.tar.gz",
+        "url": "https://github.com/ClementTsang/bottom/archive/01a5e6b44e00f70152a8e3d3d2972315a4ff30f1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-exa": {
@@ -65,10 +65,10 @@
         "homepage": null,
         "owner": "patrickf3139",
         "repo": "fzf.fish",
-        "rev": "e88f60629b4666e39c09aa7d0d255d6b8ac26c66",
-        "sha256": "1yzw8yngqn108lgcc00k6g7n4cd96wcqd4mn4552591s2mnb8ygs",
+        "rev": "843f25551b0aa816be7a0d70823cfe60804ec8ad",
+        "sha256": "0b2wrhbqx2h756icn5nj5kd5ixvlr1iygd6yqrbcd5jcf0si0bck",
         "type": "tarball",
-        "url": "https://github.com/patrickf3139/fzf.fish/archive/e88f60629b4666e39c09aa7d0d255d6b8ac26c66.tar.gz",
+        "url": "https://github.com/patrickf3139/fzf.fish/archive/843f25551b0aa816be7a0d70823cfe60804ec8ad.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-ssh-agent": {
@@ -101,10 +101,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9bf1f40af124573a54fd208b1f539eb694ef31a6",
-        "sha256": "03rf762b2c9lb0ngnq1jsr2fxjw3vmrbhhpb13g8pwrpkf15646l",
+        "rev": "abaebf3b346c4bef500c5bd2fdebbed109261a0c",
+        "sha256": "1gcv2ni4nsicpmi4ain568msvgxch8cj04fxf6qgvhdklmh2y84k",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/9bf1f40af124573a54fd208b1f539eb694ef31a6.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/abaebf3b346c4bef500c5bd2fdebbed109261a0c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "lfs": {
@@ -137,10 +137,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "932585fd91dbb165670add42e5537b6dec7f1f86",
-        "sha256": "0m12pbmwm5r8bc6gx8a625y6pwgn24z6vr505v53w5xvjqb1x1c3",
+        "rev": "a22fe09b90a52f451d9fd8d3372b8c390dd1dc1a",
+        "sha256": "0srlzxbkbhgjxy7wvlggp5zzw1cwnm9hry4mafnqlb6clngw2acr",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/932585fd91dbb165670add42e5537b6dec7f1f86.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/a22fe09b90a52f451d9fd8d3372b8c390dd1dc1a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -197,10 +197,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ec3aa4c109cf4ddb2094269d7673bae3d3867308",
-        "sha256": "0d2sv0ms45z3r24ls2riarv4dcx070xxbfd2jda6gzflpn8mgkqi",
+        "rev": "d2a28d3b38ece08992a892c8d4b1dcb45bc2588a",
+        "sha256": "1d3iaaqsdf8a30d84g75q9y86a91k2vrw0mg1dbqnrzdbh5a2pay",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/ec3aa4c109cf4ddb2094269d7673bae3d3867308.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/d2a28d3b38ece08992a892c8d4b1dcb45bc2588a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
@@ -237,6 +237,18 @@
         "sha256": "169nhrg3bkvm0zqnrciapbpdvqdy3i772ijx9zjv6490i6ilp072",
         "type": "tarball",
         "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/519988762d02e8ed7204723349f15cc31cb8a38e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "pueue": {
+        "branch": "master",
+        "description": ":stars: Manage your shell commands.",
+        "homepage": "",
+        "owner": "Nukesor",
+        "repo": "pueue",
+        "rev": "49a0d4dc9818a6b6911dc3060de231e0a0a3afbd",
+        "sha256": "1li825znwwfnzrm6cd5r1chasgjvf4vw3h309pd51wrjkgm4amid",
+        "type": "tarball",
+        "url": "https://github.com/Nukesor/pueue/archive/49a0d4dc9818a6b6911dc3060de231e0a0a3afbd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

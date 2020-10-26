@@ -174,6 +174,11 @@ in {
       type = lib.types.bool;
       description = "Enable nix-tree app";
     };
+    pueue.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable pueue app";
+    };
   };
 
   imports = [
@@ -211,6 +216,7 @@ in {
     ./httpie
     ./tig
     ./nix-tree
+    ./pueue
   ];
 
   config = lib.mkIf (cfg.enable) {
@@ -248,6 +254,7 @@ in {
     dotfiles.shell.httpie.enable = true;
     dotfiles.shell.tig.enable = true;
     dotfiles.shell.nix-tree.enable = true;
+    dotfiles.shell.pueue.enable = true;
   };
 
 }
