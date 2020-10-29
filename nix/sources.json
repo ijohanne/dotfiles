@@ -71,19 +71,7 @@
         "url": "https://github.com/jethrokuan/fzf/archive/c2895ba0a83543f6aa29086989d0b735c7943067.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "fish-ssh-agent": {
-        "branch": "features/dont_spawn_remotely_if_forwarded",
-        "description": "ssh-agent fish plugin",
-        "homepage": null,
-        "owner": "ijohanne",
-        "repo": "fish-ssh-agent",
-        "rev": "2cd9d08904bb126e29edc60b8646ea1587649a27",
-        "sha256": "0ycfk15pgydrjaddkprh3q5hzrl0myh9v2sav7241n1irn6yfg76",
-        "type": "tarball",
-        "url": "https://github.com/ijohanne/fish-ssh-agent/archive/2cd9d08904bb126e29edc60b8646ea1587649a27.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "gitignore": {
+   "gitignore": {
         "branch": "master",
         "description": "A collection of useful .gitignore templates",
         "homepage": "",
