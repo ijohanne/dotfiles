@@ -11,5 +11,11 @@
   dotfiles.virtualization.enable = true;
   dotfiles.development-tools.neovim.language-servers.enable = true;
   dotfiles.window-managers.sway.enable = true;
+
+  programs.git.signing = {
+    key = "2DEB54D1D4413780";
+    signByDefault = true;
+
+  };
 }
 

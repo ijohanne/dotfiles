@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1ab21375fcb83cb8078fb47a81df2c66d147e0c4",
-        "sha256": "049fr9qp1njbryaywkxds9kxwylkbvyixzhk2zp8zsj16rmbzzi1",
+        "rev": "951526a05e26780f1dc1419a6999e46a1344baf6",
+        "sha256": "160h54d4cr4wzv13lyy282a3x9x03vm1d2bcp0n2l3lmx4rj6skl",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/1ab21375fcb83cb8078fb47a81df2c66d147e0c4.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/951526a05e26780f1dc1419a6999e46a1344baf6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "edc",
         "repo": "bass",
-        "rev": "d3bbcd7fe952b962363580c6cf72ec7ef2725ad8",
-        "sha256": "1n80ll73py42bqrccdqsvgqm4d4jrgbaiwv0c0m6xqa453pm0wk4",
+        "rev": "d63054b24c2f63aaa3a08fb9ec9d0da4c70ab922",
+        "sha256": "0pwci5xxm8308nrb52s5nyxijk0svar8nqrdfvkk2y34z1cg319b",
         "type": "tarball",
-        "url": "https://github.com/edc/bass/archive/d3bbcd7fe952b962363580c6cf72ec7ef2725ad8.tar.gz",
+        "url": "https://github.com/edc/bass/archive/d63054b24c2f63aaa3a08fb9ec9d0da4c70ab922.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bottom": {
@@ -60,15 +60,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-fzf": {
-        "branch": "main",
-        "description": "fzf fish plugin",
-        "homepage": null,
-        "owner": "patrickf3139",
-        "repo": "fzf.fish",
-        "rev": "843f25551b0aa816be7a0d70823cfe60804ec8ad",
-        "sha256": "0b2wrhbqx2h756icn5nj5kd5ixvlr1iygd6yqrbcd5jcf0si0bck",
+        "branch": "master",
+        "description": "Ef-🐟-ient fish keybindings for fzf",
+        "homepage": "",
+        "owner": "jethrokuan",
+        "repo": "fzf",
+        "rev": "c2895ba0a83543f6aa29086989d0b735c7943067",
+        "sha256": "1ydx0gv4mdnik8d4ymyckz9zkmiikq4xi0h4agca3sng87skwmw8",
         "type": "tarball",
-        "url": "https://github.com/patrickf3139/fzf.fish/archive/843f25551b0aa816be7a0d70823cfe60804ec8ad.tar.gz",
+        "url": "https://github.com/jethrokuan/fzf/archive/c2895ba0a83543f6aa29086989d0b735c7943067.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-ssh-agent": {
@@ -101,10 +101,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "abaebf3b346c4bef500c5bd2fdebbed109261a0c",
-        "sha256": "1gcv2ni4nsicpmi4ain568msvgxch8cj04fxf6qgvhdklmh2y84k",
+        "rev": "a98ec6ec158686387d66654ea96153ec06be33d7",
+        "sha256": "05yvpywhpnnsr55asp6m1chrfd6yf0njy49j3wc9d6qm3dipgwmc",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/abaebf3b346c4bef500c5bd2fdebbed109261a0c.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/a98ec6ec158686387d66654ea96153ec06be33d7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "lfs": {
@@ -119,16 +119,28 @@
         "url": "https://github.com/Canop/lfs/archive/84dd2fe74084aaa7aef8ed52a4fb2e6399174ebe.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "lsp_extensions-nvim": {
+        "branch": "master",
+        "description": "Repo to hold a bunch of info & extension callbacks for built-in LSP. Use at your own risk :wink:",
+        "homepage": null,
+        "owner": "tjdevries",
+        "repo": "lsp_extensions.nvim",
+        "rev": "47277e12d6375c647b55d9fd9dde6decfd913795",
+        "sha256": "1k2m4qik71mrjfbhxlk05949m2rfy85156xijizp9y7qarvyga1l",
+        "type": "tarball",
+        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/47277e12d6375c647b55d9fd9dde6decfd913795.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "mozilla-overlay": {
         "branch": "master",
         "description": "Mozilla overlay",
         "homepage": null,
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
-        "rev": "57c8084c7ef41366993909c20491e359bbb90f54",
-        "sha256": "0lchhjys1jj8fdiisd2718sqd63ys7jrj6hq6iq9l1gxj3mz2w81",
+        "rev": "8c007b60731c07dd7a052cce508de3bb1ae849b4",
+        "sha256": "1zybp62zz0h077zm2zmqs2wcg3whg6jqaah9hcl1gv4x8af4zhs6",
         "type": "tarball",
-        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/57c8084c7ef41366993909c20491e359bbb90f54.tar.gz",
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/8c007b60731c07dd7a052cce508de3bb1ae849b4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "neovim": {
@@ -137,10 +149,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "932585fd91dbb165670add42e5537b6dec7f1f86",
-        "sha256": "0m12pbmwm5r8bc6gx8a625y6pwgn24z6vr505v53w5xvjqb1x1c3",
+        "rev": "c6ccdda26ae0b8a9bf4d0779d398cb7c9864aedf",
+        "sha256": "189xg9ar1kkkz9w6b99pdkmhwkx7hiza5gd5igvfd4i5cgajlf9y",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/932585fd91dbb165670add42e5537b6dec7f1f86.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/c6ccdda26ae0b8a9bf4d0779d398cb7c9864aedf.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -185,10 +197,10 @@
         "homepage": "",
         "owner": "utdemir",
         "repo": "nix-tree",
-        "rev": "c8d23e5a5f187bf1d66e93dbdf9cb3d8aa3e9c06",
-        "sha256": "18m8cn0hsxz1df3pnskl8wq8zmrypva8hz1kqlzgr6iqgr0649bf",
+        "rev": "fe17c5ec7860afa435299b3f1d986c878f645dde",
+        "sha256": "1jmhfr15ys308kcfww5c9yqgjxnj8cj0l4sd2bvgb5khc6rck4k4",
         "type": "tarball",
-        "url": "https://github.com/utdemir/nix-tree/archive/c8d23e5a5f187bf1d66e93dbdf9cb3d8aa3e9c06.tar.gz",
+        "url": "https://github.com/utdemir/nix-tree/archive/fe17c5ec7860afa435299b3f1d986c878f645dde.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -197,10 +209,22 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d2a28d3b38ece08992a892c8d4b1dcb45bc2588a",
-        "sha256": "1d3iaaqsdf8a30d84g75q9y86a91k2vrw0mg1dbqnrzdbh5a2pay",
+        "rev": "d69e98a425d4b8e2cf196b85a611d454b92c606d",
+        "sha256": "1z97qayd6d9lw2vvy2fhlccggng4dxh2cp3s6ryqnvprf698avp1",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/d2a28d3b38ece08992a892c8d4b1dcb45bc2588a.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/d69e98a425d4b8e2cf196b85a611d454b92c606d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nvim-lspconfig": {
+        "branch": "master",
+        "description": "Quickstart configurations for the Nvim LSP client",
+        "homepage": "",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "60133c47e0fd82556d7ca092546ebfa8d047466e",
+        "sha256": "15ysbbvxlgy1qx8rjv2i9pgjshldcs3m1ff0my2y5mnr3cpqb3s6",
+        "type": "tarball",
+        "url": "https://github.com/neovim/nvim-lspconfig/archive/60133c47e0fd82556d7ca092546ebfa8d047466e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
@@ -245,10 +269,22 @@
         "homepage": "",
         "owner": "Nukesor",
         "repo": "pueue",
-        "rev": "49a0d4dc9818a6b6911dc3060de231e0a0a3afbd",
-        "sha256": "1li825znwwfnzrm6cd5r1chasgjvf4vw3h309pd51wrjkgm4amid",
+        "rev": "b469170f3587bb6d520578dfbca5ef6d5ab41537",
+        "sha256": "0lkjgb5b2b5p4imc987xv0s6qmwqi2rhjv8lh23ajnsm6qd96wnm",
         "type": "tarball",
-        "url": "https://github.com/Nukesor/pueue/archive/49a0d4dc9818a6b6911dc3060de231e0a0a3afbd.tar.gz",
+        "url": "https://github.com/Nukesor/pueue/archive/b469170f3587bb6d520578dfbca5ef6d5ab41537.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "vim-nerdtree-syntax-highlight": {
+        "branch": "master",
+        "description": "Extra syntax and highlight for nerdtree files",
+        "homepage": "",
+        "owner": "tiagofumo",
+        "repo": "vim-nerdtree-syntax-highlight",
+        "rev": "1acc12aa7f773ede38538293332905f1ba3fea6a",
+        "sha256": "0zm023mhi1si9g5r46md1v4rlls6z2m6kyn1jcfxjqyrgba67899",
+        "type": "tarball",
+        "url": "https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/archive/1acc12aa7f773ede38538293332905f1ba3fea6a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

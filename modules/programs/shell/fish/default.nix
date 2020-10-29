@@ -31,12 +31,8 @@ in {
         nixos-rebuild = "$HOME/.dotfiles/nixos-rebuild.sh";
       };
       plugins = with fishPlugins;
-        [
-          bass
-          oh-my-fish-plugin-ssh
-          oh-my-fish-plugin-foreign-env
-          fish-ssh-agent
-        ] ++ optionals (config.dotfiles.shell.fzf.enable) [ fish-fzf ]
+        [ bass oh-my-fish-plugin-foreign-env ]
+        ++ optionals (config.dotfiles.shell.fzf.enable) [ fish-fzf ]
         ++ optionals (config.dotfiles.shell.exa.enable) [ fish-exa ];
       functions = {
         fish_greeting = { body = ""; };

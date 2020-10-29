@@ -80,7 +80,7 @@ in {
           diagnostic-nvim
           nvim-lsp-extensions
           neoformat
-          nvim-lspconfig
+          nvim-lspconfig-git
         ];
     };
 

@@ -42,21 +42,7 @@ with lib; {
       efi.canTouchEfiVariables = false;
     };
 
-    # Bluetooth security issue, so override if testing is still not newer than 5.9.1
-    boot.kernelPackages =
-      if (lib.versionOlder pkgs.linux_testing.version "5.9.1") then
-        (pkgs.linuxPackagesFor (pkgs.linux_testing.override {
-          argsOverride = rec {
-            src = pkgs.fetchurl {
-              url = "mirror://kernel/linux/kernel/v5.x/linux-${version}.tar.xz";
-              sha256 = "0dn0xz81pphca5dkg6zh8c78p05f63rrr5ihqqsmhc4n73li2jms";
-            };
-            version = "5.9.1";
-            modDirVersion = "5.9.1";
-          };
-        }))
-      else
-        pkgs.linux_testing;
+    boot.kernelPackages = pkgs.linuxPackages_5_9;
 
     boot.zfs.enableUnstable = true;
   };
