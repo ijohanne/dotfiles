@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   config = lib.mkIf (config.dotfiles.shell.gpg-agent.enable) {
@@ -12,6 +12,7 @@
     programs.gpg.enable = true;
     programs.fish.shellInit = ''
       set GPG_TTY (tty)
+      ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
     '';
   };
 }
