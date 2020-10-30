@@ -8,8 +8,16 @@
       enableExtraSocket = true;
       pinentryFlavor = "curses";
       sshKeys = [ "155285F1319ACA9CA9A9CA3E258C23D13AE38CF3" ];
+      extraConfig = ''
+        allow-loopback-pinentry
+      '';
+
     };
-    programs.gpg.enable = true;
+    programs.gpg = {
+      enable = true;
+      settings.pinentry-mode = "loopback";
+    };
+
     programs.fish.shellInit = ''
       set GPG_TTY (tty)
       ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null

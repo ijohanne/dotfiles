@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "951526a05e26780f1dc1419a6999e46a1344baf6",
-        "sha256": "160h54d4cr4wzv13lyy282a3x9x03vm1d2bcp0n2l3lmx4rj6skl",
+        "rev": "b33bed0ce1d99ac418ac077eba97f331ee6d9064",
+        "sha256": "12as1h3xdrgj0d2wjdmhwa02l6vs0gjmhsgsw35lgjmyijnsdw0b",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/951526a05e26780f1dc1419a6999e46a1344baf6.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/b33bed0ce1d99ac418ac077eba97f331ee6d9064.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -71,7 +71,7 @@
         "url": "https://github.com/jethrokuan/fzf/archive/c2895ba0a83543f6aa29086989d0b735c7943067.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-   "gitignore": {
+    "gitignore": {
         "branch": "master",
         "description": "A collection of useful .gitignore templates",
         "homepage": "",
@@ -113,10 +113,10 @@
         "homepage": null,
         "owner": "tjdevries",
         "repo": "lsp_extensions.nvim",
-        "rev": "47277e12d6375c647b55d9fd9dde6decfd913795",
-        "sha256": "1k2m4qik71mrjfbhxlk05949m2rfy85156xijizp9y7qarvyga1l",
+        "rev": "08a6662923a183253cd15c72f0961ce5aff57937",
+        "sha256": "0sx0lwh4fb2an7p59m2szin186mi3g7mrg62np2xzphrws4445p3",
         "type": "tarball",
-        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/47277e12d6375c647b55d9fd9dde6decfd913795.tar.gz",
+        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/08a6662923a183253cd15c72f0961ce5aff57937.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -137,10 +137,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "c6ccdda26ae0b8a9bf4d0779d398cb7c9864aedf",
-        "sha256": "189xg9ar1kkkz9w6b99pdkmhwkx7hiza5gd5igvfd4i5cgajlf9y",
+        "rev": "98024853f4755f51e82526b45484bae0ec6042ba",
+        "sha256": "0dhx2kp9lck5f67y286w3zn9pr51jqmwv09nrrpnah6v1hiszq1h",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/c6ccdda26ae0b8a9bf4d0779d398cb7c9864aedf.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/98024853f4755f51e82526b45484bae0ec6042ba.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -197,10 +197,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d69e98a425d4b8e2cf196b85a611d454b92c606d",
-        "sha256": "1z97qayd6d9lw2vvy2fhlccggng4dxh2cp3s6ryqnvprf698avp1",
+        "rev": "a3d3a1ec750fa5654e55131218015fdcd8d5ebd7",
+        "sha256": "0az0i875xa7d3hy0i69ywjzzgf2q84xzbh62yky7ijisyr7br4n9",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/d69e98a425d4b8e2cf196b85a611d454b92c606d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a3d3a1ec750fa5654e55131218015fdcd8d5ebd7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-lspconfig": {
@@ -257,10 +257,10 @@
         "homepage": "",
         "owner": "Nukesor",
         "repo": "pueue",
-        "rev": "b469170f3587bb6d520578dfbca5ef6d5ab41537",
-        "sha256": "0lkjgb5b2b5p4imc987xv0s6qmwqi2rhjv8lh23ajnsm6qd96wnm",
+        "rev": "5cffbac8682c9794bc6031ac2433527b0402a0a6",
+        "sha256": "05l8m979apk5l3dxnyp207w2s3pcj0zclwysa1rjdmx8xavszz9m",
         "type": "tarball",
-        "url": "https://github.com/Nukesor/pueue/archive/b469170f3587bb6d520578dfbca5ef6d5ab41537.tar.gz",
+        "url": "https://github.com/Nukesor/pueue/archive/5cffbac8682c9794bc6031ac2433527b0402a0a6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "vim-nerdtree-syntax-highlight": {

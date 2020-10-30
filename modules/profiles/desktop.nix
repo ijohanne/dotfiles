@@ -13,7 +13,7 @@
   dotfiles.window-managers.sway.enable = true;
 
   programs.git.signing = {
-    key = "2DEB54D1D4413780";
+    key = "6BD2201A9B42D8A4A7B70371D144CA04735855AC";
     signByDefault = true;
 
   };
