@@ -18,14 +18,20 @@ in {
       type = lib.types.bool;
       description = "Enable skype app";
     };
+    keybase = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable keybase app";
+    };
   };
 
-  imports = [ ./element-desktop ./skype ./slack ];
+  imports = [ ./element-desktop ./skype ./slack ./keybase ];
 
   config = lib.mkIf (cfg.enable) {
     dotfiles.x11.communications.element-desktop = true;
     dotfiles.x11.communications.slack = true;
     dotfiles.x11.communications.skype = true;
+    dotfiles.x11.communications.keybase = true;
   };
 
 }

@@ -179,6 +179,12 @@ in {
       type = lib.types.bool;
       description = "Enable pueue app";
     };
+    keybase.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable keybase apps";
+    };
+
   };
 
   imports = [
@@ -217,6 +223,7 @@ in {
     ./tig
     ./nix-tree
     ./pueue
+    ./keybase
   ];
 
   config = lib.mkIf (cfg.enable) {
@@ -225,7 +232,6 @@ in {
     dotfiles.shell.starship.enable = true;
     dotfiles.shell.tokei.enable = true;
     dotfiles.shell.procs.enable = true;
-    dotfiles.shell.gpg-agent.enable = true;
     dotfiles.shell.fish.enable = true;
     dotfiles.shell.imagemagick.enable = true;
     dotfiles.shell.ldns.enable = true;

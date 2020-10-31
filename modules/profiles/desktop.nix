@@ -6,6 +6,7 @@
   dotfiles.x11.terminals.enable = true;
   dotfiles.shell.enable = true;
   dotfiles.shell.gpg-agent.enable = true;
+  dotfiles.shell.keybase.enable = true;
   dotfiles.tex.enable = true;
   dotfiles.browsers.enable = true;
   dotfiles.development-tools.enable = true;
