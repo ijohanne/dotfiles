@@ -6,3 +6,5 @@ tags
 **/tags
 **/**/tags
 /.pre-commit-config.yaml
+**/**/.pre-commit-config.yaml
+**/.pre-commit-config.yaml
