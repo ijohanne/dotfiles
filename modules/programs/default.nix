@@ -36,6 +36,7 @@ with lib; {
   imports = [
     ./home-manager.nix
     ./packages.nix
+    ./user-settings.nix
     ./browsers
     ./window-managers
     ./x11

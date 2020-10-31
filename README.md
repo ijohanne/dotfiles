@@ -207,7 +207,7 @@ $> reboot
 ```
 
 ## First user login
-Login as your new user and setup `home-manager`
+Login as your new user and setup `home-manager`. Remember to adapt the relevant `home.nix` file so it includes the right user settings (see [this sample](machines/users/ij.nix).
 ```bash
 $> MACHINE_NAME="ij-laptop" # Change machine name here
 $> MACHINE_TYPE="nixos"

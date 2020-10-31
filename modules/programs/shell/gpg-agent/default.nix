@@ -7,7 +7,7 @@
       enableSshSupport = true;
       enableExtraSocket = true;
       pinentryFlavor = "curses";
-      sshKeys = [ "155285F1319ACA9CA9A9CA3E258C23D13AE38CF3" ];
+      sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
       extraConfig = ''
         allow-loopback-pinentry
       '';
