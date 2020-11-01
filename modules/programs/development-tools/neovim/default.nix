@@ -29,6 +29,7 @@ in {
     programs.fish.shellAliases = {
       "vim" = "nvim";
       "vi" = "nvim";
+      "vimdiff" = "nvim -d";
     };
 
     programs.git.ignores =
@@ -37,9 +38,6 @@ in {
 
     programs.neovim = {
       enable = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
       withNodeJs = true;
       withPython3 = true;
       package = pkgs.neovim-nightly;
@@ -89,6 +87,6 @@ in {
         ];
     };
 
-    home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}"; };
+    home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
   };
 }

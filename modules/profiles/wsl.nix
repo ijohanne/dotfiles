@@ -8,8 +8,7 @@
   dotfiles.shell.enable = true;
   dotfiles.development-tools.enable = true;
   dotfiles.development-tools.neovim.language-servers.enable = true;
-  dotfiles.shell.gpg-agent.enable = true;
-  dotfiles.shell.keybase.enable = true;
-  #dotfiles.tex.enable = true;
+  dotfiles.tex.enable = true;
+  dotfiles.development-tools.git.signing = true;
 }
 
