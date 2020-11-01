@@ -34,7 +34,10 @@ in {
 
     programs.git.ignores =
       dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
-      ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore";
+      ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [''
+        # Neovim log files
+        .nvimlog
+      ''];
 
     programs.neovim = {
       enable = true;
