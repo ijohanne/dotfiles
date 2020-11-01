@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b33bed0ce1d99ac418ac077eba97f331ee6d9064",
-        "sha256": "12as1h3xdrgj0d2wjdmhwa02l6vs0gjmhsgsw35lgjmyijnsdw0b",
+        "rev": "4e77b7b60ad3f38e945db4b88edc47372660765c",
+        "sha256": "0b2whpyff4sd6n3y69mr1p3p2cmpli6m4s01wdd6apmk0c91prxh",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/b33bed0ce1d99ac418ac077eba97f331ee6d9064.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/4e77b7b60ad3f38e945db4b88edc47372660765c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -113,10 +113,10 @@
         "homepage": null,
         "owner": "tjdevries",
         "repo": "lsp_extensions.nvim",
-        "rev": "08a6662923a183253cd15c72f0961ce5aff57937",
-        "sha256": "0sx0lwh4fb2an7p59m2szin186mi3g7mrg62np2xzphrws4445p3",
+        "rev": "8740c4b52dd6f9c2a564209db466ae72a3412dcc",
+        "sha256": "0sakmg4fkzji3rl9qmfx2rphz3ma5b6sysf7h7sag4n4lykinayj",
         "type": "tarball",
-        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/08a6662923a183253cd15c72f0961ce5aff57937.tar.gz",
+        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/8740c4b52dd6f9c2a564209db466ae72a3412dcc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -197,10 +197,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a3d3a1ec750fa5654e55131218015fdcd8d5ebd7",
-        "sha256": "0az0i875xa7d3hy0i69ywjzzgf2q84xzbh62yky7ijisyr7br4n9",
+        "rev": "ec6b0950efcafeb6b431de068a7f61eca7797a85",
+        "sha256": "0hbl1sqs91m12nxc7nwgjs1p84ixqn4g4x8xwwf6qs6hs46gjpvm",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a3d3a1ec750fa5654e55131218015fdcd8d5ebd7.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/ec6b0950efcafeb6b431de068a7f61eca7797a85.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-lspconfig": {
@@ -257,10 +257,10 @@
         "homepage": "",
         "owner": "Nukesor",
         "repo": "pueue",
-        "rev": "5cffbac8682c9794bc6031ac2433527b0402a0a6",
-        "sha256": "05l8m979apk5l3dxnyp207w2s3pcj0zclwysa1rjdmx8xavszz9m",
+        "rev": "54a70ba82274d7208fde39ee8e62b49be615e77d",
+        "sha256": "1xbnx4wnglagwhsxhppv7v9kykjqj0r0hyzj5vlxfdnsbl6fhqc9",
         "type": "tarball",
-        "url": "https://github.com/Nukesor/pueue/archive/5cffbac8682c9794bc6031ac2433527b0402a0a6.tar.gz",
+        "url": "https://github.com/Nukesor/pueue/archive/54a70ba82274d7208fde39ee8e62b49be615e77d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "vim-nerdtree-syntax-highlight": {

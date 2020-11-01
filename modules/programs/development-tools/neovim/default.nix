@@ -26,6 +26,11 @@ in {
       (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
       [ python-language-server ]);
 
+    programs.fish.shellAliases = {
+      "vim" = "nvim";
+      "vi" = "nvim";
+    };
+
     programs.git.ignores =
       dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
       ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore";

@@ -1,7 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ../../../modules/machines ];
+  imports =
+    [ ../../users/ij ./hardware-configuration.nix ../../../modules/machines ];
 
   dotfiles.machines.desktop = true;
 

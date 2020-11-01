@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ ../../../modules/machines ];
+  imports = [ ../../../modules/machines ../../users/ij ];
 
   dotfiles.machines.rpi = true;
 

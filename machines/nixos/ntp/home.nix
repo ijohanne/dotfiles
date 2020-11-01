@@ -1,1 +1,1 @@
-{ imports = [ ../../users/ij.nix ../../../modules/profiles/server.nix ]; }
+{ imports = [ ../../users/ij ../../../modules/profiles/server.nix ]; }

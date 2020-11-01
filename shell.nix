@@ -24,7 +24,9 @@ in pkgs.mkShell rec {
     (import sources.nix-linter { inherit pkgs; }).nix-linter
   ];
   shellHook = ''
-    export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${sources."home-manager"}"
+    export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${
+      sources."home-manager"
+    }:nixos-config=/etc/nixos/configuration.nix"
     export NIXPKGS_PATH=${nixpkgs}
     ${pre-commit-check.shellHook}
   '';

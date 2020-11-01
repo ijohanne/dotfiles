@@ -187,7 +187,7 @@ $> printf "import /mnt/home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHIN
 ```
 
 ## Adapt configs as needed
-Enable needed elements (see sample configs already in repo)
+Enable needed elements (see sample configs already in repo, and take special note on setting the right profile, and importing the right user settings if needed for it)
 * Bluetooth
 * Users
 

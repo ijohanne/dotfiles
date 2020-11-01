@@ -18,5 +18,5 @@ with lib; {
     };
   };
 
-  imports = [ ./packages.nix ./users.nix ./desktop ./rpi ];
+  imports = [ ./packages.nix ./users.nix ./desktop ./rpi ../lib ];
 }
