@@ -33,9 +33,15 @@ in {
       type = lib.types.bool;
       description = "Enable direnv app";
     };
+    firefox-addons-generator.enable = mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Enable direnv app";
+    };
   };
 
-  imports = [ ./git ./niv ./lorri ./perl ./neovim ./direnv ];
+  imports =
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ];
 
   config = lib.mkIf (cfg.enable) {
     dotfiles.development-tools.git.enable = true;
@@ -44,6 +50,7 @@ in {
     dotfiles.development-tools.neovim.enable = true;
     dotfiles.development-tools.perl.enable = true;
     dotfiles.development-tools.direnv.enable = true;
+    dotfiles.development-tools.firefox-addons-generator.enable = true;
   };
 
 }

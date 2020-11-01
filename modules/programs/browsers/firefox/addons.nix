@@ -1,4 +1,4 @@
-{ buildFirefoxXpiAddon, stdenv }: {
+{ buildFirefoxXpiAddon, fetchurl, stdenv }: {
   "darkreader" = buildFirefoxXpiAddon {
     pname = "darkreader";
     version = "4.9.23";

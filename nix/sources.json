@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "4e77b7b60ad3f38e945db4b88edc47372660765c",
-        "sha256": "0b2whpyff4sd6n3y69mr1p3p2cmpli6m4s01wdd6apmk0c91prxh",
+        "rev": "8c2ab72afb0889a2e61f7b529ebb2bac603e0ddb",
+        "sha256": "0jkzkif6ry3zhmc0hfbps6lv6clc23s50pzng2j81ncfzcarvi4m",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/4e77b7b60ad3f38e945db4b88edc47372660765c.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/8c2ab72afb0889a2e61f7b529ebb2bac603e0ddb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "ClementTsang",
         "repo": "bottom",
-        "rev": "01a5e6b44e00f70152a8e3d3d2972315a4ff30f1",
-        "sha256": "1n0ibg82zmp33qh4pas9r8c9y0ngsqlmbq4gxgkl3l8wz6g31jhf",
+        "rev": "d9472c6a4243c586007f69722a566d8b3618737d",
+        "sha256": "1ckrv349c1b9g2achq8pz9xlk4332pryb31lz6vmw39hj5vm9482",
         "type": "tarball",
-        "url": "https://github.com/ClementTsang/bottom/archive/01a5e6b44e00f70152a8e3d3d2972315a4ff30f1.tar.gz",
+        "url": "https://github.com/ClementTsang/bottom/archive/d9472c6a4243c586007f69722a566d8b3618737d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "fish-exa": {
@@ -137,10 +137,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "98024853f4755f51e82526b45484bae0ec6042ba",
-        "sha256": "0dhx2kp9lck5f67y286w3zn9pr51jqmwv09nrrpnah6v1hiszq1h",
+        "rev": "bc68653a869645e45f52edbf296106be5deabf2f",
+        "sha256": "0slh9sigd0ghhb6d5jah8vwhp7shyxlhi3ya47ddmknb69nfaf5h",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/98024853f4755f51e82526b45484bae0ec6042ba.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/bc68653a869645e45f52edbf296106be5deabf2f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -197,10 +197,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ec6b0950efcafeb6b431de068a7f61eca7797a85",
-        "sha256": "0hbl1sqs91m12nxc7nwgjs1p84ixqn4g4x8xwwf6qs6hs46gjpvm",
+        "rev": "4e57249fc365bd8b0e319e1dbcf47f5efb8b9395",
+        "sha256": "1ycqyx41n2k1saawbsbakc229wbikm6ikb0nj9w39isqwk4877y6",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/ec6b0950efcafeb6b431de068a7f61eca7797a85.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/4e57249fc365bd8b0e319e1dbcf47f5efb8b9395.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-lspconfig": {
