@@ -44,15 +44,16 @@ with lib; {
       pcscd.enable = true;
       xserver = {
         enable = true;
-        autorun = false;
         layout = "us";
         libinput.enable = true;
         desktopManager = { xterm.enable = false; };
         displayManager = { defaultSession = "sway"; };
         videoDrivers = [ "amdgpu" ];
-        displayManager.sddm = {
-          enable = true;
-          theme = "chili";
+        displayManager = {
+          sddm = {
+            enable = true;
+            theme = "chili";
+          };
         };
       };
       avahi = {
