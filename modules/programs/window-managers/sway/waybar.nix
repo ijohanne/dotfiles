@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-
+with lib;
 let
   cfg = config.services.waybar;
   styles = ../../../../configs/waybar/waybar-style.css;
@@ -19,7 +19,7 @@ in {
     config = mkOption { type = types.attrs; };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     systemd.user.services.waybar.Service = {
       ExecStart =
         "${start-waybar}/bin/start-waybar -c ${configFile} -s ${styles}";

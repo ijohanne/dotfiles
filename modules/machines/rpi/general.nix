@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 with lib; {
-  config = lib.mkIf (config.dotfiles.machines.rpi) {
+  config = mkIf (config.dotfiles.machines.rpi) {
     boot = {
       kernelPackages = pkgs.linuxPackages_rpi4;
       loader = {

@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
-
-{
-  config = lib.mkIf (config.dotfiles.shell.lfs.enable) {
+with lib; {
+  config = mkIf (config.dotfiles.shell.lfs.enable) {
     home.packages = with pkgs; [ lfs ];
     programs.fish.functions = {
       df = {

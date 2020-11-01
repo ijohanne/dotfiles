@@ -2,7 +2,7 @@
 with lib;
 let fishPlugins = pkgs.callPackage ../fish/fish-plugins.nix { };
 in {
-  config = lib.mkIf (config.dotfiles.shell.exa.enable) {
+  config = mkIf (config.dotfiles.shell.exa.enable) {
     home.packages = with pkgs; [ exa ];
     programs.fish = {
       plugins = with fishPlugins; [ fish-exa ];

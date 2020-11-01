@@ -5,14 +5,14 @@ in {
   options.dotfiles.x11.terminals = {
     alacritty = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable alacritty app";
     };
   };
 
   imports = [ ./alacritty ];
 
-  config = lib.mkIf (cfg.enable) { dotfiles.x11.terminals.alacritty = true; };
+  config = mkIf (cfg.enable) { dotfiles.x11.terminals.alacritty = true; };
 
 }
 

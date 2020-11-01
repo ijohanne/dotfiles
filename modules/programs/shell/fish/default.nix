@@ -4,7 +4,7 @@ let
   sources = import ../../../../nix/sources.nix;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
 in {
-  config = lib.mkIf (config.dotfiles.shell.fish.enable) {
+  config = mkIf (config.dotfiles.shell.fish.enable) {
     home.packages = with pkgs; [ python3Minimal ];
 
     programs.fish = {

@@ -4,8 +4,8 @@ let cfg = config.dotfiles.window-managers.sway;
 in {
   imports = [ ./waybar.nix ];
 
-  config = lib.mkIf (cfg.enable) {
-    home.file.".wallpapers".source = ../../../../backgrounds;
+  config = mkIf (cfg.enable) {
+    home.file.".wallpapers".source = ../../../../images/backgrounds;
 
     home.packages = with pkgs; [
       bemenu

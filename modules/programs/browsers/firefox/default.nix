@@ -4,7 +4,7 @@ let
   buildFirefoxXpiAddon = pkgs.nur.rycee.firefox-addons.buildFirefoxXpiAddon;
   addons = pkgs.callPackage ./addons.nix { inherit buildFirefoxXpiAddon; };
 in {
-  config = lib.mkIf (config.dotfiles.browsers.firefox.enable) {
+  config = mkIf (config.dotfiles.browsers.firefox.enable) {
     programs.firefox = {
       enable = true;
       package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });

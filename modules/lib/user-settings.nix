@@ -51,6 +51,11 @@ with lib; {
         default = [ ];
       };
     };
+    face-icon = mkOption {
+      type = with types; nullOr path;
+      description = "Face icon to use";
+      default = null;
+    };
   };
 }
 

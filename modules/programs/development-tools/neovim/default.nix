@@ -8,13 +8,13 @@ in {
   options.dotfiles.development-tools.neovim = {
     language-servers.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable language servers";
     };
   };
 
-  config = lib.mkIf (cfg.enable) {
-    home.packages = lib.mkIf (cfg.language-servers.enable) (with pkgs;
+  config = mkIf (cfg.enable) {
+    home.packages = mkIf (cfg.language-servers.enable) (with pkgs;
       with stdenv.lib;
       [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
       ++ (with pkgs.nodePackages; [

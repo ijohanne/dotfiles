@@ -5,37 +5,37 @@ in {
   options.dotfiles.development-tools = {
     git.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable git app";
     };
     niv.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable niv app";
     };
     lorri.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable lorri app";
     };
     perl.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable perl app";
     };
     neovim.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable neovim app";
     };
     direnv.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable direnv app";
     };
     firefox-addons-generator.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable direnv app";
     };
   };
@@ -43,7 +43,7 @@ in {
   imports =
     [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ];
 
-  config = lib.mkIf (cfg.enable) {
+  config = mkIf (cfg.enable) {
     dotfiles.development-tools.git.enable = true;
     dotfiles.development-tools.niv.enable = true;
     dotfiles.development-tools.lorri.enable = true;

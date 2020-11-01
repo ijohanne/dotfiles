@@ -1,7 +1,8 @@
 { pkgs, lib, config, ... }:
+with lib;
 let sources = import ../../../../nix/sources.nix;
 in {
-  config = lib.mkIf (config.dotfiles.shell.nix-linter.enable) {
+  config = mkIf (config.dotfiles.shell.nix-linter.enable) {
     home.packages =
       [ (import sources.nix-linter { inherit pkgs; }).nix-linter ];
   };

@@ -1,7 +1,6 @@
 { lib, config, ... }:
-
-{
-  config = lib.mkIf (config.dotfiles.development-tools.direnv.enable) {
+with lib; {
+  config = mkIf (config.dotfiles.development-tools.direnv.enable) {
     programs.direnv = {
       enable = true;
       enableNixDirenvIntegration = true;

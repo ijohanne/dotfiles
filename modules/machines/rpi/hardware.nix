@@ -4,7 +4,7 @@ with lib;
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  config = lib.mkIf (config.dotfiles.machines.rpi) {
+  config = mkIf (config.dotfiles.machines.rpi) {
 
     hardware.enableRedistributableFirmware = true;
 

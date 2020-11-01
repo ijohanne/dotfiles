@@ -1,6 +1,6 @@
 { lib, pkgs, config, ... }:
 with lib; {
-  config = lib.mkIf (config.dotfiles.machines.desktop) {
+  config = mkIf (config.dotfiles.machines.desktop) {
     nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
 
     i18n = { defaultLocale = "en_US.UTF-8"; };
@@ -12,17 +12,19 @@ with lib; {
 
     time.timeZone = "Europe/Madrid";
 
-    environment.systemPackages = with pkgs; [
-      wget
-      binutils
-      unzip
-      zip
-      docker
-      yubico-piv-tool
-      yubikey-personalization
-      yubioath-desktop
-      yubikey-personalization-gui
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        wget
+        binutils
+        unzip
+        zip
+        docker
+        yubico-piv-tool
+        yubikey-personalization
+        yubioath-desktop
+        yubikey-personalization-gui
+        themes.sddm-chili
+      ] ++ (with pkgs.qt514; [ qtbase qtquickcontrols qtgraphicaleffects ]);
 
     programs = {
       sway = {
@@ -44,9 +46,14 @@ with lib; {
         enable = true;
         autorun = false;
         layout = "us";
+        libinput.enable = true;
         desktopManager = { xterm.enable = false; };
         displayManager = { defaultSession = "sway"; };
         videoDrivers = [ "amdgpu" ];
+        displayManager.sddm = {
+          enable = true;
+          theme = "chili";
+        };
       };
       avahi = {
         enable = true;

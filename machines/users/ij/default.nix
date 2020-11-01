@@ -13,5 +13,6 @@
         owner-trust = "4E51818D29D2A91BEBE3A7D02DEB54D1D4413780:6:";
       }];
     };
+    face-icon = ../../../images/face-icons/ij.png;
   };
 }

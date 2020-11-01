@@ -1,4 +1,5 @@
 { pkgs, lib, config, ... }:
+with lib;
 let
   start-pueued = pkgs.writeShellScriptBin "start-pueued" ''
     echo "Generating random session secret"
@@ -26,7 +27,7 @@ let
     ${pkgs.pueue}/bin/pueued
   '';
 in {
-  config = lib.mkIf (config.dotfiles.shell.pueue.enable) {
+  config = mkIf (config.dotfiles.shell.pueue.enable) {
     home.packages = with pkgs; [ pueue ];
 
     systemd.user.services.pueued = {

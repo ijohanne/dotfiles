@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
-
-{
-  config = lib.mkIf (config.dotfiles.shell.onefetch.enable) {
+with lib; {
+  config = mkIf (config.dotfiles.shell.onefetch.enable) {
     home.packages = with pkgs; [ onefetch ];
   };
 

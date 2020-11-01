@@ -5,15 +5,14 @@ in {
   options.dotfiles.virtualization = {
     docker-compose = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable docker compose";
     };
   };
 
   imports = [ ./docker-compose ];
 
-  config =
-    lib.mkIf (cfg.enable) { dotfiles.virtualization.docker-compose = true; };
+  config = mkIf (cfg.enable) { dotfiles.virtualization.docker-compose = true; };
 
 }
 

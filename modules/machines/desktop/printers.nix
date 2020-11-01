@@ -1,6 +1,6 @@
 { lib, config, ... }:
 with lib; {
-  config = lib.mkIf (config.dotfiles.machines.printers) {
+  config = mkIf (config.dotfiles.machines.printers) {
     services.printing = { drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ]; };
 
     hardware.printers = {

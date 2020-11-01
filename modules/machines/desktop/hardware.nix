@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 with lib; {
-  config = lib.mkIf (config.dotfiles.machines.desktop) {
+  config = mkIf (config.dotfiles.machines.desktop) {
     hardware.enableAllFirmware = true;
     hardware.pulseaudio = {
       enable = true;

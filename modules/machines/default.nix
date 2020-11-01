@@ -3,17 +3,17 @@ with lib; {
   options.dotfiles.machines = {
     rpi = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable Raspberry Pi settings";
     };
     printers = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Preconfigure printers";
     };
     desktop = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable desktop settings";
     };
   };

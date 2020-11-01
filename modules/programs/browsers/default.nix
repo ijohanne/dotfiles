@@ -5,13 +5,13 @@ in {
   options.dotfiles.browsers = {
     firefox.enable = mkOption {
       default = false;
-      type = lib.types.bool;
+      type = types.bool;
       description = "Enable firefox app";
     };
   };
 
   imports = [ ./firefox ];
 
-  config = lib.mkIf (cfg.enable) { dotfiles.browsers.firefox.enable = true; };
+  config = mkIf (cfg.enable) { dotfiles.browsers.firefox.enable = true; };
 
 }

@@ -1,7 +1,6 @@
 { lib, config, ... }:
-
-{
-  config = lib.mkIf (config.dotfiles.shell.starship.enable) {
+with lib; {
+  config = mkIf (config.dotfiles.shell.starship.enable) {
     programs.starship = {
       enableFishIntegration = true;
       enable = true;

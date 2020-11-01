@@ -263,6 +263,30 @@
         "url": "https://github.com/Nukesor/pueue/archive/54a70ba82274d7208fde39ee8e62b49be615e77d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "sddm-chili": {
+        "branch": "master",
+        "description": "The hottest theme around for SDDM, the Simple Desktop Display Manager.",
+        "homepage": "",
+        "owner": "MarianArlt",
+        "repo": "sddm-chili",
+        "rev": "6516d50176c3b34df29003726ef9708813d06271",
+        "sha256": "036fxsa7m8ymmp3p40z671z163y6fcsa9a641lrxdrw225ssq5f3",
+        "type": "tarball",
+        "url": "https://github.com/MarianArlt/sddm-chili/archive/6516d50176c3b34df29003726ef9708813d06271.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "sddm-sugar-dark": {
+        "branch": "master",
+        "description": "The sweetest dark theme around for SDDM, the Simple Desktop Display Manager.",
+        "homepage": "https://www.opendesktop.org/p/1272122",
+        "owner": "MarianArlt",
+        "repo": "sddm-sugar-dark",
+        "rev": "9fc363cc3f6b3f70df948c88cbe26989386ee20d",
+        "sha256": "1vb0gr9i4dj6bzrx73cacnn012crvpj4d1n3yiw5w2yhrbpjkql7",
+        "type": "tarball",
+        "url": "https://github.com/MarianArlt/sddm-sugar-dark/archive/9fc363cc3f6b3f70df948c88cbe26989386ee20d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "vim-nerdtree-syntax-highlight": {
         "branch": "master",
         "description": "Extra syntax and highlight for nerdtree files",

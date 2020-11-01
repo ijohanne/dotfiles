@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
-
-{
-  config = lib.mkIf (config.dotfiles.x11.fonts.enable) {
+with lib; {
+  config = mkIf (config.dotfiles.x11.fonts.enable) {
     fonts.fontconfig.enable = true;
     home.packages = with pkgs; [ inconsolata inconsolata-nerdfont ];
     gtk = {
