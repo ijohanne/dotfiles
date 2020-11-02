@@ -14,7 +14,7 @@ in {
           lastpass-password-manager
           reddit-enhancement-suite
           facebook-container
-        ] ++ (with addons; [ darkreader ]);
+        ] ++ (with addons; [ darkreader enhancer-for-youtube ]);
       profiles.default = {
         id = 0;
         settings = {

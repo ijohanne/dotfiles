@@ -14,4 +14,18 @@
       platforms = platforms.all;
     };
   };
+  "enhancer-for-youtube" = buildFirefoxXpiAddon {
+    pname = "enhancer-for-youtube";
+    version = "2.0.101";
+    addonId = "enhancerforyoutube@maximerf.addons.mozilla.org";
+    url =
+      "https://addons.mozilla.org/firefox/downloads/file/3537917/enhancer_for_youtubetm-2.0.101-fx.xpi";
+    sha256 = "b64c2f36b6fc93c22d2305bb25dd0af60c5f3d1fa7ce45592ba3344aa2a99715";
+    meta = with stdenv.lib; {
+      homepage = "https://www.mrfdev.com/enhancer-for-youtube";
+      description =
+        "Tons of features to improve your user experience on YouTube™.";
+      platforms = platforms.all;
+    };
+  };
 }
