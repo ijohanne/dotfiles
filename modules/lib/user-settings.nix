@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 with lib; {
   options.dotfiles.user-settings = {
     gpg = {
@@ -50,12 +50,40 @@ with lib; {
         description = "Yubikey U2F keys";
         default = [ ];
       };
+      luks-gpg = {
+        public-key-file = mkOption {
+          type = with types; nullOr path;
+          description = "Public-key for LUKS";
+          default = null;
+        };
+        encrypted-pass-file = mkOption {
+          type = with types; nullOr path;
+          description = "File containing the encrypted password";
+          default = null;
+        };
+      };
+
     };
     face-icon = mkOption {
       type = with types; nullOr path;
       description = "Face icon to use";
       default = null;
     };
+  };
+
+  config = {
+    assertions = [{
+      assertion =
+        (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file != null
+          && config.dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file
+          != null)
+        || (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file
+          == null
+          && config.dotfiles.user-sessings.yubikey.luke-gpg.encrypted-pass-file
+          == null);
+      message =
+        "Either set both dotfiles.user-settings.yubikey.luks-gpg.public-key-file and dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file or neither!";
+    }];
   };
 }
 

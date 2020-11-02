@@ -14,5 +14,11 @@
       }];
     };
     face-icon = ../../../images/face-icons/ij.png;
+    yubikey = {
+      luks-gpg = {
+        public-key-file = ./gpg-key-2DEB54D1D4413780.asc;
+        encrypted-pass-file = ./encrypted-luks-pass.asc;
+      };
+    };
   };
 }
