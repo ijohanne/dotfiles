@@ -15,7 +15,7 @@ in {
       enable = true;
       enableSshSupport = true;
       enableExtraSocket = true;
-      pinentryFlavor = "curses";
+      pinentryFlavor = "gtk2";
       sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
       extraConfig = ''
         allow-loopback-pinentry
