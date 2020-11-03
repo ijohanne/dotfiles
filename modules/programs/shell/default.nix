@@ -184,7 +184,11 @@ in {
       type = types.bool;
       description = "Enable keybase apps";
     };
-
+    neofetch.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable neofetch apps";
+    };
   };
 
   imports = [
@@ -224,6 +228,7 @@ in {
     ./nix-tree
     ./pueue
     ./keybase
+    ./neofetch
   ];
 
   config = mkIf (cfg.enable) {
@@ -261,6 +266,7 @@ in {
     dotfiles.shell.tig.enable = true;
     dotfiles.shell.nix-tree.enable = true;
     dotfiles.shell.pueue.enable = true;
+    dotfiles.shell.neofetch.enable = true;
   };
 
 }

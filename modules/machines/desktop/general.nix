@@ -24,7 +24,7 @@ with lib; {
         yubioath-desktop
         yubikey-personalization-gui
         themes.sddm-chili
-      ] ++ (with pkgs.qt514; [ qtbase qtquickcontrols qtgraphicaleffects ]);
+      ] ++ (with pkgs.qt5; [ qtbase qtquickcontrols qtgraphicaleffects ]);
 
     programs = {
       sway = {
