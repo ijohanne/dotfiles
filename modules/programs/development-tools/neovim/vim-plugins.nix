@@ -19,5 +19,11 @@ in {
       inherit (sources.nvim-lspconfig) owner repo rev sha256;
     };
   };
+  Language-tool-nvim-git = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "Language-tool-nvim-git";
+    src = pkgs.fetchFromGitHub {
+      inherit (sources.LanguageTool-nvim) owner repo rev sha256;
+    };
+  };
 }
 

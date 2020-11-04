@@ -12,6 +12,7 @@
   dotfiles.development-tools.enable = true;
   dotfiles.virtualization.enable = true;
   dotfiles.development-tools.neovim.language-servers.enable = true;
+  dotfiles.development-tools.neovim.language-tool.enable = true;
   dotfiles.development-tools.git.signing = true;
   dotfiles.window-managers.sway.enable = true;
 }

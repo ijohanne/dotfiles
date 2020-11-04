@@ -1,9 +1,9 @@
-This repository contains my NixOS and home-manager configs, configuration for Neovim, sway, et all, and documentation on how to use the setup provided here.
+This repository contains my NixOS and home-manager configs, configuration for Neovim, sway, et al., and documentation on how to use the setup provided here.
 
 # Table of contents
 - [NixOS installation](#nixos-installation)
   * [Prerequisite information](#prerequisite-information)
-  * [Start wifi (optional)](#start-wifi-optional)
+  * [Start WiFi (optional)](#start-wifi-optional)
   * [Setup needed software](#setup-needed-software)
   * [Set local variables](#set-local-variables)
   * [Setup partitions](#setup-partitions)
@@ -36,7 +36,7 @@ This repository contains my NixOS and home-manager configs, configuration for Ne
 ## Prerequisite information
 The block device used in this guide is exclusively catered to the USB flash
 devices being `/dev/sda` and the new disk for NixOS to be installed on to be
-`/dev/sdb`. However this needs to be updated to reflect the local installation
+`/dev/sdb`. However, this needs to be updated to reflect the local installation
 (such as the main device to install NixOS on is a NVMe disk, and as such the
 block device to use would most likely be `/dev/nvme0n1` instead).
 

@@ -1,0 +1,1 @@
+" Language tool server settings

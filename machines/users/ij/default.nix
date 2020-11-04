@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   dotfiles.user-settings = {
     git = {
       commit-name = "Ian Johannesen";
@@ -20,5 +20,6 @@
         encrypted-pass-file = ./encrypted-luks-pass.asc;
       };
     };
+    dictionaries = with pkgs.hunspellDicts; [ da_DK en_GB-large ];
   };
 }

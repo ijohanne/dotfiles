@@ -13,7 +13,6 @@ in { pkgs, ... }: {
           inherit (sources.neovim) owner repo rev sha256;
         };
       });
-
       nur = (import sources.NUR {
         pkgs = import sources.nixpkgs { config.allowUnfree = true; };
       }).repos;

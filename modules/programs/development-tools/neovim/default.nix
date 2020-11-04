@@ -11,45 +11,34 @@ in {
       type = types.bool;
       description = "Enable language servers";
     };
+    language-tool.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable language tool";
+    };
   };
 
-  config = mkIf (cfg.enable) {
-    home.packages = mkIf (cfg.language-servers.enable) (with pkgs;
-      with stdenv.lib;
-      [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
-      ++ (with pkgs.nodePackages; [
-        typescript-language-server
-        vim-language-server
-        vscode-json-languageserver-bin
-        vscode-html-languageserver-bin
-      ]) ++ optionals
-      (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
-      [ python-language-server ]);
+  config = mkIf cfg.enable (mkMerge [
+    {
+      programs.fish.shellAliases = {
+        "vim" = "nvim";
+        "vi" = "nvim";
+        "vimdiff" = "nvim -d";
+      };
+      programs.git.ignores =
+        dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
+        ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [''
+          # Neovim log files
+          .nvimlog
+        ''];
+      programs.neovim = {
+        enable = true;
+        withNodeJs = true;
+        withPython3 = true;
 
-    programs.fish.shellAliases = {
-      "vim" = "nvim";
-      "vi" = "nvim";
-      "vimdiff" = "nvim -d";
-    };
-
-    programs.git.ignores =
-      dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
-      ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [''
-        # Neovim log files
-        .nvimlog
-      ''];
-
-    programs.neovim = {
-      enable = true;
-      withNodeJs = true;
-      withPython3 = true;
-      package = pkgs.neovim-nightly;
-      extraConfig = lib.concatStrings
-        ([ (builtins.readFile ../../../../configs/neovim/init.vim) ]
-          ++ optionals (cfg.language-servers.enable)
-          [ (builtins.readFile ../../../../configs/neovim/lsp.vim) ]);
-      plugins = with vimPlugins;
-        [
+        package = pkgs.neovim-nightly;
+        extraConfig = builtins.readFile ../../../../configs/neovim/init.vim;
+        plugins = with vimPlugins; [
           fzf-vim
           fzfWrapper
           indentLine
@@ -80,7 +69,25 @@ in {
           vim-nerdtree-syntax-highlight
           vim-devicons
           ctrlp-vim
-        ] ++ optionals (cfg.language-servers.enable) [
+        ];
+      };
+      home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
+    }
+    (mkIf cfg.language-servers.enable {
+      home.packages = with pkgs;
+        with stdenv.lib;
+        [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
+        ++ (with pkgs.nodePackages; [
+          typescript-language-server
+          vim-language-server
+          vscode-json-languageserver-bin
+          vscode-html-languageserver-bin
+        ]) ++ optionals
+        (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
+        [ python-language-server ];
+      programs.neovim = {
+        extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim;
+        plugins = with vimPlugins; [
           vim-gutentags
           completion-nvim
           diagnostic-nvim
@@ -88,8 +95,19 @@ in {
           neoformat
           nvim-lspconfig-git
         ];
-    };
-
-    home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
-  };
+      };
+    })
+    (mkIf cfg.language-tool.enable {
+      home.packages = with pkgs; [
+        languagetool
+        (hunspellWithDicts config.dotfiles.user-settings.dictionaries)
+      ];
+      programs.neovim = {
+        extraConfig =
+          "let g:languagetool_server_command='${pkgs.languagetool}/bin/languagetool-http-server'";
+        plugins = with vimPlugins; [ Language-tool-nvim-git ];
+      };
+    })
+  ]);
 }
+

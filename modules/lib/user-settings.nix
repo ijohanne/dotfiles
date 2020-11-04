@@ -69,6 +69,11 @@ with lib; {
       description = "Face icon to use";
       default = null;
     };
+    dictionaries = mkOption {
+      type = with types; listOf package;
+      description = "Dictionaries to install";
+      default = [ ];
+    };
   };
 
   config = {
