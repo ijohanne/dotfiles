@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e7966f8afd505d90b8c7906e5a63cef690569f2e",
-        "sha256": "12rnjjxpxkmvhn0l924010d5yi7a4mbqa4rijn5xrj1d3ylsvm6l",
+        "rev": "11ef3c6d7656dbbf5aad46f16542f7cb3586b448",
+        "sha256": "0j48p0sr146firmhl9k7fy8jscfnz45s9hmg6j6v2fhmvbsakry8",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/e7966f8afd505d90b8c7906e5a63cef690569f2e.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/11ef3c6d7656dbbf5aad46f16542f7cb3586b448.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -125,10 +125,10 @@
         "homepage": null,
         "owner": "tjdevries",
         "repo": "lsp_extensions.nvim",
-        "rev": "8740c4b52dd6f9c2a564209db466ae72a3412dcc",
-        "sha256": "0sakmg4fkzji3rl9qmfx2rphz3ma5b6sysf7h7sag4n4lykinayj",
+        "rev": "eaa389f8a80d9700cc2c3bce787b00b61761a0f0",
+        "sha256": "0zndlyn3xgzxwshjk79yfva5914xchzg9v8qimfgn7jlmn5ljhwm",
         "type": "tarball",
-        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/8740c4b52dd6f9c2a564209db466ae72a3412dcc.tar.gz",
+        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/eaa389f8a80d9700cc2c3bce787b00b61761a0f0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -197,10 +197,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5eaf0d0d33c9926a98984bb1f0c43f44e0db5100",
-        "sha256": "05i8hknp2gwdm59xiz5wl5d7zhdn2s1vydjp1qcskf8qdzgj1gy0",
+        "rev": "4303b0a517674af40ec11fb17d30733fd5184110",
+        "sha256": "1xcchryqw022jjkifdz78ll06dpk7h0cwxiy7lrr165s3h67fq5f",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5eaf0d0d33c9926a98984bb1f0c43f44e0db5100.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/4303b0a517674af40ec11fb17d30733fd5184110.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-lspconfig": {
@@ -245,10 +245,10 @@
         "homepage": "",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "117579f3cfe4c0abeff70631fa31261d5ea99cfd",
-        "sha256": "1bjvadx76rlf54b43agfx1w35wqpagzihdv2yy0jsrk1glxc15ax",
+        "rev": "9bc92ae2d0620e493be99d3be300c108a2f92597",
+        "sha256": "0wpipjcj4dhnxb7360qkmgnm5pnifhd4vcvawv5ick8wrmrrhlan",
         "type": "tarball",
-        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/117579f3cfe4c0abeff70631fa31261d5ea99cfd.tar.gz",
+        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/9bc92ae2d0620e493be99d3be300c108a2f92597.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pueue": {

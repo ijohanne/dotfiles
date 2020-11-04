@@ -9,6 +9,9 @@ packadd! nvim-lspconfig
 " noselect: Do not select, force user to select one from the menu
 set completeopt=menuone,noinsert,noselect
 
+" Inlay hints for Rust
+autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
+
 " Avoid showing extra messages when using completion
 set shortmess+=c
 
