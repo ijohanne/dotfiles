@@ -25,5 +25,12 @@ in {
       inherit (sources.LanguageTool-nvim) owner repo rev sha256;
     };
   };
+  neovim-treesitter = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "neovim-treesitter";
+    src = pkgs.fetchFromGitHub {
+      inherit (sources.nvim-treesitter) owner repo rev sha256;
+    };
+  };
+
 }
 

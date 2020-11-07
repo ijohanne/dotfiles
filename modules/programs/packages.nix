@@ -37,11 +37,8 @@ in { pkgs, ... }: {
         makeWrapper ${unwrapped}/bin/rust-analyzer $out/bin/rust-analyzer \
           --set-default RUST_SRC_PATH "${rust-src-lib}"
       '';
-      # Override fix to enable neovim building, and bump to the bundled one for neovim
+      # Override fix to enable neovim building
       tree-sitter = upstreamPkgs.tree-sitter.overrideAttrs (attrs: {
-        version = "0.17.3";
-        rev = "c439a676cf169e88234f768ca0f69d42e5bd68c5";
-        sha256 = "1r9zvbl1d9ah3nwj9798kjkfxyqmys5jbax8wc87ygawpz93q2xr";
         outputs = [ "out" "dev" "lib" ];
         postInstall = ''
           make

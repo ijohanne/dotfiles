@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.dotfiles.development-tools.neovim;
-  vimPlugins = pkgs.callPackage ./vim-plugins.nix { } // pkgs.vimPlugins;
+  vimPlugins = pkgs.vimPlugins // pkgs.callPackage ./vim-plugins.nix { };
   dotfilesLib = pkgs.callPackage ../../lib.nix { };
 in {
   options.dotfiles.development-tools.neovim = {
@@ -69,14 +69,31 @@ in {
           vim-nerdtree-syntax-highlight
           vim-devicons
           ctrlp-vim
+          nvim-treesitter
         ];
       };
       home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
+      home.file."${config.xdg.configHome}/nvim/parser/c.so".source =
+        "${pkgs.tree-sitter.builtGrammars.c}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/bash.so".source =
+        "${pkgs.tree-sitter.builtGrammars.bash}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/lua.so".source =
+        "${pkgs.tree-sitter.builtGrammars.lua}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/python.so".source =
+        "${pkgs.tree-sitter.builtGrammars.python}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/go.so".source =
+        "${pkgs.tree-sitter.builtGrammars.go}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/cpp.so".source =
+        "${pkgs.tree-sitter.builtGrammars.cpp}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/json.so".source =
+        "${pkgs.tree-sitter.builtGrammars.json}/parser";
+      home.file."${config.xdg.configHome}/nvim/parser/ruby.so".source =
+        "${pkgs.tree-sitter.builtGrammars.ruby}/parser";
     }
     (mkIf cfg.language-servers.enable {
       home.packages = with pkgs;
         with stdenv.lib;
-        [ rnix-lsp neovim-remote lua ctags rust-analyzer ]
+        [ rnix-lsp neovim-remote lua ctags rust-analyzer gopls go ]
         ++ (with pkgs.nodePackages; [
           typescript-language-server
           vim-language-server

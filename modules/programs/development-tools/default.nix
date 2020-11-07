@@ -21,7 +21,7 @@ in {
     perl.enable = mkOption {
       default = false;
       type = types.bool;
-      description = "Enable perl app";
+      description = "Enable perl compiler";
     };
     neovim.enable = mkOption {
       default = false;

@@ -203,6 +203,18 @@
         "url": "https://github.com/neovim/nvim-lspconfig/archive/60133c47e0fd82556d7ca092546ebfa8d047466e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nvim-treesitter": {
+        "branch": "master",
+        "description": "Nvim Treesitter configurations and abstraction layer",
+        "homepage": "",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "6900e5f704110e3dbaab844c81530e82f271f7da",
+        "sha256": "0h62i8rn1i278vy5r7yi8zr90zc2nk7cp5gp9sqnamxbc48pg5yv",
+        "type": "tarball",
+        "url": "https://github.com/nvim-treesitter/nvim-treesitter/archive/6900e5f704110e3dbaab844c81530e82f271f7da.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "oh-my-fish-plugin-foreign-env": {
         "branch": "master",
         "description": "foreign-env - oh my fish plugin",
