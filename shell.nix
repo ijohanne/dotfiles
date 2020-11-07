@@ -22,7 +22,6 @@ in pkgs.mkShell rec {
     shellcheck
     shfmt
     nixfmt
-    (import sources.nix-linter { inherit pkgs; }).nix-linter
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${

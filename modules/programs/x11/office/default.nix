@@ -3,22 +3,22 @@ with lib;
 let cfg = config.dotfiles.x11.office;
 in {
   options.dotfiles.x11.office = {
-    libreoffice = mkOption {
+    libreoffice.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable libreoffice app";
     };
-    zathura = mkOption {
+    zathura.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable zathura app";
     };
-    thunderbird = mkOption {
+    thunderbird.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable thunderbird app";
     };
-    seafile-client = mkOption {
+    seafile-client.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable seafile-client app";
@@ -28,10 +28,9 @@ in {
   imports = [ ./libreoffice ./zathura ./thunderbird ./seafile-client ];
 
   config = mkIf (cfg.enable) {
-    dotfiles.x11.office.libreoffice = true;
-    dotfiles.x11.office.zathura = true;
-    dotfiles.x11.office.thunderbird = true;
-    dotfiles.x11.office.seafile-client = true;
+    dotfiles.x11.office.libreoffice.enable = true;
+    dotfiles.x11.office.zathura.enable = true;
+    dotfiles.x11.office.seafile-client.enable = true;
   };
 }
 

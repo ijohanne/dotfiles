@@ -3,7 +3,7 @@ with lib;
 let cfg = config.dotfiles.x11.terminals;
 in {
   options.dotfiles.x11.terminals = {
-    alacritty = mkOption {
+    alacritty.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable alacritty app";
@@ -12,7 +12,8 @@ in {
 
   imports = [ ./alacritty ];
 
-  config = mkIf (cfg.enable) { dotfiles.x11.terminals.alacritty = true; };
+  config =
+    mkIf (cfg.enable) { dotfiles.x11.terminals.alacritty.enable = true; };
 
 }
 

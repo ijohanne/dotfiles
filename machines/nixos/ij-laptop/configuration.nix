@@ -5,6 +5,7 @@
     [ ../../users/ij ./hardware-configuration.nix ../../../modules/machines ];
 
   dotfiles.machines.desktop = true;
+  dotfiles.machines.printers = true;
 
   networking.hostName = "ij-laptop";
   networking.hostId = "d035f711";

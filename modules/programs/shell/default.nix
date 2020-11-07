@@ -123,11 +123,6 @@ in {
       type = types.bool;
       description = "Enable bottom app";
     };
-    nix-linter.enable = mkOption {
-      default = false;
-      type = types.bool;
-      description = "Enable nix-linter app";
-    };
     shfmt.enable = mkOption {
       default = false;
       type = types.bool;
@@ -189,6 +184,11 @@ in {
       type = types.bool;
       description = "Enable neofetch apps";
     };
+    nix-prefetch.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable varios nix-prefetch-* apps";
+    };
   };
 
   imports = [
@@ -216,7 +216,6 @@ in {
     ./tmux
     ./onefetch
     ./bottom
-    ./nix-linter
     ./shfmt
     ./shellcheck
     ./lfs
@@ -229,6 +228,7 @@ in {
     ./pueue
     ./keybase
     ./neofetch
+    ./nix-prefetch
   ];
 
   config = mkIf (cfg.enable) {
@@ -255,7 +255,6 @@ in {
     dotfiles.shell.tmux.enable = true;
     dotfiles.shell.onefetch.enable = true;
     dotfiles.shell.bottom.enable = true;
-    dotfiles.shell.nix-linter.enable = true;
     dotfiles.shell.shfmt.enable = true;
     dotfiles.shell.shellcheck.enable = true;
     dotfiles.shell.lfs.enable = true;
@@ -267,6 +266,7 @@ in {
     dotfiles.shell.nix-tree.enable = true;
     dotfiles.shell.pueue.enable = true;
     dotfiles.shell.neofetch.enable = true;
+    dotfiles.shell.nix-prefetch.enable = true;
   };
 
 }
