@@ -192,81 +192,81 @@ in {
   };
 
   imports = [
+    ./bat
+    ./bind
+    ./bottom
+    ./broot
     ./du-dust
     ./exa
-    ./starship
-    ./tokei
-    ./procs
-    ./gpg-agent
+    ./fd
     ./fish
+    ./fzf
+    ./gpg-agent
+    ./httpie
     ./imagemagick
+    ./jq
+    ./keybase
     ./ldns
+    ./lfs
     ./lsof
     ./mkpasswd
     ./mtr
-    ./nixfmt
-    ./ripgrep
-    ./whois
-    ./bind
-    ./tcpdump
-    ./bat
-    ./fd
-    ./fzf
-    ./zoxide
-    ./tmux
-    ./onefetch
-    ./bottom
-    ./shfmt
-    ./shellcheck
-    ./lfs
-    ./broot
-    ./jq
-    ./rq
-    ./httpie
-    ./tig
-    ./nix-tree
-    ./pueue
-    ./keybase
     ./neofetch
     ./nix-prefetch
+    ./nix-tree
+    ./nixfmt
+    ./onefetch
+    ./procs
+    ./pueue
+    ./ripgrep
+    ./rq
+    ./shellcheck
+    ./shfmt
+    ./starship
+    ./tcpdump
+    ./tig
+    ./tmux
+    ./tokei
+    ./whois
+    ./zoxide
   ];
 
   config = mkIf (cfg.enable) {
+    dotfiles.shell.bat.enable = true;
+    dotfiles.shell.bind.enable = true;
+    dotfiles.shell.bottom.enable = true;
+    dotfiles.shell.broot.enable = true;
     dotfiles.shell.du-dust.enable = true;
     dotfiles.shell.exa.enable = true;
-    dotfiles.shell.starship.enable = true;
-    dotfiles.shell.tokei.enable = true;
-    dotfiles.shell.procs.enable = true;
+    dotfiles.shell.fd.enable = true;
     dotfiles.shell.fish.enable = true;
+    dotfiles.shell.fzf.enable = true;
+    dotfiles.shell.httpie.enable = true;
     dotfiles.shell.imagemagick.enable = true;
+    dotfiles.shell.jq.enable = true;
     dotfiles.shell.ldns.enable = true;
+    dotfiles.shell.lfs.enable = true;
     dotfiles.shell.lsof.enable = true;
     dotfiles.shell.mkpasswd.enable = true;
     dotfiles.shell.mtr.enable = true;
-    dotfiles.shell.nixfmt.enable = true;
-    dotfiles.shell.ripgrep.enable = true;
-    dotfiles.shell.whois.enable = true;
-    dotfiles.shell.bind.enable = true;
-    dotfiles.shell.tcpdump.enable = true;
-    dotfiles.shell.bat.enable = true;
-    dotfiles.shell.fd.enable = true;
-    dotfiles.shell.fzf.enable = true;
-    dotfiles.shell.zoxide.enable = true;
-    dotfiles.shell.tmux.enable = true;
-    dotfiles.shell.onefetch.enable = true;
-    dotfiles.shell.bottom.enable = true;
-    dotfiles.shell.shfmt.enable = true;
-    dotfiles.shell.shellcheck.enable = true;
-    dotfiles.shell.lfs.enable = true;
-    dotfiles.shell.broot.enable = true;
-    dotfiles.shell.jq.enable = true;
-    dotfiles.shell.rq.enable = true;
-    dotfiles.shell.httpie.enable = true;
-    dotfiles.shell.tig.enable = true;
-    dotfiles.shell.nix-tree.enable = true;
-    dotfiles.shell.pueue.enable = true;
     dotfiles.shell.neofetch.enable = true;
     dotfiles.shell.nix-prefetch.enable = true;
+    dotfiles.shell.nix-tree.enable = true;
+    dotfiles.shell.nixfmt.enable = true;
+    dotfiles.shell.onefetch.enable = true;
+    dotfiles.shell.procs.enable = true;
+    dotfiles.shell.pueue.enable = true;
+    dotfiles.shell.ripgrep.enable = true;
+    dotfiles.shell.rq.enable = true;
+    dotfiles.shell.shellcheck.enable = true;
+    dotfiles.shell.shfmt.enable = true;
+    dotfiles.shell.starship.enable = true;
+    dotfiles.shell.tcpdump.enable = true;
+    dotfiles.shell.tig.enable = true;
+    dotfiles.shell.tmux.enable = true;
+    dotfiles.shell.tokei.enable = true;
+    dotfiles.shell.whois.enable = true;
+    dotfiles.shell.zoxide.enable = true;
   };
 
 }

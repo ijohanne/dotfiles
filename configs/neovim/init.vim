@@ -25,6 +25,12 @@ require'nvim-treesitter.configs'.setup {
 
 EOF
 
+" Closes nerdtree upon open
+let NERDTreeQuitOnOpen=1
+
+" Setup vim-crates plugin
+autocmd BufRead Cargo.toml call crates#toggle()
+
 " setup barbar
 " Magic buffer-picking mode
 nnoremap <silent> <C-s> :BufferPick<CR>

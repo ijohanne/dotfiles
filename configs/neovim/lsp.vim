@@ -29,7 +29,7 @@ local on_attach = function(client)
     require'diagnostic'.on_attach(client)
 end
 
-local servers = {'gopls', 'sumneko_lua', 'tsserver', 'html', 'ghcide', 'rust_analyzer', 'pyls_ms' }
+local servers = {'gopls', 'sumneko_lua', 'tsserver', 'html', 'ghcide', 'rust_analyzer', 'pyls_ms', 'texlab', 'yamlls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -45,6 +45,9 @@ nvim_lsp['rnix'].setup {
 }
 
 EOF
+
+" Fzf aliases
+nnoremap <silent> <C-f> :Files<CR>
 
 " Trigger completion with <Tab>
 inoremap <silent><expr> <TAB>
@@ -68,6 +71,8 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>=   <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> <leader>ar      <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Visualize diagnostics
 let g:diagnostic_enable_virtual_text = 1

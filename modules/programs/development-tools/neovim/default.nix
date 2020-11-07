@@ -39,19 +39,29 @@ in {
         package = pkgs.neovim-nightly;
         extraConfig = builtins.readFile ../../../../configs/neovim/init.vim;
         plugins = with vimPlugins; [
+          barbar-nvim
+          ctrlp-vim
+          direnv-vim
           fzf-vim
           fzfWrapper
           indentLine
           lightline-vim
+          nerdtree
+          nvim-treesitter
+          nvim-web-devicons
           onedark-vim
           splitjoin-vim
           vim-commentary
+          vim-crates
+          vim-devicons
           vim-dirvish
           vim-dispatch
           vim-easy-align
           vim-eunuch
           vim-fugitive
           vim-gitgutter
+          vim-nerdtree-syntax-highlight
+          vim-nerdtree-tabs
           vim-polyglot
           vim-repeat
           vim-rhubarb
@@ -60,18 +70,10 @@ in {
           vim-slime
           vim-surround
           vim-tmux-navigator
+          vim-trailing-whitespace
           vim-unimpaired
           vim-vinegar
           vimtex
-          direnv-vim
-          nerdtree
-          vim-nerdtree-tabs
-          vim-nerdtree-syntax-highlight
-          vim-devicons
-          ctrlp-vim
-          nvim-treesitter
-          barbar-nvim
-          nvim-web-devicons
         ];
       };
       home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
@@ -95,24 +97,33 @@ in {
     (mkIf cfg.language-servers.enable {
       home.packages = with pkgs;
         with stdenv.lib;
-        [ rnix-lsp neovim-remote lua ctags rust-analyzer gopls go ]
-        ++ (with pkgs.nodePackages; [
+        [
+          ctags
+          go
+          gopls
+          lua
+          neovim-remote
+          rnix-lsp
+          rust-analyzer
+          yaml-language-server
+        ] ++ (with pkgs.nodePackages; [
+          texlab
           typescript-language-server
           vim-language-server
-          vscode-json-languageserver-bin
           vscode-html-languageserver-bin
+          vscode-json-languageserver-bin
         ]) ++ optionals
         (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
         [ python-language-server ];
       programs.neovim = {
         extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim;
         plugins = with vimPlugins; [
-          vim-gutentags
           completion-nvim
           diagnostic-nvim
-          nvim-lsp-extensions
           neoformat
+          nvim-lsp-extensions
           nvim-lspconfig
+          vim-gutentags
         ];
       };
     })
