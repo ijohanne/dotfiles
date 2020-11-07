@@ -70,6 +70,8 @@ in {
           vim-devicons
           ctrlp-vim
           nvim-treesitter
+          barbar-nvim
+          nvim-web-devicons
         ];
       };
       home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
@@ -110,7 +112,7 @@ in {
           diagnostic-nvim
           nvim-lsp-extensions
           neoformat
-          nvim-lspconfig-git
+          nvim-lspconfig
         ];
       };
     })
@@ -122,7 +124,7 @@ in {
       programs.neovim = {
         extraConfig =
           "let g:languagetool_server_command='${pkgs.languagetool}/bin/languagetool-http-server'";
-        plugins = with vimPlugins; [ Language-tool-nvim-git ];
+        plugins = with vimPlugins; [ Language-tool-nvim ];
       };
     })
   ]);
