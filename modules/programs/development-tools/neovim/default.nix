@@ -46,7 +46,6 @@ in {
           fzfWrapper
           indentLine
           lightline-vim
-          nerdtree
           nvim-treesitter
           nvim-web-devicons
           onedark-vim
@@ -60,8 +59,6 @@ in {
           vim-eunuch
           vim-fugitive
           vim-gitgutter
-          vim-nerdtree-syntax-highlight
-          vim-nerdtree-tabs
           vim-polyglot
           vim-repeat
           vim-rhubarb

@@ -1,12 +1,6 @@
 { pkgs }:
 let sources = import ../../../../nix/sources.nix;
 in {
-  vim-nerdtree-syntax-highlight = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-nerdtree-syntax-highlight";
-    src = pkgs.fetchFromGitHub {
-      inherit (sources.vim-nerdtree-syntax-highlight) owner repo rev sha256;
-    };
-  };
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-web-devicons";
     src = pkgs.fetchFromGitHub {
@@ -35,6 +29,12 @@ in {
     name = "neovim-treesitter";
     src = pkgs.fetchFromGitHub {
       inherit (sources.nvim-treesitter) owner repo rev sha256;
+    };
+  };
+  ranger-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "ranger-vim";
+    src = pkgs.fetchFromGitHub {
+      inherit (sources.ranger-vim) owner repo rev sha256;
     };
   };
 

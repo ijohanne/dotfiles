@@ -182,13 +182,19 @@ in {
     neofetch.enable = mkOption {
       default = false;
       type = types.bool;
-      description = "Enable neofetch apps";
+      description = "Enable neofetch app";
     };
     nix-prefetch.enable = mkOption {
       default = false;
       type = types.bool;
       description = "Enable varios nix-prefetch-* apps";
     };
+    ranger.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable ranger app";
+    };
+
   };
 
   imports = [
@@ -218,6 +224,7 @@ in {
     ./onefetch
     ./procs
     ./pueue
+    ./ranger
     ./ripgrep
     ./rq
     ./shellcheck
@@ -256,6 +263,7 @@ in {
     dotfiles.shell.onefetch.enable = true;
     dotfiles.shell.procs.enable = true;
     dotfiles.shell.pueue.enable = true;
+    dotfiles.shell.ranger.enable = true;
     dotfiles.shell.ripgrep.enable = true;
     dotfiles.shell.rq.enable = true;
     dotfiles.shell.shellcheck.enable = true;
