@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.x11.media;
-in {
+in
+{
   options.dotfiles.x11.media = {
     feh.enable = mkOption {
       default = false;
@@ -40,4 +41,3 @@ in {
     dotfiles.x11.media.vlc.enable = true;
   };
 }
-

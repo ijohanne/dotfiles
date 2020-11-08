@@ -16,4 +16,3 @@
   dotfiles.development-tools.git.signing = true;
   dotfiles.window-managers.sway.enable = true;
 }
-

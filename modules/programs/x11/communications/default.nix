@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.x11.communications;
-in {
+in
+{
   options.dotfiles.x11.communications = {
     element-desktop.enable = mkOption {
       default = false;
@@ -35,4 +36,3 @@ in {
   };
 
 }
-

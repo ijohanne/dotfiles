@@ -26,7 +26,8 @@ let
     echo Spawning service
     ${pkgs.pueue}/bin/pueued
   '';
-in {
+in
+{
   config = mkIf (config.dotfiles.shell.pueue.enable) {
     home.packages = with pkgs; [ pueue ];
 
@@ -42,4 +43,3 @@ in {
     };
   };
 }
-

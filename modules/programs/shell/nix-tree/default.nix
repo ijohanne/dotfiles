@@ -4,4 +4,3 @@ with lib; {
     home.packages = [ pkgs.haskellPackages.nix-tree ];
   };
 }
-

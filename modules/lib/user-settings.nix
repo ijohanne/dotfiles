@@ -80,15 +80,14 @@ with lib; {
     assertions = [{
       assertion =
         (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file != null
-          && config.dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file
-          != null)
+        && config.dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file
+        != null)
         || (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file
-          == null
-          && config.dotfiles.user-sessings.yubikey.luke-gpg.encrypted-pass-file
-          == null);
+        == null
+        && config.dotfiles.user-sessings.yubikey.luke-gpg.encrypted-pass-file
+        == null);
       message =
         "Either set both dotfiles.user-settings.yubikey.luks-gpg.public-key-file and dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file or neither!";
     }];
   };
 }
-

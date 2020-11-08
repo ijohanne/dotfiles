@@ -12,7 +12,8 @@ let
     export SWAYSOCK=/run/user/$(${pkgs.coreutils}/bin/id -u)/sway-ipc.$(${pkgs.coreutils}/bin/id -u).$(${pkgs.procps}/bin/pgrep -n -f 'sway$').sock
     ${waybar}/bin/waybar "$@"
   '';
-in {
+in
+{
   options.services.waybar = with lib; {
     enable = mkEnableOption "waybar";
 
@@ -26,4 +27,3 @@ in {
     };
   };
 }
-

@@ -1,7 +1,8 @@
 let
   sources = import ../../nix/sources.nix;
   upstreamPkgs = import sources.nixpkgs { };
-in { pkgs, ... }: {
+in
+{ pkgs, ... }: {
   nixpkgs.overlays = [
     (import sources.mozilla-overlay)
     (import ../localpkgs)
@@ -24,19 +25,22 @@ in { pkgs, ... }: {
             export RUST_SRC_PATH=${rust-src-lib}
           '';
         });
-      rust-analyzer = let
-        unwrapped = rust-analyzer-unwrapped;
-        version = unwrapped.version;
-        pname = "rust-analyzer";
-      in pkgs.runCommandNoCC "${pname}-${version}" {
-        inherit pname version;
-        inherit (unwrapped) src meta;
-        nativeBuildInputs = with pkgs; [ makeWrapper ];
-      } ''
-        mkdir -p $out/bin
-        makeWrapper ${unwrapped}/bin/rust-analyzer $out/bin/rust-analyzer \
-          --set-default RUST_SRC_PATH "${rust-src-lib}"
-      '';
+      rust-analyzer =
+        let
+          unwrapped = rust-analyzer-unwrapped;
+          version = unwrapped.version;
+          pname = "rust-analyzer";
+        in
+        pkgs.runCommandNoCC "${pname}-${version}"
+          {
+            inherit pname version;
+            inherit (unwrapped) src meta;
+            nativeBuildInputs = with pkgs; [ makeWrapper ];
+          } ''
+          mkdir -p $out/bin
+          makeWrapper ${unwrapped}/bin/rust-analyzer $out/bin/rust-analyzer \
+            --set-default RUST_SRC_PATH "${rust-src-lib}"
+        '';
       # Override fix to enable neovim building
       tree-sitter = upstreamPkgs.tree-sitter.overrideAttrs (attrs: {
         outputs = [ "out" "dev" "lib" ];

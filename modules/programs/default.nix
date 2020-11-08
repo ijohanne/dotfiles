@@ -52,4 +52,3 @@ with lib; {
       concatStringsSep "\n" config.dotfiles.user-settings.yubikey.u2f-keys;
   };
 }
-

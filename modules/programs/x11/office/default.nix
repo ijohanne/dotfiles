@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.x11.office;
-in {
+in
+{
   options.dotfiles.x11.office = {
     libreoffice.enable = mkOption {
       default = false;
@@ -33,4 +34,3 @@ in {
     dotfiles.x11.office.seafile-client.enable = true;
   };
 }
-

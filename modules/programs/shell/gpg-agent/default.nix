@@ -9,7 +9,8 @@ let
         ${elem.owner-trust}
         EOF
       '')));
-in {
+in
+{
   config = mkIf (config.dotfiles.shell.gpg-agent.enable) {
     services.gpg-agent = {
       enable = true;
@@ -42,4 +43,3 @@ in {
     };
   };
 }
-

@@ -4,7 +4,8 @@ let
   cfg = config.dotfiles.development-tools.neovim;
   vimPlugins = pkgs.vimPlugins // pkgs.callPackage ./vim-plugins.nix { };
   dotfilesLib = pkgs.callPackage ../../lib.nix { };
-in {
+in
+{
   options.dotfiles.development-tools.neovim = {
     language-servers.enable = mkOption {
       default = false;
@@ -27,10 +28,12 @@ in {
       };
       programs.git.ignores =
         dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
-        ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [''
-          # Neovim log files
-          .nvimlog
-        ''];
+        ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [
+          ''
+            # Neovim log files
+            .nvimlog
+          ''
+        ];
       programs.neovim = {
         enable = true;
         withNodeJs = true;
@@ -110,8 +113,8 @@ in {
           vscode-html-languageserver-bin
           vscode-json-languageserver-bin
         ]) ++ optionals
-        (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
-        [ python-language-server ];
+          (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
+          [ python-language-server ];
       programs.neovim = {
         extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim;
         plugins = with vimPlugins; [
@@ -137,4 +140,3 @@ in {
     })
   ]);
 }
-

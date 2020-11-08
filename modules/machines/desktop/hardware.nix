@@ -46,10 +46,12 @@ with lib; {
 
       boot.zfs.enableUnstable = true;
     }
-    (mkIf (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file
-      != null
-      && config.dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file
-      != null) {
+    (mkIf
+      (config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file
+        != null
+        && config.dotfiles.user-settings.yubikey.luks-gpg.encrypted-pass-file
+        != null)
+      {
         boot.initrd.luks = {
           gpgSupport = true;
           devices.decrypted-disk-name = {
@@ -64,4 +66,3 @@ with lib; {
       })
   ]);
 }
-

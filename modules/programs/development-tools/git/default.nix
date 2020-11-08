@@ -1,7 +1,8 @@
 { pkgs, lib, config, ... }:
 with lib;
 let cfg = config.dotfiles.development-tools.git;
-in {
+in
+{
   options.dotfiles.development-tools.git = {
     signing = mkOption {
       default = false;
@@ -29,4 +30,3 @@ in {
     })
   ]);
 }
-

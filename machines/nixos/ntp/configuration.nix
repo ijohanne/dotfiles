@@ -37,4 +37,3 @@
     builders-use-substitutes = true
   '';
 }
-

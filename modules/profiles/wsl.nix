@@ -11,4 +11,3 @@
   dotfiles.tex.enable = true;
   dotfiles.development-tools.git.signing = true;
 }
-

@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.browsers;
-in {
+in
+{
   options.dotfiles.browsers = {
     firefox.enable = mkOption {
       default = false;

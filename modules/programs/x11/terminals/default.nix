@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.x11.terminals;
-in {
+in
+{
   options.dotfiles.x11.terminals = {
     alacritty.enable = mkOption {
       default = false;
@@ -16,4 +17,3 @@ in {
     mkIf (cfg.enable) { dotfiles.x11.terminals.alacritty.enable = true; };
 
 }
-

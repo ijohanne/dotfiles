@@ -4,4 +4,3 @@ with lib; {
     home.packages = with pkgs; [ docker-compose ];
   };
 }
-

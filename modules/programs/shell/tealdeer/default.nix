@@ -5,8 +5,7 @@ with lib; {
     home.activation.tealdeerCacheScript =
       hm.dag.entryAfter [ "writeBoundary" ] ''
         ${pkgs.tealdeer}/bin/tldr --update
-              '';
+      '';
 
   };
 }
-

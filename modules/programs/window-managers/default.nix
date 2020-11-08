@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.window-managers;
-in {
+in
+{
   options.dotfiles.window-managers = {
     sway.enable = mkOption {
       default = false;
@@ -15,4 +16,3 @@ in {
   config = mkIf (cfg.enable) { dotfiles.window-managers.sway.enable = true; };
 
 }
-

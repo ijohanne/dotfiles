@@ -5,4 +5,3 @@ with lib; {
       home.packages = with pkgs.nur.rycee; [ firefox-addons-generator ];
     };
 }
-

@@ -1,6 +1,7 @@
 { pkgs }:
 let sources = import ../../../../nix/sources.nix;
-in {
+in
+{
   bass = {
     name = "bass";
     src =
@@ -39,4 +40,3 @@ in {
   };
 
 }
-

@@ -1,7 +1,8 @@
 { pkgs, lib, config, ... }:
 with lib;
 let sources = import ../../../../nix/sources.nix;
-in {
+in
+{
   config = mkIf (config.dotfiles.shell.ranger.enable) {
     home.packages = with pkgs; [ ranger ];
     programs.neovim = {
@@ -22,4 +23,3 @@ in {
     };
   };
 }
-

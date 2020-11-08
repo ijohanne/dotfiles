@@ -1,6 +1,7 @@
 { pkgs, mkDerivation, qtbase, qtquickcontrols, qtgraphicaleffects }:
 let sources = import ../../nix/sources.nix;
-in {
+in
+{
   sddm-sugar-dark = mkDerivation rec {
     pname = "sddm-sugar-dark-theme";
     version = "1.2";

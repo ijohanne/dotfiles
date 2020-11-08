@@ -4,4 +4,3 @@ with lib; {
     services.lorri.enable = true;
   };
 }
-

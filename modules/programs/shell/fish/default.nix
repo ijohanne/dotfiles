@@ -3,7 +3,8 @@ with lib;
 let
   sources = import ../../../../nix/sources.nix;
   fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
-in {
+in
+{
   config = mkIf (config.dotfiles.shell.fish.enable) {
     home.packages = with pkgs; [ python3Minimal ];
 
@@ -44,4 +45,3 @@ in {
   };
 
 }
-

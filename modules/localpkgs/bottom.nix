@@ -3,13 +3,16 @@
 with pkgs;
 let
   sources = import ../../nix/sources.nix;
-  rustPlatform = let rust = pkgs.latest.rustChannels.stable.rust;
-  in pkgs.makeRustPlatform {
-    cargo = rust;
-    rustc = rust;
-  };
+  rustPlatform =
+    let rust = pkgs.latest.rustChannels.stable.rust;
+    in
+    pkgs.makeRustPlatform {
+      cargo = rust;
+      rustc = rust;
+    };
   inherit (pkgs) lib;
-in rustPlatform.buildRustPackage rec {
+in
+rustPlatform.buildRustPackage rec {
   pname = "bottom";
   version = "master";
   src =

@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.development-tools;
-in {
+in
+{
   options.dotfiles.development-tools = {
     git.enable = mkOption {
       default = false;
@@ -54,4 +55,3 @@ in {
   };
 
 }
-

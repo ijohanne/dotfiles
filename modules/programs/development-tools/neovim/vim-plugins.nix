@@ -1,6 +1,7 @@
 { pkgs }:
 let sources = import ../../../../nix/sources.nix;
-in {
+in
+{
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-web-devicons";
     src = pkgs.fetchFromGitHub {
@@ -39,4 +40,3 @@ in {
   };
 
 }
-

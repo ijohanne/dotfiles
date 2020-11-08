@@ -4,4 +4,3 @@
   documentation.dev.enable = true;
   nixpkgs.overlays = [ (import ../localpkgs) ];
 }
-

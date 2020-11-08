@@ -1,7 +1,7 @@
 { lib, rustPlatform, fetchFromGitHub, installShellFiles }:
-
 let sources = import ../../nix/sources.nix;
-in rustPlatform.buildRustPackage rec {
+in
+rustPlatform.buildRustPackage rec {
   pname = "pueue";
   version = "master";
   src = fetchFromGitHub { inherit (sources.pueue) owner repo rev sha256; };

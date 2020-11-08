@@ -1,6 +1,7 @@
 { ... }:
 let sources = import ../../nix/sources.nix;
-in {
+in
+{
 
   programs = {
     home-manager = {

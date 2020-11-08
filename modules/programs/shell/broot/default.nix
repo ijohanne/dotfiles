@@ -5,4 +5,3 @@ with lib; {
     programs.fish.shellAliases = { tree = "${pkgs.broot}/bin/broot"; };
   };
 }
-

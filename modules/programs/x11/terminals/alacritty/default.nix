@@ -7,4 +7,3 @@ with lib; {
       ../../../../../configs/terminal/alacritty.yml;
   };
 }
-

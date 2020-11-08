@@ -5,4 +5,3 @@ with lib; {
     programs.fish.shellAliases = { top = "${pkgs.bottom}/bin/btm"; };
   };
 }
-

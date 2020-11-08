@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.shell;
-in {
+in
+{
   options.dotfiles.shell = {
     du-dust.enable = mkOption {
       default = false;
@@ -63,10 +64,10 @@ in {
       type = types.bool;
       description = "Enable mtr app";
     };
-    nixfmt.enable = mkOption {
+    nixpkgs-fmt.enable = mkOption {
       default = false;
       type = types.bool;
-      description = "Enable nixfmt app";
+      description = "Enable nixpkgs-fmt app";
     };
     ripgrep.enable = mkOption {
       default = false;
@@ -223,7 +224,7 @@ in {
     ./neofetch
     ./nix-prefetch
     ./nix-tree
-    ./nixfmt
+    ./nixpkgs-fmt
     ./onefetch
     ./procs
     ./pueue
@@ -263,7 +264,7 @@ in {
     dotfiles.shell.neofetch.enable = true;
     dotfiles.shell.nix-prefetch.enable = true;
     dotfiles.shell.nix-tree.enable = true;
-    dotfiles.shell.nixfmt.enable = true;
+    dotfiles.shell.nixpkgs-fmt.enable = true;
     dotfiles.shell.onefetch.enable = true;
     dotfiles.shell.procs.enable = true;
     dotfiles.shell.pueue.enable = true;
@@ -283,4 +284,3 @@ in {
   };
 
 }
-

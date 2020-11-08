@@ -1,7 +1,8 @@
 { lib, config, ... }:
 with lib;
 let cfg = config.dotfiles.x11;
-in {
+in
+{
   options.dotfiles.x11 = {
     communications.enable = mkOption {
       default = false;
@@ -34,8 +35,10 @@ in {
   imports = [ ./communications ./media ./terminals ./office ./fonts ];
 
   config = mkMerge [
-    (mkIf (cfg.communications.enable || cfg.media.enable || cfg.terminals.enable
-      || cfg.office.enable) {
+    (mkIf
+      (cfg.communications.enable || cfg.media.enable || cfg.terminals.enable
+        || cfg.office.enable)
+      {
         home.sessionVariables = {
           LIBVA_DRIVER_NAME = "radeonsi";
           VDPAU_DRIVER = "radeonsi";
@@ -48,4 +51,3 @@ in {
     })
   ];
 }
-

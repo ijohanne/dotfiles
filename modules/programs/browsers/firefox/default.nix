@@ -3,7 +3,8 @@ with lib;
 let
   buildFirefoxXpiAddon = pkgs.nur.rycee.firefox-addons.buildFirefoxXpiAddon;
   addons = pkgs.callPackage ./addons.nix { inherit buildFirefoxXpiAddon; };
-in {
+in
+{
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
     programs.firefox = {
       enable = true;
@@ -36,4 +37,3 @@ in {
     home.sessionVariables = { MOZ_ENABLE_WAYLAND = "1"; };
   };
 }
-

@@ -5,4 +5,3 @@ with lib; {
     programs.fish.shellAliases = { du = "${pkgs.du-dust}/bin/dust"; };
   };
 }
-

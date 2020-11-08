@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 let cfg = config.dotfiles.virtualization;
-in {
+in
+{
   options.dotfiles.virtualization = {
     docker-compose = mkOption {
       default = false;
@@ -15,4 +16,3 @@ in {
   config = mkIf (cfg.enable) { dotfiles.virtualization.docker-compose = true; };
 
 }
-

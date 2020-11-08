@@ -1,7 +1,8 @@
 { pkgs, config, lib, ... }:
 with lib;
 let dots = "${config.home.homeDirectory}/.dotfiles";
-in {
+in
+{
   config = mkIf (config.dotfiles.shell.procs.enable) {
     home.packages = with pkgs; [ procs ];
 
@@ -10,4 +11,3 @@ in {
     };
   };
 }
-

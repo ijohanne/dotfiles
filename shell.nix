@@ -4,13 +4,14 @@ let
   pkgs = import nixpkgs { };
   gis = import sources.nix-gitignore { };
   nix-pre-commit-hooks = import sources.pre-commit-hooks-nix;
-in pkgs.mkShell rec {
+in
+pkgs.mkShell rec {
   pre-commit-check = nix-pre-commit-hooks.run {
     src = gis.gitignoreSource ./.;
     hooks = {
       shellcheck.enable = true;
       nix-linter.enable = true;
-      nixfmt.enable = true;
+      nixpkgs-fmt.enable = true;
       yamllint.enable = true;
     };
     excludes = [ "modules/programs/browsers/firefox/addons.nix" ];
