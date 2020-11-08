@@ -153,7 +153,6 @@ in {
       type = types.bool;
       description = "Enable rq app";
     };
-
     httpie.enable = mkOption {
       default = false;
       type = types.bool;
@@ -194,7 +193,11 @@ in {
       type = types.bool;
       description = "Enable ranger app";
     };
-
+    tealdeer.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable tealdeer app";
+    };
   };
 
   imports = [
@@ -230,6 +233,7 @@ in {
     ./shellcheck
     ./shfmt
     ./starship
+    ./tealdeer
     ./tcpdump
     ./tig
     ./tmux
@@ -269,6 +273,7 @@ in {
     dotfiles.shell.shellcheck.enable = true;
     dotfiles.shell.shfmt.enable = true;
     dotfiles.shell.starship.enable = true;
+    dotfiles.shell.tealdeer.enable = true;
     dotfiles.shell.tcpdump.enable = true;
     dotfiles.shell.tig.enable = true;
     dotfiles.shell.tmux.enable = true;

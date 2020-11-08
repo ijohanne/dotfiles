@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3189c40da661eefc0c604f7f50df4956cf542a25",
-        "sha256": "0jyzhj9kidvjys07mb5pbdvmks79qck5iay6a21zpgbk81j53568",
+        "rev": "6cbd445555c1e308539be37474bed2b77c57411e",
+        "sha256": "1l0rsf6pkcy4zisih9pl1zf2bq08ap5b9fhyclwkr40m933nw7l0",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/3189c40da661eefc0c604f7f50df4956cf542a25.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/6cbd445555c1e308539be37474bed2b77c57411e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -221,10 +221,10 @@
         "homepage": null,
         "owner": "kyazdani42",
         "repo": "nvim-web-devicons",
-        "rev": "078140d221ea59b41ec56f1683d1c54efcddfa6f",
-        "sha256": "1zgba845hhf4vlvnvyyxwy9may1nmm804ms5zh8imx253w2fh1mb",
+        "rev": "61693bf98df40dc17354edd5f92311e2aaa0f5cc",
+        "sha256": "0siifa9gxj6kz9w4fpnra6afyri6y0b34605aqkf7820krhcmckz",
         "type": "tarball",
-        "url": "https://github.com/kyazdani42/nvim-web-devicons/archive/078140d221ea59b41ec56f1683d1c54efcddfa6f.tar.gz",
+        "url": "https://github.com/kyazdani42/nvim-web-devicons/archive/61693bf98df40dc17354edd5f92311e2aaa0f5cc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "oh-my-fish-plugin-foreign-env": {
