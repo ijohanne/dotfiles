@@ -186,8 +186,6 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = 'latex'
 
 "Add leader shortcuts
-"nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>f :ProjectFiles<CR>
 nnoremap <silent> <leader><space> :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>
 nnoremap <silent> <leader>l :BLines<CR>
