@@ -15,6 +15,9 @@
     };
     face-icon = ../../../images/face-icons/ij.png;
     yubikey = {
+      u2f-keys = [
+        "ij:DB+R6Satvhwm2P78q4VGIPz3TxYbbi5ryXDyOnXR4KT1SjLGayXYjDilP6etAMfbZifLFGmKK0219uhRcpt6jg==,XYZpZgCw5Zz7YfAY1yxsth/yLTKfrsS4OdDlDEv95OETVEPmB35ItLmWQynxRq5eqC2/qJISkCnet7s7JvNQwQ==,es256,+presence⏎"
+      ];
       luks-gpg = {
         public-key-file = ./gpg-key-2DEB54D1D4413780.asc;
         encrypted-pass-file = ./encrypted-luks-pass.asc;
