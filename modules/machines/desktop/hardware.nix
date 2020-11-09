@@ -26,7 +26,12 @@ with lib; {
       };
 
       boot.loader = {
-        systemd-boot.enable = true;
+        systemd-boot = {
+          enable = true;
+          editor = false;
+          configurationLimit = 10;
+        };
+        efi.canTouchEfiVariables = true;
       };
 
       boot.kernelPackages = pkgs.linuxPackages_5_9;
