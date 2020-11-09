@@ -6,16 +6,10 @@ This repository contains my NixOS and home-manager configs, configuration for Ne
   * [Start WiFi (optional)](#start-wifi-optional)
   * [Setup needed software](#setup-needed-software)
   * [Set local variables](#set-local-variables)
-  * [Setup partitions](#setup-partitions)
-  * [Format the EFI partition](#format-the-efi-partition)
-  * [Setup encryption](#setup-encryption)
-  * [Enable ZFS on encrypted storage](#enable-zfs-on-encrypted-storage)
-  * [Mount the target filesystems](#mount-the-target-filesystems)
-  * [Enable extra LUKS key for only needing one password when booting](#enable-extra-luks-key-for-only-needing-one-password-when-booting)
+  * [Setup the disk](#setup-the-disk)
   * [Generate NixOS config](#generate-nixos-config)
-  * [Replace ZFS/LUKS bootloader elements](#replace-zfs-luks-bootloader-elements)
-  * [Set `hostId`](#set-hostid)
   * [Set `hostName`](#set-hostname)
+  * [Generate extra hardware settings](#generate-extra-hardware-settings)
   * [Setup user home directory](#setup-user-home-directory)
   * [Clone the git repository](#clone-the-git-repository)
   * [Link configs](#link-configs)
@@ -24,9 +18,9 @@ This repository contains my NixOS and home-manager configs, configuration for Ne
   * [Post-install setup](#post-install-setup)
   * [Reboot](#reboot)
   * [First user login](#first-user-login)
-- [Maintenance](#maintenance)
+  * [Maintenance](#maintenance)
 - [Installation (live-cd fixups)](#installation-live-cd-fixups)
-  * [Import a ZFS pool when booted on the live CD](#import-a-zfs-pool-when-booted-on-the-live-cd)
+  * [Mounting filesystems](#mounting-filesystems)
 - [Setting up a Raspberry Pi](#setting-up-a-raspberry-pi)
   * [Building the image and writing it to a SD card](#building-the-image-and-writing-it-to-a-sd-card)
   * [Installation on the device](#installation-on-the-device)
@@ -58,69 +52,17 @@ $> nix-env -i git git-crypt
 Export the needed variables for this guide
 ```bash
 $> export LOCAL_USER="ij" # Adapt as needed
-$> export MACHINE_TYPE="nixos" 
+$> export MACHINE_TYPE="nixos"
 $> export MACHINE_NAME="ij-laptop" # Adapt as needed
-$> export DISK_DEVICE="/dev/sdb" # Adapt as needed
-$> export BOOT_DEVICE="/dev/sdb1" # Adapt as needed
-$> export MAIN_DEVICE="/dev/sdb2" # Adapt as needed
+$> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
+$> export GITHUB_BRANCH="master" # Adapt if needed
+$> export DISK_DEVICE="/dev/nvme0n1" # Adapt as needed
 ```
 
-## Setup partitions
-Setup 2 partitions
-* efi (code - ef00, last sector - +200M)
-* encrypted zfs (code: default, last sector - rest of disk)
+## Setup the disk
+Run the following command to partition the disk using the same layout I use
 ```bash
-$> gdisk $DISK_DEVICE
-gdisk> o
-gdisk> Y
-gdisk> n
-gdisk> <enter>
-gdisk> <enter>
-gdisk> +200M
-gdisk> ef00
-gdisk> n
-gdisk> <enter>
-gdisk> <enter>
-gdisk> <enter>
-gdisk> <enter>
-gdisk> w
-gdisk> Y
-```
-
-## Format the EFI partition
-```bash
-$> mkfs.vfat -n NIXOS_BOOT $BOOT_DEVICE
-```
-
-## Setup encryption
-(if you change the `decrypted-disk-name` below, make sure to change it in the
-rest of the guide when applicable)
-```bash
-$> cryptsetup luksFormat $MAIN_DEVICE --type luks1
-$> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
-```
-
-## Enable ZFS on encrypted storage
-(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`)
-```bash
-$> zpool create -o ashift=12 -O mountpoint=none zroot /dev/disk/by-id/dm-uuid-CRYPT-LUKS1-deadbeef-decrypted-disk-name
-$> zfs create zroot/root -o mountpoint=legacy
-```
-
-## Mount the target filesystems
-```bash
-$> mount -t zfs zroot/root /mnt
-$> mkdir /mnt/efi
-$> mount $BOOT_DEVICE /mnt/efi
-```
-
-## Enable extra LUKS key for only needing one password when booting
-```bash
-$> dd if=/dev/urandom of=./keyfile.bin bs=1024 count=4
-$> cryptsetup luksAddKey $MAIN_DEVICE ./keyfile.bin
-$> mkdir /mnt/boot
-$> mkdir -p /etc/secrets/initrd
-$> cp keyfile.bin /etc/secrets/initrd/keyfile.bin
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-setup-disks.sh | bash -s $DISK_DEVICE
 ```
 
 ## Generate NixOS config
@@ -128,43 +70,11 @@ $> cp keyfile.bin /etc/secrets/initrd/keyfile.bin
 $> nixos-generate-config --root /mnt
 ```
 
-## Replace ZFS/LUKS bootloader elements
-(NOTE: Replace `deadbeef` with proper name found via `/dev/disk/by-id/`)
-
-
-Replace the `boot.*` section(s) of `/mnt/etc/nixos/configuration.nix` with the following
+## Generate extra hardware settings
+Run the below script, and insert the bits generated into your `hardware-configuration.nix`
+```bash
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-generate-extra-hardware.sh | bash -s
 ```
-  boot.initrd.luks.devices.decrypted-disk-name = {
-    device = "/dev/disk/by-uuid/deadbeef";
-    keyFile = "/keyfile.bin";
-  };
-
-  boot.initrd.secrets = {
-    "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
-  };
-
-
-  boot.loader = {
-    efi.efiSysMountPoint = "/efi";
-
-    grub = {
-      device = "nodev";
-      efiSupport = true;
-      enableCryptodisk = true;
-      zfsSupport = true;
-      copyKernels = true;
-    };
-
-    grub.efiInstallAsRemovable = true;
-    efi.canTouchEfiVariables = false;
-  };
-```
-
-## Set `hostId`
-ZFS needs the `hostId`, which is found by running `head -c 8 /etc/machine-id` and then inserted into `/mnt/etc/nixos/configuration.nix` under the property `networking.hostId`
-
-## Set `hostName`
-Add `networking.hostName` and set it to the name of the machine.
 
 ## Setup user home directory
 ```bash
@@ -174,7 +84,7 @@ $> mkdir -p /mnt/home/$LOCAL_USER/
 ## Clone the git repository
 ```bash
 $> mkdir -p /mnt/home/$LOCAL_USER/.config
-$> git clone --recursive https://github.com/ijohanne/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
+$> git clone --recursive https://github.com/$GITHUB_REPO/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
 ```
 
 ## Link configs
@@ -193,7 +103,7 @@ Enable needed elements (see sample configs already in repo, and take special not
 
 ## Execute install
 ```bash
-$> /mnt/home/$LOCAL_USER/.dotfiles/nixos-install.sh
+$> /mnt/home/$LOCAL_USER/.dotfiles/nixos-install.sh --root /mnt
 ```
 
 ## Post-install setup
@@ -234,14 +144,11 @@ Pick the needed step
 * Enter a chroot to perform post-setup steps (if needed) `nixos-enter`
 
 
-## Import a ZFS pool when booted on the live CD
+## Mounting filesystems
 ```bash
-$> cryptsetup luksOpen $MAIN_DEVICE decrypted-disk-name
-$> zpool import
-$> # You may need to do the following for each
-$> zpool import -f POOL_ID_FROM_ABOVE
-$> mount -t zfs zroot/root /mnt
-$> mount $BOOT_DEVICE /mnt/efi
+$> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
+$> export GITHUB_BRANCH="master" # Adapt if needed
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-rescue-mount.sh | bash -s
 ```
 
 # Setting up a Raspberry Pi 

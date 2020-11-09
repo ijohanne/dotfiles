@@ -30,6 +30,7 @@ with lib; {
           enable = true;
           editor = false;
           configurationLimit = 10;
+          memtest86.enable = true;
         };
         efi.canTouchEfiVariables = true;
       };
