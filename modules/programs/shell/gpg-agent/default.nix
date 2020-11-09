@@ -1,16 +1,16 @@
 { pkgs, lib, config, ... }:
 with lib;
 let
-  gpg-install-script = ''
-    chmod 0700 $HOME/.gnupg
-  '' + pkgs.writeShellScriptBin "gpg-import"
-    (concatStringsSep "\n"
-      (forEach config.dotfiles.user-settings.gpg.public-keys (elem: ''
-        ${lib.getBin pkgs.gnupg}/bin/gpg --import ${elem.key-file}
-        ${lib.getBin pkgs.gnupg}/bin/gpg --import-ownertrust << EOF
-        ${elem.owner-trust}
-        EOF
-      '')));
+  gpg-install-script = pkgs.writeShellScriptBin "gpg-import" (''
+    ${pkgs.coreutils}/bin/chmod 0700 $HOME/.gnupg
+  '' +
+  (concatStringsSep "\n"
+    (forEach config.dotfiles.user-settings.gpg.public-keys (elem: ''
+      ${lib.getBin pkgs.gnupg}/bin/gpg --import ${elem.key-file}
+      ${lib.getBin pkgs.gnupg}/bin/gpg --import-ownertrust << EOF
+      ${elem.owner-trust}
+      EOF
+    ''))));
 in
 {
   config = mkIf (config.dotfiles.shell.gpg-agent.enable) {

@@ -21,6 +21,7 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
+      home.packages = with pkgs; [ clang_10 ];
       programs.fish.shellAliases = {
         "vim" = "nvim";
         "vi" = "nvim";
