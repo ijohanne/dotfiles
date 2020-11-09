@@ -9,27 +9,26 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "zroot/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/efi" = {
-    device = "/dev/disk/by-uuid/F359-CE78";
-    fsType = "vfat";
-  };
-
-  boot.initrd.luks.devices.decrypted-disk-name = {
-    device = "/dev/disk/by-uuid/e24d6f35-a23e-4f01-a026-30364b1d30c2";
-    keyFile = "/keyfile.bin";
-  };
-
-  swapDevices = [ ];
-
   nix.maxJobs = lib.mkDefault 8;
   powerManagement = {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+
+  fileSystems."/" = {
+    device = "zroot/root";
+    fsType = "zfs";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A42C-E605";
+    fsType = "vfat";
+  };
+
+  boot.initrd.luks.devices.decrypted-root = {
+    device = "/dev/disk/by-uuid/cdbc8ad0-4cb8-4b79-a1a8-314ed0adcf66";
+  };
+
+  swapDevices = [ ];
 
 }

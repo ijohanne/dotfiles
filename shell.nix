@@ -22,7 +22,8 @@ pkgs.mkShell rec {
     (import sources.home-manager { inherit pkgs; }).home-manager
     shellcheck
     shfmt
-    nixfmt
+    nixpkgs-fmt
+    git
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${

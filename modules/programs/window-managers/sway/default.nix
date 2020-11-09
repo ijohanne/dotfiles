@@ -68,6 +68,11 @@ in
               command = "systemctl --user restart waybar";
               always = true;
             }
+          ] ++ optionals (config.dotfiles.x11.office.seafile-client.enable) [
+            {
+              command = "${pkgs.seafile-client}/bin/seafile-applet";
+              always = true;
+            }
           ];
 
           keybindings = {

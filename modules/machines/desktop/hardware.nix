@@ -25,21 +25,8 @@ with lib; {
         ];
       };
 
-      boot.initrd.secrets = {
-        "/keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
-      };
-
       boot.loader = {
-        efi.efiSysMountPoint = "/efi";
-        grub = {
-          device = "nodev";
-          efiSupport = true;
-          enableCryptodisk = true;
-          zfsSupport = true;
-          copyKernels = true;
-        };
-        grub.efiInstallAsRemovable = true;
-        efi.canTouchEfiVariables = false;
+        systemd-boot.enable = true;
       };
 
       boot.kernelPackages = pkgs.linuxPackages_5_9;
@@ -54,7 +41,7 @@ with lib; {
       {
         boot.initrd.luks = {
           gpgSupport = true;
-          devices.decrypted-disk-name = {
+          devices.decrypted-root = {
             gpgCard = {
               publicKey =
                 config.dotfiles.user-settings.yubikey.luks-gpg.public-key-file;

@@ -1,7 +1,9 @@
 { pkgs, lib, config, ... }:
 with lib;
 let
-  gpg-install-script = pkgs.writeShellScriptBin "gpg-import"
+  gpg-install-script = ''
+    chmod 0700 $HOME/.gnupg
+  '' + pkgs.writeShellScriptBin "gpg-import"
     (concatStringsSep "\n"
       (forEach config.dotfiles.user-settings.gpg.public-keys (elem: ''
         ${lib.getBin pkgs.gnupg}/bin/gpg --import ${elem.key-file}
