@@ -19,4 +19,13 @@ with lib; {
   };
 
   imports = [ ./packages.nix ./users.nix ./desktop ./rpi ../lib ];
+
+  config = {
+    nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
+  };
 }

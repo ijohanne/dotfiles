@@ -35,6 +35,8 @@ with lib; {
         efi.canTouchEfiVariables = true;
       };
 
+      services.fwupd.enable = true;
+
       boot.kernelPackages = pkgs.linuxPackages_5_9;
 
       boot.zfs.enableUnstable = true;
