@@ -199,6 +199,11 @@ in
       type = types.bool;
       description = "Enable tealdeer app";
     };
+    yubikey-touch-detector.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable yubikey touch detector app";
+    };
   };
 
   imports = [
@@ -241,6 +246,7 @@ in
     ./tokei
     ./whois
     ./zoxide
+    ./yubikey-touch-detector
   ];
 
   config = mkIf (cfg.enable) {

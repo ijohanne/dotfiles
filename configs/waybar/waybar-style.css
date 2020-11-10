@@ -171,7 +171,8 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#tray {
+#tray,
+#yktouch {
     background-color: #2980b9;
 }
 

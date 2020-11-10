@@ -57,7 +57,8 @@ in
 
           fonts = [ "Inconsolata 10" ];
           terminal = "alacritty";
-          menu = "${pkgs.wofi}/bin/wofi --show drun";
+          #menu = "${pkgs.wofi}/bin/wofi --show drun";
+          menu = "${pkgs.dmenu}/bin/dmenu_run";
 
           startup = [
             {
@@ -115,7 +116,8 @@ in
 
             "${modifier}+Shift+q" = "kill";
 
-            "${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+            #"${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+            "${modifier}+d" = "exec '${pkgs.dmenu}/bin/dmenu_run'";
             "${modifier}+l" = "exec '${pkgs.swaylock}/bin/swaylock -f -c 000000'";
 
             "${modifier}+b" = "split h";
@@ -151,44 +153,55 @@ in
 
         };
       };
-    services.waybar = {
-      enable = true;
-      config = {
-        battery = {
-          format = "{icon} {capacity}% {time}";
-          format-charging = "{icon}  {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
-          interval = 10;
-          states = {
-            critical = 20;
-            warning = 30;
+    services.waybar =
+      let
+        waybar-yubikey-scripts = pkgs.writeShellScriptBin "yubikey-touch-detect" (builtins.readFile ../../../../configs/waybar/yubikey-touch-detect.sh);
+      in
+      {
+        enable = true;
+        config = {
+          battery = {
+            format = "{icon} {capacity}% {time}";
+            format-charging = "{icon}  {capacity}%";
+            format-icons = [ "" "" "" "" "" ];
+            interval = 10;
+            states = {
+              critical = 20;
+              warning = 30;
+            };
+          };
+          clock = {
+            format = "{:%a %Y-%m-%d %H:%M:%S}";
+            interval = 1;
+          };
+          cpu = { format = " {}%"; };
+          memory = { format = " {}%"; };
+          modules-center = [ "clock" ];
+          modules-left = [ "sway/workspaces" "sway/mode" "tray" "custom/yktouch" ];
+          modules-right = [ "battery" "cpu" "memory" "pulseaudio" ];
+          pulseaudio = {
+            format = "{icon} {volume}%";
+            format-icons = [ "" "" ];
+            format-muted = "";
+          };
+          "sway/workspaces" = {
+            all-outputs = false;
+            disable-scroll = true;
+            format = "{name}";
+          };
+          "sway/window" = {
+            format = "{}";
+            max-length = 50;
+          };
+          "custom/yktouch" = {
+            format = "{text}";
+            max-length = 20;
+            interval = 1;
+            return-type = "json";
+            exec = "${waybar-yubikey-scripts}/bin/yubikey-touch-detect";
           };
         };
-        clock = {
-          format = "{:%a %Y-%m-%d %H:%M:%S}";
-          interval = 1;
-        };
-        cpu = { format = " {}%"; };
-        memory = { format = " {}%"; };
-        modules-center = [ "clock" ];
-        modules-left = [ "sway/workspaces" "sway/mode" "tray" ];
-        modules-right = [ "battery" "cpu" "memory" "pulseaudio" ];
-        pulseaudio = {
-          format = "{icon} {volume}%";
-          format-icons = [ "" "" ];
-          format-muted = "";
-        };
-        "sway/workspaces" = {
-          all-outputs = false;
-          disable-scroll = true;
-          format = "{name}";
-        };
-        "sway/window" = {
-          format = "{}";
-          max-length = 50;
-        };
       };
-    };
   };
 
 }

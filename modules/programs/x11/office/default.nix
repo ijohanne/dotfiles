@@ -32,5 +32,6 @@ in
     dotfiles.x11.office.libreoffice.enable = true;
     dotfiles.x11.office.zathura.enable = true;
     dotfiles.x11.office.seafile-client.enable = true;
+    dotfiles.x11.office.thunderbird.enable = true;
   };
 }

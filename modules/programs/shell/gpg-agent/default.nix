@@ -25,6 +25,8 @@ in
       '';
     };
 
+    home.packages = with pkgs; [ gpgme gpgme.dev ];
+
     programs.gpg = {
       enable = true;
       settings.pinentry-mode = "loopback";

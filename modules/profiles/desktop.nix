@@ -15,4 +15,5 @@
   dotfiles.development-tools.neovim.language-tool.enable = true;
   dotfiles.development-tools.git.signing = true;
   dotfiles.window-managers.sway.enable = true;
+  dotfiles.shell.yubikey-touch-detector.enable = true;
 }

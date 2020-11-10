@@ -23,6 +23,7 @@ with lib; {
         yubikey-personalization
         yubioath-desktop
         yubikey-personalization-gui
+        yubikey-manager
         themes.sddm-chili
       ] ++ (with pkgs.qt5; [ qtbase qtquickcontrols qtgraphicaleffects ]);
 
