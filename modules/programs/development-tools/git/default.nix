@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }:
 with lib;
-let cfg = config.dotfiles.development-tools.git;
+let
+  cfg = config.dotfiles.development-tools.git;
+  vimPlugins = pkgs.callPackage ../neovim/vim-plugins.nix { };
 in
 {
   options.dotfiles.development-tools.git = {
@@ -21,6 +23,7 @@ in
         lfs.enable = true;
         extraConfig = { pull = { ff = "only"; }; };
       };
+      programs.neovim.plugins = [ vimPlugins.git-blame-nvim ];
     }
     (mkIf cfg.signing {
       programs.git.signing = {

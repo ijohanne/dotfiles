@@ -7,11 +7,24 @@ let
 in
 {
   options.dotfiles.development-tools.neovim = {
-    language-servers.enable = mkOption {
-      default = false;
-      type = types.bool;
-      description = "Enable language servers";
+    language-servers = {
+      enable = mkOption {
+        default = false;
+        type = types.bool;
+        description = "Enable language servers";
+      };
+      extraLua = mkOption {
+        default = "";
+        type = types.lines;
+        description = "Extra Lua scripting for LSPs";
+      };
+      extraNvim = mkOption {
+        default = "";
+        type = types.lines;
+        description = "Extra Nvim settings for LSPs";
+      };
     };
+
     language-tool.enable = mkOption {
       default = false;
       type = types.bool;
@@ -74,50 +87,30 @@ in
           vim-trailing-whitespace
           vim-unimpaired
           vim-vinegar
-          vimtex
         ];
       };
       home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
-      home.file."${config.xdg.configHome}/nvim/parser/c.so".source =
-        "${pkgs.tree-sitter.builtGrammars.c}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/bash.so".source =
-        "${pkgs.tree-sitter.builtGrammars.bash}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/lua.so".source =
-        "${pkgs.tree-sitter.builtGrammars.lua}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/python.so".source =
-        "${pkgs.tree-sitter.builtGrammars.python}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/go.so".source =
-        "${pkgs.tree-sitter.builtGrammars.go}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/cpp.so".source =
-        "${pkgs.tree-sitter.builtGrammars.cpp}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/json.so".source =
-        "${pkgs.tree-sitter.builtGrammars.json}/parser";
-      home.file."${config.xdg.configHome}/nvim/parser/ruby.so".source =
-        "${pkgs.tree-sitter.builtGrammars.ruby}/parser";
     }
     (mkIf cfg.language-servers.enable {
       home.packages = with pkgs;
         with stdenv.lib;
         [
           ctags
-          go
-          gopls
-          lua
           neovim-remote
-          rnix-lsp
-          rust-analyzer
-          yaml-language-server
-        ] ++ (with pkgs.nodePackages; [
-          texlab
-          typescript-language-server
-          vim-language-server
-          vscode-html-languageserver-bin
-          vscode-json-languageserver-bin
-        ]) ++ optionals
-          (stdenv.isLinux && stdenv.hostPlatform.platform.kernelArch == "x86_64")
-          [ python-language-server ];
+        ];
       programs.neovim = {
-        extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim;
+        extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim + ''
+          lua <<EOF
+                    local nvim_lsp = require 'nvim_lsp'
+
+                    local on_attach = function(client)
+                      require'completion'.on_attach(client)
+                      require'diagnostic'.on_attach(client)
+                    end
+                ${cfg.language-servers.extraLua}
+          EOF
+          ${cfg.language-servers.extraNvim}
+        '';
         plugins = with vimPlugins; [
           completion-nvim
           diagnostic-nvim

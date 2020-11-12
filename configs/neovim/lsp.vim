@@ -15,37 +15,6 @@ autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require
 " Avoid showing extra messages when using completion
 set shortmess+=c
 
-" Configure LSP
-" https://github.com/neovim/nvim-lspconfig#rust_analyzer
-lua <<EOF
-
--- nvim_lsp object
-local nvim_lsp = require'nvim_lsp'
-
--- function to attach completion and diagnostics
--- when setting up lsp
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-    require'diagnostic'.on_attach(client)
-end
-
-local servers = {'gopls', 'sumneko_lua', 'tsserver', 'html', 'ghcide', 'rust_analyzer', 'pyls_ms', 'texlab', 'yamlls' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-  }
-end
-nvim_lsp['jsonls'].setup {
-  on_attach = on_attach,
-  cmd = {"json-languageserver"}
-}
-nvim_lsp['rnix'].setup {
-  on_attach = on_attach,
-  cmd = {"rnix-lsp"}
-}
-
-EOF
-
 " Fzf aliases
 nnoremap <silent> <C-f> :Files<CR>
 

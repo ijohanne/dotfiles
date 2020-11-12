@@ -24,6 +24,87 @@ in
       type = types.bool;
       description = "Enable perl compiler";
     };
+    rust.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable rust compiler";
+    };
+    bash.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable bash tools";
+    };
+    go.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable go compiler";
+    };
+    python.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable python compiler";
+    };
+    html.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable html tools";
+    };
+    json.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable json tools";
+    };
+    lua.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable lua compiler";
+    };
+    yaml.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable yaml tools";
+    };
+    tex.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable TeX tools";
+    };
+    nix.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable nix tools";
+    };
+    java.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable java compiler";
+    };
+    c.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable c compiler";
+    };
+    vim-language.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable VIM language apps";
+    };
+    cmake-language.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable CMake language apps";
+    };
+    docker-language.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable Docker language apps";
+    };
+
+    type-script.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable type-script apps";
+    };
     neovim.enable = mkOption {
       default = false;
       type = types.bool;
@@ -42,15 +123,30 @@ in
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ];
 
   config = mkIf (cfg.enable) {
+    dotfiles.development-tools.bash.enable = true;
     dotfiles.development-tools.git.enable = true;
     dotfiles.development-tools.niv.enable = true;
     dotfiles.development-tools.lorri.enable = true;
     dotfiles.development-tools.neovim.enable = true;
     dotfiles.development-tools.perl.enable = true;
-    dotfiles.development-tools.direnv.enable = true;
+    dotfiles.development-tools.python.enable = true;
+    dotfiles.development-tools.rust.enable = true;
+    dotfiles.development-tools.html.enable = true;
+    dotfiles.development-tools.go.enable = true;
+    dotfiles.development-tools.java.enable = true;
+    dotfiles.development-tools.json.enable = true;
+    dotfiles.development-tools.c.enable = true;
+    dotfiles.development-tools.tex.enable = true;
+    dotfiles.development-tools.lua.enable = true;
+    dotfiles.development-tools.nix.enable = true;
+    dotfiles.development-tools.yaml.enable = true;
+    dotfiles.development-tools.type-script.enable = true;
+    dotfiles.development-tools.vim-language.enable = true;
+    dotfiles.development-tools.cmake-language.enable = true;
+    dotfiles.development-tools.docker-language.enable = true;
     dotfiles.development-tools.firefox-addons-generator.enable = true;
   };
 
