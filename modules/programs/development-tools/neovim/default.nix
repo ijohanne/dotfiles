@@ -105,7 +105,6 @@ in
 
                     local on_attach = function(client)
                       require'completion'.on_attach(client)
-                      require'diagnostic'.on_attach(client)
                     end
                 ${cfg.language-servers.extraLua}
           EOF
@@ -113,7 +112,6 @@ in
         '';
         plugins = with vimPlugins; [
           completion-nvim
-          diagnostic-nvim
           neoformat
           nvim-lsp-extensions
           nvim-lspconfig

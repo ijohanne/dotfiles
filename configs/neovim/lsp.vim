@@ -42,6 +42,7 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>=   <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> <leader>ar      <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>dn <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 
 " Visualize diagnostics
 let g:diagnostic_enable_virtual_text = 1
@@ -53,7 +54,7 @@ let g:diagnostic_insert_delay = 1
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
