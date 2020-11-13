@@ -115,6 +115,11 @@ in
       type = types.bool;
       description = "Enable direnv app";
     };
+    haskell.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable haskell compiler";
+    };
     firefox-addons-generator.enable = mkOption {
       default = false;
       type = types.bool;
@@ -123,7 +128,7 @@ in
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;
@@ -143,6 +148,8 @@ in
     dotfiles.development-tools.lua.enable = true;
     dotfiles.development-tools.nix.enable = true;
     dotfiles.development-tools.yaml.enable = true;
+    dotfiles.development-tools.haskell.enable = true;
+    dotfiles.development-tools.direnv.enable = true;
     dotfiles.development-tools.type-script.enable = true;
     dotfiles.development-tools.vim-language.enable = true;
     dotfiles.development-tools.cmake-language.enable = true;

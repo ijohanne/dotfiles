@@ -11,7 +11,7 @@ in
         extraLua = ''
           nvim_lsp['jsonls'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver"}
+            cmd = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver", "--stdio" }
           }
         '';
       };
