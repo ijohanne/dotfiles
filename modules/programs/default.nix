@@ -46,9 +46,7 @@ with lib; {
     ./development-tools
   ];
 
-  config = {
-    xdg.configFile."Yubico/u2f_keys".text =
-      concatStringsSep "\n" config.dotfiles.user-settings.yubikey.u2f-keys;
+  config = mkMerge [{
     nixpkgs.overlays = [
       (import ../overlays)
     ];
@@ -57,5 +55,10 @@ with lib; {
       NIX_PATH =
         "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix";
     };
-  };
+  }
+    (mkIf (length (config.dotfiles.user-settings.yubikey.u2f-keys) > 0) {
+
+      xdg.configFile."Yubico/u2f_keys".text =
+        concatStringsSep "\n" config.dotfiles.user-settings.yubikey.u2f-keys;
+    })];
 }
