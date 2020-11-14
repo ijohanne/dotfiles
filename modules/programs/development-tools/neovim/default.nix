@@ -125,7 +125,7 @@ in
       programs.neovim = {
         extraConfig =
           "let g:languagetool_server_command='${pkgs.languagetool}/bin/languagetool-http-server'";
-        plugins = with pkgs.vimPlugins; [ Language-tool-nvim ];
+        plugins = with pkgs.vimPlugins; [ language-tool-nvim ];
       };
     })
   ]);

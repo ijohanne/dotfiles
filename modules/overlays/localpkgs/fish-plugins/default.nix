@@ -1,42 +1,9 @@
-{ self, sources }:
-with self;
-with sources;
+{ pkgs, sources }:
 {
-  bass = {
-    name = "bass";
-    src = fetchFromGitHub {
-      inherit (bass) owner repo rev sha256;
-    };
-  };
-  oh-my-fish-plugin-ssh = {
-    name = "oh-my-fish-plugin-ssh";
-    src = fetchFromGitHub {
-      inherit (oh-my-fish-plugin-ssh) owner repo rev sha256;
-    };
-  };
-  oh-my-fish-plugin-foreign-env = {
-    name = "oh-my-fish-plugin-foreign-env";
-    src = fetchFromGitHub {
-      inherit (oh-my-fish-plugin-foreign-env) owner repo rev sha256;
-    };
-  };
-
-  fish-ssh-agent = {
-    name = "fish-ssh-agent";
-    src = fetchFromGitHub {
-      inherit (fish-ssh-agent) owner repo rev sha256;
-    };
-  };
-  fzf-fish = {
-    name = "fzf-fish";
-    src = fetchFromGitHub {
-      inherit (fzf-fish) owner repo rev sha256;
-    };
-  };
-  fish-exa = {
-    name = "fish-exa";
-    src = fetchFromGitHub {
-      inherit (fish-exa) owner repo rev sha256;
-    };
-  };
+  bass = import ./bass { inherit pkgs sources; };
+  fish-exa = import ./fish-exa { inherit pkgs sources; };
+  fish-ssh-agent = import ./fish-ssh-agent { inherit pkgs sources; };
+  fzf-fish = import ./fzf-fish { inherit pkgs sources; };
+  oh-my-fish-plugin-foreign-env = import ./oh-my-fish-plugin-foreign-env { inherit pkgs sources; };
+  oh-my-fish-plugin-ssh = import ./oh-my-fish-plugin-ssh { inherit pkgs sources; };
 }
