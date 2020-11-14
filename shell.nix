@@ -14,7 +14,9 @@ pkgs.mkShell rec {
       nixpkgs-fmt.enable = true;
       yamllint.enable = true;
     };
-    excludes = [ "modules/programs/browsers/firefox/addons.nix" ];
+    excludes = [
+      "modules/programs/browsers/firefox/addons.nix" # Generated
+    ];
   };
   name = "home-manager-shell";
   buildInputs = with pkgs; [

@@ -79,6 +79,11 @@ in
       type = types.bool;
       description = "Enable whois app";
     };
+    gping.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable gping app";
+    };
     bind.enable = mkOption {
       default = false;
       type = types.bool;
@@ -217,6 +222,7 @@ in
     ./fish
     ./fzf
     ./gpg-agent
+    ./gping
     ./httpie
     ./imagemagick
     ./jq
@@ -259,6 +265,7 @@ in
     dotfiles.shell.fd.enable = true;
     dotfiles.shell.fish.enable = true;
     dotfiles.shell.fzf.enable = true;
+    dotfiles.shell.gping.enable = true;
     dotfiles.shell.httpie.enable = true;
     dotfiles.shell.imagemagick.enable = true;
     dotfiles.shell.jq.enable = true;

@@ -1,8 +1,7 @@
-{ pkgs, installShellFiles, darwin, stdenv, ... }:
+{ sources, pkgs, installShellFiles, darwin, stdenv, ... }:
 
 with pkgs;
 let
-  sources = import ../../nix/sources.nix;
   rustPlatform =
     let rust = pkgs.latest.rustChannels.stable.rust;
     in

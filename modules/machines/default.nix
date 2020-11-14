@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 with lib; {
   options.dotfiles.machines = {
     rpi = mkOption {
@@ -18,7 +18,7 @@ with lib; {
     };
   };
 
-  imports = [ ./packages.nix ./users.nix ./desktop ./rpi ../lib ];
+  imports = [ ./users.nix ./desktop ./rpi ../lib ];
 
   config = {
     nix.gc = {
@@ -26,6 +26,9 @@ with lib; {
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-
+    environment.systemPackages = [ pkgs.manpages ];
+    nixpkgs.config.allowUnfree = true;
+    documentation.dev.enable = true;
+    nixpkgs.overlays = [ (import ../overlays) ];
   };
 }

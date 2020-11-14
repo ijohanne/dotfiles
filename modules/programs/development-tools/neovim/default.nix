@@ -2,8 +2,6 @@
 with lib;
 let
   cfg = config.dotfiles.development-tools.neovim;
-  vimPlugins = pkgs.vimPlugins // pkgs.callPackage ./vim-plugins.nix { };
-  dotfilesLib = pkgs.callPackage ../../lib.nix { };
 in
 {
   options.dotfiles.development-tools.neovim = {
@@ -41,8 +39,8 @@ in
         "vimdiff" = "nvim -d";
       };
       programs.git.ignores =
-        dotfilesLib.global_git_ignore_list "/Global/Vim.gitignore"
-        ++ dotfilesLib.global_git_ignore_list "/Global/Tags.gitignore" ++ [
+        pkgs.lib.global_git_ignore_list "/Global/Vim.gitignore"
+        ++ pkgs.lib.global_git_ignore_list "/Global/Tags.gitignore" ++ [
           ''
             # Neovim log files
             .nvimlog
@@ -55,7 +53,7 @@ in
 
         package = pkgs.neovim-nightly;
         extraConfig = builtins.readFile ../../../../configs/neovim/init.vim;
-        plugins = with vimPlugins; [
+        plugins = with pkgs.vimPlugins; [
           barbar-nvim
           ctrlp-vim
           direnv-vim
@@ -110,7 +108,7 @@ in
           EOF
           ${cfg.language-servers.extraNvim}
         '';
-        plugins = with vimPlugins; [
+        plugins = with pkgs.vimPlugins; [
           completion-nvim
           neoformat
           nvim-lsp-extensions
@@ -127,7 +125,7 @@ in
       programs.neovim = {
         extraConfig =
           "let g:languagetool_server_command='${pkgs.languagetool}/bin/languagetool-http-server'";
-        plugins = with vimPlugins; [ Language-tool-nvim ];
+        plugins = with pkgs.vimPlugins; [ Language-tool-nvim ];
       };
     })
   ]);

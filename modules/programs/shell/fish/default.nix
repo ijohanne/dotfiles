@@ -1,9 +1,5 @@
 { pkgs, lib, config, ... }:
 with lib;
-let
-  sources = import ../../../../nix/sources.nix;
-  fishPlugins = pkgs.callPackage ./fish-plugins.nix { };
-in
 {
   config = mkIf (config.dotfiles.shell.fish.enable) {
     home.packages = with pkgs; [ python3Minimal ];
@@ -11,7 +7,7 @@ in
     programs.fish = {
       enable = true;
       shellInit = ''
-        eval (${pkgs.coreutils}/bin/dircolors -c "${sources.LS_COLORS.outPath}/LS_COLORS")
+        eval (${pkgs.coreutils}/bin/dircolors -c "${pkgs.niv-sources.LS_COLORS.outPath}/LS_COLORS")
           set --erase fish_greeting
       '';
       shellAliases = {
@@ -19,7 +15,7 @@ in
         niv-home = "$HOME/.dotfiles/niv-home.sh";
         nixos-rebuild = "$HOME/.dotfiles/nixos-rebuild.sh";
       };
-      plugins = with fishPlugins; [
+      plugins = with pkgs.fishPlugins; [
         bass
         oh-my-fish-plugin-foreign-env
         oh-my-fish-plugin-ssh

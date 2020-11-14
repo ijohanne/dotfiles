@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "52b978731bf6be161d535e85547ed04d638090e6",
-        "sha256": "0bc415rh6g589g4knl765f8hhjmjkyfymrrk41gbjvggcj4gdxha",
+        "rev": "d57163576758253355e8b4425228256ee63887d3",
+        "sha256": "1s7zxy5cwyvkiyi4a1s8sark81mxiw55kbx0jhzi1216pvcq9q0y",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/52b978731bf6be161d535e85547ed04d638090e6.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/d57163576758253355e8b4425228256ee63887d3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "bass": {
@@ -83,6 +83,18 @@
         "url": "https://github.com/jethrokuan/fzf/archive/bb45f4697e256e44629487fc5a89e0768cfb5b5e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "fzf-fish": {
+        "branch": "main",
+        "description": "Augment your fish command line with fzf key bindings",
+        "homepage": "",
+        "owner": "patrickf3139",
+        "repo": "fzf.fish",
+        "rev": "86c71adbd5712025646de1f5dbdcebbe7510b5cd",
+        "sha256": "1hjzg726p044l31pfkh7mdq269zhvrkinmk611wzh6r9qr57ihpj",
+        "type": "tarball",
+        "url": "https://github.com/patrickf3139/fzf.fish/archive/86c71adbd5712025646de1f5dbdcebbe7510b5cd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "git-blame-nvim": {
         "branch": "master",
         "description": "Git Blame plugin for Neovim written in Lua",
@@ -107,16 +119,28 @@
         "url": "https://github.com/github/gitignore/archive/218a941be92679ce67d0484547e3e142b2f5f6f0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "gping": {
+        "branch": "master",
+        "description": "Ping, but with a graph",
+        "homepage": null,
+        "owner": "orf",
+        "repo": "gping",
+        "rev": "4f03d45a012fccd62f384a16c3ef0d3b3e954132",
+        "sha256": "1rrs38ic2wxllpxgq8brvwxqb5v6nykzq4x2nh94pmqj5v7klnm1",
+        "type": "tarball",
+        "url": "https://github.com/orf/gping/archive/4f03d45a012fccd62f384a16c3ef0d3b3e954132.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4cc1b77c3fc4f4b3bc61921dda72663eea962fa3",
-        "sha256": "02y6bjakcbfc0wvf9b5qky792y9abyf1kgnk8r30f1advn3x69nc",
+        "rev": "fd79015c0feee0e61e17f6ed59b4e9d01d9ef597",
+        "sha256": "157hiimhmkr28zb2jpxmsfrnz5j3s3zk142h6w4h1q75v8xhhbzg",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/4cc1b77c3fc4f4b3bc61921dda72663eea962fa3.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/fd79015c0feee0e61e17f6ed59b4e9d01d9ef597.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "lfs": {
@@ -149,10 +173,10 @@
         "homepage": "",
         "owner": "sumneko",
         "repo": "lua-language-server",
-        "rev": "c3e280a5bc556cb8ff87a6b0fc6f7a7c48292d4d",
-        "sha256": "1fz2klvmv7ggn5vhqksd8sm803lniyj80laqdjkrx3yi3gg6w625",
+        "rev": "ccb4713315893ccb6e98e391ffaa08269258fd20",
+        "sha256": "14a5539by3h6nvllic7z04xm5yrhs1jc04wd1g50vq6gf7vw12z3",
         "type": "tarball",
-        "url": "https://github.com/sumneko/lua-language-server/archive/c3e280a5bc556cb8ff87a6b0fc6f7a7c48292d4d.tar.gz",
+        "url": "https://github.com/sumneko/lua-language-server/archive/ccb4713315893ccb6e98e391ffaa08269258fd20.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -173,10 +197,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "35325ddac04b1b59b7982797021cdaabdabc87fb",
-        "sha256": "0vsl5fjff9zk8c2456z80xvp79cs37ylfhkjbk47spsg1a9xd8sl",
+        "rev": "d8c69adbabe963142f433a2ddad172ff46413f15",
+        "sha256": "08jwznaq47aarpd5j602qj6c2zcjdlp21bh2xv225bzckj13jadh",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/35325ddac04b1b59b7982797021cdaabdabc87fb.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/d8c69adbabe963142f433a2ddad172ff46413f15.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -293,10 +317,10 @@
         "homepage": "",
         "owner": "Nukesor",
         "repo": "pueue",
-        "rev": "fc60da569c620453e52f619fbb2f7c89def39b07",
-        "sha256": "0n9z8bzbsbc15w9ia38dlqrhky4hhyx6yn7kb0mkjj67d0ir616p",
+        "rev": "425bf00881bdd134672f29febc065455b26dde86",
+        "sha256": "1jjsasssl894rag4igv0v8y6bqwqcis8xkqxrc9d950kzkc8vcid",
         "type": "tarball",
-        "url": "https://github.com/Nukesor/pueue/archive/fc60da569c620453e52f619fbb2f7c89def39b07.tar.gz",
+        "url": "https://github.com/Nukesor/pueue/archive/425bf00881bdd134672f29febc065455b26dde86.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ranger-vim": {

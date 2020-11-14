@@ -8,17 +8,16 @@
 , readline
 , zlib
 , lib
+, sources
 }:
 with lib;
-let
-  sources = import ../../nix/sources.nix;
-in
 stdenv.mkDerivation rec {
   pname = "lua-language-server";
   version = "master";
 
   src = fetchFromGitHub {
-    inherit (sources.lua-language-server) owner repo rev sha256;
+    inherit (sources.lua-language-server) owner repo rev;
+    sha256 = "0bqwdnd9zklb9h42rba7miknr6w38kl5f232427xak4igyzvydgq";
     fetchSubmodules = true;
   };
 

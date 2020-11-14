@@ -1,12 +1,9 @@
-{ ... }:
-let sources = import ../../nix/sources.nix;
-in
+{ pkgs, ... }:
 {
-
   programs = {
     home-manager = {
       enable = true;
-      path = "${sources.home-manager}";
+      path = "${pkgs.niv-sources.home-manager}";
     };
   };
 }

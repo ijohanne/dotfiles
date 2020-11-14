@@ -1,6 +1,4 @@
-{ lib, rustPlatform, fetchFromGitHub, installShellFiles }:
-let sources = import ../../nix/sources.nix;
-in
+{ sources, lib, rustPlatform, fetchFromGitHub, installShellFiles }:
 rustPlatform.buildRustPackage rec {
   pname = "pueue";
   version = "master";

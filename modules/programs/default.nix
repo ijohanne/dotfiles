@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 with lib; {
   options.dotfiles = {
     browsers.enable = mkOption {
@@ -35,9 +35,8 @@ with lib; {
 
   imports = [
     ./home-manager.nix
-    ./packages.nix
     ../lib
-    ./user-settings.nix
+    ./tests
     ./browsers
     ./window-managers
     ./x11
@@ -50,5 +49,13 @@ with lib; {
   config = {
     xdg.configFile."Yubico/u2f_keys".text =
       concatStringsSep "\n" config.dotfiles.user-settings.yubikey.u2f-keys;
+    nixpkgs.overlays = [
+      (import ../overlays)
+    ];
+    nixpkgs.config.allowUnfree = true;
+    home.sessionVariables = {
+      NIX_PATH =
+        "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix";
+    };
   };
 }

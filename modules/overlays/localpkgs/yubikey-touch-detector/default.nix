@@ -1,7 +1,4 @@
-{ pkgs, stdenv, buildGoModule, fetchFromGitHub, ... }:
-let
-  sources = import ../../../nix/sources.nix;
-in
+{ sources, pkgs, stdenv, buildGoModule, fetchFromGitHub, ... }:
 buildGoModule rec {
   pname = "yubikey-touch-detector";
   version = "1.9.0";
