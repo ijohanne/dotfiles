@@ -12,15 +12,7 @@ self: pkgs: {
   fishPlugins = (pkgs.fishPlugins or { }) // import ./fish-plugins { inherit pkgs sources; };
   vimPlugins = (pkgs.vimPlugins or { }) // import ./vim-plugins { inherit pkgs sources; };
   niv = import sources.niv { };
-  neovim-nightly = self.neovim-unwrapped.overrideAttrs (attrs: {
-    pname = "neovim-nightly";
-    version = "master";
-    nativeBuildInputs = attrs.nativeBuildInputs
-      ++ [ self.tree-sitter ];
-    src = self.fetchFromGitHub {
-      inherit (sources.neovim) owner repo rev sha256;
-    };
-  });
+  neovim-nightly = pkgs.callPackage ./neovim-nightly { inherit pkgs sources; };
   nur = (import sources.NUR {
     pkgs = import sources.nixpkgs { config.allowUnfree = true; };
   }).repos;
