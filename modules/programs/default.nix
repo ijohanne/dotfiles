@@ -34,7 +34,6 @@ with lib; {
   };
 
   imports = [
-    ./home-manager.nix
     ../lib
     ./tests
     ./browsers
@@ -54,6 +53,12 @@ with lib; {
     home.sessionVariables = {
       NIX_PATH =
         "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix";
+    };
+    programs = {
+      home-manager = {
+        enable = true;
+        path = "${pkgs.niv-sources.home-manager}";
+      };
     };
   }
     (mkIf (length (config.dotfiles.user-settings.yubikey.u2f-keys) > 0) {
