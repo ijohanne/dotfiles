@@ -25,10 +25,10 @@ rec
       inherit (sources.fish-ssh-agent) owner repo rev sha256;
     };
   };
-  fish-fzf = {
-    name = "fish-fzf";
+  fzf-fish = {
+    name = "fzf-fish";
     src = self.fetchFromGitHub {
-      inherit (sources.fish-fzf) owner repo rev sha256;
+      inherit (sources.fzf-fish) owner repo rev sha256;
     };
   };
   fish-exa = {

@@ -71,18 +71,6 @@
         "url": "https://github.com/wawa19933/fish-exa/archive/c036d39623643ad9c66ceafe1466032469fc98e8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "fish-fzf": {
-        "branch": "master",
-        "description": "Ef-🐟-ient fish keybindings for fzf",
-        "homepage": "",
-        "owner": "jethrokuan",
-        "repo": "fzf",
-        "rev": "bb45f4697e256e44629487fc5a89e0768cfb5b5e",
-        "sha256": "1has8agfgm6rlrc37p9lay5i3zp62s5xmxgcdz4fivy91q8d0v16",
-        "type": "tarball",
-        "url": "https://github.com/jethrokuan/fzf/archive/bb45f4697e256e44629487fc5a89e0768cfb5b5e.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "fzf-fish": {
         "branch": "main",
         "description": "Augment your fish command line with fzf key bindings",
