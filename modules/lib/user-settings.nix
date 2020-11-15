@@ -1,6 +1,11 @@
 { lib, config, ... }:
 with lib; {
   options.dotfiles.user-settings = {
+    dotfiles-dir = mkOption {
+      default = "${config.home.homeDirectory}/.dotfiles";
+      type = types.str;
+      description = "Location of the '.dotfiles' directory";
+    };
     gpg = {
       git-key = mkOption {
         default = null;
