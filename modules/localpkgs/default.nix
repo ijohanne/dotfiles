@@ -11,11 +11,6 @@ self: pkgs: {
   gping = self.callPackage ./gping { inherit sources; };
   fishPlugins = (pkgs.fishPlugins or { }) // import ./fish-plugins { inherit pkgs sources; };
   vimPlugins = (pkgs.vimPlugins or { }) // import ./vim-plugins { inherit pkgs sources; };
-  niv = (import sources.niv { }).niv;
   neovim-nightly = pkgs.callPackage ./neovim-nightly { inherit pkgs sources; };
-  nur = (import sources.NUR {
-    inherit pkgs;
-  }).repos;
   firefoxPlugins = pkgs.callPackage ./firefox-plugins { buildFirefoxXpiAddon = self.nur.rycee.firefox-addons.buildFirefoxXpiAddon; };
-  home-manager = (import sources.home-manager { inherit pkgs; }).home-manager;
 }
