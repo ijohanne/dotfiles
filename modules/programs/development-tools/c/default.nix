@@ -11,7 +11,7 @@ in
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['clangd'].setup {
+          lspconfig['clangd'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.clang-tools}/bin/clangd", "--background-index"};
           }

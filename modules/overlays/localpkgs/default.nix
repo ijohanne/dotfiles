@@ -11,9 +11,10 @@ self: pkgs: {
   gping = self.callPackage ./gping { inherit sources; };
   fishPlugins = (pkgs.fishPlugins or { }) // import ./fish-plugins { inherit pkgs sources; };
   vimPlugins = (pkgs.vimPlugins or { }) // import ./vim-plugins { inherit pkgs sources; };
-  niv = import sources.niv { };
+  niv = (import sources.niv { }).niv;
   neovim-nightly = pkgs.callPackage ./neovim-nightly { inherit pkgs sources; };
   nur = (import sources.NUR {
-    pkgs = import sources.nixpkgs { config.allowUnfree = true; };
+    inherit pkgs;
   }).repos;
+  home-manager = (import sources.home-manager { inherit pkgs; }).home-manager;
 }

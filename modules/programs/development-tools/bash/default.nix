@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ nodePackages.bash-language-server bash ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['bashls'].setup {
+          lspconfig['bashls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.bash-language-server}/bin/bash-language-server"}
           }

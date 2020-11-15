@@ -12,7 +12,7 @@ in
       home.packages = with pkgs; [ lua-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['sumneko_lua'].setup {
+          lspconfig['sumneko_lua'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.lua-language-server}/bin/lua-language-server"}
           }

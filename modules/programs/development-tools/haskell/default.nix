@@ -13,7 +13,7 @@ in
         home.packages = [ pkgs.haskell-language-server ];
         dotfiles.development-tools.neovim.language-servers = {
           extraLua = ''
-            nvim_lsp['hls'].setup {
+            lspconfig['hls'].setup {
               on_attach = on_attach,
               cmd = {"${pkgs.haskell-language-server}/bin/haskell-language-server-8.10.2", "--lsp" }
             }

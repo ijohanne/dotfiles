@@ -12,7 +12,7 @@ in
       home.packages = [ pkgs.rust-analyzer ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['rust_analyzer'].setup {
+          lspconfig['rust_analyzer'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.rust-analyzer}/bin/rust-analyzer"}
           }

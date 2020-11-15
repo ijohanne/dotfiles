@@ -9,11 +9,11 @@ in
       home.packages = with pkgs.nodePackages; [ vscode-css-languageserver-bin vscode-html-languageserver-bin ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['html'].setup {
+          lspconfig['html'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver", "--stdio" }
           }
-          nvim_lsp['cssls'].setup {
+          lspconfig['cssls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver", "--stdio"}
           }

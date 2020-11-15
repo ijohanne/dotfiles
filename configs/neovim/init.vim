@@ -1,7 +1,4 @@
 "Basic settings
-"Add nvim-treesitter
-packadd! nvim-treesitter
-
 " nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {

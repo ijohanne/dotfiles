@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ yaml-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['yamlls'].setup {
+          lspconfig['yamlls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.yaml-language-server}/bin/yamlls"}
           }

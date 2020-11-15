@@ -1,6 +1,4 @@
-" LSP settings
-" Load modules
-packadd! nvim-lspconfig
+" Generic LSP settings
 
 " Set completeopt to have a better completion experience
 " :help completeopt

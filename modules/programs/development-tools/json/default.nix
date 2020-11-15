@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ nodePackages.vscode-html-languageserver-bin ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['jsonls'].setup {
+          lspconfig['jsonls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver", "--stdio" }
           }

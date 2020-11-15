@@ -12,7 +12,7 @@ in
       home.packages = with pkgs; [ gopls ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['gopls'].setup {
+          lspconfig['gopls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.gopls}/bin/gopls"}
           }

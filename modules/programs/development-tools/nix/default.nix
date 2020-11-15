@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ rnix-lsp ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['rnix'].setup {
+          lspconfig['rnix'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"}
           }

@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ nodePackages.typescript-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['tsserver'].setup {
+          lspconfig['tsserver'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.typescript-language-server}/bin/tsserver", "--stdio"}
           }

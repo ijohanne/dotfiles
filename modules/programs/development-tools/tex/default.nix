@@ -10,7 +10,7 @@ in
       programs.neovim.plugins = with pkgs.vimPlugins; [ vimtex ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['texlab'].setup {
+          lspconfig['texlab'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.texlab}/bin/texlab"}
           }

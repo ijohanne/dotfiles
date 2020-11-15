@@ -99,7 +99,7 @@ in
       programs.neovim = {
         extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim + ''
           lua <<EOF
-                    local nvim_lsp = require 'nvim_lsp'
+                    local lspconfig = require 'lspconfig'
 
                     local on_attach = function(client)
                       require'completion'.on_attach(client)

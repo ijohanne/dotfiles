@@ -1,13 +1,9 @@
-let
-  sources = import ./nix/sources.nix;
-  nixpkgs = sources."nixpkgs";
-  pkgs = import nixpkgs { };
-  gis = import sources.nix-gitignore { };
-  nix-pre-commit-hooks = import sources.pre-commit-hooks-nix;
-in
+{ sources ? import ./nix/sources.nix
+, pkgs ? import sources.nixpkgs { overlays = [ (import ./modules/overlays) ]; }
+}:
 pkgs.mkShell rec {
-  pre-commit-check = nix-pre-commit-hooks.run {
-    src = gis.gitignoreSource ./.;
+  pre-commit-check = (import sources.pre-commit-hooks-nix).run {
+    src = (import sources.nix-gitignore { }).gitignoreSource ./.;
     hooks = {
       shellcheck.enable = true;
       nix-linter.enable = true;
@@ -20,18 +16,16 @@ pkgs.mkShell rec {
   };
   name = "home-manager-shell";
   buildInputs = with pkgs; [
-    (import sources.niv { }).niv
-    (import sources.home-manager { inherit pkgs; }).home-manager
+    niv
+    home-manager
     shellcheck
     shfmt
     nixpkgs-fmt
     git
   ];
   shellHook = ''
-    export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${
-      sources."home-manager"
-    }:nixos-config=/etc/nixos/configuration.nix"
-    export NIXPKGS_PATH=${nixpkgs}
+    export NIX_PATH="nixpkgs=${sources.nixpkgs}:home-manager=${sources."home-manager"}:nixos-config=/etc/nixos/configuration.nix"
+    export NIXPKGS_PATH=${sources.nixpkgs}
     ${pre-commit-check.shellHook}
   '';
 }

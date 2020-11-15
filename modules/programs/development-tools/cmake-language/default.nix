@@ -9,7 +9,7 @@ in
       home.packages = with pkgs; [ nodePackages.bash-language-server bash ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
-          nvim_lsp['cmake'].setup {
+          lspconfig['cmake'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.cmake-language-server}/bin/cmake-language-server"}
           }
