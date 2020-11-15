@@ -14,6 +14,7 @@ with lib;
         home-manager = "$HOME/.dotfiles/home-manager.sh";
         niv-home = "$HOME/.dotfiles/niv-home.sh";
         nixos-rebuild = "$HOME/.dotfiles/nixos-rebuild.sh";
+        firefox-plugins-home = "$HOME/.dotfiles/firefox-plugins-home.sh";
       };
       plugins = with pkgs.fishPlugins; [
         bass

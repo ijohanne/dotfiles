@@ -120,15 +120,10 @@ in
       type = types.bool;
       description = "Enable haskell compiler";
     };
-    firefox-addons-generator.enable = mkOption {
-      default = false;
-      type = types.bool;
-      description = "Enable direnv app";
-    };
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./firefox-addons-generator ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;
@@ -154,7 +149,6 @@ in
     dotfiles.development-tools.vim-language.enable = true;
     dotfiles.development-tools.cmake-language.enable = true;
     dotfiles.development-tools.docker-language.enable = true;
-    dotfiles.development-tools.firefox-addons-generator.enable = true;
   };
 
 }
