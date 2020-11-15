@@ -52,7 +52,7 @@ with lib; {
     nixpkgs.config.allowUnfree = true;
     home.sessionVariables = {
       NIX_PATH =
-        "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix";
+        "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=${../overlays}";
     };
     programs = {
       home-manager = {

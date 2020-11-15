@@ -1,9 +1,5 @@
 { pkgs, lib, config, ... }:
 with lib;
-let
-  buildFirefoxXpiAddon = pkgs.nur.rycee.firefox-addons.buildFirefoxXpiAddon;
-  addons = pkgs.callPackage ./addons.nix { inherit buildFirefoxXpiAddon; };
-in
 {
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
     programs.firefox = {
@@ -15,7 +11,7 @@ in
           lastpass-password-manager
           reddit-enhancement-suite
           facebook-container
-        ] ++ (with addons; [ darkreader enhancer-for-youtube ]);
+        ] ++ (with pkgs.firefoxPlugins; [ darkreader enhancer-for-youtube ]);
       profiles.default = {
         id = 0;
         settings = {

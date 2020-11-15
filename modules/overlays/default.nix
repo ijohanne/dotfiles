@@ -1,7 +1,7 @@
 let
   sources = import ../../nix/sources.nix;
   overlays = [
-    (import ./localpkgs { inherit sources; })
+    (import ../localpkgs { inherit sources; })
     (import sources.mozilla-overlay)
   ];
 in

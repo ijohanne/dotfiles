@@ -16,5 +16,6 @@ self: pkgs: {
   nur = (import sources.NUR {
     inherit pkgs;
   }).repos;
+  firefoxPlugins = pkgs.callPackage ./firefox-plugins { buildFirefoxXpiAddon = self.nur.rycee.firefox-addons.buildFirefoxXpiAddon; };
   home-manager = (import sources.home-manager { inherit pkgs; }).home-manager;
 }
