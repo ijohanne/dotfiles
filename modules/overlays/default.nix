@@ -1,6 +1,6 @@
 let
   sources = import ../../nix/sources.nix;
-  imported-overlays = self: pkgs:
+  imported-overlays = _: pkgs:
     {
       niv = (import sources.niv { }).niv;
       home-manager = (import sources.home-manager { inherit pkgs; }).home-manager;
@@ -8,14 +8,11 @@ let
         {
           inherit pkgs;
         }).repos;
-      nur-ijohanne = (import sources.ijohanne-nur-packages { inherit pkgs; });
-      vimPlugins = (pkgs.vimPlugins or { }) // self.nur-ijohanne.vimPlugins;
-      fishPlugins = (pkgs.fishPlugins or { }) // self.nur-ijohanne.fishPlugins;
-      firefoxPlugins = (pkgs.firefoxPlugins or { }) // self.nur-ijohanne.firefoxPlugins;
     };
 
   overlays = [
     imported-overlays
+    (import "${sources.ijohanne-nur-packages}/overlay.nix")
     (import ../localpkgs { inherit sources; })
     (import sources.mozilla-overlay)
 
