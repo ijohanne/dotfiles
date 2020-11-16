@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 with lib; {
   options.dotfiles.machines = {
     rpi = mkOption {
@@ -21,10 +21,14 @@ with lib; {
   imports = [ ./users.nix ./desktop ./rpi ../lib ];
 
   config = {
-    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+    nix = {
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
+      binaryCaches = config.dotfiles.cachix.binaryCaches;
+      binaryCachePublicKeys = config.dotfiles.cachix.binaryCachePublicKeys;
     };
     environment.systemPackages = [ pkgs.manpages ];
     nixpkgs.config.allowUnfree = true;

@@ -1,5 +1,17 @@
 { lib, config, ... }:
 with lib; {
+  options.dotfiles.cachix = {
+    binaryCaches = mkOption {
+      type = with types; listOf str;
+      default = [ ];
+      description = "Extra binary caches to add";
+    };
+    binaryCachePublicKeys = mkOption {
+      type = with types; listOf str;
+      default = [ ];
+      description = "Extra binary cache public keys to add";
+    };
+  };
   options.dotfiles.user-settings = {
     dotfiles-dir = mkOption {
       default = "${config.home.homeDirectory}/.dotfiles";

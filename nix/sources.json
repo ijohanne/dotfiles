@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "83750347b4ae92e4c8bf71a805ced5552a887d86",
-        "sha256": "1f3kannwjh0i7jvhb6klcvrc0q3xxqm6nph02jj1wbrs4ad25i2w",
+        "rev": "1dfc44439e47cc52a546205209b162d453470333",
+        "sha256": "0c1zmdidz7jw1g4yw3hrys7a8dj3brrj9qsnzbxkicc14pfbzylb",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/83750347b4ae92e4c8bf71a805ced5552a887d86.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/1dfc44439e47cc52a546205209b162d453470333.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "d936f6bc0ced7f8c99f779258b039946d08469b0",
-        "sha256": "10qi2n7043ywmk58n5qsfsim5n90i69vrcbh9hi1l27v3ypcrw2m",
+        "rev": "c74454376b9dbaa86b77eb13dfd8aabe51548455",
+        "sha256": "0w1kmcpb8v207b5h6zyfa0pg9ak0bx7p6i267hfz3byrmmp7n0zv",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/d936f6bc0ced7f8c99f779258b039946d08469b0.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/c74454376b9dbaa86b77eb13dfd8aabe51548455.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
