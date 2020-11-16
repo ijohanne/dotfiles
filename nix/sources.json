@@ -11,88 +11,16 @@
         "url": "https://github.com/trapd00r/LS_COLORS/archive/8b777b6b7e819a60cface024b01b86b748fb15a4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "LanguageTool-nvim": {
-        "branch": "master",
-        "description": "An asynchronous grammar checker for Neovim using LanguageTool",
-        "homepage": "",
-        "owner": "vigoux",
-        "repo": "LanguageTool.nvim",
-        "rev": "809e7d77fec834597f495fec737c59292a10025b",
-        "sha256": "1g12dz85xq8qd92dgna0a3w6zgxa74njlvmvly4k20610r63bzrn",
-        "type": "tarball",
-        "url": "https://github.com/vigoux/LanguageTool.nvim/archive/809e7d77fec834597f495fec737c59292a10025b.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "NUR": {
         "branch": "master",
         "description": "Nix User Repository: User contributed nix packages [maintainer=@Mic92]",
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e8cbdb690b8b74deaf80753f9bd04beceb719b1e",
-        "sha256": "0c7fikg45bq6sgnbhbd7q3gc2mmclnfngypj1rvikvld5m664ix5",
+        "rev": "83750347b4ae92e4c8bf71a805ced5552a887d86",
+        "sha256": "1f3kannwjh0i7jvhb6klcvrc0q3xxqm6nph02jj1wbrs4ad25i2w",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/e8cbdb690b8b74deaf80753f9bd04beceb719b1e.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "bass": {
-        "branch": "master",
-        "description": "bass fish plugin",
-        "homepage": null,
-        "owner": "edc",
-        "repo": "bass",
-        "rev": "d63054b24c2f63aaa3a08fb9ec9d0da4c70ab922",
-        "sha256": "0pwci5xxm8308nrb52s5nyxijk0svar8nqrdfvkk2y34z1cg319b",
-        "type": "tarball",
-        "url": "https://github.com/edc/bass/archive/d63054b24c2f63aaa3a08fb9ec9d0da4c70ab922.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "bottom": {
-        "branch": "master",
-        "description": "Yet another cross-platform graphical process/system monitor.",
-        "homepage": "",
-        "owner": "ClementTsang",
-        "repo": "bottom",
-        "rev": "e43456207be0757fbb9c05f93a169063faf673b7",
-        "sha256": "009jn4yakkxljcidqg6wj06w31qnnl6r9nayc81fxw99w256fd6x",
-        "type": "tarball",
-        "url": "https://github.com/ClementTsang/bottom/archive/e43456207be0757fbb9c05f93a169063faf673b7.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "fish-exa": {
-        "branch": "master",
-        "description": "fish exa plugin",
-        "homepage": null,
-        "owner": "wawa19933",
-        "repo": "fish-exa",
-        "rev": "c036d39623643ad9c66ceafe1466032469fc98e8",
-        "sha256": "0dqv08illqmjq7lybjcp7q9wy3wm1vf10qb8qwmca17ak8b96nv1",
-        "type": "tarball",
-        "url": "https://github.com/wawa19933/fish-exa/archive/c036d39623643ad9c66ceafe1466032469fc98e8.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "fzf-fish": {
-        "branch": "main",
-        "description": "Augment your fish command line with fzf key bindings",
-        "homepage": "",
-        "owner": "patrickf3139",
-        "repo": "fzf.fish",
-        "rev": "86c71adbd5712025646de1f5dbdcebbe7510b5cd",
-        "sha256": "1hjzg726p044l31pfkh7mdq269zhvrkinmk611wzh6r9qr57ihpj",
-        "type": "tarball",
-        "url": "https://github.com/patrickf3139/fzf.fish/archive/86c71adbd5712025646de1f5dbdcebbe7510b5cd.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "git-blame-nvim": {
-        "branch": "master",
-        "description": "Git Blame plugin for Neovim written in Lua",
-        "homepage": "",
-        "owner": "f-person",
-        "repo": "git-blame.nvim",
-        "rev": "d1e17c4ec6e654e40454fd41ecb7bbdfedea3b35",
-        "sha256": "1cdiajkb8i0hvj3hhc61nbrfk86m7pnwiwggxi99qy303xwq21j1",
-        "type": "tarball",
-        "url": "https://github.com/f-person/git-blame.nvim/archive/d1e17c4ec6e654e40454fd41ecb7bbdfedea3b35.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/83750347b4ae92e4c8bf71a805ced5552a887d86.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -107,18 +35,6 @@
         "url": "https://github.com/github/gitignore/archive/218a941be92679ce67d0484547e3e142b2f5f6f0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "gping": {
-        "branch": "master",
-        "description": "Ping, but with a graph",
-        "homepage": null,
-        "owner": "orf",
-        "repo": "gping",
-        "rev": "31794778471269fcf9ed61e32a8cd437d61e88f6",
-        "sha256": "0p59sq6w2r0qpx6cpc97a5sqhcgr8vb896k1cja6bc3c70acl9in",
-        "type": "tarball",
-        "url": "https://github.com/orf/gping/archive/31794778471269fcf9ed61e32a8cd437d61e88f6.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
@@ -131,40 +47,16 @@
         "url": "https://github.com/nix-community/home-manager/archive/9e01441c5c1111cfd6f1d021c742949760f29d4f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "lfs": {
+    "ijohanne-nur-packages": {
         "branch": "master",
-        "description": "A thing to get information on your mounted disks",
-        "homepage": "",
-        "owner": "Canop",
-        "repo": "lfs",
-        "rev": "84dd2fe74084aaa7aef8ed52a4fb2e6399174ebe",
-        "sha256": "0afr8z1ix6pr4vbkjqnl85x97pcc9hayfdnkwxarnd5i6c2m6v5d",
-        "type": "tarball",
-        "url": "https://github.com/Canop/lfs/archive/84dd2fe74084aaa7aef8ed52a4fb2e6399174ebe.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "lsp_extensions-nvim": {
-        "branch": "master",
-        "description": "Repo to hold a bunch of info & extension callbacks for built-in LSP. Use at your own risk :wink:",
+        "description": "NUR packages",
         "homepage": null,
-        "owner": "tjdevries",
-        "repo": "lsp_extensions.nvim",
-        "rev": "eaa389f8a80d9700cc2c3bce787b00b61761a0f0",
-        "sha256": "0zndlyn3xgzxwshjk79yfva5914xchzg9v8qimfgn7jlmn5ljhwm",
+        "owner": "ijohanne",
+        "repo": "nur-packages",
+        "rev": "39c5c14f916663250b27562576d91c96e9874265",
+        "sha256": "1gyki35di88a497f08kyr8cn67d2cxh3wwpzmqw85awvmzwwlqz1",
         "type": "tarball",
-        "url": "https://github.com/tjdevries/lsp_extensions.nvim/archive/eaa389f8a80d9700cc2c3bce787b00b61761a0f0.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "lua-language-server": {
-        "branch": "master",
-        "description": "Lua Language Server coded by Lua",
-        "homepage": "",
-        "owner": "sumneko",
-        "repo": "lua-language-server",
-        "rev": "dd0d670b21868181ff07b7a97f3d51f21e4c4aec",
-        "sha256": "087gqi50hf5c0q33nym5krn45dgi9xhvqk1k0vrxhfv444na1kpc",
-        "type": "tarball",
-        "url": "https://github.com/sumneko/lua-language-server/archive/dd0d670b21868181ff07b7a97f3d51f21e4c4aec.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/39c5c14f916663250b27562576d91c96e9874265.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -177,18 +69,6 @@
         "sha256": "1zybp62zz0h077zm2zmqs2wcg3whg6jqaah9hcl1gv4x8af4zhs6",
         "type": "tarball",
         "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/8c007b60731c07dd7a052cce508de3bb1ae849b4.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "neovim": {
-        "branch": "master",
-        "description": "Vim-fork focused on extensibility and usability",
-        "homepage": "https://neovim.io",
-        "owner": "neovim",
-        "repo": "neovim",
-        "rev": "1b8867ab39ecc25d454ca67e3cb8b3ef5fca9ed3",
-        "sha256": "0hgl8sdahivjyd6hy615gkfna5sr2wxlkywi34srbjw7lrpvgdaj",
-        "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/1b8867ab39ecc25d454ca67e3cb8b3ef5fca9ed3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -221,70 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a5d1246b47c6692ae57e804940797a68722e26ff",
-        "sha256": "1bd4zw6h9gmydba0klfnhvbipjwzr2cbw7pxzgqvs8n176kdxnh1",
+        "rev": "300846f3c982ffc3e54775fa99b4ec01d56adf65",
+        "sha256": "01pv2sdf1x15p4pcl344lpjb3fgf83zq53kbw20hsqyxspp26676",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a5d1246b47c6692ae57e804940797a68722e26ff.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nvim-lspconfig": {
-        "branch": "master",
-        "description": "Quickstart configurations for the Nvim LSP client",
-        "homepage": "",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "1f86bfd62d0ba78b0479373661be3fa13f1f8f35",
-        "sha256": "1m8sdlk0ss2scyz0c2rplv3rnws7lzwgqzdjr90q7sr261hrp2kn",
-        "type": "tarball",
-        "url": "https://github.com/neovim/nvim-lspconfig/archive/1f86bfd62d0ba78b0479373661be3fa13f1f8f35.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nvim-treesitter": {
-        "branch": "master",
-        "description": "Nvim Treesitter configurations and abstraction layer",
-        "homepage": "",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "rev": "1058c11f4686529a5a3f02897597977bc67725c8",
-        "sha256": "1lz88zr2qr09dn3wapc1npxg0wirwrnqjjwx77kq59zlj5w60f9i",
-        "type": "tarball",
-        "url": "https://github.com/nvim-treesitter/nvim-treesitter/archive/1058c11f4686529a5a3f02897597977bc67725c8.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nvim-web-devicons": {
-        "branch": "master",
-        "description": "lua `fork` of vim-web-devicons for neovim",
-        "homepage": null,
-        "owner": "kyazdani42",
-        "repo": "nvim-web-devicons",
-        "rev": "61693bf98df40dc17354edd5f92311e2aaa0f5cc",
-        "sha256": "0siifa9gxj6kz9w4fpnra6afyri6y0b34605aqkf7820krhcmckz",
-        "type": "tarball",
-        "url": "https://github.com/kyazdani42/nvim-web-devicons/archive/61693bf98df40dc17354edd5f92311e2aaa0f5cc.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "oh-my-fish-plugin-foreign-env": {
-        "branch": "master",
-        "description": "foreign-env - oh my fish plugin",
-        "homepage": null,
-        "owner": "oh-my-fish",
-        "repo": "plugin-foreign-env",
-        "rev": "dddd9213272a0ab848d474d0cbde12ad034e65bc",
-        "sha256": "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs",
-        "type": "tarball",
-        "url": "https://github.com/oh-my-fish/plugin-foreign-env/archive/dddd9213272a0ab848d474d0cbde12ad034e65bc.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "oh-my-fish-plugin-ssh": {
-        "branch": "master",
-        "description": "ssh - oh my fish plugin",
-        "homepage": null,
-        "owner": "oh-my-fish",
-        "repo": "plugin-ssh",
-        "rev": "850ec718f23d4182c0fc751adc04e9318e451f21",
-        "sha256": "1rr9ngjkj08anf8d33g53gzi0scsa5ryyqiz16xis1fad7mn44bb",
-        "type": "tarball",
-        "url": "https://github.com/oh-my-fish/plugin-ssh/archive/850ec718f23d4182c0fc751adc04e9318e451f21.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/300846f3c982ffc3e54775fa99b4ec01d56adf65.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks-nix": {
@@ -299,30 +119,6 @@
         "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/431227b41d0aaa83fabdee6611e145b7d9bd150b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "pueue": {
-        "branch": "master",
-        "description": ":stars: Manage your shell commands.",
-        "homepage": "",
-        "owner": "Nukesor",
-        "repo": "pueue",
-        "rev": "425bf00881bdd134672f29febc065455b26dde86",
-        "sha256": "1jjsasssl894rag4igv0v8y6bqwqcis8xkqxrc9d950kzkc8vcid",
-        "type": "tarball",
-        "url": "https://github.com/Nukesor/pueue/archive/425bf00881bdd134672f29febc065455b26dde86.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "ranger-vim": {
-        "branch": "master",
-        "description": "Ranger integration in vim and neovim",
-        "homepage": null,
-        "owner": "francoiscabrol",
-        "repo": "ranger.vim",
-        "rev": "91e82debdf566dfaf47df3aef0a5fd823cedf41c",
-        "sha256": "0i2d88yyfjv4gn3zn7jzv5pf94vzllvxmnmi3hdjddrhl2xppsza",
-        "type": "tarball",
-        "url": "https://github.com/francoiscabrol/ranger.vim/archive/91e82debdf566dfaf47df3aef0a5fd823cedf41c.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "ranger_devicons": {
         "branch": "main",
         "description": "Ranger plugin that adds file glyphs / icon support to Ranger",
@@ -333,42 +129,6 @@
         "sha256": "150xczhxs9n3xgrwivgp02xwbpqn0xwz65g91n4pl1g2bj3dbp1p",
         "type": "tarball",
         "url": "https://github.com/alexanderjeurissen/ranger_devicons/archive/68ffbffd086b0e9bb98c74705abe891b756b9e11.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "sddm-chili": {
-        "branch": "master",
-        "description": "The hottest theme around for SDDM, the Simple Desktop Display Manager.",
-        "homepage": "",
-        "owner": "MarianArlt",
-        "repo": "sddm-chili",
-        "rev": "6516d50176c3b34df29003726ef9708813d06271",
-        "sha256": "036fxsa7m8ymmp3p40z671z163y6fcsa9a641lrxdrw225ssq5f3",
-        "type": "tarball",
-        "url": "https://github.com/MarianArlt/sddm-chili/archive/6516d50176c3b34df29003726ef9708813d06271.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "sddm-sugar-dark": {
-        "branch": "master",
-        "description": "The sweetest dark theme around for SDDM, the Simple Desktop Display Manager.",
-        "homepage": "https://www.opendesktop.org/p/1272122",
-        "owner": "MarianArlt",
-        "repo": "sddm-sugar-dark",
-        "rev": "9fc363cc3f6b3f70df948c88cbe26989386ee20d",
-        "sha256": "1vb0gr9i4dj6bzrx73cacnn012crvpj4d1n3yiw5w2yhrbpjkql7",
-        "type": "tarball",
-        "url": "https://github.com/MarianArlt/sddm-sugar-dark/archive/9fc363cc3f6b3f70df948c88cbe26989386ee20d.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "yubikey-touch-detector": {
-        "branch": "master",
-        "description": "A tool to detect when your YubiKey is waiting for a touch (to send notification or display a visual indicator on the screen)",
-        "homepage": "",
-        "owner": "maximbaz",
-        "repo": "yubikey-touch-detector",
-        "rev": "81f7837f44eb6739e900de76558c54056991225d",
-        "sha256": "18i8nni86dnm6qgdrvqj9mimxlccjwkh65dpjc5dngzki3573rny",
-        "type": "tarball",
-        "url": "https://github.com/maximbaz/yubikey-touch-detector/archive/81f7837f44eb6739e900de76558c54056991225d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

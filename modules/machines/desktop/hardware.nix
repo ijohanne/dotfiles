@@ -37,7 +37,7 @@ with lib; {
 
       services.fwupd.enable = true;
 
-      boot.kernelPackages = pkgs.linuxPackages_5_9;
+      boot.kernelPackages = pkgs.linuxPackages_testing;
 
       boot.zfs.enableUnstable = true;
     }

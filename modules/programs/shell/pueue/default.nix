@@ -24,12 +24,12 @@ let
         cpu: 1
     EOF
     echo Spawning service
-    ${pkgs.pueue}/bin/pueued
+    ${pkgs.nur-ijohanne.pueue}/bin/pueued
   '';
 in
 {
   config = mkIf (config.dotfiles.shell.pueue.enable) {
-    home.packages = with pkgs; [ pueue ];
+    home.packages = with pkgs.nur-ijohanne; [ pueue ];
 
     systemd.user.services.pueued = {
       Unit = {

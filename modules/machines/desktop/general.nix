@@ -24,7 +24,7 @@ with lib; {
         yubioath-desktop
         yubikey-personalization-gui
         yubikey-manager
-        themes.sddm-chili
+        nur-ijohanne.sddmThemes.sddm-chili
       ] ++ (with pkgs.qt5; [ qtbase qtquickcontrols qtgraphicaleffects ]);
 
     programs = {

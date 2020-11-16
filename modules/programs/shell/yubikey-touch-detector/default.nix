@@ -1,14 +1,14 @@
 { pkgs, lib, config, ... }:
 with lib; {
   config = mkIf (config.dotfiles.shell.yubikey-touch-detector.enable) {
-    home.packages = [ pkgs.yubikey-touch-detector ];
+    home.packages = [ pkgs.nur-ijohanne.yubikey-touch-detector ];
     systemd.user =
       let
         service-yubikey-touch-detector = pkgs.writeShellScriptBin "start-yubikey-touch-detector" (
           ''
             systemctl --user import-environment
             export PATH="$PATH:$HOME/.nix-profile/bin"
-            ${pkgs.yubikey-touch-detector}/bin/yubikey-touch-detector
+            ${pkgs.nur-ijohanne.yubikey-touch-detector}/bin/yubikey-touch-detector
           ''
         );
       in

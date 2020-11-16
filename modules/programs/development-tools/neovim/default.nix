@@ -51,7 +51,7 @@ in
         withNodeJs = true;
         withPython3 = true;
 
-        package = pkgs.neovim-nightly;
+        package = pkgs.nur-ijohanne.neovim-nightly;
         extraConfig = builtins.readFile ../../../../configs/neovim/init.vim;
         plugins = with pkgs.vimPlugins; [
           barbar-nvim
@@ -87,7 +87,7 @@ in
           vim-vinegar
         ];
       };
-      home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };
+      home.sessionVariables = { EDITOR = "${pkgs.nur-ijohanne.neovim-nightly}/bin/nvim"; };
     }
     (mkIf cfg.language-servers.enable {
       home.packages = with pkgs;
