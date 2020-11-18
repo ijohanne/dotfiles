@@ -146,9 +146,9 @@ in
             "XF86MonBrightnessUp" =
               "exec ${pkgs.brightnessctl}/bin/brightnessctl set +2%";
             "${modifier}+g" =
-              "exec ${pkgs.grim} $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
+              "exec ${pkgs.grim}/bin/grim $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
             "${modifier}+Shift+g" =
-              "exec ${pkgs.slurp} | ${pkgs.grim} -g - $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
+              "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(xdg-user-dir DOWNLOAD)/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
           };
 
         };

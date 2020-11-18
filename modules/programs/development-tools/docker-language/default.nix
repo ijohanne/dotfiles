@@ -6,7 +6,7 @@ in
 {
   config = mkIf cfg.enable (mkMerge [
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs; [ haskell-language-server ];
+      home.packages = with pkgs; [ nodePackages.dockerfile-language-server-nodejs ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           local util = require 'lspconfig/util'
