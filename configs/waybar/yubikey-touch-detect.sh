@@ -29,7 +29,7 @@ while true; do
             printf '{"text": ""}\n'
         else
             tooltip="YubiKey is waiting for a touch, reasons: ${touch_reasons[@]}"
-            printf '{"text": "  ", "tooltip": "%s"}\n' "$tooltip"
+            printf '{"text": "   ", "tooltip": "%s"}\n' "$tooltip"
         fi
     done
 

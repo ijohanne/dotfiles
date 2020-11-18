@@ -159,7 +159,7 @@ in
         enable = true;
         config = {
           battery = {
-            format = "{icon} {capacity}% {time}";
+            format = "{icon}  {capacity}% {time}";
             format-charging = "{icon}  {capacity}%";
             format-icons = [ "" "" "" "" "" ];
             interval = 10;
@@ -174,8 +174,8 @@ in
           };
           cpu = { format = " {}%"; };
           memory = { format = " {}%"; };
-          modules-center = [ "clock" ];
-          modules-left = [ "sway/workspaces" "sway/mode" "tray" "custom/yktouch" ];
+          modules-center = [ "clock" "custom/yktouch" ];
+          modules-left = [ "sway/workspaces" "sway/mode" "tray" ];
           modules-right = [ "battery" "cpu" "memory" "pulseaudio" ];
           pulseaudio = {
             format = "{icon} {volume}%";
@@ -192,10 +192,9 @@ in
             max-length = 50;
           };
           "custom/yktouch" = {
-            format = "{text}";
-            max-length = 20;
-            interval = 1;
+            format = "{}";
             return-type = "json";
+            tooltip = true;
             exec = "${waybar-yubikey-scripts}/bin/yubikey-touch-detect";
           };
         };

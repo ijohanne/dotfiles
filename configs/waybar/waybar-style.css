@@ -2,8 +2,8 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: 'Inconsolata Nerd Font', Helvetica, Arial, sans-serif;
+    font-size: 15px;
     min-height: 0;
 }
 
@@ -171,9 +171,19 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#tray,
-#yktouch {
+#tray
+{
     background-color: #2980b9;
+}
+
+#custom-yktouch {
+    background-color: #ff0000;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #idle_inhibitor {
