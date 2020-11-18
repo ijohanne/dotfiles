@@ -57,8 +57,7 @@ in
 
           fonts = [ "Inconsolata 10" ];
           terminal = "alacritty";
-          #menu = "${pkgs.wofi}/bin/wofi --show drun";
-          menu = "${pkgs.dmenu}/bin/dmenu_run";
+          menu = "${pkgs.wofi}/bin/wofi --show drun";
 
           startup = [
             {
@@ -116,8 +115,7 @@ in
 
             "${modifier}+Shift+q" = "kill";
 
-            #"${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
-            "${modifier}+d" = "exec '${pkgs.dmenu}/bin/dmenu_run'";
+            "${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
             "${modifier}+l" = "exec '${pkgs.swaylock}/bin/swaylock -f -c 000000'";
 
             "${modifier}+b" = "split h";
