@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "bee1cf9e70bafac5d192cdaa5d8f12504be558fd",
-        "sha256": "1id8c0j50ma44b4k3q61ify9cccfl0yhrckmi5rha1qla31sjci2",
+        "rev": "4f4eda2545e4d9782cde80f9e20667c811868f6d",
+        "sha256": "07i4ijlqn29790pfagaicikqp76pgl5xf0kgi5r0qxr0k7dvpr6r",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/bee1cf9e70bafac5d192cdaa5d8f12504be558fd.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/4f4eda2545e4d9782cde80f9e20667c811868f6d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "4b6d60e4972f17098242ef28798c6130864301bf",
-        "sha256": "0wr7crapa5yx5718i7dppv9gbihnlzc7snv3zx7clylfrpp4z3p2",
+        "rev": "16f8e2254bcc0906dae35384222064de31a00355",
+        "sha256": "18if0zi10mf2kvfy6s3lqpcygwl8ap17hk0svw2b1q40xa6pq4n6",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/4b6d60e4972f17098242ef28798c6130864301bf.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/16f8e2254bcc0906dae35384222064de31a00355.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c1e60d958402a7750193c803e5e52fc0d7017b05",
-        "sha256": "08ksmvr60c1lgwd98416cdh7x30bv0p5iqlpa51mf0l1jwlybzq2",
+        "rev": "93b430bc6ba3c084d66f96546dd7b95a2835eceb",
+        "sha256": "1svgc3y1hkr41x0hl430xb7ayxfb9h49ddddrr7znarr56z0gna7",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/c1e60d958402a7750193c803e5e52fc0d7017b05.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/93b430bc6ba3c084d66f96546dd7b95a2835eceb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks-nix": {
