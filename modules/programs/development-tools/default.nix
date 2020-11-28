@@ -1,6 +1,7 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.dotfiles.development-tools;
+let
+  cfg = config.dotfiles.development-tools;
 in
 {
   options.dotfiles.development-tools = {
@@ -59,6 +60,12 @@ in
       type = types.bool;
       description = "Enable lua compiler";
     };
+    dart.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable dart compiler";
+    };
+
     yaml.enable = mkOption {
       default = false;
       type = types.bool;
@@ -123,7 +130,7 @@ in
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;
@@ -141,6 +148,7 @@ in
     dotfiles.development-tools.c.enable = true;
     dotfiles.development-tools.tex.enable = true;
     dotfiles.development-tools.lua.enable = true;
+    dotfiles.development-tools.dart.enable = true;
     dotfiles.development-tools.nix.enable = true;
     dotfiles.development-tools.yaml.enable = true;
     dotfiles.development-tools.haskell.enable = true;
