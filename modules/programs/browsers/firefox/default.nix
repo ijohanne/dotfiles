@@ -2,35 +2,15 @@
 with lib;
 {
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
-    programs.firefox = {
-      enable = true;
-      # Currently broken, so use the one provided by nixpkgs
-      #package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });
-      extensions = with pkgs.nur.rycee.firefox-addons;
-        [
-          ublock-origin
-          lastpass-password-manager
-          reddit-enhancement-suite
-          facebook-container
-        ] ++ (with pkgs.firefoxPlugins; [ darkreader enhancer-for-youtube ]);
-      profiles.default = {
-        id = 0;
-        settings = {
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "extensions.autoDisableScopes" = 0;
-          "browser.uidensity" = 1;
-          "browser.search.openintab" = true;
-          "xpinstall.signatures.required" = false;
-          "extensions.update.enabled" = false;
-          "identity.fxaccounts.enabled" = false;
-          "signon.rememberSignons" = false;
-          "signon.rememberSignons.visibilityToggle" = false;
-          "media.eme.enabled" = true;
-          "browser.eme.ui.enabled" = true;
-        };
-      };
-    };
-
+    nixpkgs.config.firefox.enableFXCastBridge = true;
+    home.packages = [
+      (
+        pkgs.firefox-hardened-wayland.override
+          {
+            extraExtensions = with pkgs.firefoxPlugins; [ ublock-origin facebook-container lastpass-password-manager reddit-enhancement-suite enhancer-for-youtube darkreader certificate-pinner fx-cast ];
+          }
+      )
+    ];
     home.sessionVariables = { MOZ_ENABLE_WAYLAND = "1"; };
   };
 }

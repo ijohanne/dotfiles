@@ -2,6 +2,7 @@
 with lib; {
   config = mkIf (config.dotfiles.machines.desktop) {
     nixpkgs.config = { packageOverrides = pkgs: { bluez = pkgs.bluez5; }; };
+    nixpkgs.config.firefox.enableFXCastBridge = true;
 
     i18n = { defaultLocale = "en_US.UTF-8"; };
 
