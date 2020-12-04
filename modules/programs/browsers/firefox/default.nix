@@ -4,7 +4,8 @@ with lib;
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
     programs.firefox = {
       enable = true;
-      package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });
+      # Currently broken, so use the one provided by nixpkgs
+      #package = pkgs.latest.firefox-bin.override ({ pname = "firefox"; });
       extensions = with pkgs.nur.rycee.firefox-addons;
         [
           ublock-origin
