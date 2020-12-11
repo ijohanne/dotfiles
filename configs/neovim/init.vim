@@ -110,25 +110,18 @@ set ignorecase
 set smartcase
 
 "Decrease update time
-set updatetime=300
+set updatetime=100
 set signcolumn=yes
 
-"Set colorscheme
-packadd! onedark-vim
-colorscheme onedark
-set termguicolors
-let g:onedark_terminal_italics=1
-let g:lightline = {
-       \ 'colorscheme': 'onedark',
-       \ 'active': {
-       \   'left': [ [ 'mode', 'paste' ],
-       \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
-       \ },
-       \ 'component_function': {
-       \   'gitbranch': 'fugitive#head',
-       \ },
-       \ }
+if has('termguicolors')
+  set termguicolors
+endif
 
+" The configuration options should be placed before `colorscheme edge`.
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+colorscheme edge
 
 "Remap space as leader key
 noremap <Space> <Nop>
@@ -366,3 +359,19 @@ let g:python_highlight_space_errors = 0
 
 " Use global clipboard
 set clipboard=unnamed,unnamedplus
+
+" bubbly.nvim
+let g:bubbly_palette = #{
+\   background: "#34343c",
+\   foreground: "#c5cdd9",
+\   black: "#3e4249",
+\   red: "#ec7279",
+\   green: "#a0c980",
+\   yellow: "#deb974",
+\   blue: "#6cb6eb",
+\   purple: "#d38aea",
+\   cyan: "#5dbbc1",
+\   white: "#c5cdd9",
+\   lightgrey: "#57595e",
+\   darkgrey: "#404247",
+\ }

@@ -62,6 +62,11 @@ with lib; {
       };
     };
     yubikey = {
+      username = mkOption {
+        type = with types; nullOr str;
+        default = null;
+        description = "Username to setup for u2f-pam";
+      };
       u2f-keys = mkOption {
         type = with types; listOf str;
         description = "Yubikey U2F keys";

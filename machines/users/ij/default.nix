@@ -20,8 +20,10 @@
       };
       face-icon = ../../../images/face-icons/ij.png;
       yubikey = {
+        username = "ij";
         u2f-keys = [
-          "ij:DB+R6Satvhwm2P78q4VGIPz3TxYbbi5ryXDyOnXR4KT1SjLGayXYjDilP6etAMfbZifLFGmKK0219uhRcpt6jg==,XYZpZgCw5Zz7YfAY1yxsth/yLTKfrsS4OdDlDEv95OETVEPmB35ItLmWQynxRq5eqC2/qJISkCnet7s7JvNQwQ==,es256,+presence⏎"
+          "WRBPRCJi8w9v3bY39OS3uJImU8EbnzZSZcazrSUZtzic4NFN1VcEoI3qwX/au/lMcTa8BqSyB3l+cF/UcbZ4SQ==,06Q6q6qoD+4+Ia6V24D/b+iGFUkB8z/EdWxGBmAWIdgpusyse/08bgQz53UruemBUZI2nKr7MYBlgZ+QlryydQ==,es256,+presence"
+          "DB+R6Satvhwm2P78q4VGIPz3TxYbbi5ryXDyOnXR4KT1SjLGayXYjDilP6etAMfbZifLFGmKK0219uhRcpt6jg==,XYZpZgCw5Zz7YfAY1yxsth/yLTKfrsS4OdDlDEv95OETVEPmB35ItLmWQynxRq5eqC2/qJISkCnet7s7JvNQwQ==,es256,+presence"
         ];
         luks-gpg = {
           public-key-file = ./gpg-key-2DEB54D1D4413780.asc;

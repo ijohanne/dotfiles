@@ -32,7 +32,7 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      home.packages = with pkgs; [ clang_10 ];
+      home.packages = with pkgs; [ clang_10 hexokinase ];
       programs.fish.shellAliases = {
         "vim" = "nvim";
         "vi" = "nvim";
@@ -60,7 +60,6 @@ in
           fzf-vim
           fzfWrapper
           indentLine
-          lightline-vim
           nvim-treesitter
           nvim-web-devicons
           onedark-vim
@@ -85,6 +84,11 @@ in
           vim-trailing-whitespace
           vim-unimpaired
           vim-vinegar
+          bubbly-nvim
+          vim-signify
+          edge
+          # Disabled for now, plugin is buggy on NixOS
+          # vim-hexokinase
         ];
       };
       home.sessionVariables = { EDITOR = "${pkgs.neovim-nightly}/bin/nvim"; };

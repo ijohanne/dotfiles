@@ -45,25 +45,27 @@ with lib; {
     ./development-tools
   ];
 
-  config = mkMerge [{
-    nixpkgs.overlays = [
-      (import ../overlays)
-    ];
-    nixpkgs.config.allowUnfree = true;
-    home.sessionVariables = {
-      NIX_PATH =
-        "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=${config.dotfiles.user-settings.dotfiles-dir}/modules/overlays";
-    };
-    programs = {
-      home-manager = {
-        enable = true;
-        path = "${pkgs.niv-sources.home-manager}";
+  config = mkMerge [
+    {
+      nixpkgs.overlays = [
+        (import ../overlays)
+      ];
+      nixpkgs.config.allowUnfree = true;
+      home.sessionVariables = {
+        NIX_PATH =
+          "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=${config.dotfiles.user-settings.dotfiles-dir}/modules/overlays";
       };
-    };
-  }
-    (mkIf (length (config.dotfiles.user-settings.yubikey.u2f-keys) > 0) {
-
-      xdg.configFile."Yubico/u2f_keys".text =
-        concatStringsSep "\n" config.dotfiles.user-settings.yubikey.u2f-keys;
-    })];
+      programs = {
+        home-manager = {
+          enable = true;
+          path = "${pkgs.niv-sources.home-manager}";
+        };
+      };
+    }
+    (
+      mkIf (config.dotfiles.user-settings.yubikey.username != null && (length (config.dotfiles.user-settings.yubikey.u2f-keys) > 0)) {
+        xdg.configFile."Yubico/u2f_keys".text = "${config.dotfiles.user-settings.yubikey.username}:${concatStringsSep ":" config.dotfiles.user-settings.yubikey.u2f-keys}";
+      }
+    )
+  ];
 }
