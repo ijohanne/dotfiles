@@ -1,6 +1,7 @@
 { pkgs, lib, config, ... }:
 with lib;
-let cfg = config.dotfiles.window-managers.sway;
+let
+  cfg = config.dotfiles.window-managers.sway;
 in
 {
   imports = [ ./waybar.nix ];

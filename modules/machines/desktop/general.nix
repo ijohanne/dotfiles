@@ -90,11 +90,16 @@ with lib;
       (
         mkIf (config.dotfiles.user-settings.yubikey.username != null) {
           services.udev.extraRules = ''
-            ACTION=="add|change", \
+            ACTION=="add", \
             ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", DRIVER=="usbhid", \
-            ATTR{bInterfaceNumber}=="00" \
+            ENV{ID_SMARTCARD_READER}="1" \
             TAG+="systemd", ENV{SYSTEMD_USER_WANTS}="yubikey-card-changed.service"
+
+            ACTION=="remove", ENV{ID_USB_INTERFACE_NUM}=="00", \
+            ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", \
+            TAG+="systemd", RUN+="${getBin pkgs.procps}/bin/pkill -USR1 swayidle"
           '';
+
         }
       )
     ]
