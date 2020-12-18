@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3823f040951b8223290608ac33f85ce72ef687c9",
-        "sha256": "0q2p0slmngh3g3nrxh91gmdv4hb234mibpddpy5rmqg3mbrh6j1f",
+        "rev": "09b34c44391563b8c9f50e92a8db02b510d5e40f",
+        "sha256": "0yjy83z8yz3xk7iqmw2cxczn9f7vc9yj62lmq8sl85pminqv5zvb",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/3823f040951b8223290608ac33f85ce72ef687c9.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/09b34c44391563b8c9f50e92a8db02b510d5e40f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "9e4040e03e406df9005285e2acf32f6fcb5ed1cf",
-        "sha256": "0f5720mbwwq9zd4i3mn35qr2fagnnq3dlji7sr7mp4xxnx5zmi3m",
+        "rev": "9edb2c46d302843a23adc32ec89648ffc6fedfe8",
+        "sha256": "0g9wgy413hds5kij9hv4aq3pqmfvplsibf2b7y3f97jksp5d60mr",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/9e4040e03e406df9005285e2acf32f6fcb5ed1cf.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/9edb2c46d302843a23adc32ec89648ffc6fedfe8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -113,10 +113,10 @@
         "homepage": "",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "1b11ce0f8c65dd3d8e9520e23c100b76d09a858b",
-        "sha256": "0l2v8hsxrvj8w335xxxln49rpd9z5ncv6bl2wnk65zzzd4wa5rkm",
+        "rev": "d16e007e6bd263ba5899a9a425d76a78906570cd",
+        "sha256": "1c0lv3yzq1kkqm4j37wl5hlawlsrj1413vkr1mdm661klad2sa0d",
         "type": "tarball",
-        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/1b11ce0f8c65dd3d8e9520e23c100b76d09a858b.tar.gz",
+        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/d16e007e6bd263ba5899a9a425d76a78906570cd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ranger_devicons": {
