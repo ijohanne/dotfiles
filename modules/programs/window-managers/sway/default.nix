@@ -42,6 +42,8 @@ in
                    resume 'swaymsg "output * dpms on"' \
               before-sleep '${pkgs.swaylock}/bin/swaylock -f -c 000000'
           workspace 1
+          for_window [title="Firefox — Sharing Indicator"] floating enable
+          for_window [title="Firefox — Sharing Indicator"] no_focus
         '';
 
         config = {
