@@ -20,7 +20,7 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/html.so".source =
-        "${pkgs.tree-sitter.builtGrammars.html}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-html}/parser";
     })
   ]);
 }

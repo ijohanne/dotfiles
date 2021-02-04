@@ -50,7 +50,13 @@ with lib; {
       nixpkgs.overlays = [
         (import ../overlays)
       ];
-      nixpkgs.config.allowUnfree = true;
+      nixpkgs.config = {
+        allowUnfree = true;
+
+        permittedInsecurePackages = [
+          "libsixel-1.8.6"
+        ];
+      };
       home.sessionVariables = {
         NIX_PATH =
           "nixpkgs=${pkgs.niv-sources.nixpkgs}:home-manager=${pkgs.niv-sources.home-manager}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=${config.dotfiles.user-settings.dotfiles-dir}/modules/overlays";

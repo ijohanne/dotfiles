@@ -8,12 +8,13 @@ in
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
       home.packages = with pkgs; [ rnix-lsp ];
       dotfiles.development-tools.neovim.language-servers = {
-        extraLua = ''
-          lspconfig['rnix'].setup {
-            on_attach = on_attach,
-            cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"}
-          }
-        '';
+        #extraLua = ''
+        #  lspconfig['rnix'].setup {
+        #    on_attach = on_attach,
+        #    cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
+        #    filetypes = {"nix"}
+        #  }
+        #'';
       };
     })
   ]);

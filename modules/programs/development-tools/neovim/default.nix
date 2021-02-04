@@ -95,7 +95,6 @@ in
     }
     (mkIf cfg.language-servers.enable {
       home.packages = with pkgs;
-        with stdenv.lib;
         [
           ctags
           neovim-remote

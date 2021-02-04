@@ -18,9 +18,9 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/c.so".source =
-        "${pkgs.tree-sitter.builtGrammars.c}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-c}/parser";
       home.file."${config.xdg.configHome}/nvim/parser/cpp.so".source =
-        "${pkgs.tree-sitter.builtGrammars.cpp}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-cpp}/parser";
     })
   ]);
 }

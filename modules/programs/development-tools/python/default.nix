@@ -8,7 +8,7 @@ in
     {
       home.packages = with pkgs; [ python3Minimal ];
     }
-    (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable && pkgs.stdenv.isLinux && pkgs.stdenv.hostPlatform.platform.kernelArch == "x86_64") {
+    (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable && pkgs.stdenv.isLinux /*&& pkgs.stdenv.hostPlatform.platform.kernelArch == "x86_64"*/) {
       home.packages = with pkgs; [ python-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
@@ -19,7 +19,7 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/python.so".source =
-        "${pkgs.tree-sitter.builtGrammars.python}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-python}/parser";
     })
   ]);
 }

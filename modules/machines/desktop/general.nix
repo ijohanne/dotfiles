@@ -65,7 +65,7 @@ with lib;
             enable = true;
             nssmdns = true;
           };
-
+          accounts-daemon.enable = true;
           dbus.packages = [ pkgs.blueman ];
         };
 
@@ -90,7 +90,7 @@ with lib;
       (
         mkIf (config.dotfiles.user-settings.yubikey.username != null) {
           services.udev.extraRules = ''
-            ACTION=="add", \
+            ACTION=="bind", \
             ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", DRIVER=="usbhid", \
             ENV{ID_SMARTCARD_READER}="1" \
             TAG+="systemd", ENV{SYSTEMD_USER_WANTS}="yubikey-card-changed.service"

@@ -19,7 +19,7 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/go.so".source =
-        "${pkgs.tree-sitter.builtGrammars.go}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-go}/parser";
     })
   ]);
 }

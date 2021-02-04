@@ -19,7 +19,7 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/lua.so".source =
-        "${pkgs.tree-sitter.builtGrammars.lua}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
     })
   ]);
 }

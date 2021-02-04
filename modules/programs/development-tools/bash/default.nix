@@ -16,7 +16,7 @@ in
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/bash.so".source =
-        "${pkgs.tree-sitter.builtGrammars.bash}/parser";
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-bash}/parser";
     })
   ]);
 }
