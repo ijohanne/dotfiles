@@ -4,7 +4,7 @@ let
   cfg = config.dotfiles.development-tools.haskell;
 in
 {
-  config = mkIf (pkgs.stdenv.isLinux /*&& pkgs.stdenv.hostPlatform.platform.kernelArch == "x86_64"*/ && cfg.enable) (mkMerge [
+  config = mkIf (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64 && cfg.enable) (mkMerge [
     {
       home.packages = with pkgs; [ haskell.compiler.ghc8102 ] ++ (with pkgs.haskellPackages; [ cabal-install stack ]);
     }
