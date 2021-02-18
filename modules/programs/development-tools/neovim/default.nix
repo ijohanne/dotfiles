@@ -110,6 +110,12 @@ in
                 ${cfg.language-servers.extraLua}
           EOF
           ${cfg.language-servers.extraNvim}
+          let g:gutentags_file_list_command = {
+            \ 'markers': {
+              \ '.git': 'git ls-files',
+              \ '.hg': 'hg files',
+            \ },
+          \ }
         '';
         plugins = with pkgs.vimPlugins; [
           completion-nvim

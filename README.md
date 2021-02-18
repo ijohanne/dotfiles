@@ -159,15 +159,23 @@ $> nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage \
     -I nixos-config=machines/nixos/sd-card-rpi4.nix \
     --argstr system aarch64-linux
 ```
-When the build completes it will print the location of the image file
-```bash
-/nix/store/zzi6jl5v9xh535g029yyq4jh1nr3j58a-nixos-sd-image-20.09pre239318.c59ea8b8a0e-aarch64-linux.img
+When the build completes it will print the build path of the image file
+```bash 
+/nix/store/pw43175n3w0bxz2hnv3h4wfsgc20a1pf-nixos-sd-image-21.03pre-git-aarch64-linux.img
 ```
-Insert an SD card and write it to the proper device (change the device as needed)
+To get the path of the image run
 ```bash
-$> sudo dd if=/nix/store/zzi6jl5v9xh535g029yyq4jh1nr3j58a-nixos-sd-image-20.09pre239318.c59ea8b8a0e-aarch64-linux.img \
-  of=/dev/sde bs=64K status=progress
-$> sudo eject /dev/sde
+$> ls/nix/store/pw43175n3w0bxz2hnv3h4wfsgc20a1pf-nixos-sd-image-21.03pre-git-aarch64-linux.img/sd-image/*img
+nixos-sd-image-21.03pre-git-aarch64-linux.img
+```
+Insert an SD card and write the image to the proper device (update the environment variables)
+```bash
+$> DEVICE="/dev/mmcblk0"
+$> IMG_PATH="/nix/store/pw43175n3w0bxz2hnv3h4wfsgc20a1pf-nixos-sd-image-21.03pre-git-aarch64-linux.img"
+$> IMG_FILE="$IMG_PATH/nixos-sd-image-21.03pre-git-aarch64-linux.img"
+$> sudo dd if=$IMG_FILE of=$DEVICE bs=64K status=progress
+$> sudo sync $DEVICE
+$> sudo eject $DEVICE
 ```
 ## Installation on the device
 You can now put the SD card in your Raspberry Pi, and it will be configured with your SSH key for the `nixos` user. To complete the installation do the following (following the example from the NTP server)
@@ -179,7 +187,7 @@ $> mkdir -p /home/$LOCAL_USER
 $> git clone --recursive https://github.com/ijohanne/dotfiles /home/$LOCAL_USER/.dotfiles
 $> printf "import /home/$LOCAL_USER/.dotfiles/machines/$MACHINE_TYPE/$MACHINE_NAME/configuration.nix" > /etc/nixos/configuration.nix
 $> $HOME/.dotfiles/nixos-rebuild.sh switch
-$> passwd $LOCAL_USER # Don't forget to set the password for your local user, as we're now using `nix-install`
+$> passwd $LOCAL_USER # Don't forget to set the password for your local user, as we're not using `nix-install`
 $> reboot
 ```
 ## Local user setup
