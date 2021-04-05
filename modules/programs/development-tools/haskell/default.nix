@@ -6,7 +6,7 @@ in
 {
   config = mkIf (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64 && cfg.enable) (mkMerge [
     {
-      home.packages = with pkgs; [ haskell.compiler.ghc8102 ] ++ (with pkgs.haskellPackages; [ cabal-install stack ]);
+      home.packages = with pkgs; [ haskell.compiler.ghc901 ] ++ (with pkgs.haskellPackages; [ cabal-install stack ]);
     }
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable
       {
@@ -15,7 +15,7 @@ in
           extraLua = ''
             lspconfig['hls'].setup {
               on_attach = on_attach,
-              cmd = {"${pkgs.haskell-language-server}/bin/haskell-language-server-8.10.2", "--lsp" }
+              cmd = {"${pkgs.haskell-language-server}/bin/haskell-language-server-9.0.1", "--lsp" }
             }
           '';
         };

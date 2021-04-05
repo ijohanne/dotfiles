@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "trapd00r",
         "repo": "LS_COLORS",
-        "rev": "e91cc9cc69f6c4780f03b121bc633569742de7cd",
-        "sha256": "1i2pc9k1g79wvdq3w2h3ikp3s2myalcvwin2l6gmyhz5cn0xjfg8",
+        "rev": "14cc83a6a0105bebc7043ff2d35b4dc0703f7d48",
+        "sha256": "1cxa95qhg2x0az20rg19pc9larlgp1igl9w43bpbqqxs8m32qdka",
         "type": "tarball",
-        "url": "https://github.com/trapd00r/LS_COLORS/archive/e91cc9cc69f6c4780f03b121bc633569742de7cd.tar.gz",
+        "url": "https://github.com/trapd00r/LS_COLORS/archive/14cc83a6a0105bebc7043ff2d35b4dc0703f7d48.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "NUR": {
@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c5fd7e197378f69cd2c2d2eae9096ade57bc7e1a",
-        "sha256": "12jklqgf2h4qy3p5vw1x4i9q7vi21vac36v0d1pl8x8gdzl6rgzl",
+        "rev": "babb3ea016b1bef8a2c5c5020a54513ab84c2f6c",
+        "sha256": "00imrdgbvcwjbmi2g4ja4x06nggvkrncw414xzgy0fij4sys5xbc",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/c5fd7e197378f69cd2c2d2eae9096ade57bc7e1a.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/babb3ea016b1bef8a2c5c5020a54513ab84c2f6c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -41,10 +41,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3f2f7f8efa57cb820d947b07a5a513764a45b462",
-        "sha256": "09zx81n71s5sfi54aka3c1v1cxq8y5l1mb4ifzirrzgnjkv7il2v",
+        "rev": "25a6a6d2984e70c9a07c8f8a69ebe24e6c700abf",
+        "sha256": "1kz06psapzb3chwjkmxl6w6n1a1gmhhxm0bcx268v434ljrx4wry",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/3f2f7f8efa57cb820d947b07a5a513764a45b462.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/25a6a6d2984e70c9a07c8f8a69ebe24e6c700abf.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ijohanne-nur-packages": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "8d835c41e026254e199589e7a403a72e892a225f",
-        "sha256": "19h0fgn2n8bd4q3g2mv25ql0crbl73md7c5rf0h9hhb9h2c0a2y8",
+        "rev": "8c0c09d684c24d83484f6bc6f5487980c8bf1e81",
+        "sha256": "15z3lqfr8f15anfyi4fxz4r1spiaixf7m2944nl0pqkzb6sxxkgf",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/8d835c41e026254e199589e7a403a72e892a225f.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/8c0c09d684c24d83484f6bc6f5487980c8bf1e81.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "04d5f1e3a87d413181af5d6dd68568228addf1c3",
-        "sha256": "1nfs8qywmmcms07fvifq4rj1wa67ahrw5pykx4zhbddx49flc0fz",
+        "rev": "b5734315fcce4a573d5a731c44dd62559244d816",
+        "sha256": "03zsyxhxq66m34vjkwmnsqlrijp3czy3xf9gbi3hdnxag50n9md0",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/04d5f1e3a87d413181af5d6dd68568228addf1c3.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/b5734315fcce4a573d5a731c44dd62559244d816.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks-nix": {
@@ -125,10 +125,10 @@
         "homepage": "",
         "owner": "alexanderjeurissen",
         "repo": "ranger_devicons",
-        "rev": "d8f98ba64076b731e784f2d75b6bbad4c0e704ef",
-        "sha256": "14gxzk2zwsg3ram33w483zhgm5ds6gcfg23hn3imjqjd5k0piw2z",
+        "rev": "e02b6a3203411b76616a0e4328245bf8b47c5dcc",
+        "sha256": "19b06p3icpb214kpbf7irlyy813ax12i2jhibhxd2nflz9n66pg9",
         "type": "tarball",
-        "url": "https://github.com/alexanderjeurissen/ranger_devicons/archive/d8f98ba64076b731e784f2d75b6bbad4c0e704ef.tar.gz",
+        "url": "https://github.com/alexanderjeurissen/ranger_devicons/archive/e02b6a3203411b76616a0e4328245bf8b47c5dcc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

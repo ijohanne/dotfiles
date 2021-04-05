@@ -81,6 +81,11 @@ in
       type = types.bool;
       description = "Enable nix tools";
     };
+    act.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable github actions runner act";
+    };
     java.enable = mkOption {
       default = false;
       type = types.bool;
@@ -130,7 +135,7 @@ in
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ./act ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;

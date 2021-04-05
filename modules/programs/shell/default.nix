@@ -209,6 +209,12 @@ in
       type = types.bool;
       description = "Enable yubikey touch detector app";
     };
+    ruplacer.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable ruplacer app";
+    };
+
   };
 
   imports = [
@@ -241,6 +247,7 @@ in
     ./pueue
     ./ranger
     ./ripgrep
+    ./ruplacer
     ./rq
     ./shellcheck
     ./shfmt
@@ -283,6 +290,7 @@ in
     dotfiles.shell.pueue.enable = true;
     dotfiles.shell.ranger.enable = true;
     dotfiles.shell.ripgrep.enable = true;
+    dotfiles.shell.ruplacer.enable = true;
     dotfiles.shell.rq.enable = true;
     dotfiles.shell.shellcheck.enable = true;
     dotfiles.shell.shfmt.enable = true;

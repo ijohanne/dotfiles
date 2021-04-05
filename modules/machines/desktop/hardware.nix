@@ -12,7 +12,7 @@ with lib; {
 
         hardware.bluetooth = {
           enable = true;
-          config.General.Enable = "Source,Sink,Media,Socket";
+          settings.General.Enable = "Source,Sink,Media,Socket";
         };
 
         hardware.opengl = {
@@ -42,7 +42,11 @@ with lib; {
           (
             if (versionOlder pkgs.linux_testing.version pkgs.linux_latest.modDirVersion)
             then pkgs.linuxPackages_latest
-            else pkgs.linuxPackages_testing
+            else
+              (if (config.dotfiles.machines.linuxKernelTestingEnabled)
+              then pkgs.linuxPackages_testing
+              else pkgs.linuxPackages_latest
+              )
           );
 
         boot.zfs.enableUnstable = true;

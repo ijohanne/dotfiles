@@ -16,6 +16,11 @@ with lib; {
       type = types.bool;
       description = "Enable desktop settings";
     };
+    linuxKernelTestingEnabled = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable the linux testing kernel";
+    };
   };
 
   imports = [ ./users.nix ./desktop ./rpi ../lib ];
