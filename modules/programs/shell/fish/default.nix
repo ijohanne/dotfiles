@@ -8,7 +8,7 @@ with lib;
       enable = true;
       shellInit = ''
         eval (${pkgs.coreutils}/bin/dircolors -c "${pkgs.niv-sources.LS_COLORS.outPath}/LS_COLORS")
-          set --erase fish_greeting
+        set --erase fish_greeting
       '';
       shellAliases = {
         home-manager = "$HOME/.dotfiles/home-manager.sh";

@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
+with lib;
 {
   users.users = {
     ij = {
@@ -15,7 +15,7 @@
         "systemd-journal"
         "docker"
         "dialout"
-      ];
+      ] ++ optional config.programs.adb.enable "adbusers";
       createHome = true;
       uid = 1000;
       home = "/home/ij";
@@ -39,7 +39,7 @@
         "systemd-journal"
         "docker"
         "dialout"
-      ];
+      ] ++ optional config.programs.adb.enable "adbusers";
       createHome = true;
       uid = 1001;
       home = "/home/mkj";

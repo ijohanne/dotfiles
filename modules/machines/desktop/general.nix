@@ -36,10 +36,11 @@ with lib;
             enable = true;
             wrapperFeatures.gtk = true;
           };
+          adb.enable = true;
         };
 
         services = {
-          udev.packages = with pkgs; [ yubikey-personalization ];
+          udev.packages = with pkgs; [ yubikey-personalization android-udev-rules ];
           printing.enable = true;
           openssh = {
             enable = true;

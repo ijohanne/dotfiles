@@ -214,7 +214,11 @@ in
       type = types.bool;
       description = "Enable ruplacer app";
     };
-
+    lastpass-cli.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable lastpass-cli app";
+    };
   };
 
   imports = [
@@ -233,6 +237,7 @@ in
     ./imagemagick
     ./jq
     ./keybase
+    ./lastpass-cli
     ./ldns
     ./lfs
     ./lsof
@@ -302,6 +307,7 @@ in
     dotfiles.shell.tokei.enable = true;
     dotfiles.shell.whois.enable = true;
     dotfiles.shell.zoxide.enable = true;
+    dotfiles.shell.lastpass-cli.enable = true;
   };
 
 }

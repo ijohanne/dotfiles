@@ -50,7 +50,7 @@ with lib; {
           "$character"
         ];
         scan_timeout = 10;
-        character.symbol = "➜";
+        character.success_symbol = "➜";
         battery = {
           full_symbol = "🔋";
           charging_symbol = "⚡️";

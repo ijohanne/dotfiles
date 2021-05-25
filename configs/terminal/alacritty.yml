@@ -43,11 +43,10 @@ colors:
   dynamic_title: true
 live_config_reload: true
 alt_send_esc: true
-mouse:
-  url:
-    launcher:
-      program: xdg-open
-      args: []
+hints:
+  launcher:
+    program: xdg-open
+    args: []
 key_bindings:
   - key: Paste
     action: Paste

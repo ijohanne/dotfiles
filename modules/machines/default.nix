@@ -1,26 +1,32 @@
 { pkgs, lib, config, ... }:
 with lib; {
-  options.dotfiles.machines = {
+  options.dotfiles.machines = with types; {
     rpi = mkOption {
       default = false;
-      type = types.bool;
+      type = bool;
       description = "Enable Raspberry Pi settings";
     };
     printers = mkOption {
       default = false;
-      type = types.bool;
+      type = bool;
       description = "Preconfigure printers";
     };
     desktop = mkOption {
       default = false;
-      type = types.bool;
+      type = bool;
       description = "Enable desktop settings";
     };
     linuxKernelTestingEnabled = mkOption {
       default = false;
-      type = types.bool;
+      type = bool;
       description = "Enable the linux testing kernel";
     };
+    linuxKernelPackagesPkg = mkOption {
+      default = pkgs.linuxPackages_latest;
+      type = attrs;
+      description = "Default latest Linux kernel package to use";
+    };
+
   };
 
   imports = [ ./users.nix ./desktop ./rpi ../lib ];

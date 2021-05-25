@@ -40,12 +40,12 @@ with lib; {
 
         boot.kernelPackages =
           (
-            if (versionOlder pkgs.linux_testing.version pkgs.linux_latest.modDirVersion)
-            then pkgs.linuxPackages_latest
+            if (versionOlder pkgs.linux_testing.version config.dotfiles.machines.linuxKernelPackagesPkg.kernel.modDirVersion)
+            then config.dotfiles.machines.linuxKernelPackagesPkg
             else
               (if (config.dotfiles.machines.linuxKernelTestingEnabled)
               then pkgs.linuxPackages_testing
-              else pkgs.linuxPackages_latest
+              else config.dotfiles.machines.linuxKernelPackagesPkg
               )
           );
 
