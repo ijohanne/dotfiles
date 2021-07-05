@@ -4,6 +4,7 @@
   dotfiles.x11.media.enable = true;
   dotfiles.x11.office.enable = true;
   dotfiles.x11.terminals.enable = true;
+  dotfiles.x11.security.enable = true;
   dotfiles.shell.enable = true;
   dotfiles.shell.gpg-agent.enable = true;
   dotfiles.shell.keybase.enable = true;

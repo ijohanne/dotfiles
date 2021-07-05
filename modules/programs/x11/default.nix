@@ -9,6 +9,11 @@ in
       type = types.bool;
       description = "Enable X11 communication programs";
     };
+    security.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable security programs";
+    };
     media.enable = mkOption {
       default = false;
       type = types.bool;
@@ -32,7 +37,7 @@ in
 
   };
 
-  imports = [ ./communications ./media ./terminals ./office ./fonts ];
+  imports = [ ./communications ./media ./terminals ./office ./fonts ./security ];
 
   config = mkMerge [
     (mkIf

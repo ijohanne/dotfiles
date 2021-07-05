@@ -6,7 +6,7 @@ in
 {
   config = mkIf cfg.enable (mkMerge [
     {
-      home.packages = with pkgs; [ (dart.override ({ version = "2.12.2"; })) ];
+      home.packages = with pkgs; [ (dart.override ({ version = "2.13.1"; })) ];
     }
     (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable) {
       dotfiles.development-tools.neovim.language-servers = {
