@@ -11,7 +11,6 @@ pkgs.mkShell rec {
       yamllint.enable = true;
     };
     excludes = [
-      "modules/localpkgs/firefox-plugins/default.nix" # Generated
     ];
   };
   name = "home-manager-shell";
@@ -22,7 +21,6 @@ pkgs.mkShell rec {
     shfmt
     nixpkgs-fmt
     git
-    nur.rycee.firefox-addons-generator
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${sources.nixpkgs}:home-manager=${sources."home-manager"}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=modules/overlays"

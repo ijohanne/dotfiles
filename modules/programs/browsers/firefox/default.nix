@@ -2,7 +2,6 @@
 with lib;
 {
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
-    nixpkgs.config.firefox.enableFXCastBridge = false;
     home.packages = [
       (
         pkgs.firefox-hardened-wayland.override
