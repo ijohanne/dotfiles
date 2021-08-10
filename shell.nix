@@ -11,6 +11,7 @@ pkgs.mkShell rec {
       yamllint.enable = true;
     };
     excludes = [
+      "machines/nixos/delirium/configuration.nix"
     ];
   };
   name = "home-manager-shell";
