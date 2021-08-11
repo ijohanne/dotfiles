@@ -2,11 +2,20 @@
 
 let
   secrets = (import /etc/nixos/secrets.nix);
+  pr_119719 = builtins.fetchTarball {
+    name = "nixos-pr_119719";
+    url = "https://api.github.com/repos/greizgh/nixpkgs/tarball/seafile";
+    sha256 = "1xs075sh741ra2479id9q3yms93v3i0j1rfmvxvc563wbxdpfs7r";
+  };
 in
 {
   imports =
     [
       ./hardware-configuration.nix
+      (builtins.fetchTarball {
+        url = "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/archive/nixos-21.05/nixos-mailserver-nixos-21.05.tar.gz";
+        sha256 = "1fwhb7a5v9c98nzhf3dyqf3a5ianqh7k50zizj8v5nmj3blxw4pi";
+      })
     ];
 
   environment.systemPackages = with pkgs; [ ripgrep vim nixpkgs-fmt htop fish git ];
@@ -97,7 +106,6 @@ in
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeFunHfY3vS2izkp7fMHk2bXuaalNijYcctAF2NGc1T"
       ];
     };
-
   };
 
   nix.maxJobs = lib.mkDefault 64;
@@ -157,42 +165,133 @@ in
           group = "deluge";
           user = "deluge";
         };
-
         nixpkgs.config.allowUnfree = true;
       };
     };
+    seafile = {
+      privateNetwork = true;
+      autoStart = true;
+      ephemeral = false;
+      nixpkgs = pr_119719;
+      hostAddress = "192.168.100.2";
+      localAddress = "192.168.100.11";
+      bindMounts =
+        {
+          "/var/lib/seafile" = {
+            hostPath = "/var/data/seafile";
+            isReadOnly = false;
+          };
+        };
+      config = { config, pkgs, ... }: {
+        services.kresd.enable = true;
+        services.seafile = {
+          enable = true;
+          ccnetSettings.General.SERVICE_URL = "https://seafile.unixpimps.net";
+          seahubExtraConf = ''
+            CSRF_TRUSTED_ORIGINS = ['seafile.unixpimps.net']
+          '';
+          adminEmail = "sysops@unixpimps.net";
+          initialAdminPassword = secrets.seafile.admin;
+        };
+        networking.firewall.allowedTCPPorts = [ 80 ];
+        services.nginx = {
+          enable = true;
+          virtualHosts."seafile.unixpimps.net" = {
+            locations."/" = {
+              proxyPass = "http://unix:/run/seahub/gunicorn.sock";
+              extraConfig = ''
+                proxy_set_header X-Forwarded-Proto https;
+              '';
+            };
+            locations."/seafhttp" = {
+              proxyPass = "http://127.0.0.1:8082";
+              extraConfig = ''
+                rewrite ^/seafhttp(.*)$ $1 break;
+                client_max_body_size 0;
+                proxy_connect_timeout  36000s;
+                proxy_set_header X-Forwarded-Proto https;
+                proxy_set_header Host $host:$server_port;
+                proxy_read_timeout  36000s;
+                proxy_send_timeout  36000s;
+                send_timeout  36000s;
+                proxy_http_version 1.1;
+              '';
+            };
+          };
+        };
+      };
+    };
   };
+
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = [ "ve-seafile" ];
+  networking.nat.externalInterface = "eno1";
 
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
-    virtualHosts.transmission = {
-      http2 = true;
-      forceSSL = true;
-      serverName = "transmission.unixpimps.net";
-      enableACME = true;
-      locations = {
-        "/" = {
-          proxyPass = "http://127.0.0.1:8112";
-          extraConfig = ''
-              proxy_set_header
-              X-Deluge-Base "/";
-            add_header X-Frame-Options SAMEORIGIN;
-          '';
+    virtualHosts = {
+      "transmission.unixpimps.net" = {
+        http2 = true;
+        forceSSL = true;
+        enableACME = true;
+        locations = {
+          "/" = {
+            proxyPass = "http://127.0.0.1:8112";
+            extraConfig = ''
+              proxy_set_header X-Deluge-Base "/";
+              add_header X-Frame-Options SAMEORIGIN;
+            '';
+          };
+        };
+        basicAuth = {
+          martin8412 = secrets.torrents.martin8412;
         };
       };
-      basicAuth = {
-        martin8412 = secrets.torrents.martin8412;
+      "seafile.unixpimps.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations = {
+          "/" = {
+            proxyPass = "http://192.168.100.11";
+            extraConfig = ''
+              client_max_body_size 0;
+              proxy_read_timeout 310s;
+            '';
+          };
+        };
       };
     };
   };
 
   security.acme = {
     email = "mkj@opsplaza.com";
-
     acceptTerms = true;
+  };
+
+  services.roundcube = {
+    enable = true;
+    hostName = "webby.unixpimps.net";
+    extraConfig = ''
+      $config['smtp_server'] = 'tls://delirium.unixpimps.net';
+    '';
+  };
+
+  mailserver = {
+    enable = true;
+    fqdn = "delirium.unixpimps.net";
+    domains = [ "shouldidrink.today" ];
+    virusScanning = true;
+    loginAccounts = {
+      "ij@shouldidrink.today" = {
+        hashedPassword = secrets.mail.ij;
+        aliases = [
+        ];
+      };
+    };
+    certificateScheme = 3;
   };
 
   networking.firewall =
@@ -225,6 +324,8 @@ in
         32414
       ];
     };
+
+  virtualisation.docker.enable = true;
 
   system.stateVersion = "21.05";
 }
