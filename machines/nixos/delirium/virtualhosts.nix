@@ -9,5 +9,12 @@
       root = "/var/www/unixpimps.net/html";
       default = true;
     };
+    "shouldidrink.today" = {
+      serverAliases = [ "www.shouldidrink.today" ];
+      http2 = true;
+      forceSSL = true;
+      enableACME = true;
+      root = "/var/www/shouldidrink.today/html";
+    };
   };
 }
