@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  users.groups.srv = { };
   users.users.root.initialHashedPassword = "";
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeFunHfY3vS2izkp7fMHk2bXuaalNijYcctAF2NGc1T"

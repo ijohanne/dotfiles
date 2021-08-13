@@ -21,10 +21,12 @@ in
       (import (./martin8412.nix) { inherit secrets config pkgs lib; })
       ./users.nix
       ./networking.nix
-      ./services.nix
+      (import ./services.nix { inherit secrets config pkgs lib; })
       ./security.nix
       ./boot.nix
       ./common.nix
+      (import ./matomo.nix { inherit secrets config pkgs lib; })
+      ./virtualhosts.nix
     ];
   system.stateVersion = "21.05";
 }
