@@ -93,7 +93,12 @@ in
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    bind = "localhost";
+    bind = "0.0.0.0";
+  };
+
+  networking.firewall.interfaces.docker0 = {
+    allowedTCPPorts = [ 3306 ];
+    allowedUDPPorts = [ 3306 ];
   };
 
   users.users.geoip = {

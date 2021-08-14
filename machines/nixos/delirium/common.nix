@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [ ripgrep vim nixpkgs-fmt htop fish git ];
+  virtualisation.docker.enable = true;
   nix.maxJobs = lib.mkDefault 64;
   nix.gc = {
     automatic = true;
