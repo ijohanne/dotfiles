@@ -147,6 +147,13 @@ in
       RemainAfterExit = true;
     };
   };
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "teamspeak-server"
+  ];
+
+  services.teamspeak3 = {
+    enable = true;
+  };
 
   networking.firewall =
     {
@@ -158,6 +165,12 @@ in
         22
       ];
       allowedUDPPorts = [
+        # Teamspeak3
+        9987
+        9999
+        9988
+        30033
+        10011
       ];
     };
 }
