@@ -19,6 +19,8 @@ in
       (import (./mail.nix) { inherit secrets config pkgs lib; })
       (import (./seafile.nix) { inherit secrets config pkgs lib; })
       (import (./martin8412.nix) { inherit secrets config pkgs lib; })
+      (import (./krumme.nix) { inherit secrets config pkgs lib; })
+      (import (./izabella.nix) { inherit secrets config pkgs lib; })
       (import (./sniffy.nix) { inherit secrets config pkgs lib; })
       ./users.nix
       ./networking.nix
