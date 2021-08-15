@@ -29,6 +29,7 @@ in
       ./common.nix
       (import ./matomo.nix { inherit secrets config pkgs lib; })
       ./virtualhosts.nix
+      ./pastebin.nix
     ];
   system.stateVersion = "21.05";
 }

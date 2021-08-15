@@ -208,10 +208,12 @@ in
             localRoot = "/var/data/$USER";
             userlistDeny = true;
             extraConfig = ''
-              user_sub_token=$USER
-              pasv_enable=Yes
-                pasv_min_port=51000
-                pasv_max_port=51999
+                    user_sub_token=$USER
+                    pasv_enable=Yes
+                    pasv_min_port=51000
+                    pasv_max_port=51999
+              pasv_promiscuous=YES
+                    port_promiscuous=YES
             '';
             forceLocalLoginsSSL = true;
             forceLocalDataSSL = true;
