@@ -57,6 +57,9 @@
           "matek@koffein.dk"
         ];
       };
+      "no-reply@unixpimps.net" = {
+        hashedPassword = secrets.mail.no-reply;
+      };
     };
     forwards = {
       "hello@ddfrbr.com" = [ "ij@ddfrbr.com" ];
