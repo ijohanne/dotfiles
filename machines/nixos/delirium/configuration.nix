@@ -18,6 +18,7 @@ in
       })
       (import (./mail.nix) { inherit secrets config pkgs lib; })
       (import (./seafile.nix) { inherit secrets config pkgs lib; })
+      (import (./matrix.nix) { inherit secrets config pkgs lib; })
       (import (./vaultwarden.nix) { inherit secrets config pkgs lib; })
       (import (./martin8412.nix) { inherit secrets config pkgs lib; })
       (import (./krumme.nix) { inherit secrets config pkgs lib; })
