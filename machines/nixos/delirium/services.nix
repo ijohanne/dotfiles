@@ -242,6 +242,46 @@ in
     '';
   };
 
+  services.nginx.virtualHosts."git.unixpimps.net" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/".proxyPass = "http://127.0.0.1:3000/";
+  };
+
+  services.gitea = {
+    enable = true;
+    user = "git";
+    cookieSecure = true;
+    domain = "git.unixpimps.net";
+    rootUrl = "https://git.unixpimps.net/";
+    database = {
+      type = "mysql";
+      user = "git";
+      name = "gitunixpimpsnet";
+    };
+    disableRegistration = true;
+    ssh.enable = true;
+    lfs.enable = true;
+    settings = {
+      repository = {
+        DISABLE_HTTP_GIT = false;
+        USE_COMPAT_SSH_URI = true;
+      };
+      security = {
+        INSTALL_LOCK = true;
+        COOKIE_USERNAME = "gitea_username";
+        COOKIE_REMEMBER_NAME = "gitea_userauth";
+      };
+    };
+  };
+
+  users.users.git = {
+    description = "Gitea Service";
+    isNormalUser = true;
+    home = config.services.gitea.stateDir;
+    createHome = true;
+    useDefaultShell = true;
+  };
 
   networking.firewall =
     {
