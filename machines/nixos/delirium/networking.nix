@@ -2,6 +2,7 @@
 
 {
   networking.hostName = "delirium";
+  networking.enableIPv6 = true;
   networking = {
     useDHCP = false;
     interfaces."eno1" = {
