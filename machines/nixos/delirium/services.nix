@@ -205,7 +205,7 @@ in
             localUsers = true;
             writeEnable = true;
             allowWriteableChroot = true;
-            localRoot = "/var/data/$USER";
+            localRoot = "/var/data/$USER/Downloads";
             userlistDeny = true;
             extraConfig = ''
                     user_sub_token=$USER
