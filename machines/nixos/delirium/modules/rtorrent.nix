@@ -59,6 +59,8 @@ in
             ("+" + pkgs.writeShellScript "rtorrent" ''
               mkdir -p ${datadir}/sessions
               chown -R rtorrent:nogroup ${datadir}/sessions
+              mkdir -p ${datadir}/Downloads
+              chown -R rtorrent:nogroup ${datadir}/Downloads
             '')
           ];
           ExecStop = "${bash} -c '${kill} -s 15 `cat ${pidFile}` || true'";
