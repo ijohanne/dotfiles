@@ -281,6 +281,15 @@ in
       enable = true;
       web.listen-address = "127.0.0.1:9091";
     };
+    scrapeConfigs = [
+      {
+        job_name = "pushgateway";
+        honor_labels = true;
+        static_configs = [{
+          targets = [ "${config.services.prometheus.pushgateway.web.listen-address}" ];
+        }];
+      }
+    ];
   };
 
   services.grafana = {
@@ -299,7 +308,7 @@ in
         {
           name = "Prometheus";
           type = "prometheus";
-          url = "http://localhost:9091";
+          url = "http://localhost:9001";
           isDefault = true;
         }
       ];
