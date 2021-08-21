@@ -4,7 +4,7 @@
   imports =
     [ ../../users/ij ./hardware-configuration.nix ../../../modules/machines ];
 
-  dotfiles.machines.desktop = true;
+  dotfiles.machines.laptop = true;
   dotfiles.machines.printers = true;
   dotfiles.machines.linuxKernelTestingEnabled = true;
   dotfiles.machines.linuxKernelPackagesPkg = pkgs.linuxPackages_5_13;

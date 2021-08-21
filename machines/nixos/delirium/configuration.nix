@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-
 let
   secrets = (import ./secrets.nix);
   pr_119719 = builtins.fetchTarball {

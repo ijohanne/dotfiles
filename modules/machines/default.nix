@@ -16,6 +16,12 @@ with lib; {
       type = bool;
       description = "Enable desktop settings";
     };
+    laptop = mkOption {
+      default = false;
+      type = bool;
+      description = "Enable laptop settings";
+    };
+
     linuxKernelTestingEnabled = mkOption {
       default = false;
       type = bool;
@@ -29,7 +35,7 @@ with lib; {
 
   };
 
-  imports = [ ./users.nix ./desktop ./rpi ../lib ];
+  imports = [ ./users.nix ./desktop ./rpi ../lib ./laptop ];
 
   config = {
     nix = {

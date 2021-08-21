@@ -5,7 +5,6 @@
 , nodejs
 , ...
 }:
-
 let
   configFile = writeText "flood-config.js" ''
     const CONFIG = {
@@ -46,4 +45,3 @@ stdenv.mkDerivation rec {
     cp ${configFile} config.js
   '';
 }
-

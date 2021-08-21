@@ -1,5 +1,4 @@
 { secrets, config, pkgs, lib, ... }:
-
 let
   pr_119719 = builtins.fetchTarball {
     name = "nixos-pr_119719";
