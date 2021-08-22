@@ -19,6 +19,9 @@
 
   mailserver = {
     enable = true;
+    enablePop3 = true;
+    enablePop3Ssl = true;
+    enableManageSieve = true;
     fqdn = "delirium.unixpimps.net";
     domains = [ "shouldidrink.today" "perlpimp.net" "unixpimps.net" "nordic-t.me" "lujer.dk" "allporn.dk" "brugervenlig.dk" "coredump.dk" "depri.dk" "koffein.dk" "outerspace.dk" "perlpimp.dk" "syslogic.dk" "unixpimp.dk" "ddfrbr.com" "martin8412.dk" ];
     virusScanning = true;

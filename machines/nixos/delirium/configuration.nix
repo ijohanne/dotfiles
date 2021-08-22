@@ -31,6 +31,7 @@ in
       (import ./matomo.nix { inherit secrets config pkgs lib; })
       ./virtualhosts.nix
       ./pastebin.nix
+      (import ./monitoring.nix { inherit secrets config pkgs lib; })
     ];
   system.stateVersion = "21.05";
 }
