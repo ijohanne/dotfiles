@@ -134,7 +134,7 @@
       honor_labels = true;
       metrics_path = "/probe";
       params = {
-        target = [ "delirium.unixpimps.net:11334/stat" ];
+        target = [ "http://delirium.unixpimps.net:11334/stat" ];
       };
       static_configs = [{
         targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.rspamd.port}" ];

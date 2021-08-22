@@ -281,6 +281,9 @@ in
       enable = true;
       web.listen-address = "127.0.0.1:9091";
     };
+    globalConfig = {
+      scrape_interval = "15s";
+    };
     scrapeConfigs = [
       {
         job_name = "pushgateway";
