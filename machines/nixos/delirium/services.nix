@@ -52,6 +52,7 @@ in
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
+    statusPage = true;
     package = pkgs.nginxMainline.overrideAttrs (oldAttrs: rec {
       configureFlags = oldAttrs.configureFlags ++ [ "--add-module=${ngx_http_geoip2_module}" ];
       buildInputs = oldAttrs.buildInputs ++ [ pkgs.libmaxminddb ];
@@ -157,6 +158,7 @@ in
 
   services.teamspeak3 = {
     enable = true;
+    queryIP = "127.0.0.1";
   };
 
   containers = {
@@ -271,6 +273,9 @@ in
         COOKIE_USERNAME = "gitea_username";
         COOKIE_REMEMBER_NAME = "gitea_userauth";
       };
+      metrics = {
+        ENABLED = true;
+      };
     };
   };
 
@@ -372,7 +377,6 @@ in
         9999
         9988
         30033
-        10011
       ];
       allowedTCPPortRanges = [
         # vsFTPd

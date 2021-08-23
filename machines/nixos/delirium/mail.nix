@@ -12,6 +12,7 @@
   services.roundcube = {
     enable = true;
     hostName = "webmail.unixpimps.net";
+    plugins = [ "managesieve" "markasjunk" "identity_select" "additional_message_headers" "show_additional_headers" ];
     extraConfig = ''
       $config['smtp_server'] = 'tls://delirium.unixpimps.net';
     '';

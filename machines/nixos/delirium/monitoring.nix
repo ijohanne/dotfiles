@@ -1,4 +1,19 @@
 { pkgs, config, secrets, ... }:
+let
+  ts3exporter = pkgs.buildGoModule rec {
+    name = "ts3exporter";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "ijohanne";
+      repo = "ts3exporter";
+      rev = "e8d0a46ea0e73cfc7924685006a19a2b872673e3";
+      sha256 = "187sxyiglm728s113cb0kh8jldibwaw7mk6h2f97jpl2s9svccbi";
+    };
+    vendorSha256 = "15jzxm4yviv1pjhb9zjmy0zccn28qcdwsk1pkx3x8yl0h2hdxpgf";
+    # skips tests with external dependencies, e.g. on mysqld
+    checkFlags = [ "-short" ];
+  };
+in
 {
   services.prometheus.exporters.rspamd.enable = true;
   services.rspamd = {
@@ -19,6 +34,8 @@
       "141.94.130.254"
     ];
   };
+
+  services.prometheus.exporters.nginx.enable = true;
 
   services.prometheus.exporters.dovecot = {
     user = config.services.dovecot2.user;
@@ -128,6 +145,51 @@
     };
   };
 
+  users.users."teamspeak3-exporter" = {
+    description = "Prometheus TeamSpeak3 exporter service user";
+    isSystemUser = true;
+    group = "teamspeak3-exporter";
+  };
+  users.groups."teamspeak3-exporter" = { };
+  systemd.services."prometheus-teamspeak3-exporter" = {
+    environment = {
+      SERVERQUERY_PASSWORD = secrets.teamspeak3.serveradmin;
+    };
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig.Restart = "always";
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.WorkingDirectory = /tmp;
+    serviceConfig.DynamicUser = false;
+    serviceConfig.User = "teamspeak3-exporter";
+    serviceConfig.Group = "teamspeak3-exporter";
+    serviceConfig.ExecStart = ''
+      ${ts3exporter}/bin/ts3exporter \
+        -enablechannelmetrics \
+        -ignorefloodlimits \
+        -listen 127.0.0.1:9189 \
+        -remote 127.0.0.1:10011 \
+        -user serveradmin
+    '';
+  };
+
+  systemd.services.prometheus-docker-exporter = {
+    enable = config.services.prometheus.enable;
+    description = "Docker exporter for Prometheus";
+    after = [ "docker.service" ];
+    bindsTo = [ "docker.service" ];
+    wantedBy = [ "prometheus.service" ];
+    serviceConfig = {
+      Restart = "always";
+      ExecStartPre = [
+        "-${pkgs.docker}/bin/docker stop prometheus_docker_exporter"
+        "-${pkgs.docker}/bin/docker rm prometheus_docker_exporter"
+        "${pkgs.docker}/bin/docker pull prometheusnet/docker_exporter"
+      ];
+      ExecStart = "${pkgs.docker}/bin/docker run --rm --name prometheus_docker_exporter --volume \"/var/run/docker.sock\":\"/var/run/docker.sock\" --publish 9417:9417 prometheusnet/docker_exporter";
+    };
+  };
+
   services.prometheus.scrapeConfigs = [
     {
       job_name = "rspamd";
@@ -190,12 +252,42 @@
       }];
     }
     {
+      job_name = "nginx";
+      honor_labels = true;
+      static_configs = [{
+        targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.nginx.port}" ];
+      }];
+    }
+    {
+      job_name = "teamspeak3";
+      honor_labels = true;
+      static_configs = [{
+        targets = [ "127.0.0.1:9189" ];
+      }];
+    }
+    {
       job_name = "mariadb";
       honor_labels = true;
       static_configs = [{
         targets = [ "127.0.0.1:9104" ];
       }];
     }
+    {
+      job_name = "docker";
+      honor_labels = true;
+      static_configs = [{
+        targets = [ "127.0.0.1:9417" ];
+      }];
+    }
+    {
+      job_name = "gitea";
+      honor_labels = true;
+      scheme = "https";
+      static_configs = [{
+        targets = [ "git.unixpimps.net" ];
+      }];
+    }
+
     {
       job_name = "synapse";
       honor_labels = true;

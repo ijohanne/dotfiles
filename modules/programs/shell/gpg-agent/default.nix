@@ -31,18 +31,23 @@ let
 in
 {
   config = mkIf (config.dotfiles.shell.gpg-agent.enable) {
-    services.gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-      enableExtraSocket = true;
-      pinentryFlavor = "gtk2";
-      sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
-      extraConfig = ''
-        allow-loopback-pinentry
-      '';
-    };
+    services.gpg-agent = (mkMerge [
+      (mkIf config.dotfiles.shell.gpg-agent.desktop {
+        enableSshSupport = true;
+        enableExtraSocket = true;
+        pinentryFlavor = "gtk2";
+        sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
+      })
+      {
+        enable = true;
+        extraConfig = ''
+          allow-loopback-pinentry
+        '';
+      }
+    ]);
 
-    home.packages = with pkgs; [ gpgme gpgme.dev ];
+    home.packages = optionals (config.dotfiles.shell.gpg-agent.desktop) (with pkgs;
+      [ gpgme gpgme.dev ]);
 
     programs.gpg = {
       enable = true;
@@ -54,24 +59,29 @@ in
       ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
     '';
 
-    systemd.user.services = {
-      gpg-key-import = {
-        Unit = { Description = "Import gpg keys"; };
-        Install.WantedBy = [ "multi-user.target" ];
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${gpg-install-script}/bin/gpg-import";
+    systemd.user.services = (mkMerge [
+      {
+        gpg-key-import =
+          {
+            Unit = { Description = "Import gpg keys"; };
+            Install.WantedBy = [ "multi-user.target" ];
+            Service = {
+              Type = "oneshot";
+              ExecStart = "${gpg-install-script}/bin/gpg-import";
+            };
+          };
+      }
+      (mkIf config.dotfiles.shell.gpg-agent.desktop {
+        yubikey-card-changed = {
+          Unit = {
+            Description = "Remove previous cached keycard, reimport from card, and cycle GPG-agent";
+          };
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${udev-yubikey-scripts}/bin/clean-card-private-keys";
+          };
         };
-      };
-      yubikey-card-changed = {
-        Unit = {
-          Description = "Remove previous cached keycard, reimport from card, and cycle GPG-agent";
-        };
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${udev-yubikey-scripts}/bin/clean-card-private-keys";
-        };
-      };
-    };
+      })
+    ]);
   };
 }

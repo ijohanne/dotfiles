@@ -7,6 +7,7 @@
   dotfiles.x11.security.enable = true;
   dotfiles.shell.enable = true;
   dotfiles.shell.gpg-agent.enable = true;
+  dotfiles.shell.gpg-agent.desktop = true;
   dotfiles.shell.keybase.enable = true;
   dotfiles.tex.enable = true;
   dotfiles.browsers.enable = true;

@@ -34,6 +34,11 @@ in
       type = types.bool;
       description = "Enable gpg-agent app";
     };
+    gpg-agent.desktop = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable gpg-agent desktop features";
+    };
     fish.enable = mkOption {
       default = false;
       type = types.bool;
