@@ -56,6 +56,12 @@ in
     ];
   };
 
+  services.mysqlBackup.databases = [ websiteConfig.db ];
+
+  services.borgbackup.jobs.services = {
+    paths = [ "/var/www/perlpimp.net/html" ];
+  };
+
   systemd.services.perlpimpnet-setdbpass = {
     description = "MySQL database password setup (perlpimpnet)";
     wants = [ "mysql.service" ];

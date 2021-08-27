@@ -85,6 +85,8 @@ in
     ];
   };
 
+  services.mysqlBackup.databases = [ databaseConfig.db ];
+
   systemd.services.vaultwarden-setdbpass = {
     description = "MySQL database password setup (vaultwarden)";
     wants = [ "mysql.service" ];

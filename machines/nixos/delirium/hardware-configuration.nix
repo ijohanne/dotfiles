@@ -55,6 +55,12 @@
       fsType = "vfat";
     };
 
+  fileSystems."/var/borgbackup" =
+    {
+      device = "ftpback-rbx2-146.ovh.net:/export/ftpbackup/ns3199796.ip-141-94-130.eu";
+      fsType = "nfs";
+    };
+
   swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";

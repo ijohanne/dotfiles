@@ -27,6 +27,8 @@ in
     ];
   };
 
+  services.mysqlBackup.databases = [ statsConfig.db ];
+
   systemd.services.matomo-setdbpass = {
     description = "MySQL database password setup (matomo)";
     wants = [ "mysql.service" ];

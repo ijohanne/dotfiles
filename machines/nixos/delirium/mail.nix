@@ -79,5 +79,9 @@
       "paypal@nordic-t.me" = [ "ij@nordic-t.me" ];
     };
     certificateScheme = 3;
+    borgbackup = {
+      enable = true;
+      repoLocation = "/var/borgbackup/mail";
+    };
   };
 }

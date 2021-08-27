@@ -63,6 +63,22 @@ in
     };
   };
 
+  services.borgbackup.jobs.seafile = {
+    paths = "/var/backup";
+    encryption.mode = "none";
+    repo = "/var/borgbackup/seafile";
+    startAt = "*-*-* 04:00:00";
+  };
+
+  systemd.services.borgbackup-job-seafile = {
+    preStart = lib.mkBefore ''
+      systemctl stop container@seafile
+    '';
+    postStop = ''
+      systemctl start container@seafile
+    '';
+  };
+
   networking.nat.internalInterfaces = [ "ve-seafile" ];
 
   services.nginx = {

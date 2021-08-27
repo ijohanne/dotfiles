@@ -47,6 +47,14 @@ in
   services.openssh.permitRootLogin = "prohibit-password";
   services.xserver = { enable = false; };
   services.openssh.enable = true;
+
+  services.borgbackup.jobs.services = {
+    paths = [ "/var/backup" "/var/dkim" ];
+    encryption.mode = "none";
+    repo = "/var/borgbackup/services";
+    startAt = "*-*-* 04:00:00";
+  };
+
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;
@@ -94,6 +102,18 @@ in
     enable = true;
     package = pkgs.mariadb;
     bind = "0.0.0.0";
+  };
+
+  services.mysqlBackup = {
+    enable = true;
+    calendar = "02:00:00";
+    location = "/var/backup/mysql";
+  };
+
+  services.postgresqlBackup = {
+    enable = true;
+    startAt = "02:00:00";
+    location = "/var/backup/postgresql";
   };
 
   networking.firewall.interfaces.docker0 = {
@@ -278,6 +298,8 @@ in
       };
     };
   };
+
+  services.mysqlBackup.databases = [ "gitunixpimpsnet" ];
 
   services.prometheus = {
     enable = true;

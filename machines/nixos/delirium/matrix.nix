@@ -23,6 +23,8 @@ in
     '';
   };
 
+  services.postgresqlBackup.databases = [ "matrix-synapse" ];
+
   services.matrix-synapse = {
     enable = true;
     server_name = "unixpimps.net";

@@ -25,6 +25,7 @@ in
       (import (./sniffy.nix) { inherit secrets config pkgs lib; })
       ./users.nix
       ./networking.nix
+      ./opsplaza.nix
       (import ./services.nix { inherit secrets config pkgs lib; })
       ./security.nix
       ./common.nix
