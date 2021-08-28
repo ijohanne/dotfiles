@@ -8,6 +8,6 @@ in
     (import (./krumme.nix) { inherit secrets config pkgs lib mkRtorrentInstance; })
     (import (./izabella.nix) { inherit secrets config pkgs lib mkRtorrentInstance; })
     (import (./sniffy.nix) { inherit secrets config pkgs lib; })
-    ./opsplaza.nix
+    (import (./opsplaza) { inherit secrets config pkgs lib; })
   ];
 }
