@@ -25,6 +25,8 @@ in
 
   services.postgresqlBackup.databases = [ "matrix-synapse" ];
 
+  services.borgbackup.jobs.services.paths = [ "/var/lib/matrix-synapse/homeserver.signing.key" ];
+
   services.matrix-synapse = {
     enable = true;
     server_name = "unixpimps.net";

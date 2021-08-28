@@ -125,7 +125,7 @@ in
       {
         name = "exporter";
         ensurePermissions = {
-          "*.*" = "PROCESS,REPLICATION CLIENT,SELECT";
+          "*.*" = "PROCESS,REPLICATION CLIENT,SELECT, SUPER, SLAVE MONITOR";
         };
       }
     ];
@@ -137,7 +137,7 @@ in
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.mariadb}/bin/mysql -uroot -e "GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO exporter@localhost IDENTIFIED BY '${secrets.mariadb.exporter}';"
+        ${pkgs.mariadb}/bin/mysql -uroot -e "GRANT PROCESS, REPLICATION CLIENT, SELECT, SUPER, SLAVE MONITOR ON *.* TO exporter@localhost IDENTIFIED BY '${secrets.mariadb.exporter}';"
       '';
       User = "root";
       PermissionsStartOnly = true;

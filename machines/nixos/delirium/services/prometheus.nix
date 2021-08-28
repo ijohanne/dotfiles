@@ -1,4 +1,11 @@
 { secrets, config, pkgs, lib, ... }:
+let
+  dumpScript = pkgs.writeScriptBin "prometheus-dump" ''
+    #!${pkgs.bash}/bin/bash
+    ${pkgs.findutils}/bin/find  /var/lib/${config.services.prometheus.stateDir}/data/snapshots -mindepth 1 -maxdepth 1 -type d -mtime +7 -exec rm -rf {} \;
+    ${pkgs.curl}/bin/curl -XPOST http://localhost:9001/api/v1/admin/tsdb/snapshot
+  '';
+in
 {
   services.prometheus = {
     enable = true;
@@ -7,6 +14,7 @@
       enable = true;
       web.listen-address = "127.0.0.1:9091";
     };
+    extraFlags = [ "--web.enable-admin-api" ];
     globalConfig = {
       scrape_interval = "15s";
     };
@@ -70,5 +78,25 @@
         ingress-00 = secrets.prometheus-pushgateway.ingress-00;
       };
     };
+  };
+
+  services.borgbackup.jobs.services.paths = lib.mkAfter [ "/var/lib/${config.services.prometheus.stateDir}/data/snapshots" ];
+
+  systemd.services.prometheus-dump = {
+    description = "prometheus dump";
+    after = [ "prometheus.service" ];
+    wantedBy = [ "default.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${dumpScript}/bin/prometheus-dump";
+    };
+  };
+
+  systemd.timers.prometheus-dump = {
+    description = "Update timer for prometheus-dump";
+    partOf = [ "prometheus-dump.service" ];
+    wantedBy = [ "timers.target" ];
+    timerConfig.OnCalendar = "02:00:00";
   };
 }
