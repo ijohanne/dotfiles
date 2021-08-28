@@ -68,6 +68,11 @@ in
     encryption.mode = "none";
     repo = "/var/borgbackup/seafile";
     startAt = "*-*-* 04:00:00";
+    prune.keep = {
+      daily = 7;
+      weekly = 2;
+      monthly = 1;
+    };
   };
 
   systemd.services.borgbackup-job-seafile = {

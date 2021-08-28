@@ -26,6 +26,11 @@
     encryption.mode = "none";
     repo = "/var/borgbackup/services";
     startAt = "*-*-* 04:00:00";
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = 3;
+    };
   };
 
   services.postgresqlBackup = {
@@ -34,10 +39,5 @@
     location = "/var/backup/postgresql";
   };
 
-  networking.firewall =
-    {
-      allowedTCPPorts = [
-        22
-      ];
-    };
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }
