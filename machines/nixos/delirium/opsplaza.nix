@@ -9,6 +9,7 @@ let
   couchdbBackupScript = ''
     set -o pipefail
     mkdir -p /var/backup/opsplaza
+    rm /var/backup/opsplaza/themailer-couchdb.json
     ${pkgs.bash}/bin/bash ${backupScript}/couchdb-dump.sh -b -H 127.0.0.1 -d themailer \
       -f /var/backup/opsplaza/themailer-couchdb.json
   '';
