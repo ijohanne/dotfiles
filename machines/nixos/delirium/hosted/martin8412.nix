@@ -1,4 +1,4 @@
-{ secrets, config, pkgs, lib, ... }:
+{ mkRtorrentInstance, secrets, config, pkgs, lib, ... }:
 
 {
   containers = {

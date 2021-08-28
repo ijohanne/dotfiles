@@ -1,7 +1,4 @@
-{ secrets, config, pkgs, lib, ... }:
-let
-  mkRtorrentInstance = (import ./modules/rtorrent.nix);
-in
+{ mkRtorrentInstance, secrets, config, pkgs, lib, ... }:
 {
   imports = [
     (mkRtorrentInstance { id = 2; enable = true; datadir = "/var/data/torrent/izabella"; })
