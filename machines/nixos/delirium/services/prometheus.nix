@@ -80,7 +80,10 @@ in
     };
   };
 
-  services.borgbackup.jobs.services.paths = lib.mkAfter [ "/var/lib/${config.services.prometheus.stateDir}/data/snapshots" ];
+  services.borgbackup.jobs.services.paths = lib.mkAfter [
+    "/var/lib/${config.services.prometheus.stateDir}/data/snapshots"
+    "${config.services.grafana.database.path}"
+  ];
 
   systemd.services.prometheus-dump = {
     description = "prometheus dump";
