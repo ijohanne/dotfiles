@@ -64,6 +64,9 @@
       "no-reply@unixpimps.net" = {
         hashedPassword = secrets.mail.no-reply;
       };
+      "themailer@unixpimps.net" = {
+        hashedPassword = secrets.mail.themailer;
+      };
     };
     forwards = {
       "hello@ddfrbr.com" = [ "ij@ddfrbr.com" ];

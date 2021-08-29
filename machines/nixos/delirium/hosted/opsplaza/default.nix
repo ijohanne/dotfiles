@@ -58,9 +58,9 @@ in
         locations = {
           "/" = {
             extraConfig = ''
-                    proxy_set_header   Host             themailer.ragetech.dk;
-                    proxy_set_header   X-Real-IP        $remote_addr;
-                    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+              proxy_set_header   Host             themailer.ragetech.dk;
+              proxy_set_header   X-Real-IP        $remote_addr;
+              proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
               proxy_set_header   X-Proxy-Proto  http;
             '';
             proxyPass = "http://127.0.0.1:12001";
@@ -73,18 +73,30 @@ in
     couchdb = {
       autoStart = true;
       image = "couchdb:2.3.1";
-      ports = [ "0.0.0.0:5984:5984" ];
+      ports = [ "127.0.0.1:5984:5984" ];
       volumes = [ "/var/opsplaza/couchdb:/opt/couchdb/data" ];
+      extraOptions = [ "--network=opsplaza-br" ];
     };
     themailer = {
       autoStart = true;
       image = "themailer:latest";
       imageFile = themailerImage;
       ports = [ "127.0.0.1:12001:8080" ];
+      extraOptions = [ "--network=opsplaza-br" ];
+    };
+    themailerpostfix = {
+      autoStart = true;
+      image = "juanluisbaptiste/postfix";
+      extraOptions = [ "--network=opsplaza-br" ];
+      environment = {
+        SMTP_SERVER = "delirium.unixpimps.net";
+        SMTP_PORT = "587";
+        SMTP_USERNAME = "themailer@unixpimps.net";
+        SMTP_PASSWORD = "${secrets.opsplaza.smtpPass}";
+        SERVER_HOSTNAME = "themailer.unixpimps.net";
+      };
     };
   };
-
-  networking.firewall.interfaces.docker0.allowedTCPPorts = [ 5984 ];
 
   systemd.tmpfiles.rules = [
     "d /var/opsplaza/couchdb 0777 root root"
@@ -102,12 +114,35 @@ in
         Unit = "opsplaza-couchdb-backup.service";
       };
     };
-    services.opsplaza-couchdb-backup = {
-      description = "Opsplaza couchdb backup service";
-      enable = true;
-      script = couchdbBackupScript;
-      path = with pkgs; [ gnused curl file gawk coreutils ];
+    services = {
+      opsplaza-couchdb-backup = {
+        description = "Opsplaza couchdb backup service";
+        enable = true;
+        script = couchdbBackupScript;
+        path = with pkgs; [ gnused curl file gawk coreutils ];
+      };
+      init-opsplaza-docker-network = {
+        description = "Create the network bridge opsplaza-br for opsplaza containers.";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" "docker-couchdb.service" "docker-themailer.service" ];
+
+        serviceConfig.Type = "oneshot";
+        script =
+          let dockercli = "${config.virtualisation.docker.package}/bin/docker";
+          in
+          ''
+            # Put a true at the end to prevent getting non-zero return code, which will
+            # crash the whole service.
+            check=$(${dockercli} network ls | grep "opsplaza-br" || true)
+            if [ -z "$check" ]; then
+              ${dockercli} network create opsplaza-br
+            else
+              echo "opsplaza-br already exists in docker"
+            fi
+          '';
+      };
     };
+
   };
 
 }

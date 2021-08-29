@@ -15,6 +15,7 @@
     ./nginx.nix
     ./mariadb.nix
     ./pastebin.nix
+    ./virtualhosts.nix
   ];
 
   services.openssh.permitRootLogin = "prohibit-password";

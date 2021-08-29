@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 let
-  genericWebsites = [ "unixpimps.net" "shouldidrink.today" ];
+  genericWebsites = [ "unixpimps.net" "shouldidrink.today" "beevpn.com" ];
 in
 {
   services.nginx.virtualHosts = lib.genAttrs genericWebsites (site:
@@ -22,6 +22,13 @@ in
         default = true;
       })
     ])
+  );
+
+  systemd.tmpfiles.rules = forEach genericWebsites
+    (site:
+      "d /var/www/${site} 0755 nginx nginx"
+    ) ++ forEach genericWebsites (site:
+    "d /var/www/${site}/html 0755 nginx nginx"
   );
 
   services.borgbackup.jobs.services = {
