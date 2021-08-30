@@ -30,7 +30,7 @@
     };
     dump = {
       enable = true;
-      interval = "03:00";
+      interval = "03:00:00";
     };
   };
 
