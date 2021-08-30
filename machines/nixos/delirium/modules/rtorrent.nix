@@ -75,10 +75,11 @@ in
       };
     "flood-${toString id}" = {
       enable = enable;
+      path = with pkgs; [ mediainfo ];
       serviceConfig = {
         User = "rtorrent";
         WorkingDirectory = "${datadir}";
-        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none";
+        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none --allowedpath ${datadir}/Downloads --rundir ${datadir}/.flood";
         Restart = "on-failure";
       };
       wantedBy = [ "multi-user.target" ];
