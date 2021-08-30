@@ -23,7 +23,7 @@
   services.openssh.enable = true;
 
   services.borgbackup.jobs.services = {
-    paths = [ "/var/backup" "/var/dkim" ];
+    paths = [ "/var/backup" "/var/dkim" "/var/sieve" ];
     encryption.mode = "none";
     repo = "/var/borgbackup/services";
     startAt = "*-*-* 04:00:00";
