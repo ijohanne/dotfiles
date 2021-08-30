@@ -124,7 +124,7 @@ in
       init-opsplaza-docker-network = {
         description = "Create the network bridge opsplaza-br for opsplaza containers.";
         after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" "docker-couchdb.service" "docker-themailer.service" ];
+        wantedBy = [ "multi-user.target" "docker-couchdb.service" "docker-themailer.service" "docker-themailerpostfix.service" ];
 
         serviceConfig.Type = "oneshot";
         script =

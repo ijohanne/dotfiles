@@ -61,6 +61,7 @@ in
               chown -R rtorrent:nogroup ${datadir}/sessions
               mkdir -p ${datadir}/Downloads
               chown -R rtorrent:nogroup ${datadir}/Downloads
+              rm -f ${datadir}/rtorrent.pid
             '')
           ];
           ExecStop = "${bash} -c '${kill} -s 15 `cat ${pidFile}` || true'";
