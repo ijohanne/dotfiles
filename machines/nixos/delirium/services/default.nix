@@ -3,7 +3,7 @@
   imports = [
     ./gitea.nix
     (import ./prometheus.nix { inherit secrets config pkgs lib; })
-    (import ./monitoring.nix { inherit secrets config pkgs lib; })
+    (import ./monitoring { inherit secrets config pkgs lib; })
     (import ./seafile.nix { inherit secrets config pkgs lib; })
     (import ./matrix.nix { inherit secrets config pkgs lib; })
     (import ./matomo.nix { inherit secrets config pkgs lib; })

@@ -24,9 +24,6 @@
         COOKIE_USERNAME = "gitea_username";
         COOKIE_REMEMBER_NAME = "gitea_userauth";
       };
-      metrics = {
-        ENABLED = true;
-      };
     };
     dump = {
       enable = true;
