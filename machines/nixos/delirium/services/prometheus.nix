@@ -20,6 +20,9 @@ in
     globalConfig = {
       scrape_interval = "15s";
     };
+    rules = lib.mkBefore [
+      ''groups:''
+    ];
     scrapeConfigs = [
       {
         job_name = "pushgateway";

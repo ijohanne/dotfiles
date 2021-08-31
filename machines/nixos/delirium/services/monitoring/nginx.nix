@@ -58,4 +58,26 @@ in
       };
     };
   };
+
+  services.prometheus.rules = [
+    ''
+      - name: nginx
+        rules:
+          - alert: NginxHighHttp5xxErrorRate
+            expr: sum(rate(nginx_http_requests_total{status=~"^5.."}[1m])) / sum(rate(nginx_http_requests_total[1m])) * 100 > 5
+            for: 1m
+            labels:
+              severity: critical
+            annotations:
+              summary: Nginx high HTTP 5xx error rate (instance {{ $labels.instance }})
+              description: "Too many HTTP requests with status 5xx (> 5%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: NginxLatencyHigh
+            expr: histogram_quantile(0.99, sum(rate(nginx_http_request_duration_seconds_bucket[10m])) by (host, node)) > 10
+            for: 10m
+            labels:
+              severity: warning
+            annotations:
+              summary: Nginx latency high (instance {{ $labels.instance }})
+              description: "Nginx p99 latency is higher than 10 seconds\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"''
+  ];
 }
