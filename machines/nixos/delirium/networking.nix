@@ -1,9 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  networking.hostName = "delirium";
-  networking.enableIPv6 = true;
   networking = {
+    hostName = "delirium";
+    domain = "unixpimps.net";
+    enableIPv6 = true;
     useDHCP = false;
     interfaces."eno1" = {
       ipv4.addresses = [
@@ -31,8 +32,7 @@
     defaultGateway = "141.94.130.254";
     defaultGateway6 = "2001:41d0:306:1ff:ff:ff:ff:ff";
     nameservers = [ "8.8.8.8" ];
+    nat.enable = true;
+    nat.externalInterface = "eno1";
   };
-
-  networking.nat.enable = true;
-  networking.nat.externalInterface = "eno1";
 }

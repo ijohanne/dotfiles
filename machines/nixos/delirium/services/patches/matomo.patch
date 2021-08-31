@@ -1,0 +1,13 @@
+--- share/plugins/GeoIp2/Tasks.php	1970-01-01 00:00:01.000000000 +0000
++++ /tmp/Tasks.php	2021-08-31 13:45:42.506531355 +0000
+@@ -17,7 +17,7 @@
+     {
+         // add the auto updater task if GeoIP admin is enabled
+         if (UserCountry::isGeoLocationAdminEnabled() && SettingsPiwik::isInternetEnabled() === true) {
+-            $this->scheduleTask(new GeoIP2AutoUpdater());
++            // $this->scheduleTask(new GeoIP2AutoUpdater());
+         }
+     }
+-}
+\ No newline at end of file
++}

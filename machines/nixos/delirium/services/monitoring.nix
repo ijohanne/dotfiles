@@ -136,6 +136,7 @@ in
     wants = [ "mysql.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
+      ExecPreStart = ''${pkgs.coreutils}/bin/sleep 10'';
       ExecStart = ''
         ${pkgs.mariadb}/bin/mysql -uroot -e "GRANT PROCESS, REPLICATION CLIENT, SELECT, SUPER, SLAVE MONITOR ON *.* TO exporter@localhost IDENTIFIED BY '${secrets.mariadb.exporter}';"
       '';

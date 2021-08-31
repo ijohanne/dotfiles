@@ -67,6 +67,7 @@ in
     wants = [ "mysql.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
+      ExecPreStart = ''${pkgs.coreutils}/bin/sleep 10'';
       ExecStart = ''
         ${pkgs.mariadb}/bin/mysql -uroot -e "GRANT ALL PRIVILEGES ON ${websiteConfig.db}.* TO ${websiteConfig.user}@'%' IDENTIFIED BY '${websiteConfig.password}';"
       '';

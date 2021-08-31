@@ -67,6 +67,9 @@
       "themailer@unixpimps.net" = {
         hashedPassword = secrets.mail.themailer;
       };
+      "alertmanager@unixpimps.net" = {
+        hashedPassword = secrets.mail.alertmanager;
+      };
     };
     forwards = {
       "hello@ddfrbr.com" = [ "ij@ddfrbr.com" ];

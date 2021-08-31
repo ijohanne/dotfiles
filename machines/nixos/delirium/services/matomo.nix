@@ -8,9 +8,16 @@ let
 in
 {
   services.matomo = {
+    package = pkgs.matomo.overrideAttrs (old: {
+      patches = old.patches ++ [ ./patches/matomo.patch ];
+    });
     enable = true;
     nginx = {
+      enableACME = true;
       serverName = "analytics.unixpimps.net";
+      serverAliases = [
+        "matomo.delirium.unixpimps.net"
+      ];
     };
   };
   services.mysql = {
@@ -34,6 +41,7 @@ in
     wants = [ "mysql.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
+      ExecPreStart = ''${pkgs.coreutils}/bin/sleep 10'';
       ExecStart = ''
         ${pkgs.mariadb}/bin/mysql -uroot -e "GRANT ALL PRIVILEGES ON ${statsConfig.db}.* TO ${statsConfig.user}@localhost IDENTIFIED BY '${statsConfig.password}';"
       '';
