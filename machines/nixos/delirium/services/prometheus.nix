@@ -22,6 +22,105 @@ in
     };
     rules = lib.mkBefore [
       ''groups:''
+      ''
+        - name: prometheus
+          rules:
+          - alert: PrometheusTargetMissing
+            expr: up == 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus target missing (instance {{ $labels.instance }})
+              description: "A Prometheus target has disappeared. An exporter might be crashed.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTooManyRestarts
+            expr: changes(process_start_time_seconds{job=~"prometheus|pushgateway|alertmanager"}[15m]) > 2
+            for: 0m
+            labels:
+              severity: warning
+            annotations:
+              summary: Prometheus too many restarts (instance {{ $labels.instance }})
+              description: "Prometheus has restarted more than twice in the last 15 minutes. It might be crashlooping.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusNotConnectedToAlertmanager
+            expr: prometheus_notifications_alertmanagers_discovered < 1
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus not connected to alertmanager (instance {{ $labels.instance }})
+              description: "Prometheus cannot connect the alertmanager\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusNotificationsBacklog
+            expr: min_over_time(prometheus_notifications_queue_length[10m]) > 0
+            for: 0m
+            labels:
+              severity: warning
+            annotations:
+              summary: Prometheus notifications backlog (instance {{ $labels.instance }})
+              description: "The Prometheus notification queue has not been empty for 10 minutes\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTargetScrapingSlow
+            expr: prometheus_target_interval_length_seconds{quantile="0.9"} > 60
+            for: 5m
+            labels:
+              severity: warning
+            annotations:
+              summary: Prometheus target scraping slow (instance {{ $labels.instance }})
+              description: "Prometheus is scraping exporters slowly\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbCheckpointCreationFailures
+            expr: increase(prometheus_tsdb_checkpoint_creations_failed_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB checkpoint creation failures (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} checkpoint creation failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbCheckpointDeletionFailures
+            expr: increase(prometheus_tsdb_checkpoint_deletions_failed_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB checkpoint deletion failures (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} checkpoint deletion failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbCompactionsFailed
+            expr: increase(prometheus_tsdb_compactions_failed_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB compactions failed (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} TSDB compactions failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbHeadTruncationsFailed
+            expr: increase(prometheus_tsdb_head_truncations_failed_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB head truncations failed (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} TSDB head truncation failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbReloadFailures
+            expr: increase(prometheus_tsdb_reloads_failures_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB reload failures (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} TSDB reload failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbWalCorruptions
+            expr: increase(prometheus_tsdb_wal_corruptions_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB WAL corruptions (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} TSDB WAL corruptions\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          - alert: PrometheusTsdbWalTruncationsFailed
+            expr: increase(prometheus_tsdb_wal_truncations_failed_total[1m]) > 0
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: Prometheus TSDB WAL truncations failed (instance {{ $labels.instance }})
+              description: "Prometheus encountered {{ $value }} TSDB WAL truncation failures\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"''
     ];
     scrapeConfigs = [
       {
