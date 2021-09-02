@@ -1,4 +1,4 @@
-{ id, enable, datadir, ... }: { pkgs, config, ... }:
+{ id, enable, datadir, extraconf ? "", ... }: { pkgs, config, ... }:
 let
   bash = "/run/current-system/sw/bin/bash";
   chmod = "/run/current-system/sw/bin/chmod";
@@ -6,7 +6,6 @@ let
   floodPort = 42000 + id;
   controlPort = 43000 + id;
   rpcSocket = "${datadir}/rtorrent.sock";
-  session = "${datadir}/rtorrent.dtach";
   pidFile = "${datadir}/rtorrent.pid";
   rtorrentRC = pkgs.writeText "rtorrent.rc" ''
     directory.default.set                 = ${datadir}/Downloads
@@ -19,6 +18,7 @@ let
     dht.mode.set                          = off
     throttle.max_uploads.set = 10000
     execute.nothrow = ${bash}, -c, (cat, "echo -n > ${pidFile} ", (system.pid))
+    ${extraconf}
   '';
 in
 {
@@ -36,25 +36,17 @@ in
   ];
   systemd.services = {
     "rtorrent-${toString id}" =
-      let
-        kill = "/run/current-system/sw/bin/kill";
-        dtach = "${pkgs.dtach}/bin/dtach";
-        rtorrent = "${pkgs.rtorrent}/bin/rtorrent";
-      in
       {
         enable = enable;
         preStart = ''
           mkdir -m 0700 -p ${datadir}
           chown rtorrent ${datadir}
-          if [ -f ${session} ]; then
-            rm ${session}
-          fi
         '';
         serviceConfig = {
           User = "rtorrent";
           Group = "nogroup";
-          Type = "forking";
-          KillMode = "none";
+          Type = "simple";
+          KillMode = "process";
           ExecStartPre = [
             ("+" + pkgs.writeShellScript "rtorrent" ''
               mkdir -p ${datadir}/sessions
@@ -62,10 +54,11 @@ in
               mkdir -p ${datadir}/Downloads
               chown -R rtorrent:nogroup ${datadir}/Downloads
               rm -f ${datadir}/rtorrent.pid
+              rm -f ${datadir}/rtorrent.lock
             '')
           ];
-          ExecStop = "${bash} -c '${kill} -s 15 `cat ${pidFile}` || true'";
-          ExecStart = "${dtach} -n ${session} -E -z ${rtorrent} -n -o import=${rtorrentRC}";
+          ExecStart = "${pkgs.rtorrent}/bin/rtorrent -n -o system.daemon.set=true -o import=${rtorrentRC}";
+          WorkingDirectory = datadir;
           Restart = "on-failure";
         };
         environment = {
@@ -80,7 +73,7 @@ in
       serviceConfig = {
         User = "rtorrent";
         WorkingDirectory = "${datadir}";
-        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none --allowedpath ${datadir}/Downloads --rundir ${datadir}/.flood";
+        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none --rundir ${datadir}/.flood";
         Restart = "on-failure";
       };
       wantedBy = [ "multi-user.target" ];
