@@ -13,6 +13,8 @@
   networking.hostId = "d035f711";
   system.stateVersion = "20.03";
 
+  networking.firewall.allowedTCPPorts = [ 8080 ];
+
   nix.buildMachines = [{
     hostName = "builder";
     systems = [ "x86_64-linux" "aarch64-linux" ];
