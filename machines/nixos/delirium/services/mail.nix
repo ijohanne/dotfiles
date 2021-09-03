@@ -88,7 +88,6 @@
     borgbackup = {
       enable = true;
       repoLocation = "/var/borgbackup/mail";
-      startAt = "*-*-* 02:00:00";
     };
   };
 }

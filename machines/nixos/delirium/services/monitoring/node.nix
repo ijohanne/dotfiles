@@ -30,7 +30,7 @@
           rules:
             - alert: HostSystemdServiceCrashed
               expr: node_systemd_unit_state{state="failed"} == 1
-              for: 0m
+              for: 90m
               labels:
                 severity: warning
               annotations:

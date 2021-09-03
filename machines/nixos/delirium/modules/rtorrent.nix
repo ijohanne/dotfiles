@@ -73,7 +73,7 @@ in
       serviceConfig = {
         User = "rtorrent";
         WorkingDirectory = "${datadir}";
-        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none --rundir ${datadir}/.flood";
+        ExecStart = "${pkgs.flood}/bin/flood --rthost 127.0.0.1 --rtport ${toString controlPort} -p ${toString floodPort} --auth none --rundir ${datadir}/.flood --allowedpath /var/data/torrent";
         Restart = "on-failure";
       };
       wantedBy = [ "multi-user.target" ];
