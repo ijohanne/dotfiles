@@ -57,12 +57,13 @@ $> export MACHINE_NAME="ij-laptop" # Adapt as needed
 $> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
 $> export GITHUB_BRANCH="master" # Adapt if needed
 $> export DISK_DEVICE="/dev/nvme0n1" # Adapt as needed
+$> export DISK_FS="btrfs" # can be either btrfs or zfs
 ```
 
 ## Setup the disk
 Run the following command to partition the disk using the same layout I use
 ```bash
-$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-setup-disks.sh | bash -s $DISK_DEVICE
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-setup-disks.sh | bash -s $DISK_FS $DISK_DEVICE
 ```
 
 ## Generate NixOS config
@@ -73,7 +74,7 @@ $> nixos-generate-config --root /mnt
 ## Generate extra hardware settings
 Run the below script, and insert the bits generated into your `hardware-configuration.nix`
 ```bash
-$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-generate-extra-hardware.sh | bash -s
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-generate-extra-hardware.sh | bash -s $DISK_FS
 ```
 
 ## Setup user home directory
@@ -148,7 +149,8 @@ Pick the needed step
 ```bash
 $> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
 $> export GITHUB_BRANCH="master" # Adapt if needed
-$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-rescue-mount.sh | bash -s
+$> export DISK_FS="btrfs" # can be either btrfs or zfs
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-rescue-mount.sh | bash -s $DISK_FS
 ```
 
 # Setting up a Raspberry Pi 
