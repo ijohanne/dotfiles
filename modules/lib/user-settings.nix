@@ -69,7 +69,7 @@ with lib; {
       };
       u2f-keys = mkOption {
         type = with types; listOf str;
-        description = "Yubikey U2F keys";
+        description = "Yubikey U2F keys (generate with pamu2fcfg -i pam://localhost)";
         default = [ ];
       };
       luks-gpg = {
