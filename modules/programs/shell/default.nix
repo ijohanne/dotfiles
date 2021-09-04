@@ -222,7 +222,12 @@ in
     lastpass-cli.enable = mkOption {
       default = false;
       type = types.bool;
-      description = "Enable lastpass-cli app";
+      description = "enable lastpass-cli app";
+    };
+    manix.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "enable manix app";
     };
   };
 
@@ -246,6 +251,7 @@ in
     ./ldns
     ./lfs
     ./lsof
+    ./manix
     ./mkpasswd
     ./mtr
     ./neofetch
@@ -289,6 +295,7 @@ in
     dotfiles.shell.ldns.enable = true;
     dotfiles.shell.lfs.enable = true;
     dotfiles.shell.lsof.enable = true;
+    dotfiles.shell.manix.enable = true;
     dotfiles.shell.mkpasswd.enable = true;
     dotfiles.shell.mtr.enable = true;
     dotfiles.shell.neofetch.enable = true;
