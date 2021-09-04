@@ -46,6 +46,7 @@ if [ "$DISK_FS" == "zfs" ]; then
         zfs create zroot/root -o mountpoint=legacy
         mount -t zfs zroot/root /mnt
 else
+        mkfs.btrfs "$ROOT_DECRYPTED_DEVICE"
         mount -t btrfs "$ROOT_DECRYPTED_DEVICE" /mnt
         btrfs subvolume create /mnt/nixos
         umount /mnt

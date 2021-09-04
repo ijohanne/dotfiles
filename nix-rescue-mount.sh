@@ -13,7 +13,11 @@ if [ "$DISK_FS" != "zfs" ] && [ "$DISK_FS" != "btrfs" ]; then
 fi
 
 EFI_DEVICE=$(blkid -o device -t PARTLABEL="EFI System Partition")
-ROOT_DEVICE=$(blkid -o device -t PARTLABEL="Linux ZFS")
+if [ "$DISK_FS" == "zfs" ];  then
+  ROOT_DEVICE=$(blkid -o device -t PARTLABEL="Linux ZFS")
+else
+  ROOT_DEVICE=$(blkid -o device -t PARTLABEL="Linux BTRFS")
+fi
 ROOT_UUID=$(lsblk -d -o uuid -n "$ROOT_DEVICE")
 ROOT_ID=${ROOT_UUID//-/}
 ZPOOL="zroot"

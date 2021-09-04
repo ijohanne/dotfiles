@@ -85,7 +85,7 @@ $> mkdir -p /mnt/home/$LOCAL_USER/
 ## Clone the git repository
 ```bash
 $> mkdir -p /mnt/home/$LOCAL_USER/.config
-$> git clone --recursive https://github.com/$GITHUB_REPO/dotfiles /mnt/home/$LOCAL_USER/.dotfiles
+$> git clone --recursive https://github.com/$GITHUB_REPO /mnt/home/$LOCAL_USER/.dotfiles
 ```
 
 ## Link configs

@@ -46,8 +46,9 @@ EOF
 else
   ROOT_DEVICE=$(blkid -o device -t PARTLABEL="Linux BTRFS")
   ROOT_UUID=$(lsblk -d -o uuid -n "$ROOT_DEVICE")
+  ROOT_ID=${ROOT_UUID//-/}
   HOST_ID=$(head -c 8 /etc/machine-id)
-  ROOT_DECRYPTED_DEVICE="/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-${ROOT_ID}-decrypted-root"
+  ROOT_DECRYPTED_DEVICE="/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-$ROOT_ID-decrypted-root"
   cat <<EOF
   networking.hostId = "$HOST_ID";
 
