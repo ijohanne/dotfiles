@@ -12,21 +12,6 @@
   hardware.cpu.amd.updateMicrocode = true;
   powerManagement.cpuFreqGovernor = "ondemand";
 
-  fileSystems."/" = {
-    device = "zroot/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/efi" = {
-    device = "/dev/disk/by-uuid/2AAE-EF34";
-    fsType = "vfat";
-  };
-
-  boot.initrd.luks.devices.decrypted-disk-name = {
-    device = "/dev/disk/by-uuid/32db0649-dd5a-44a9-b4ad-a69fe2383ce4";
-    keyFile = "/keyfile.bin";
-  };
-
   boot.loader = {
     grub = {
       extraEntries = ''
@@ -42,7 +27,21 @@
     };
   };
 
-  swapDevices = [ ];
+  fileSystems."/" = {
+    device = "/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-dfe07e423834459f893efe3325adb792-decrypted-root";
+    fsType = "btrfs";
+    options = [ "subvol=nixos" ];
+  };
 
+  fileSystems."/efi" = {
+    device = "/dev/disk/by-uuid/1291-5F61";
+    fsType = "vfat";
+  };
+
+  boot.initrd.luks.devices.decrypted-root = {
+    device = "/dev/disk/by-uuid/dfe07e42-3834-459f-893e-fe3325adb792";
+  };
+
+  swapDevices = [ ];
   nix.maxJobs = lib.mkDefault 32;
 }

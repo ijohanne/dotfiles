@@ -87,7 +87,7 @@ with lib; {
             };
           }
       )
-      (mkIf config.dotfiles.machines.desktop.zfsEnable {
+      (mkIf config.dotfiles.machines.zfsEnable {
         boot.zfs.enableUnstable = true;
 
       }
