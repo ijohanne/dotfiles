@@ -39,7 +39,7 @@ if [ "$DISK_FS" == "zfs" ]; then
 
   swapDevices = [ ];
 
-  dotfiles.machines.desktop.zfsEnable = true;
+  dotfiles.machines.zfsEnable = true;
 
 EOF
 

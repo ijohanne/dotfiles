@@ -8,7 +8,7 @@
   dotfiles.machines.printers = true;
 
   networking.hostName = "ij-home";
-  networking.hostId = "f6f3a438";
-  system.stateVersion = "19.09";
+  networking.hostId = "df2c4b6d";
+  system.stateVersion = "21.05";
 
 }
