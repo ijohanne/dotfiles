@@ -36,7 +36,10 @@ with lib; {
             configurationLimit = 10;
             memtest86.enable = true;
           };
-          efi.canTouchEfiVariables = true;
+          efi = {
+            canTouchEfiVariables = true;
+            efiSysMountPoint = "/boot";
+          };
         };
 
         services.fwupd.enable = true;

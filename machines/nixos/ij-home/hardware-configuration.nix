@@ -28,18 +28,18 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-dfe07e423834459f893efe3325adb792-decrypted-root";
+    device = "/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-25d8fc4627b84f9dbedaabd13c2657ca-decrypted-root";
     fsType = "btrfs";
     options = [ "subvol=nixos" ];
   };
 
-  fileSystems."/efi" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/1291-5F61";
     fsType = "vfat";
   };
 
   boot.initrd.luks.devices.decrypted-root = {
-    device = "/dev/disk/by-uuid/dfe07e42-3834-459f-893e-fe3325adb792";
+    device = "/dev/disk/by-uuid/25d8fc46-27b8-4f9d-beda-abd13c2657ca";
   };
 
   swapDevices = [ ];

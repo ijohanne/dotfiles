@@ -4,9 +4,10 @@ with lib;
   config = mkIf (config.dotfiles.browsers.firefox.enable) {
     home.packages = [
       (
-        pkgs.firefox-hardened-wayland.overrideAttrs (_:
+        (pkgs.firefox-hardened-wayland.override {
+          nixExtensions = with pkgs.firefoxPlugins; [ ublock-origin facebook-container lastpass-password-manager reddit-enhancement-suite enhancer-for-youtube darkreader certificate-pinner bitwarden-password-manager ];
+        }).overrideAttrs (_:
           {
-            nixExtensions = with pkgs.firefoxPlugins; [ ublock-origin facebook-container lastpass-password-manager reddit-enhancement-suite enhancer-for-youtube darkreader certificate-pinner bitwarden-password-manager ];
             desktopItem = pkgs.makeDesktopItem {
               name = "firefox";
               exec = "env MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 firefox %u";
@@ -25,7 +26,8 @@ with lib;
                 "x-scheme-handler/ftp"
               ];
             };
-          }))
+          }
+        ))
     ];
     xdg.mimeApps.enable = true;
     xdg.mimeApps.defaultApplications =
