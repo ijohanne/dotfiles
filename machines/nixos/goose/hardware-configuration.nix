@@ -8,7 +8,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "coretemp" ];
   boot.extraModulePackages = [ ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -28,6 +28,17 @@
   swapDevices = [ ];
 
   hardware.video.hidpi.enable = lib.mkDefault true;
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.enableAllFirmware = true;
+  powerManagement.powertop.enable = true;
+  services.thermald.enable = true;
+
+  environment.etc."sysconfig/lm_sensors".text = ''
+    HWMON_MODULES="coretemp"
+  '';
+
+  services.fwupd.enable = true;
+
 
   system.stateVersion = "21.05";
 }
