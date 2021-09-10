@@ -18,9 +18,13 @@
     ./virtualhosts.nix
   ];
 
-  services.openssh.permitRootLogin = "prohibit-password";
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "prohibit-password";
+    passwordAuthentication = false;
+  };
+
   services.xserver = { enable = false; };
-  services.openssh.enable = true;
 
   services.borgbackup.jobs.services = {
     paths = [ "/var/backup" "/var/dkim" "/var/sieve" ];
