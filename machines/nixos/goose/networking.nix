@@ -105,4 +105,6 @@
       };
     };
   };
+
+  services.lldpd.enable = true;
 }

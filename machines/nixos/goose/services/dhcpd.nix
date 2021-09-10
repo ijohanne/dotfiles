@@ -38,4 +38,8 @@
       }
     '';
   };
+
+  systemd.services.dhcpd4 = {
+    requires = [ "guest-netdev.service" "mgnt-netdev.service" "wifi-netdev.service" "wired-netdev.service" ];
+  };
 }

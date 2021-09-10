@@ -1,5 +1,7 @@
-{ ... }:
-
+{ pkgs, ... }:
+let
+  secrets = (import ./secrets.nix);
+in
 {
   imports =
     [
@@ -7,7 +9,7 @@
       ./common.nix
       ./users.nix
       ./security.nix
-      ./services
+      (import ./services { inherit secrets pkgs; })
       ./networking.nix
     ];
 
