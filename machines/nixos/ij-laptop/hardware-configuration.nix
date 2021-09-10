@@ -29,7 +29,7 @@
     device = "/dev/disk/by-uuid/cdbc8ad0-4cb8-4b79-a1a8-314ed0adcf66";
   };
 
-  dotfiles.machines.desktop.zfsEnable = true;
+  dotfiles.machines.zfsEnable = true;
 
   swapDevices = [ ];
 
