@@ -3,7 +3,7 @@ let
   pr_119719 = builtins.fetchTarball {
     name = "nixos-pr_119719";
     url = "https://api.github.com/repos/greizgh/nixpkgs/tarball/seafile";
-    sha256 = "1xs075sh741ra2479id9q3yms93v3i0j1rfmvxvc563wbxdpfs7r";
+    sha256 = "0pysyls3c394b4p434hmcvn0xkyh0d02hbsza903lqx81146957g";
   };
 in
 {
@@ -23,6 +23,25 @@ in
           };
         };
       config = { config, pkgs, ... }: {
+        nixpkgs.overlays = [
+          (self: super: {
+            python39 =
+              super.python39.override
+                {
+                  packageOverrides = self: super: {
+                    django-webpack-loader = super.django-webpack-loader.overrideAttrs (_: {
+                      version = "0.7.0";
+                      src = super.pkgs.python39Packages.fetchPypi {
+                        pname = "django-webpack-loader";
+                        version = "0.7.0";
+                        sha256 = "0izl6bibhz3v538ad5hl13lfr6kvprf62rcl77wq2i5538h8hg3s";
+                      };
+                    });
+                  };
+                };
+            python39Packages = self.python39.pkgs;
+          })
+        ];
         services.kresd.enable = true;
         services.seafile = {
           enable = true;
