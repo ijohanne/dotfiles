@@ -7,8 +7,6 @@
     extraConfig = ''
       option subnet-mask 255.255.255.0;
       option deco240 code 240 = string;
-      if substring(option vendor-class-identifier, 0, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 8.8.8.8, 8.8.4.4;}
-
       option space ubnt;
       option ubnt.unifi-address code 1 = ip-address;
 
@@ -22,6 +20,8 @@
         option broadcast-address 10.255.100.255;
         option routers 10.255.100.254;
         option ubnt.unifi-address 10.255.254.240;
+        if substring(option vendor-class-identifier, 0, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.100.254;}
+
         default-lease-time 86400;
         max-lease-time 129600;
         interface wifi;
@@ -32,6 +32,7 @@
         option broadcast-address 10.255.101.255;
         option routers 10.255.101.254;
         option ubnt.unifi-address 10.255.254.240;
+        if substring(option vendor-class-identifier, 0, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.101.254;}
         default-lease-time 86400;
         max-lease-time 129600;
         interface wired;
@@ -41,6 +42,7 @@
       subnet 10.255.150.0 netmask 255.255.255.0 {
         option broadcast-address 10.255.150.255;
         option routers 10.255.150.254;
+        option domain-name-servers 10.255.150.254;
         default-lease-time 86400;
         max-lease-time 129600;
         interface guest;
@@ -51,6 +53,7 @@
         option broadcast-address 10.255.254.255;
         option routers 10.255.254.254;
         option ubnt.unifi-address 10.255.254.240;
+        option domain-name-servers 10.255.254.254;
         default-lease-time 86400;
         max-lease-time 129600;
         interface mgnt;
