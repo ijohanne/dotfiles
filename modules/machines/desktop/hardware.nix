@@ -42,6 +42,8 @@ with lib; {
           };
         };
 
+        boot.initrd.luks.devices.decrypted-root.allowDiscards = true;
+
         services.fwupd.enable = true;
 
         services.udev.extraRules = ''

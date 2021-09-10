@@ -30,7 +30,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-id/dm-uuid-CRYPT-LUKS2-25d8fc4627b84f9dbedaabd13c2657ca-decrypted-root";
     fsType = "btrfs";
-    options = [ "subvol=nixos" ];
+    options = [ "subvol=nixos" "space_cache=v2" "ssd" ];
   };
 
   fileSystems."/boot" = {
