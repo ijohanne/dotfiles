@@ -7,12 +7,12 @@
 
       peers = [
         {
-          publicKey = "LsjFCqeOnJvjM2Xo2jUKbnHjii6Mjm5UP9qEPCVLVFg=";
-          allowedIPs = [ "10.255.0.0/16" ];
+          publicKey = "mZHS9vjE3fKHMN+a2wTx4Zo0NQsWMqcUGQAaH2qQdAY=";
+          allowedIPs = [ "10.100.0.2/32" ];
         }
         {
-          publicKey = "mZHS9vjE3fKHMN+a2wTx4Zo0NQsWMqcUGQAaH2qQdAY=";
-          allowedIPs = [ "10.255.0.0/16" ];
+          publicKey = "LsjFCqeOnJvjM2Xo2jUKbnHjii6Mjm5UP9qEPCVLVFg=";
+          allowedIPs = [ "10.100.0.3/32" ];
         }
       ];
     };
