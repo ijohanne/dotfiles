@@ -20,6 +20,7 @@ in
 
   systemd.services.cfdyndns = {
     environment.CLOUDFLARE_APITOKEN = secrets.cloudflare.apiToken;
+    startAt = pkgs.lib.mkForce "*:0/5";
     script = pkgs.lib.mkForce ''
       ${cfdyndns}/bin/cfdyndns
     '';
