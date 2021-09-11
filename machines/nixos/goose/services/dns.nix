@@ -36,6 +36,7 @@
           ''"r0.est.unixpimps.net. IN A 10.255.254.254"''
           ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
           ''"hp-office.est.unixpimps.net. IN A 10.255.101.230"''
+          ''"grafana.est.unixpimps.net. IN A 10.255.254.254"''
         ];
       };
     };
