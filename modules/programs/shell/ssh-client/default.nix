@@ -10,7 +10,7 @@ let
     ])
   ++ (optionals (elem.forwardGpgTo != null) [
     "  StreamLocalBindUnlink yes"
-    "  RemoteForward ${elem.forwardGpgTo} /run/user/1000/gnupg/S.gpg-agent.extra"
+    "  RemoteForward ${elem.forwardGpgTo} /run/user/1000/gnupg/S.gpg-agent"
   ])
   )));
 in
