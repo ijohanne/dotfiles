@@ -33,6 +33,18 @@
         };
       };
       dictionaries = with pkgs.hunspellDicts; [ da_DK en_GB-large ];
+      trustedSshHosts = [
+        {
+          hostname = "delirium.unixpimps.net";
+          forwardAgent = true;
+          forwardGpgTo = "/run/user/1001/gnupg/S.gpg-agent";
+        }
+        {
+          hostname = "r0.est.unixpimps.net";
+          forwardAgent = true;
+          forwardGpgTo = "/run/user/1000/gnupg/S.gpg-agent";
+        }
+      ];
     };
   };
 }

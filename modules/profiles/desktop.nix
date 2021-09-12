@@ -8,6 +8,7 @@
   dotfiles.shell.enable = true;
   dotfiles.shell.gpg-agent.enable = true;
   dotfiles.shell.gpg-agent.desktop = true;
+  dotfiles.shell.ssh-client.enable = true;
   dotfiles.shell.keybase.enable = true;
   dotfiles.tex.enable = true;
   dotfiles.browsers.enable = true;

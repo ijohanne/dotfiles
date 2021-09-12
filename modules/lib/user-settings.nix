@@ -49,6 +49,24 @@ with lib; {
           });
         };
     };
+    trustedSshHosts = with types; mkOption {
+      type = listOf (submodule {
+        options = {
+          hostname = mkOption {
+            type = str;
+            description = "Hostname to enable settings for";
+          };
+          forwardAgent = mkOption {
+            type = bool;
+            description = "Forward SSH agent to host";
+          };
+          forwardGpgTo = mkOption {
+            type = nullOr str;
+            description = "Forward GPG agent to host on path";
+          };
+        };
+      });
+    };
     git = {
       commit-name = mkOption {
         default = null;

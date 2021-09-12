@@ -234,6 +234,11 @@ in
       type = types.bool;
       description = "enable manix app";
     };
+    ssh-client.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "enable ssh client settings";
+    };
   };
 
   imports = [
@@ -281,6 +286,7 @@ in
     ./whois
     ./zoxide
     ./yubikey-touch-detector
+    ./ssh-client
   ];
 
   config = mkIf (cfg.enable) {
