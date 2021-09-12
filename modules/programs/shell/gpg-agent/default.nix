@@ -57,6 +57,10 @@ in
       settings.pinentry-mode = "loopback";
     };
 
+    programs.fish.shellAliases = mkIf config.dotfiles.shell.gpg-agent.enable {
+      "gpg" = "gpg --no-autostart";
+    };
+
     programs.fish.shellInit = mkMerge [
       (
         ''${pkgs.gnupg}/bin/gpgconf --create-socketdir''
