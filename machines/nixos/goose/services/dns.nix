@@ -1,5 +1,4 @@
 { ... }:
-
 {
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2097152;
@@ -9,6 +8,7 @@
     resolveLocalQueries = false;
     settings = {
       server = {
+        module-config = [ "validator" "python" "iterator" ];
         interface = [ "0.0.0.0" "127.0.0.1" ];
         access-control = [ "10.0.0.0/8 allow" "127.0.0.0/8 allow" ];
         root-hints = builtins.fetchurl {
@@ -32,6 +32,12 @@
         rrset-cache-size = "256m";
         msg-cache-size = "128m";
         so-rcvbuf = "1m";
+        local-data = [
+          ''"r0.est.unixpimps.net. IN A 10.255.254.254"''
+          ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
+          ''"hp-office.est.unixpimps.net. IN A 10.255.101.230"''
+          ''"grafana.est.unixpimps.net. IN A 10.255.254.254"''
+        ];
       };
     };
   };

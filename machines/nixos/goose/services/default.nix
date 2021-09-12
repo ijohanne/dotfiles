@@ -1,4 +1,4 @@
-{ secrets, pkgs, ... }:
+{ config, secrets, pkgs, ... }:
 {
   imports = [
     ./dns.nix
@@ -7,6 +7,9 @@
     ./igmpproxy.nix
     ./dhcpd.nix
     ./wireguard.nix
+    ./nginx.nix
+    (import ./prometheus.nix { inherit config secrets; })
+    (import ./prometheus-node.nix { inherit config; })
     (import ./cloudflare.nix { inherit secrets pkgs; })
   ];
   services.openssh = {
@@ -14,8 +17,5 @@
     permitRootLogin = "prohibit-password";
     passwordAuthentication = false;
   };
-
   services.xserver = { enable = false; };
-
-  networking.firewall.allowedTCPPorts = [ 22 ];
 }
