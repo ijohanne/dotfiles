@@ -1,5 +1,7 @@
-{ lib, modulesPath, ... }:
-
+{ config, lib, modulesPath, ... }:
+let
+  it87 = config.boot.kernelPackages.callPackage ./pkgs/it87.nix { };
+in
 {
   imports =
     [
@@ -7,11 +9,15 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "it87" ];
   boot.kernelModules = [ "kvm-amd" "coretemp" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ it87 ];
+  boot.extraModprobeConfig = ''
+    options it87 force_id=0x8628
+  '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "acpi_enforce_resources=lax" ];
 
   fileSystems."/" =
     {
@@ -30,6 +36,7 @@
   hardware.video.hidpi.enable = lib.mkDefault true;
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
+
   powerManagement.powertop.enable = true;
   services.thermald.enable = true;
 
@@ -38,7 +45,6 @@
   '';
 
   services.fwupd.enable = true;
-
 
   system.stateVersion = "21.05";
 }
