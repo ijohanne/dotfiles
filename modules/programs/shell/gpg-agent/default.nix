@@ -57,10 +57,15 @@ in
       settings.pinentry-mode = "loopback";
     };
 
-    programs.fish.shellInit = mkIf (config.dotfiles.shell.gpg-agent.enable) ''
-      set GPG_TTY (tty)
-      ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
-    '';
+    programs.fish.shellInit = mkMerge [
+      (
+        ''${pkgs.gnupg}/bin/gpgconf --create-socketdir''
+      )
+      (mkIf (config.dotfiles.shell.gpg-agent.enable) ''
+        set GPG_TTY (tty)
+        ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
+      '')
+    ];
 
     systemd.user.services = (mkMerge [
       {

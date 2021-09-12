@@ -22,6 +22,9 @@
     enable = true;
     permitRootLogin = "prohibit-password";
     passwordAuthentication = false;
+    extraConfig = ''
+      StreamLocalBindUnlink yes
+    '';
   };
 
   services.xserver = { enable = false; };
