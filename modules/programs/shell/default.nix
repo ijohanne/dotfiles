@@ -29,6 +29,11 @@ in
       type = types.bool;
       description = "Enable procs app";
     };
+    gpg.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable gpg app";
+    };
     gpg-agent.enable = mkOption {
       default = false;
       type = types.bool;
@@ -288,6 +293,7 @@ in
     dotfiles.shell.fd.enable = true;
     dotfiles.shell.fish.enable = true;
     dotfiles.shell.fzf.enable = true;
+    dotfiles.shell.gpg.enable = true;
     dotfiles.shell.gping.enable = true;
     dotfiles.shell.httpie.enable = true;
     dotfiles.shell.imagemagick.enable = true;

@@ -30,21 +30,24 @@ let
   '';
 in
 {
-  config = mkIf (config.dotfiles.shell.gpg-agent.enable) {
-    services.gpg-agent = (mkMerge [
-      (mkIf config.dotfiles.shell.gpg-agent.desktop {
-        enableSshSupport = true;
-        enableExtraSocket = true;
-        pinentryFlavor = "gtk2";
-        sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
-      })
-      {
-        enable = true;
-        extraConfig = ''
-          allow-loopback-pinentry
-        '';
-      }
-    ]);
+  config = mkIf (config.dotfiles.shell.gpg.enable) {
+    services.gpg-agent =
+      mkIf (config.dotfiles.shell.gpg-agent.enable)
+        (
+          mkMerge [
+            (mkIf config.dotfiles.shell.gpg-agent.desktop {
+              enableSshSupport = true;
+              enableExtraSocket = true;
+              pinentryFlavor = "gtk2";
+              sshKeys = config.dotfiles.user-settings.gpg.ssh-keys;
+            })
+            {
+              enable = true;
+              extraConfig = ''
+                allow-loopback-pinentry
+              '';
+            }
+          ]);
 
     home.packages = optionals (config.dotfiles.shell.gpg-agent.desktop) (with pkgs;
       [ gpgme gpgme.dev ]);
@@ -54,7 +57,7 @@ in
       settings.pinentry-mode = "loopback";
     };
 
-    programs.fish.shellInit = ''
+    programs.fish.shellInit = mkIf (config.dotfiles.shell.gpg-agent.enable) ''
       set GPG_TTY (tty)
       ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
     '';

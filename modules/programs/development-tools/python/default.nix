@@ -10,12 +10,12 @@ in
     }
     (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable && pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64)
       {
-        home.packages = with pkgs; [ python-language-server ];
+        home.packages = with pkgs; [ python3Packages.python-lsp-server ];
         dotfiles.development-tools.neovim.language-servers = {
           extraLua = ''
-            lspconfig['pyls_ms'].setup {
+            lspconfig['pylsp'].setup {
               on_attach = on_attach,
-              cmd = {"${pkgs.python-language-server}/bin/python-language-server"}
+              cmd = {"${pkgs.python3Packages.python-lsp-server}/bin/pylsp"}
             }
           '';
         };
