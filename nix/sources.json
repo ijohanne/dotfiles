@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "07dd50b7dba78a70d388091fa33439fdee0dc333",
-        "sha256": "1bsdkqzh68dyhlws2xfalvhn0v5wlvapp154m765clhgz5db01zq",
+        "rev": "e05d1f7039a99fe9fdb962a9750e04aeef104233",
+        "sha256": "1w0aw2yk1iv94cd638gvhhszjkiwqqf8cc8cqcfd5mz8dfggqc2c",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/07dd50b7dba78a70d388091fa33439fdee0dc333.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/e05d1f7039a99fe9fdb962a9750e04aeef104233.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "gitignore": {
@@ -41,10 +41,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "039f786e609fdb3cfd9c5520ff3791750c3eaebf",
-        "sha256": "0bf1dsx4l7c0a1ypmwp0dg6y8f5qds8nxkwzjijmdf7jc4kz0phb",
+        "rev": "371576cdc2580ba93a38e28da8ece2129f558815",
+        "sha256": "0vwkmnvc4pggicgzii4gg22pv5whp2aiian0rs80srwzkxl2sz0n",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/039f786e609fdb3cfd9c5520ff3791750c3eaebf.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/371576cdc2580ba93a38e28da8ece2129f558815.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ijohanne-nur-packages": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "2231eab8285746c93ae96147ee284f429fecacdf",
-        "sha256": "11ph0d0nxi7lqg5dlp1mq4gmvhx4ll1w5ps7fc21yg70lsfp8z4l",
+        "rev": "10ca256f2b2445ebc443b2ac582b01969a6ca9df",
+        "sha256": "1sjlghvx288799kkw61pl17v6glprnvdlfhsna6akr503c3q9r1g",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/2231eab8285746c93ae96147ee284f429fecacdf.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/10ca256f2b2445ebc443b2ac582b01969a6ca9df.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
@@ -101,10 +101,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f2f8e282204266187f471b3353728843a577bc7e",
-        "sha256": "1gflpsgagg487xj5p9911b7pvqh2vmw7vfg4hi6pnbrqkilm5kj6",
+        "rev": "9f75aabfb06346e7677fc3ad53cc9b6669eead61",
+        "sha256": "14xh7r0jbpjdvzxzys72z5260hladckcj0c2bpgpdi5gq2xbx6yi",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/f2f8e282204266187f471b3353728843a577bc7e.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/9f75aabfb06346e7677fc3ad53cc9b6669eead61.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks-nix": {

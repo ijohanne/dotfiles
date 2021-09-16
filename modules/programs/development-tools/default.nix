@@ -111,7 +111,6 @@ in
       type = types.bool;
       description = "Enable Docker language apps";
     };
-
     type-script.enable = mkOption {
       default = false;
       type = types.bool;
@@ -132,10 +131,16 @@ in
       type = types.bool;
       description = "Enable haskell compiler";
     };
+    php.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable php compiler";
+    };
+
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ./act ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ./act ./php ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;
@@ -155,6 +160,7 @@ in
     dotfiles.development-tools.lua.enable = true;
     dotfiles.development-tools.dart.enable = true;
     dotfiles.development-tools.nix.enable = true;
+    dotfiles.development-tools.php.enable = true;
     dotfiles.development-tools.yaml.enable = true;
     dotfiles.development-tools.haskell.enable = true;
     dotfiles.development-tools.direnv.enable = true;

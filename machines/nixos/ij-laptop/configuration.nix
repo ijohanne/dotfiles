@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports =
@@ -7,7 +7,6 @@
   dotfiles.machines.laptop = true;
   dotfiles.machines.printers = true;
   dotfiles.machines.linuxKernelTestingEnabled = true;
-  dotfiles.machines.linuxKernelPackagesPkg = pkgs.linuxPackages_5_13;
 
   networking.hostName = "ij-laptop";
   networking.hostId = "d035f711";

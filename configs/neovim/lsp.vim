@@ -8,7 +8,7 @@
 set completeopt=menuone,noinsert,noselect
 
 " Inlay hints for Rust
-autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
+autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
 
 " Avoid showing extra messages when using completion
 set shortmess+=c
@@ -52,8 +52,7 @@ let g:diagnostic_insert_delay = 1
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
 " Show diagnostic popup on cursor hold
-" TODO: Reenable when all LSPs work
-" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>

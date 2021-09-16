@@ -118,7 +118,15 @@ in
           \ }
         '';
         plugins = with pkgs.vimPlugins; [
-          completion-nvim
+          # For now override until it's merged in upstream
+          (completion-nvim.overrideAttrs (_: {
+            src = pkgs.fetchFromGitHub {
+              owner = "rafaelsq";
+              repo = "completion-nvim";
+              rev = "changeHandlerSignature";
+              sha256 = "1xq3xa9fgj6b8llrdhmdbnxnv5jgld32a3n2hc59630zxn6jzpsl";
+            };
+          }))
           neoformat
           nvim-lsp-extensions
           nvim-lspconfig
