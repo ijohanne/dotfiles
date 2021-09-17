@@ -9,7 +9,6 @@ in
       home.packages = with pkgs; [ lua ];
     }
     (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable) {
-      home.packages = with pkgs; [ lua-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['sumneko_lua'].setup {

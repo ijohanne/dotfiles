@@ -6,7 +6,6 @@ in
 {
   config = mkIf cfg.enable (mkMerge [
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs; [ nodePackages.typescript-language-server ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['tsserver'].setup {

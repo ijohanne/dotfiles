@@ -8,8 +8,10 @@ let
 in
 {
   config = mkIf cfg.enable (mkMerge [
+    {
+      home.packages = with pkgs; [ cmake ];
+    }
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs; [ language-server cmake ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['cmake'].setup {

@@ -5,8 +5,10 @@ let
 in
 {
   config = mkIf cfg.enable (mkMerge [
+    {
+      home.packages = with pkgs.php-packages; [ pkgs.php composer2nix ];
+    }
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs.php-packages; [ phpactor composer2nix ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['phpactor'].setup {

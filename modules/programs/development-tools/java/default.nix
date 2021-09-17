@@ -5,8 +5,10 @@ let
 in
 {
   config = mkIf cfg.enable (mkMerge [
-    (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
+    {
       home.packages = with pkgs; [ openjdk gradle maven3 ];
+    }
+    (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['java_language_server'].setup {

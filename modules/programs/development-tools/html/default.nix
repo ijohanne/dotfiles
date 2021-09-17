@@ -6,7 +6,6 @@ in
 {
   config = mkIf cfg.enable (mkMerge [
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs.nodePackages; [ vscode-css-languageserver-bin vscode-html-languageserver-bin ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['html'].setup {

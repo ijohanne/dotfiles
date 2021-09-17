@@ -6,7 +6,6 @@ in
 {
   config = mkIf cfg.enable (mkMerge [
     (mkIf (config.dotfiles.development-tools.neovim.language-servers.enable) {
-      home.packages = with pkgs; [ texlab ];
       programs.neovim.plugins = with pkgs.vimPlugins; [ vimtex ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''

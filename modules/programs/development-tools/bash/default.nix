@@ -5,8 +5,10 @@ let
 in
 {
   config = mkIf cfg.enable (mkMerge [
+    {
+      home.packages = with pkgs; [ bash ];
+    }
     (mkIf config.dotfiles.development-tools.neovim.language-servers.enable {
-      home.packages = with pkgs; [ nodePackages.bash-language-server bash ];
       dotfiles.development-tools.neovim.language-servers = {
         extraLua = ''
           lspconfig['bashls'].setup {
