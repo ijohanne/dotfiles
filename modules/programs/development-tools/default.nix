@@ -136,7 +136,6 @@ in
       type = types.bool;
       description = "Enable php compiler";
     };
-
   };
 
   imports =

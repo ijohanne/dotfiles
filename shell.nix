@@ -21,7 +21,6 @@ pkgs.mkShell rec {
     shellcheck
     shfmt
     nixpkgs-fmt
-    git
   ];
   shellHook = ''
     export NIX_PATH="nixpkgs=${sources.nixpkgs}:home-manager=${sources."home-manager"}:nixos-config=/etc/nixos/configuration.nix:nixpkgs-overlays=modules/overlays"
