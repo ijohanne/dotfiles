@@ -239,6 +239,11 @@ in
       type = types.bool;
       description = "enable ssh client settings";
     };
+    scc.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "enable scc app";
+    };
   };
 
   imports = [
@@ -287,6 +292,7 @@ in
     ./zoxide
     ./yubikey-touch-detector
     ./ssh-client
+    ./scc
   ];
 
   config = mkIf (cfg.enable) {
@@ -332,6 +338,7 @@ in
     dotfiles.shell.whois.enable = true;
     dotfiles.shell.zoxide.enable = true;
     dotfiles.shell.lastpass-cli.enable = true;
+    dotfiles.shell.scc.enable = true;
   };
 
 }
