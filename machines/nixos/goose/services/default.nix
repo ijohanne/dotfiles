@@ -8,8 +8,8 @@
     ./dhcpd.nix
     ./wireguard.nix
     ./nginx.nix
-    (import ./prometheus.nix { inherit config secrets; })
-    (import ./prometheus-node.nix { inherit config; })
+    (import ./monitoring { inherit secrets config pkgs; })
+    (import ./prometheus.nix { inherit pkgs config secrets; })
     (import ./cloudflare.nix { inherit secrets pkgs; })
   ];
   services.openssh = {

@@ -7,6 +7,7 @@
     "net.ipv6.conf.all.accept_ra" = 0;
     "net.ipv6.conf.all.autoconf" = 1;
     "net.ipv6.conf.all.use_tempaddr" = 0;
+    "net.ipv4.tcp_congestion_control" = "bbr";
   };
 
   networking = {

@@ -1,4 +1,4 @@
-{ secrets, config, ... }:
+{ pkgs, secrets, config, ... }:
 {
 
   services.prometheus = {
@@ -32,6 +32,7 @@
         }
       ];
     };
+    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel ];
   };
 
   services.nginx.virtualHosts = {

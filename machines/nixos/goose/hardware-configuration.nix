@@ -10,7 +10,7 @@ in
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "it87" ];
-  boot.kernelModules = [ "kvm-amd" "coretemp" ];
+  boot.kernelModules = [ "kvm-amd" "coretemp" "tcp_bbr" ];
   boot.extraModulePackages = [ it87 ];
   boot.extraModprobeConfig = ''
     options it87 force_id=0x8628
@@ -38,6 +38,7 @@ in
   hardware.enableAllFirmware = true;
 
   powerManagement.powertop.enable = true;
+  powerManagement.cpuFreqGovernor = "conservative";
   services.thermald.enable = true;
 
   environment.etc."sysconfig/lm_sensors".text = ''

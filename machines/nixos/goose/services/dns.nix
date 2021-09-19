@@ -37,7 +37,13 @@
           ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
           ''"hp-office.est.unixpimps.net. IN A 10.255.101.230"''
           ''"grafana.est.unixpimps.net. IN A 10.255.254.254"''
+          ''"app-backend.local. IN A 10.255.100.24"''
+          ''"app-frontend.local. IN A 10.255.100.24"''
         ];
+      };
+      remote-control = {
+        control-enable = true;
+        control-use-cert = "no";
       };
     };
   };
