@@ -8,5 +8,7 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
+    binaryCaches = [ "https://ijohanne.cachix.org" ];
+    binaryCachePublicKeys = [ "ijohanne.cachix.org-1:oDy0m6h+CimPEcaUPaTZpEyVk6FVFpYPAXrrA9L5i9M=" ];
   };
 }

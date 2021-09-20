@@ -16,6 +16,8 @@ in
           }
         '';
       };
+      home.file."${config.xdg.configHome}/nvim/parser/dart.so".source =
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-dart}/parser";
     })
   ]);
 }
