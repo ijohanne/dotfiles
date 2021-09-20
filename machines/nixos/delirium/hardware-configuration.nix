@@ -8,7 +8,7 @@
 
   boot.initrd.availableKernelModules = [ "ahci" "nvme" "usb_storage" "usbhid" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "tcp_bbr" ];
   boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_5_13;
   boot.loader.systemd-boot.enable = false;

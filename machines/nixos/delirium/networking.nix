@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
+
   networking = {
     hostName = "delirium";
     domain = "unixpimps.net";

@@ -14,6 +14,6 @@
     (import ./rspamd.nix { inherit secrets config pkgs; })
     (import ./smokeping.nix { inherit secrets config pkgs; })
     (import ./systemd.nix { inherit secrets config pkgs; })
-    (import ./teamspeak3.nix { inherit secrets config pkgs; })
+    (import ./teamspeak3.nix { inherit secrets; })
   ];
 }
