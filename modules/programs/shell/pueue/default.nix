@@ -8,6 +8,7 @@ let
     mkdir -p $HOME/.config/pueue
     echo Creating configuration
     cat > $HOME/.config/pueue/pueue.yml <<EOF
+    rm -f $HOME/.local/share/pueue/pueue.pid
     shared:
       pueue_directory: $HOME/.local/share/pueue
       use_unix_socket: true
