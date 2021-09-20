@@ -32,6 +32,9 @@
         rrset-cache-size = "256m";
         msg-cache-size = "128m";
         so-rcvbuf = "1m";
+        statistics-interval = 0;
+        extended-statistics = "yes";
+        statistics-cumulative = "yes";
         local-data = [
           ''"r0.est.unixpimps.net. IN A 10.255.254.254"''
           ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
