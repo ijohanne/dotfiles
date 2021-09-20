@@ -3,10 +3,10 @@
   imports = [
     ./node.nix
     ./nftables.nix
-    ./unbound.nix
     ./smokeping.nix
-    ./wireguard.nix
+    (import ./unbound.nix { inherit config; })
+    (import ./wireguard.nix { inherit config; })
     (import ./unpoller.nix { inherit pkgs secrets config; })
-    (import ./hue.nix { inherit pkgs secrets config; })
+    (import ./hue.nix { inherit secrets; })
   ];
 }
