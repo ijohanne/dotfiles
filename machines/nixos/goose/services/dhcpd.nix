@@ -71,7 +71,12 @@
 
       host hp-office {
         hardware ethernet 30:e1:71:09:c3:2e;
-        fixed-address 10.255.101.230;
+        fixed-address 10.255.100.230;
+      }
+
+      host Main-bridge {
+        hardware ethernet 00:17:88:a7:27:9c;
+        fixed-address 10.255.101.240;
       }
     '';
   };

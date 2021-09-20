@@ -32,7 +32,7 @@
         }
       ];
     };
-    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel ];
+    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel grafana-clock-panel ];
   };
 
   services.nginx.virtualHosts = {

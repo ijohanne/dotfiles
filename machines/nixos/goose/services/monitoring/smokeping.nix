@@ -4,6 +4,9 @@
     enable = true;
     hosts = [
       "8.8.8.8"
+      "delirium.unixpimps.net"
+      "1.1.1.1"
+      "google.com"
     ];
   };
 
