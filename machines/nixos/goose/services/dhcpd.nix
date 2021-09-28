@@ -78,6 +78,11 @@
         hardware ethernet 00:17:88:a7:27:9c;
         fixed-address 10.255.101.240;
       }
+
+      host ij-laptop {
+        hardware ethernet c8:e2:65:2d:7e:8b;
+        fixed-address 10.255.100.201;
+      }
     '';
   };
 
