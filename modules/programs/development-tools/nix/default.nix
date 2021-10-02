@@ -15,6 +15,8 @@ in
           }
         '';
       };
+      home.file."${config.xdg.configHome}/nvim/parser/nix.so".source =
+        "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
     })
   ]);
 }
