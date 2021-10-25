@@ -53,56 +53,84 @@ let
 in
 {
   services.nginx = {
-    virtualHosts = {
-      "${secrets.opsplaza.themailerVhost}" = {
-        locations = {
-          "/" = {
-            extraConfig = ''
-              proxy_set_header   Host             themailer.ragetech.dk;
-              proxy_set_header   X-Real-IP        $remote_addr;
-              proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-              proxy_set_header   X-Proxy-Proto  http;
-            '';
-            proxyPass = "http://127.0.0.1:12001";
+    virtualHosts = lib.mkMerge [
+      {
+        "${secrets.opsplaza.themailerVhost}" = {
+          http2 = true;
+          forceSSL = true;
+          enableACME = true;
+          locations = {
+            "/" = {
+              extraConfig = ''
+                proxy_set_header   Host             themailer.ragetech.dk;
+                proxy_set_header   X-Real-IP        $remote_addr;
+                proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+                proxy_set_header   X-Proxy-Proto  http;
+              '';
+              proxyPass = "http://127.0.0.1:12001";
+            };
           };
+        };
+      }
+      (lib.genAttrs secrets.opsplaza.agentServers
+        (site:
+          lib.mkMerge [
+            {
+              http2 = true;
+              forceSSL = true;
+              enableACME = true;
+              locations = {
+                "/" = {
+                  extraConfig = ''
+                    proxy_set_header   Host             ${site};
+                    proxy_set_header   X-Real-IP        $remote_addr;
+                    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+                    proxy_set_header   X-Proxy-Proto  http;
+                  '';
+                  proxyPass = "http://127.0.0.1:5000";
+                };
+              };
+            }
+          ]
+        ))
+    ];
+  };
+  virtualisation.oci-containers.containers =
+    {
+      couchdb = {
+        autoStart = true;
+        image = "couchdb:2.3.1";
+        ports = [ "127.0.0.1:5984:5984" ];
+        volumes = [ "/var/opsplaza/couchdb:/opt/couchdb/data" ];
+        extraOptions = [ "--network=opsplaza-br" ];
+      };
+      themailer = {
+        autoStart = true;
+        image = "themailer:latest";
+        imageFile = themailerImage;
+        ports = [ "127.0.0.1:12001:8080" ];
+        extraOptions = [ "--network=opsplaza-br" ];
+      };
+      themailerpostfix = {
+        autoStart = true;
+        image = "juanluisbaptiste/postfix";
+        extraOptions = [ "--network=opsplaza-br" ];
+        environment = {
+          SMTP_SERVER = "delirium.unixpimps.net";
+          SMTP_PORT = "587";
+          SMTP_USERNAME = "themailer@unixpimps.net";
+          SMTP_PASSWORD = "${secrets.opsplaza.smtpPass}";
+          SERVER_HOSTNAME = "themailer.unixpimps.net";
         };
       };
     };
-  };
-  virtualisation.oci-containers.containers = {
-    couchdb = {
-      autoStart = true;
-      image = "couchdb:2.3.1";
-      ports = [ "127.0.0.1:5984:5984" ];
-      volumes = [ "/var/opsplaza/couchdb:/opt/couchdb/data" ];
-      extraOptions = [ "--network=opsplaza-br" ];
-    };
-    themailer = {
-      autoStart = true;
-      image = "themailer:latest";
-      imageFile = themailerImage;
-      ports = [ "127.0.0.1:12001:8080" ];
-      extraOptions = [ "--network=opsplaza-br" ];
-    };
-    themailerpostfix = {
-      autoStart = true;
-      image = "juanluisbaptiste/postfix";
-      extraOptions = [ "--network=opsplaza-br" ];
-      environment = {
-        SMTP_SERVER = "delirium.unixpimps.net";
-        SMTP_PORT = "587";
-        SMTP_USERNAME = "themailer@unixpimps.net";
-        SMTP_PASSWORD = "${secrets.opsplaza.smtpPass}";
-        SERVER_HOSTNAME = "themailer.unixpimps.net";
-      };
-    };
-  };
 
   systemd.tmpfiles.rules = [
     "d /var/opsplaza/couchdb 0777 root root"
   ];
 
-  services.borgbackup.jobs.services.paths = lib.mkAfter [ "/etc/nixos/hosted/opsplaza/jboss" ];
+  services.borgbackup.jobs.services.paths = lib.mkAfter
+    [ "/etc/nixos/hosted/opsplaza/jboss" ];
 
   systemd = {
     timers.opsplaza-couchdb-backup = {

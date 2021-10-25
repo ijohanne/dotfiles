@@ -3,7 +3,7 @@ let
   pr_119719 = builtins.fetchTarball {
     name = "nixos-pr_119719";
     url = "https://api.github.com/repos/greizgh/nixpkgs/tarball/seafile";
-    sha256 = "0pysyls3c394b4p434hmcvn0xkyh0d02hbsza903lqx81146957g";
+    sha256 = "1zqxqz1kb5n6k69igfmpsy2binkwcnxmmmwkl52m1ir6nm3ca8dq";
   };
 in
 {

@@ -21,5 +21,5 @@ in
     (import "${sources.ijohanne-nur-packages}/overlay.nix")
   ];
 
-  system.stateVersion = "21.05";
+  nixpkgs.config.allowUnfree = true;
 }

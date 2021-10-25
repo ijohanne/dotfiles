@@ -10,7 +10,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "tcp_bbr" ];
   boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_5_13;
+  boot.kernelPackages = pkgs.linuxPackages_5_14;
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
     enable = true;
@@ -28,6 +28,7 @@
 
   environment.etc."mdadm.conf".text = ''
     HOMEHOST delirium
+    MAILADDR sysops@unixpimps.net
   '';
 
   fileSystems."/" =

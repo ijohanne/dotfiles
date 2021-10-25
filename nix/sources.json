@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "ijohanne",
         "repo": "nur-packages",
-        "rev": "8364d5dda52c5e34460b947477286f413988f0e4",
-        "sha256": "0v8b20i0prbmm3jnpcqai32pf1gv3d5zngllxn3vs6xjppbl4fms",
+        "rev": "dc82aa10fd2f256b8547a3cb14ec864aa712dfc9",
+        "sha256": "1srzb18fahl15swdg4g2w58xk5rr907yxm5qp6spyy4sg2kjya3c",
         "type": "tarball",
-        "url": "https://github.com/ijohanne/nur-packages/archive/8364d5dda52c5e34460b947477286f413988f0e4.tar.gz",
+        "url": "https://github.com/ijohanne/nur-packages/archive/dc82aa10fd2f256b8547a3cb14ec864aa712dfc9.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mozilla-overlay": {
