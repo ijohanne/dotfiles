@@ -19,6 +19,8 @@ in
             }
           '';
         };
+        home.file."${config.xdg.configHome}/nvim/parser/haskell.so".source =
+          "${pkgs.tree-sitter.builtGrammars.tree-sitter-haskell}/parser";
       }
     )
   ]);

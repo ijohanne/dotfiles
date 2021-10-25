@@ -102,12 +102,18 @@ in
       programs.neovim = {
         extraConfig = builtins.readFile ../../../../configs/neovim/lsp.vim + ''
           lua <<EOF
-                    local lspconfig = require 'lspconfig'
+          local lspconfig = require 'lspconfig'
 
-                    local on_attach = function(client)
-                      require'completion'.on_attach(client)
-                    end
-                ${cfg.language-servers.extraLua}
+          local on_attach = function(client)
+            require'completion'.on_attach(client)
+          end
+
+          require("dapui").setup()
+
+          vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+          ${cfg.language-servers.extraLua}
+
           EOF
           ${cfg.language-servers.extraNvim}
           let g:gutentags_file_list_command = {
@@ -116,6 +122,17 @@ in
               \ '.hg': 'hg files',
             \ },
           \ }
+
+          nnoremap <silent> <F6>    <cmd>lua require'dapui'.toggle()<CR>
+          nnoremap <silent> <F7>    <cmd>lua require'dap'.toggle_breakpoint()<CR>
+          nnoremap <silent> <F8>    <cmd>lua require('dapui').eval()<CR>
+          nnoremap <silent> <F9>    <cmd>lua require'dap'.continue()<CR>
+          nnoremap <silent> g<F9>   <cmd>lua require'dap'.run_to_cursor()<CR>
+          nnoremap <silent> <F10>   <cmd>lua require'dap'.step_over()<CR>
+          nnoremap <silent> <F11>   <cmd>lua require'dap'.step_into()<CR>
+          nnoremap <silent> <F12>   <cmd>lua require'dap'.step_out()<CR>
+
+          command! CodeActionMenu lua require('code_action_menu').open_code_action_menu()
         '';
         plugins = with pkgs.vimPlugins; [
           # For now override until it's merged in upstream
@@ -131,6 +148,14 @@ in
           nvim-lsp-extensions
           nvim-lspconfig
           vim-gutentags
+          nvim-luadev
+          nvim-luapad
+          nvim-dap
+          plenary-nvim
+          telescope-nvim
+          nvim-dap-ui
+          nvim-code-action-menu
+          nvim-lightbulb
         ];
       };
     })
