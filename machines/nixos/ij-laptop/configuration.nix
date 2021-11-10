@@ -6,7 +6,6 @@
 
   dotfiles.machines.laptop = true;
   dotfiles.machines.printers = true;
-  dotfiles.machines.linuxKernelTestingEnabled = true;
 
   networking.hostName = "ij-laptop";
   networking.hostId = "d035f711";

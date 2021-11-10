@@ -1,0 +1,123 @@
+diff --git a/Makefile b/Makefile
+index 1bf7650..3678aa4 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,15 +9,66 @@ else
+ 
+ # Normal Makefile
+ 
+-KERNELDIR := /lib/modules/`uname -r`/build
+-all: 
+-	$(MAKE) -C $(KERNELDIR) M=`pwd` modules
++KERNELDIR := /lib/modules/$(TARGET)/build
++
++ifndef TARGET
++TARGET		:= $(shell uname -r)
++endif
++
++KERNEL_MODULES	:= /lib/modules/$(TARGET)
++
++ifneq ("","$(wildcard /usr/src/linux-headers-$(TARGET)/*)")
++# Ubuntu
++KERNEL_BUILD	:= /usr/src/linux-headers-$(TARGET)
++else
++ifneq ("","$(wildcard /usr/src/kernels/$(TARGET)/*)")
++# Fedora
++KERNEL_BUILD	:= /usr/src/kernels/$(TARGET)
++else
++KERNEL_BUILD	:= $(KERNEL_MODULES)/build
++endif
++endif
++
++ifneq ("","$(wildcard /boot/System.map-$(TARGET))")
++SYSTEM_MAP	:= /boot/System.map-$(TARGET)
++else
++# Arch
++SYSTEM_MAP	:= /proc/kallsyms
++endif
++
++ifneq ("","$(wildcard $(MODDESTDIR)/*.ko.gz)")
++COMPRESS_GZIP := y
++endif
++ifneq ("","$(wildcard $(MODDESTDIR)/*.ko.xz)")
++COMPRESS_XZ := y
++endif
++
++DRIVER = nf_nat_rtsp
++MOD_SUBDIR = "net/ipv4/netfilter"
++MODDESTDIR=$(KERNEL_MODULES)/kernel/$(MOD_SUBDIR)
++
++all: build
++
++build:
++	$(MAKE) -C $(KERNEL_BUILD) M=`pwd` modules
+ 
+ debug:
+-	$(MAKE) -C $(KERNELDIR) EXTRA_CFLAGS=-DDEBUG M=`pwd` modules
++	$(MAKE) -C $(KERNEL_BUILD) EXTRA_CFLAGS=-DDEBUG M=`pwd` modules
++
++install: modules_install
+ 
+ modules_install:
+-	$(MAKE) -C $(KERNELDIR) M=`pwd` modules_install
++	mkdir -p $(MODDESTDIR)
++	cp nf_nat_rtsp.ko $(MODDESTDIR)/
++	cp nf_conntrack_rtsp.ko $(MODDESTDIR)/
++ifeq ($(COMPRESS_GZIP), y)
++	@gzip -f $(MODDESTDIR)/nf_nat_rtsp.ko
++	@gzip -f $(MODDESTDIR)/nf_conntrack_rtsp.ko
++endif
++ifeq ($(COMPRESS_XZ), y)
++	@xz -f $(MODDESTDIR)/nf_nat_rtsp.ko
++	@xz -f $(MODDESTDIR)/nf_conntrack_rtsp.ko
++endif
+ 
+ clean:
+ 	rm -rf *.o *.ko *.mod.c .*.cmd Module.symvers modules.order .tmp_versions
+diff --git a/nf_conntrack_rtsp.c b/nf_conntrack_rtsp.c
+index 32fcf54..29588b0 100644
+--- a/nf_conntrack_rtsp.c
++++ b/nf_conntrack_rtsp.c
+@@ -275,6 +275,7 @@ help_out(struct sk_buff *skb, unsigned char *rb_ptr, unsigned int datalen,
+ 	 struct nf_conn *ct, enum ip_conntrack_info ctinfo)
+ #endif
+ {
++
+ 	struct ip_ct_rtsp_expect expinfo;
+ 	
+ 	int dir = CTINFO2DIR(ctinfo);   /* = IP_CT_DIR_ORIGINAL */
+@@ -294,7 +295,7 @@ help_out(struct sk_buff *skb, unsigned char *rb_ptr, unsigned int datalen,
+ 	typeof(nf_nat_rtsp_hook) nf_nat_rtsp;
+ 
+ 	memset(&expinfo, 0, sizeof(expinfo));
+-	
++
+ 	while (dataoff < datalen) {
+ 		uint cmdoff = dataoff;
+ 		uint hdrsoff = 0;
+@@ -385,7 +386,7 @@ help_out(struct sk_buff *skb, unsigned char *rb_ptr, unsigned int datalen,
+ 		}
+ 
+ 		nf_nat_rtsp = rcu_dereference(nf_nat_rtsp_hook);
+-		if (nf_nat_rtsp && ct->status & IPS_NAT_MASK)
++		if (nf_nat_rtsp && ct->status & IPS_NAT_MASK) {
+ 			/* pass the request off to the nat helper */
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0)
+ 			ret = nf_nat_rtsp(skb, ctinfo, protoff, hdrsoff, hdrslen,
+@@ -394,7 +395,7 @@ help_out(struct sk_buff *skb, unsigned char *rb_ptr, unsigned int datalen,
+ 			ret = nf_nat_rtsp(skb, ctinfo, hdrsoff, hdrslen,
+ 					  &expinfo, rtp_exp, rtcp_exp);
+ #endif
+-		else {
++		} else {
+ 			if (rtsp_nf_ct_expect_related(rtp_exp) == 0) {
+ 				if (rtcp_exp && rtsp_nf_ct_expect_related(rtcp_exp) != 0) {
+ 					nf_ct_unexpect_related(rtp_exp);
+@@ -471,6 +472,7 @@ static int help(struct sk_buff *skb, unsigned int protoff,
+ #endif
+ 
+ 	switch (CTINFO2DIR(ctinfo)) {
++	case IP_CT_DIR_MAX:
+ 	case IP_CT_DIR_ORIGINAL:
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0)
+ 		ret = help_out(skb, rb_ptr, datalen, ct, ctinfo, protoff);

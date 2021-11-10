@@ -20,7 +20,7 @@
         option broadcast-address 10.255.100.255;
         option routers 10.255.100.254;
         option ubnt.unifi-address 10.255.254.240;
-        if substring(option vendor-class-identifier, 0, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.100.254;}
+        if substring(option vendor-class-identifier, 1, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.100.254;}
         default-lease-time 86400;
         max-lease-time 129600;
         interface wifi;
@@ -31,7 +31,7 @@
         option broadcast-address 10.255.101.255;
         option routers 10.255.101.254;
         option ubnt.unifi-address 10.255.254.240;
-        if substring(option vendor-class-identifier, 0, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.101.254;}
+        if substring(option vendor-class-identifier, 1, 3) = "IAL" { option domain-name-servers 172.26.23.3; option deco240 ":::::239.0.2.30:22222"; } else { option domain-name-servers 10.255.101.254;}
         default-lease-time 86400;
         max-lease-time 129600;
         interface wired;

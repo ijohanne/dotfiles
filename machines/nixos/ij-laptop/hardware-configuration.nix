@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
@@ -30,6 +30,7 @@
   };
 
   dotfiles.machines.zfsEnable = true;
+  dotfiles.machines.linuxKernelPackagesPkg = pkgs.linuxPackages_5_14;
 
   swapDevices = [ ];
 

@@ -1,6 +1,7 @@
 { config, lib, modulesPath, ... }:
 let
   it87 = config.boot.kernelPackages.callPackage ./pkgs/it87.nix { };
+  rtsp_linux = config.boot.kernelPackages.callPackage ./pkgs/rtsp_linux.nix { };
 in
 {
   imports =
@@ -10,8 +11,8 @@ in
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "it87" ];
-  boot.kernelModules = [ "kvm-amd" "coretemp" "tcp_bbr" ];
-  boot.extraModulePackages = [ it87 ];
+  boot.kernelModules = [ "kvm-amd" "coretemp" "tcp_bbr" "nf_nat_rtsp" ];
+  boot.extraModulePackages = [ it87 rtsp_linux ];
   boot.extraModprobeConfig = ''
     options it87 force_id=0x8628
   '';

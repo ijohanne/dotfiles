@@ -30,9 +30,9 @@
                 "wg0"
               } counter accept
               ip protocol igmp accept comment "Accept IGMP"
+              ip saddr 224.0.0.0/4 accept
               iifname "ppp0" ct state { established, related } counter accept
               iifname "ppp0" drop
-              ip saddr 224.0.0.0/4 accept
             }
 
             chain forward {
@@ -49,14 +49,16 @@
 
               iifname { "wifi", "wired", "mgnt", "enp7s0", "wg0" } oifname {
                 "wifi", "wired", "mgnt", "enp7s0", "wg0" } counter accept
-              ip saddr 172.26.0.0/16 ip daddr 224.0.0.0/4 accept
-              ip saddr 172.23.0.0/16 ip daddr 224.0.0.0/4 accept
-            }
+
+              ip saddr 172.26.0.0/16 accept
+              ip saddr 172.23.0.0/16 accept
+
+              }
         }
 
         table ip nat {
             chain prerouting {
-              type nat hook output priority filter; policy accept;
+              type nat hook prerouting priority -100; policy accept;
             }
 
             chain postrouting {

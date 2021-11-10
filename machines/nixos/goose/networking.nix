@@ -8,6 +8,7 @@
     "net.ipv6.conf.all.autoconf" = 1;
     "net.ipv6.conf.all.use_tempaddr" = 0;
     "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.netfilter.nf_conntrack_helper" = 1;
   };
 
   networking = {
