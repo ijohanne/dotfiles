@@ -59,6 +59,9 @@
           "g@coredump.dk"
           "matek@lujer.dk"
           "matek@koffein.dk"
+          "mt@koffein.dk"
+          "ojt@koffein.dk"
+          "hv@koffein.dk"
         ];
       };
       "no-reply@unixpimps.net" = {
