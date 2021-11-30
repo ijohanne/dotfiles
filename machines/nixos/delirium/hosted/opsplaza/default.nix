@@ -57,7 +57,7 @@ in
       {
         "${secrets.opsplaza.themailerVhost}" = {
           http2 = true;
-          forceSSL = true;
+          forceSSL = false;
           enableACME = true;
           locations = {
             "/" = {
