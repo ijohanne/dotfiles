@@ -47,8 +47,9 @@ in
           require('rust-tools').setup(opts)
         '';
         extraNvim = ''
+          " FIXME: Borked right now
           " Inlay hints for Rust
-          autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
+          " autocmd BufEnter,TabEnter,BufWinEnter *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
         '';
       };
       home.file."${config.xdg.configHome}/nvim/parser/rust.so".source =
