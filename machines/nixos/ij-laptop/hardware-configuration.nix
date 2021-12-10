@@ -30,7 +30,7 @@
   };
 
   dotfiles.machines.zfsEnable = true;
-  dotfiles.machines.linuxKernelPackagesPkg = pkgs.linuxPackages_5_14;
+  dotfiles.machines.linuxKernelPackagesPkg = pkgs.linuxPackages;
 
   swapDevices = [ ];
 
