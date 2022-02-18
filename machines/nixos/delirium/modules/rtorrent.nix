@@ -47,6 +47,7 @@ in
           Group = "nogroup";
           Type = "simple";
           KillMode = "process";
+          RuntimeMaxSec = 86400;
           ExecStartPre = [
             ("+" + pkgs.writeShellScript "rtorrent" ''
               mkdir -p ${datadir}/sessions
@@ -59,7 +60,7 @@ in
           ];
           ExecStart = "${pkgs.rtorrent}/bin/rtorrent -n -o system.daemon.set=true -o import=${rtorrentRC}";
           WorkingDirectory = datadir;
-          Restart = "on-failure";
+          Restart = "always";
         };
         environment = {
           TERM = "xterm";

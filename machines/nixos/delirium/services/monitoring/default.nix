@@ -15,5 +15,6 @@
     (import ./smokeping.nix { inherit secrets config pkgs; })
     (import ./systemd.nix { inherit secrets config pkgs; })
     (import ./teamspeak3.nix { inherit secrets; })
+    (import ./concordium.nix)
   ];
 }

@@ -52,13 +52,15 @@
 
               ip saddr 172.26.0.0/16 accept
               ip saddr 172.23.0.0/16 accept
-
+        tcp dport 10000 accept
+        tcp dport 8888 accept
               }
         }
 
         table ip nat {
             chain prerouting {
               type nat hook prerouting priority -100; policy accept;
+        iifname "ppp0" tcp dport { 8888, 10000 } dnat to 10.255.101.17:10000
             }
 
             chain postrouting {
