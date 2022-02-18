@@ -4,6 +4,7 @@
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
   hardware.cpu.amd.updateMicrocode = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.kernelModules = [ "kvm-amd" ];

@@ -9,6 +9,11 @@ in
       type = types.bool;
       description = "Enable libreoffice app";
     };
+    prusa-slicer.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable prusa-slicer app";
+    };
     zathura.enable = mkOption {
       default = false;
       type = types.bool;
@@ -26,12 +31,13 @@ in
     };
   };
 
-  imports = [ ./libreoffice ./zathura ./thunderbird ./seafile-client ];
+  imports = [ ./libreoffice ./zathura ./thunderbird ./seafile-client ./prusa-slicer ];
 
   config = mkIf (cfg.enable) {
     dotfiles.x11.office.libreoffice.enable = true;
     dotfiles.x11.office.zathura.enable = true;
     dotfiles.x11.office.seafile-client.enable = true;
     dotfiles.x11.office.thunderbird.enable = true;
+    dotfiles.x11.office.prusa-slicer.enable = true;
   };
 }

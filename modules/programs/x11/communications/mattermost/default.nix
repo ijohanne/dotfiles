@@ -44,10 +44,10 @@ with lib; {
   config = mkIf (config.dotfiles.x11.communications.mattermost.enable) {
     home.packages = with pkgs; [
       (mattermost-desktop.overrideAttrs (_: {
-        version = "5.0.0";
+        version = "5.0.4";
         src = pkgs.fetchurl {
-          url = "https://releases.mattermost.com/desktop/5.0.0/mattermost-desktop-5.0.0-linux-x64.tar.gz";
-          sha256 = "1rc2a1p0w47dp9bmvclmf5ljwkwxpf820khd82h3wsqqzgxn2q0r";
+          url = "https://releases.mattermost.com/desktop/5.0.4/mattermost-desktop-5.0.4-linux-x64.tar.gz";
+          sha256 = "sha256-y9KYHOKC7s/qEWfFANkAzdMb0EGwhhAldDt9WOTLkik=";
         };
         installPhase = ''
           runHook preInstall

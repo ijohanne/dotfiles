@@ -165,7 +165,7 @@ in
     dotfiles.development-tools.direnv.enable = true;
     dotfiles.development-tools.type-script.enable = true;
     dotfiles.development-tools.vim-language.enable = true;
-    dotfiles.development-tools.cmake-language.enable = true;
+    dotfiles.development-tools.cmake-language.enable = false;
     dotfiles.development-tools.docker-language.enable = true;
   };
 

@@ -25,4 +25,12 @@
   nix.extraOptions = ''
     builders-use-substitutes = true
   '';
+
+  boot.kernelPatches = [{
+    name = "ufs-readwrite";
+    patch = null;
+    extraConfig = ''
+      UFS_FS_WRITE y
+    '';
+  }];
 }
