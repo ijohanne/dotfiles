@@ -38,6 +38,29 @@ in
                 version = "master";
                 src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-PrintScheduler) owner repo rev sha256; };
               };
+            bedlevelvisualizer =
+              self.buildPythonPackage rec {
+                pname = "OctoPrint-BedLevelVisualizer";
+                propagatedBuildInputs = [ super.octoprint ];
+                doCheck = false;
+                version = "master";
+                src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-BedLevelVisualizer) owner repo rev sha256; };
+              };
+            octoprint-dashboard = self.buildPythonPackage rec {
+              pname = "OctoPrint-Dashboard";
+              propagatedBuildInputs = [ super.octoprint ];
+              doCheck = false;
+              version = "master";
+              src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-Dashboard) owner repo rev sha256; };
+            };
+            displaylayerprogress = self.buildPythonPackage rec {
+              pname = "OctoPrint-Dashboard";
+              propagatedBuildInputs = [ super.octoprint ];
+              doCheck = false;
+              version = "master";
+              src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-DisplayLayerProgress) owner repo rev sha256; };
+            };
+
           };
       };
     })
@@ -56,10 +79,13 @@ in
   services.openssh.enable = true;
   services.octoprint = {
     enable = true;
-    plugins = _: with pkgs.octoprint.python.pkgs; [ printtimegenius arcwelder printscheduler themeify ];
+    plugins = _: with pkgs.octoprint.python.pkgs; [ printtimegenius arcwelder printscheduler themeify bedlevelvisualizer simpleemergencystop octoprint-dashboard displaylayerprogress ];
   };
   networking.firewall.enable = false;
-  services.mjpg-streamer-experimental.enable = true;
+  services.mjpg-streamer-experimental = {
+    enable = true;
+    inputArgs = "-d /dev/video0 -r 1920x1080 -f 60";
+  };
 
   security.sudo = {
     enable = true;
@@ -67,7 +93,21 @@ in
     wheelNeedsPassword = false;
   };
 
-  environment.systemPackages = with pkgs; [ neovim screen bottom htop libraspberrypi raspberrypifw raspberrypi-eeprom niv nixpkgs-fmt ];
+  environment.systemPackages = with pkgs; [
+    (neovim.override {
+      viAlias = true;
+      vimAlias = true;
+    })
+    screen
+    bottom
+    htop
+    libraspberrypi
+    raspberrypifw
+    raspberrypi-eeprom
+    niv
+    nixpkgs-fmt
+    v4l-utils
+  ];
 
   services.nginx = {
     enable = true;

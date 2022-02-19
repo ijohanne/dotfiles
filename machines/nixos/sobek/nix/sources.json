@@ -11,6 +11,42 @@
         "url": "https://github.com/FormerLurker/ArcWelderPlugin/archive/bb71e8fe20cc65f0ab28c0c13685fde39f730320.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "OctoPrint-BedLevelVisualizer": {
+        "branch": "master",
+        "description": null,
+        "homepage": null,
+        "owner": "jneilliii",
+        "repo": "OctoPrint-BedLevelVisualizer",
+        "rev": "4f893e235ec58070c4f17bf9dd7833f90610bda2",
+        "sha256": "07cp9s7z8dmiyqyf1mg1shqjq9hp5p3nxz17fkllgcyz6qcqdk4d",
+        "type": "tarball",
+        "url": "https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/4f893e235ec58070c4f17bf9dd7833f90610bda2.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "OctoPrint-Dashboard": {
+        "branch": "master",
+        "description": "A dashboard for Octoprint",
+        "homepage": "",
+        "owner": "StefanCohen",
+        "repo": "OctoPrint-Dashboard",
+        "rev": "a1a6e88db63b5033e57b086dd030a82f7fcd496b",
+        "sha256": "0qpi1d79hfh5nzgvawdyai6fcl3sw2law6hb8n55aa9c8qxk24qz",
+        "type": "tarball",
+        "url": "https://github.com/StefanCohen/OctoPrint-Dashboard/archive/a1a6e88db63b5033e57b086dd030a82f7fcd496b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "OctoPrint-DisplayLayerProgress": {
+        "branch": "master",
+        "description": "OctoPrint-Plugin",
+        "homepage": "",
+        "owner": "OllisGit",
+        "repo": "OctoPrint-DisplayLayerProgress",
+        "rev": "86ae2a443482e3a348b386221e7b13bdd9c4c684",
+        "sha256": "1kb6wiyvsksn6awpsgcqmaw61jjj0f38lmg9i1z50m278bj3miaf",
+        "type": "tarball",
+        "url": "https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/archive/86ae2a443482e3a348b386221e7b13bdd9c4c684.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "OctoPrint-PrintScheduler": {
         "branch": "master",
         "description": null,
