@@ -39,7 +39,7 @@
           ''"r0.est.unixpimps.net. IN A 10.255.254.254"''
           ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
           ''"hp-office.est.unixpimps.net. IN A 10.255.101.230"''
-          ''"sobek.est.unixpimps.net. IN A 10.255.100.203"''
+          ''"sobek.est.unixpimps.net. IN A 10.255.101.244"''
           ''"fatty.est.unixpimps.net. IN A 10.255.101.243"''
           ''"chronos.est.unixpimps.net. IN A 10.255.100.202"''
           ''"hapi.est.unixpimps.net. IN A 10.255.101.242"''

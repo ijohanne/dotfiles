@@ -105,6 +105,11 @@
         hardware ethernet dc:a6:32:08:7c:33;
         fixed-address 10.255.100.203;
             }
+
+      host sobek-wired {
+        hardware ethernet dc:a6:32:08:7c:32;
+        fixed-address 10.255.101.244;
+      }
     '';
   };
 

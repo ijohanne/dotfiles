@@ -10,7 +10,7 @@
       enableACME = true;
       onlySSL = true;
       locations."/" = {
-        proxyPass = "http://10.255.100.203/webcam/?action=stream";
+        proxyPass = "http://10.255.101.244/webcam/?action=stream";
       };
     };
   };

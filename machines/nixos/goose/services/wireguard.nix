@@ -18,6 +18,10 @@
           publicKey = "hyZuVr+T+FD0uVYtMvTr+XMkIrcdRPhjKC+Y9zbFPFs=";
           allowedIPs = [ "10.100.0.4/32" ];
         }
+        {
+          publicKey = "AzcORdSkMEKnh5dVRdsXm0UNBF6/99GkiFwQER88f2I=";
+          allowedIPs = [ "10.100.0.5/32" ];
+        }
       ];
     };
   };

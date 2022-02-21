@@ -39,8 +39,11 @@ in
       {
         enable = enable;
         preStart = ''
-          mkdir -m 0700 -p ${datadir}
-          chown rtorrent ${datadir}
+          if [ ! -d ${datadir} ]
+                then
+                  mkdir -m 0700 -p ${datadir}
+                  chown rtorrent ${datadir}
+          fi
         '';
         serviceConfig = {
           User = "rtorrent";
