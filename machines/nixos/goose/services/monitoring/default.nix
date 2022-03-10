@@ -9,5 +9,6 @@
     (import ./wireguard.nix { inherit config; })
     (import ./unpoller.nix { inherit pkgs secrets config; })
     (import ./hue.nix { inherit secrets; })
+    (import ./netatmo.nix { inherit secrets; })
   ];
 }

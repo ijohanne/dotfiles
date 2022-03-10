@@ -14,6 +14,7 @@ in
       (import ./services { inherit secrets pkgs config; })
       ./networking.nix
       ijohanne-nur.modules.prometheus-hue-exporter
+      ijohanne-nur.modules.prometheus-netatmo-exporter
       ijohanne-nur.modules.prometheus-unpoller-exporter
       ijohanne-nur.modules.prometheus-nftables-exporter
     ];
