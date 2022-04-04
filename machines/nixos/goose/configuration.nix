@@ -17,6 +17,7 @@ in
       ijohanne-nur.modules.prometheus-netatmo-exporter
       ijohanne-nur.modules.prometheus-unpoller-exporter
       ijohanne-nur.modules.prometheus-nftables-exporter
+      ijohanne-nur.modules.prometheus-tplink-p110-exporter
     ];
 
   nixpkgs.overlays = [

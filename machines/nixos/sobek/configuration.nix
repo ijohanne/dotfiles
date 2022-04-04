@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   sources = (import ./nix/sources.nix);
   ijohanne-nur = import sources.nur-packages { inherit pkgs; };
+  nixpkgs-tars = "https://github.com/NixOS/nixpkgs/archive/";
 in
 {
   imports =
@@ -14,12 +15,18 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
+    packageOverrides = _: {
+      pr165328 = import
+        (fetchTarball
+          "${nixpkgs-tars}48e0651a716f57a46928fc14353cf090152511c9.tar.gz")
+        { config = config.nixpkgs.config; };
+    };
   };
 
   nixpkgs.overlays = [
     (import "${sources.nur-packages}/overlay.nix")
     (_: super: {
-      octoprint = super.octoprint.override {
+      octoprint = super.pr165328.octoprint.override {
         packageOverrides =
           self: super: {
             arcwelder =
@@ -54,7 +61,7 @@ in
               src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-Dashboard) owner repo rev sha256; };
             };
             displaylayerprogress = self.buildPythonPackage rec {
-              pname = "OctoPrint-Dashboard";
+              pname = "OctoPrint-DusplayLayerProgress";
               propagatedBuildInputs = [ super.octoprint ];
               doCheck = false;
               version = "master";
@@ -68,6 +75,7 @@ in
 
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{serial}=="31F9D4B7", ATTR{idVendor}=="046d", ATTR{idProduct}=="085e", NAME="video0"
+    SUBSYSTEM=="vchiq",GROUP="video",MODE="0660"
   '';
 
   networking.hostName = "sobek"; # Define your hostname.
@@ -77,10 +85,19 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   services.xserver.enable = false;
   services.openssh.enable = true;
+  programs.ssh.extraConfig = ''
+    Host builder
+        HostName 141.94.130.22
+        Port 22
+        User builder
+        IdentitiesOnly yes
+        IdentityFile /root/.ssh/id_ed25519
+  '';
   services.octoprint = {
     enable = true;
     plugins = _: with pkgs.octoprint.python.pkgs; [ printtimegenius arcwelder printscheduler themeify bedlevelvisualizer simpleemergencystop octoprint-dashboard displaylayerprogress ];
   };
+  systemd.services.octoprint.path = [ pkgs.libraspberrypi ];
   networking.firewall.enable = false;
   services.mjpg-streamer-experimental = {
     enable = true;
@@ -101,12 +118,15 @@ in
     screen
     bottom
     htop
+    git
     libraspberrypi
     raspberrypifw
     raspberrypi-eeprom
     niv
     nixpkgs-fmt
     v4l-utils
+    ripgrep
+    gping
   ];
 
   services.nginx = {
@@ -163,6 +183,26 @@ in
     ];
   };
 
+  users.users.octoprint = {
+    extraGroups = [
+      "video"
+    ];
+  };
+
+
+  nix.buildMachines = [{
+    hostName = "builder";
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    maxJobs = 4;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    mandatoryFeatures = [ ];
+  }];
+  nix.distributedBuilds = true;
+  # optional, useful when the builder has a faster internet connection than yours
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
 
   system.stateVersion = "22.05";
 }

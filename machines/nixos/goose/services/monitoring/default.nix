@@ -11,5 +11,6 @@
     (import ./hue.nix { inherit secrets; })
     (import ./netatmo.nix { inherit secrets; })
     (import ./telegraf.nix { inherit secrets; })
+    (import ./tplink-p110.nix { inherit secrets; })
   ];
 }

@@ -110,6 +110,11 @@
         hardware ethernet dc:a6:32:08:7c:32;
         fixed-address 10.255.101.244;
       }
+
+      host office-ian-plug {
+        hardware ethernet 6c:5a:b0:2e:79:70;
+        fixed-address 10.255.100.231;
+      }
     '';
   };
 
