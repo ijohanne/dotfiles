@@ -115,6 +115,26 @@
         hardware ethernet 6c:5a:b0:2e:79:70;
         fixed-address 10.255.100.231;
       }
+
+      host office-martin-plug {
+        hardware ethernet 54:af:97:1d:72:c4;
+        fixed-address 10.255.100.232;
+      }
+
+      host livingroom-heater-plug {
+        hardware ethernet 54:af:97:1d:63:6c;
+        fixed-address 10.255.100.233;
+      }
+
+      host terrace-laundry-plug {
+        hardware ethernet 54:af:97:1d:55:e6;
+        fixed-address 10.255.100.234;
+      }
+
+      host terrace-fridge-plug {
+        hardware ethernet 54:af:97:1d:59:d8;
+        fixed-address 10.255.100.235;
+      }
     '';
   };
 
