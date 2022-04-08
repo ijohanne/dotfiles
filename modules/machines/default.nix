@@ -47,7 +47,7 @@ with lib; {
       binaryCaches = config.dotfiles.cachix.binaryCaches;
       binaryCachePublicKeys = config.dotfiles.cachix.binaryCachePublicKeys;
     };
-    environment.systemPackages = [ pkgs.manpages ];
+    environment.systemPackages = [ pkgs.man-pages ];
     nixpkgs.config.allowUnfree = true;
     documentation.dev.enable = true;
     nixpkgs.overlays = [ (import ../overlays) ];

@@ -46,7 +46,7 @@ let
       license = with lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
-  DevelOverrideGlobalRequire = pkgs.buildPerlPackage {
+  DevelOverrideGlobalRequire = pkgs.perlPackages.buildPerlPackage {
     pname = "Devel-OverrideGlobalRequire";
     version = "0.001";
     src = pkgs.fetchurl {
@@ -59,7 +59,7 @@ let
       license = with lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
-  ClassRefresh = pkgs.buildPerlPackage {
+  ClassRefresh = pkgs.perlPackages.buildPerlPackage {
     pname = "Class-Refresh";
     version = "0.07";
     src = pkgs.fetchurl {
@@ -74,7 +74,7 @@ let
       license = with lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
-  PerlLanguageServer = pkgs.buildPerlPackage {
+  PerlLanguageServer = pkgs.perlPackages.buildPerlPackage {
     pname = "Perl-LanguageServer";
     version = "2.2.0";
     src = pkgs.fetchurl {

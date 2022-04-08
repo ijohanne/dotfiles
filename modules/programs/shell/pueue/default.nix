@@ -7,8 +7,8 @@ let
     echo Creating directories
     mkdir -p $HOME/.config/pueue
     echo Creating configuration
-    cat > $HOME/.config/pueue/pueue.yml <<EOF
     rm -f $HOME/.local/share/pueue/pueue.pid
+    cat > $HOME/.config/pueue/pueue.yml <<EOF
     shared:
       pueue_directory: $HOME/.local/share/pueue
       use_unix_socket: true
@@ -21,8 +21,6 @@ let
       default_parallel_tasks: 1
       pause_on_failure: false
       callback: "Task {{ id }}\nCommand: {{ command }}\nPath: {{ path }}\nFinished with status '{{ result }}'"
-      groups:
-        cpu: 1
     EOF
     echo Spawning service
     ${pkgs.pueue}/bin/pueued

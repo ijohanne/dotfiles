@@ -10,13 +10,13 @@ with lib;
           {
             desktopItem = pkgs.makeDesktopItem {
               name = "firefox";
-              exec = "env MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 firefox %u";
+              exec = "env MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 MOZ_DISABLE_CONTENT_SANDBOX=1 firefox %u";
               icon = "firefox";
               comment = "";
               desktopName = "Firefox";
               genericName = "Web Browser";
-              categories = "Network;WebBrowser;";
-              mimeType = lib.concatStringsSep ";" [
+              categories = [ "Network" "WebBrowser" ];
+              mimeTypes = [
                 "text/html"
                 "text/xml"
                 "application/xhtml+xml"
