@@ -5,6 +5,7 @@
     ./nftables.nix
     ./smokeping.nix
     ./zfs.nix
+    ./nut.nix
     (import ./unbound.nix { inherit config; })
     (import ./wireguard.nix { inherit config; })
     (import ./unpoller.nix { inherit pkgs secrets config; })
