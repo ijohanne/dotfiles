@@ -62,7 +62,7 @@
        }
 
        host UniFi-CloudKey {
-         hardware ethernet fc:ec:da:d0:e7:cb;
+         hardware ethernet d0:21:f9:64:97:b3;
          fixed-address 10.255.254.240;
        }
 
@@ -144,6 +144,16 @@
       host camera-terrace-indoor {
          hardware ethernet e8:ca:c8:7a:83:71;
          fixed-address 10.255.100.221;
+      }
+
+      host camera-terrace-outdoor-00 {
+         hardware ethernet ec:71:db:68:f9:2e;
+         fixed-address 10.255.101.220;
+      }
+
+      host camera-terrace-outdoor-01 {
+         hardware ethernet ec:71:db:94:da:da;
+         fixed-address 10.255.101.221;
       }
     '';
   };
