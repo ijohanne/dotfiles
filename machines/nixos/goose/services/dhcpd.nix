@@ -9,7 +9,7 @@
        option deco240 code 240 = string;
        option space ubnt;
        option ubnt.unifi-address code 1 = ip-address;
-       option ntp-servers 10.255.100.202;
+       option ntp-servers 10.255.101.202;
        option domain-search "est.unixpimps.net", "local";
 
        class "ubnt" {
@@ -89,6 +89,11 @@
        host chronos {
          hardware ethernet dc:a6:32:34:1e:6e;
          fixed-address 10.255.100.202;
+       }
+
+       host chronos-wired {
+         hardware ethernet dc:a6:32:34:1e:6d;
+         fixed-address 10.255.101.202;
        }
 
        host hapi {
