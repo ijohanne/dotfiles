@@ -36,7 +36,7 @@
     };
 
     interfaces = {
-      enp1s0f1 = {
+      enp7s0 = {
         ipv4 = {
           addresses = [{
             address = "192.168.1.2";
@@ -95,7 +95,7 @@
         autostart = true;
         enable = true;
         config = ''
-          plugin rp-pppoe.so enp1s0f1
+          plugin rp-pppoe.so enp7s0
           name "adslppp@telefonicanetpa"
           password "adslppp"
           persist

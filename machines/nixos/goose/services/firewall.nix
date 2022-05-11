@@ -39,11 +39,11 @@
               meta oiftype ppp tcp flags syn tcp option maxseg size set 1452
               type filter hook forward priority filter; policy drop;
               iifname { "wifi", "wired", "mgnt", "enp7s0", "wg0" } oifname {
-                "ppp0", "enp1s0f1"
+                "ppp0", "enp7s0"
               } counter accept
 
               iifname {
-                "ppp0", "enp1s0f1"
+                "ppp0", "enp7s0"
               } oifname { "wifi", "wired", "mgnt", "enp7s0", "wg0"
               } ct state established,related counter accept
 
@@ -66,7 +66,7 @@
             chain postrouting {
               type nat hook postrouting priority filter; policy accept;
               oifname "ppp0" masquerade
-              oifname "enp1s0f1" masquerade
+              oifname "enp7s0" masquerade
             }
         }
       '';

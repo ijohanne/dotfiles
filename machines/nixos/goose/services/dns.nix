@@ -50,6 +50,7 @@
           ''"camera-terrace-outdoor-01.est.unixpimps.net. IN A 10.255.101.221"''
           ''"app-backend.local. IN A 10.255.100.201"''
           ''"app-frontend.local. IN A 10.255.100.201"''
+          ''"www.app-frontend.local. IN A 10.255.100.201"''
         ];
       };
       remote-control = {

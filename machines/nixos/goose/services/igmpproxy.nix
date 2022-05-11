@@ -7,14 +7,14 @@
         "igmpproxy.conf"
         ''
           quickleave
-          phyint enp1s0f1 upstream ratelimit 0 threshold 1
+          phyint enp7s0 upstream ratelimit 0 threshold 1
             altnet 172.26.0.0/17
             altnet 172.23.0.0/17
           phyint wired downstream ratelimit 0 threshold 1
           phyint wifi downstream ratelimit 0 threshold 1
           phyint guest disabled
           phyint mgnt disabled
-          phyint enp7s0 disabled
+          phyint enp1s0f1 disabled
           phyint wlp8s0 disabled
           phyint lo disabled
         '';
