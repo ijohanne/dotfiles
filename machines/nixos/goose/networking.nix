@@ -1,4 +1,4 @@
-{ ... }:
+{ interfaces, ... }:
 
 {
   boot.kernel.sysctl = {
@@ -18,25 +18,25 @@
     vlans = {
       wifi = {
         id = 100;
-        interface = "enp1s0f0";
+        interface = "${interfaces.internal}";
       };
       wired = {
         id = 101;
-        interface = "enp1s0f0";
+        interface = "${interfaces.internal}";
       };
       guest = {
         id = 150;
-        interface = "enp1s0f0";
+        interface = "${interfaces.internal}";
       };
 
       mgnt = {
         id = 254;
-        interface = "enp1s0f0";
+        interface = "${interfaces.internal}";
       };
     };
 
     interfaces = {
-      enp7s0 = {
+      "${interfaces.external}" = {
         ipv4 = {
           addresses = [{
             address = "192.168.1.2";
@@ -95,7 +95,7 @@
         autostart = true;
         enable = true;
         config = ''
-          plugin rp-pppoe.so enp7s0
+          plugin rp-pppoe.so ${interfaces.external}
           name "adslppp@telefonicanetpa"
           password "adslppp"
           persist

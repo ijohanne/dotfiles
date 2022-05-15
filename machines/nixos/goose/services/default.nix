@@ -1,10 +1,10 @@
-{ config, secrets, pkgs, ... }:
+{ config, secrets, pkgs, interfaces, ... }:
 {
   imports = [
     ./dns.nix
-    ./firewall.nix
+    (import ./firewall.nix { inherit interfaces; })
     ./avahi.nix
-    ./igmpproxy.nix
+    (import ./igmpproxy.nix { inherit pkgs interfaces; })
     ./dhcpd.nix
     ./wireguard.nix
     ./nginx.nix

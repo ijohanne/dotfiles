@@ -1,4 +1,4 @@
-{ ... }:
+{ interfaces, ... }:
 
 {
   networking = {
@@ -25,7 +25,7 @@
                 "wifi",
                 "wired",
                 "mgnt",
-                "enp7s0",
+                "${interfaces.external}",
                 "lo",
                 "wg0"
               } counter accept
@@ -38,17 +38,17 @@
             chain forward {
               meta oiftype ppp tcp flags syn tcp option maxseg size set 1452
               type filter hook forward priority filter; policy drop;
-              iifname { "wifi", "wired", "mgnt", "enp7s0", "wg0" } oifname {
-                "ppp0", "enp7s0"
+              iifname { "wifi", "wired", "mgnt", "${interfaces.external}", "wg0" } oifname {
+                "ppp0", "${interfaces.external}"
               } counter accept
 
               iifname {
-                "ppp0", "enp7s0"
-              } oifname { "wifi", "wired", "mgnt", "enp7s0", "wg0"
+                "ppp0", "${interfaces.external}"
+              } oifname { "wifi", "wired", "mgnt", "${interfaces.external}", "wg0"
               } ct state established,related counter accept
 
-              iifname { "wifi", "wired", "mgnt", "enp7s0", "wg0" } oifname {
-                "wifi", "wired", "mgnt", "enp7s0", "wg0" } counter accept
+              iifname { "wifi", "wired", "mgnt", "${interfaces.external}", "wg0" } oifname {
+                "wifi", "wired", "mgnt", "${interfaces.external}", "wg0" } counter accept
 
               ip saddr 172.26.0.0/16 accept
               ip saddr 172.23.0.0/16 accept
@@ -66,7 +66,7 @@
             chain postrouting {
               type nat hook postrouting priority filter; policy accept;
               oifname "ppp0" masquerade
-              oifname "enp7s0" masquerade
+              oifname "${interfaces.external}" masquerade
             }
         }
       '';

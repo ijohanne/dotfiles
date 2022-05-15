@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, interfaces, ... }:
 
 {
   systemd.services.igmpproxy =
@@ -7,7 +7,7 @@
         "igmpproxy.conf"
         ''
           quickleave
-          phyint enp7s0 upstream ratelimit 0 threshold 1
+          phyint ${interfaces.external} upstream ratelimit 0 threshold 1
             altnet 172.26.0.0/17
             altnet 172.23.0.0/17
           phyint wired downstream ratelimit 0 threshold 1
