@@ -18,6 +18,7 @@ in
       ijohanne-nur.modules.prometheus-unpoller-exporter
       ijohanne-nur.modules.prometheus-nftables-exporter
       ijohanne-nur.modules.prometheus-tplink-p110-exporter
+      ijohanne-nur.modules.multicast-relay
     ];
 
   nixpkgs.overlays = [

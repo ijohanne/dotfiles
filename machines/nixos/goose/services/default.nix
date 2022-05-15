@@ -8,6 +8,7 @@
     ./dhcpd.nix
     ./wireguard.nix
     ./nginx.nix
+    ./multicast-relay.nix
     (import ./monitoring { inherit secrets config pkgs; })
     (import ./prometheus.nix { inherit pkgs config secrets; })
     (import ./cloudflare.nix { inherit secrets pkgs; })
