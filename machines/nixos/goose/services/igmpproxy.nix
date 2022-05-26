@@ -14,8 +14,6 @@
           phyint wifi downstream ratelimit 0 threshold 1
           phyint guest disabled
           phyint mgnt disabled
-          phyint enp1s0f1 disabled
-          phyint wlp8s0 disabled
           phyint lo disabled
         '';
     in

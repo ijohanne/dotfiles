@@ -1,4 +1,4 @@
-{ interfaces, ... }:
+{ pkgs, interfaces, ... }:
 
 {
   boot.kernel.sysctl = {
@@ -28,7 +28,6 @@
         id = 150;
         interface = "${interfaces.internal}";
       };
-
       mgnt = {
         id = 254;
         interface = "${interfaces.internal}";
@@ -77,7 +76,6 @@
           prefixLength = 24;
         }];
       };
-
       mgnt = {
         ipv4.addresses = [{
           address = "10.255.254.254";
@@ -85,6 +83,9 @@
         }];
       };
     };
+    localCommands = ''
+      ${pkgs.ethtool}/bin/ethtool -s ${interfaces.internal} speed 10000
+    '';
   };
 
   services.pppd = {

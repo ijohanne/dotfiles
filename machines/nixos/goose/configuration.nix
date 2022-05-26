@@ -4,8 +4,8 @@ let
   sources = (import /home/ij/.dotfiles/nix/sources.nix);
   ijohanne-nur = import sources.ijohanne-nur-packages { inherit pkgs; };
   interfaces = {
-    external = "enp7s0";
-    internal = "enp1s0f0";
+    external = "enp5s0d1";
+    internal = "enp5s0";
   };
 in
 {
@@ -16,12 +16,13 @@ in
       ./users.nix
       ./security.nix
       (import ./services { inherit secrets pkgs config interfaces; })
-      (import ./networking.nix { inherit interfaces; })
+      (import ./networking.nix { inherit interfaces pkgs; })
       ijohanne-nur.modules.prometheus-hue-exporter
       ijohanne-nur.modules.prometheus-netatmo-exporter
       ijohanne-nur.modules.prometheus-unpoller-exporter
       ijohanne-nur.modules.prometheus-nftables-exporter
       ijohanne-nur.modules.prometheus-tplink-p110-exporter
+      ijohanne-nur.modules.prometheus-ipmi-exporter
       ijohanne-nur.modules.multicast-relay
     ];
 
