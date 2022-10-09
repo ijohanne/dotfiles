@@ -1,17 +1,18 @@
 { pkgs, lib, config, ... }:
 with lib; {
   config = mkIf (config.dotfiles.machines.printers) {
-    services.printing = { drivers = [ pkgs.gutenprint pkgs.hplipWithPlugin ]; };
-
+    services.printing = { drivers = with pkgs; [ cnijfilter2 cups-filters ]; };
     hardware.printers = {
       ensurePrinters = [{
-        description = "Home - HP OfficeJet 3830";
-        name = "officejet_3830";
-        deviceUri = "ipp://10.255.100.230/ipp/print";
-        ppdOptions = { PageSize = "A4"; };
-        model = "drv:///hp/hpcups.drv/hp-officejet_3830_series.ppd";
+        description = "Home - Brother MFC-L3770CDW";
+        location = "Home";
+        name = "Brother_Home";
+        deviceUri = "ipp://10.255.100.230/ipp";
+        ppdOptions = { PageSize = "A4"; Media = "A4"; };
+        #model = "everywhere";
+        model = "drv:///cupsfilters.drv/pwgrast.ppd";
       }];
-      ensureDefaultPrinter = "officejet_3830";
+      ensureDefaultPrinter = "Brother_Home";
     };
   };
 }

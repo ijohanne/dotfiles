@@ -30,5 +30,5 @@ in
     (import "${sources.ijohanne-nur-packages}/overlay.nix")
   ];
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "22.05";
 }

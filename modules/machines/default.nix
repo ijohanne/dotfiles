@@ -11,6 +11,11 @@ with lib; {
       type = bool;
       description = "Preconfigure printers";
     };
+    scanners = mkOption {
+      default = false;
+      type = bool;
+      description = "Preconfigure scanners";
+    };
     desktop = mkOption {
       default = false;
       type = bool;
@@ -21,7 +26,6 @@ with lib; {
       type = bool;
       description = "Enable laptop settings";
     };
-
     linuxKernelTestingEnabled = mkOption {
       default = false;
       type = bool;
@@ -32,7 +36,6 @@ with lib; {
       type = attrs;
       description = "Default latest Linux kernel package to use";
     };
-
   };
 
   imports = [ ./users.nix ./desktop ./rpi ../lib ./laptop ];
@@ -44,8 +47,10 @@ with lib; {
         dates = "weekly";
         options = "--delete-older-than 30d";
       };
-      binaryCaches = config.dotfiles.cachix.binaryCaches;
-      binaryCachePublicKeys = config.dotfiles.cachix.binaryCachePublicKeys;
+      settings = {
+        substituters = config.dotfiles.cachix.binaryCaches;
+        trusted-public-keys = config.dotfiles.cachix.binaryCachePublicKeys;
+      };
     };
     environment.systemPackages = [ pkgs.man-pages ];
     nixpkgs.config.allowUnfree = true;

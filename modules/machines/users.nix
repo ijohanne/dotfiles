@@ -19,6 +19,8 @@ with lib;
           "docker"
           "dialout"
           "plugdev"
+          "lp"
+          "scanner"
         ] ++ optional config.programs.adb.enable "adbusers";
         createHome = true;
         uid = 1000;
@@ -44,6 +46,8 @@ with lib;
           "docker"
           "dialout"
           "plugdev"
+          "lp"
+          "scanner"
         ] ++ optional config.programs.adb.enable "adbusers";
         createHome = true;
         uid = 1001;
@@ -58,7 +62,7 @@ with lib;
   };
 
 
-  nix.trustedUsers = [ "ij" "mkj" ];
+  nix.settings.trusted-users = [ "ij" "mkj" ];
 
   programs.fish.enable = true;
   programs.zsh.enable = true;

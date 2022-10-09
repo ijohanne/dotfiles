@@ -22,4 +22,5 @@
     '';
   };
   services.xserver = { enable = false; };
+  services.vnstat = { enable = true; };
 }

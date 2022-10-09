@@ -20,4 +20,7 @@
   dotfiles.development-tools.act.enable = true;
   dotfiles.window-managers.sway.enable = true;
   dotfiles.shell.yubikey-touch-detector.enable = true;
+  home.username = "ij";
+  home.homeDirectory = "/home/ij";
+  home.stateVersion = "22.05";
 }

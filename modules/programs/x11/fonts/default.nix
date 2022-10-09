@@ -11,7 +11,7 @@ with lib; {
       };
       iconTheme = {
         name = "Adwaita";
-        package = pkgs.gnome3.adwaita-icon-theme;
+        package = pkgs.gnome.adwaita-icon-theme;
       };
       theme = {
         name = "Equilux";

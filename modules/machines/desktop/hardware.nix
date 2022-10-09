@@ -1,5 +1,9 @@
 { pkgs, lib, config, ... }:
 with lib; {
+  imports = [
+    <nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
+  ];
+
   config = mkIf (config.dotfiles.machines.desktop) (
     mkMerge [
       {
@@ -8,7 +12,6 @@ with lib; {
 
           pulseaudio = {
             enable = true;
-            extraModules = [ pkgs.pulseaudio-modules-bt ];
             package = pkgs.pulseaudioFull;
           };
 
@@ -27,6 +30,8 @@ with lib; {
               intel-media-driver
             ];
           };
+
+          sane.enable = true;
         };
 
         boot.loader = {

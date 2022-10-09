@@ -37,6 +37,14 @@ in
                 version = "master";
                 src = pkgs.fetchFromGitHub { inherit (sources.ArcWelderPlugin) owner repo rev sha256; };
               };
+            obico =
+              self.buildPythonPackage rec {
+                pname = "OctoPrintPlugin-Obico";
+                propagatedBuildInputs = with super; [ octoprint backoff raven bson ];
+                doCheck = false;
+                version = "master";
+                src = pkgs.fetchFromGitHub { inherit (sources.OctoPrint-Obico) owner repo rev sha256; };
+              };
             printscheduler =
               self.buildPythonPackage rec {
                 pname = "OctoPrintPlugin-PrintScheduler";
@@ -95,7 +103,7 @@ in
   '';
   services.octoprint = {
     enable = true;
-    plugins = _: with pkgs.octoprint.python.pkgs; [ printtimegenius arcwelder printscheduler themeify bedlevelvisualizer simpleemergencystop octoprint-dashboard displaylayerprogress ];
+    plugins = _: with pkgs.octoprint.python.pkgs; [ printtimegenius arcwelder printscheduler themeify bedlevelvisualizer simpleemergencystop octoprint-dashboard displaylayerprogress obico ];
   };
   systemd.services.octoprint.path = [ pkgs.libraspberrypi ];
   networking.firewall.enable = false;

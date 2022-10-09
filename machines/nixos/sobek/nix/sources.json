@@ -47,6 +47,18 @@
         "url": "https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/archive/86ae2a443482e3a348b386221e7b13bdd9c4c684.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "OctoPrint-Obico": {
+        "branch": "master",
+        "description": null,
+        "homepage": null,
+        "owner": "TheSpaghettiDetective",
+        "repo": "OctoPrint-Obico",
+        "rev": "99cd9eac665f6d1969a236e72c55640c0a0690c0",
+        "sha256": "1lynqbr2lv91v5y5a8f67cvr3asx3c61ix307vj13sqjpy6xbgnv",
+        "type": "tarball",
+        "url": "https://github.com/TheSpaghettiDetective/OctoPrint-Obico/archive/99cd9eac665f6d1969a236e72c55640c0a0690c0.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "OctoPrint-PrintScheduler": {
         "branch": "master",
         "description": null,

@@ -7,7 +7,7 @@ with lib; {
       description = "Enable ZFS for this system";
     };
   };
-  imports = [ ./general.nix ./hardware.nix ./printers.nix ./network.nix ];
+  imports = [ ./general.nix ./hardware.nix ./printers.nix ./network.nix ./scanners.nix ];
   config = {
     networking.extraHosts = ''
       #127.0.0.1 app-frontend.local app-backend.local www.app-frontend.local
