@@ -7,7 +7,7 @@ pkgs.mkShell rec {
     hooks = {
       shellcheck.enable = true;
       nix-linter.enable = true;
-      nixpkgs-fmt.enable = true;
+      nixpkgs-fmt.enable = false;
       yamllint.enable = true;
     };
     excludes = [

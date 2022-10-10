@@ -2,6 +2,7 @@
 with lib;
 let
   start-pueued = pkgs.writeShellScriptBin "start-pueued" ''
+    export PATH="$PATH:${pkgs.coreutils-full}/bin"
     echo "Generating random session secret"
     SECRET=$(head -80 /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     echo Creating directories
