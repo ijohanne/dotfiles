@@ -11,6 +11,7 @@ in
         extraLua = ''
           lspconfig['texlab'].setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = {"${pkgs.texlab}/bin/texlab"}
           }
         '';

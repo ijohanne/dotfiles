@@ -13,7 +13,8 @@ in
         extraLua = ''
           lspconfig['java_language_server'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.java-language-server}/bin/java-language-server"}
+            cmd = {"${pkgs.java-language-server}/bin/java-language-server"},
+            capabilities = capabilities
           }
         '';
       };

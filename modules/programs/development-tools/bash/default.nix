@@ -13,7 +13,8 @@ in
         extraLua = ''
           lspconfig['bashls'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.nodePackages.bash-language-server}/bin/bash-language-server"}
+            cmd = {"${pkgs.nodePackages.bash-language-server}/bin/bash-language-server"},
+            capabilities = capabilities
           }
         '';
       };

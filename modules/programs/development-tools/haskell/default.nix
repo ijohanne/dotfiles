@@ -15,7 +15,8 @@ in
           extraLua = ''
             lspconfig['hls'].setup {
               on_attach = on_attach,
-              cmd = {"${pkgs.haskell-language-server}/bin/haskell-language-server-9.4.2", "--lsp" }
+              cmd = {"${pkgs.haskell-language-server}/bin/haskell-language-server-9.4.2", "--lsp" },
+              capabilities = capabilities
             }
           '';
         };

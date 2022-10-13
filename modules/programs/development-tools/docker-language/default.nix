@@ -12,7 +12,8 @@ in
           lspconfig['dockerls'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.nodePackages.dockerfile-language-server-nodejs}/bin/docker-langserver", "--stdio"},
-            root_dir = util.path.dirname
+            root_dir = util.path.dirname,
+            capabilities = capabilities
           }
         '';
       };

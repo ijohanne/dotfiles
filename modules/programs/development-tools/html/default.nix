@@ -10,11 +10,13 @@ in
         extraLua = ''
           lspconfig['html'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver", "--stdio" }
+            cmd = {"${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver", "--stdio" },
+            capabilities = capabilities
           }
           lspconfig['cssls'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver", "--stdio"}
+            cmd = {"${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver", "--stdio"},
+            capabilities = capabilities
           }
         '';
       };

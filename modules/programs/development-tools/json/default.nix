@@ -10,7 +10,8 @@ in
         extraLua = ''
           lspconfig['jsonls'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver", "--stdio" }
+            cmd = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver", "--stdio" },
+            capabilities = capabilities
           }
         '';
       };

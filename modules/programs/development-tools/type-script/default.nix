@@ -10,6 +10,7 @@ in
         extraLua = ''
           lspconfig['tsserver'].setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = {"${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server", "--stdio"}
           }
         '';

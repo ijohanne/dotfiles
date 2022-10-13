@@ -99,6 +99,7 @@ in
         extraLua = ''
           lspconfig['perlls'].setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = {
               '${perlls}/bin/perl',
               '-MPerl::LanguageServer',

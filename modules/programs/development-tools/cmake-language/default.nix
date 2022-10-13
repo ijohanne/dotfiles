@@ -16,7 +16,8 @@ in
         extraLua = ''
           lspconfig['cmake'].setup {
             on_attach = on_attach,
-            cmd = {"${language-server}/bin/cmake-language-server"}
+            cmd = {"${language-server}/bin/cmake-language-server"},
+            capabilities = capabilities
           }
         '';
       };

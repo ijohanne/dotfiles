@@ -18,6 +18,7 @@ in
           local opts = {
             server = {
               on_attach = on_attach,
+              capabilities = capabilities,
               cmd = {"${pkgs.rust-analyzer}/bin/rust-analyzer"},
               settings = {
                 ["rust-analyzer"] = {

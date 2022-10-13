@@ -15,7 +15,8 @@ in
           extraLua = ''
             lspconfig['pylsp'].setup {
               on_attach = on_attach,
-              cmd = {"${pkgs.python3Packages.python-lsp-server}/bin/pylsp"}
+              cmd = {"${pkgs.python3Packages.python-lsp-server}/bin/pylsp"},
+              capabilities = capabilities
             }
           '';
         };

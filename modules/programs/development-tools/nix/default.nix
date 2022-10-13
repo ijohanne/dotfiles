@@ -11,7 +11,8 @@ in
           lspconfig['rnix'].setup {
             on_attach = on_attach,
             cmd = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
-            filetypes = {"nix"}
+            filetypes = {"nix"},
+            capabilities = capabilities
           }
         '';
       };

@@ -10,6 +10,7 @@ in
         extraLua = ''
           lspconfig['vimls'].setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = {"${pkgs.nodePackages.vim-language-server}/bin/vim-language-server", "--stdio"}
           }
         '';

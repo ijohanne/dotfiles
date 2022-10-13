@@ -104,10 +104,6 @@ in
           lua <<EOF
           local lspconfig = require 'lspconfig'
 
-          local on_attach = function(client)
-            require'completion'.on_attach(client)
-          end
-
           require("dapui").setup()
 
           vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
@@ -136,14 +132,14 @@ in
         '';
         plugins = with pkgs.vimPlugins; [
           # For now override until it's merged in upstream
-          (completion-nvim.overrideAttrs (_: {
-            src = pkgs.fetchFromGitHub {
-              owner = "rafaelsq";
-              repo = "completion-nvim";
-              rev = "changeHandlerSignature";
-              sha256 = "1xq3xa9fgj6b8llrdhmdbnxnv5jgld32a3n2hc59630zxn6jzpsl";
-            };
-          }))
+          nvim-cmp
+          cmp-nvim-lsp
+          cmp-git
+          cmp-buffer
+          cmp-path
+          cmp-cmdline
+          cmp-vsnip
+          vim-vsnip
           neoformat
           nvim-lsp-extensions
           nvim-lspconfig

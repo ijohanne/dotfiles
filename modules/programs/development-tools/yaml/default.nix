@@ -10,6 +10,7 @@ in
         extraLua = ''
           lspconfig['yamlls'].setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = {"${pkgs.yaml-language-server}/bin/yaml-language-server"}
           }
         '';

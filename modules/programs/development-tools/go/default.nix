@@ -14,7 +14,8 @@ in
         extraLua = ''
           lspconfig['gopls'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.gopls}/bin/gopls"}
+            cmd = {"${pkgs.gopls}/bin/gopls"},
+            capabilities = capabilities
           }
         '';
       };

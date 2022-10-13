@@ -13,7 +13,8 @@ in
         extraLua = ''
           lspconfig['sumneko_lua'].setup {
             on_attach = on_attach,
-            cmd = {"${pkgs.lua-language-server}/bin/lua-language-server"}
+            cmd = {"${pkgs.lua-language-server}/bin/lua-language-server"},
+            capabilities = capabilities
           }
         '';
       };
