@@ -13,10 +13,10 @@ with {
 # NOTE: spec must _not_ have an "outPath" attribute
 builtins.mapAttrs
   (_: spec:
-  if builtins.hasAttr "outPath" spec then
-    abort "The values in versions.json should not have an 'outPath' attribute"
-  else if builtins.hasAttr "url" spec && builtins.hasAttr "sha256" spec then
-    spec // { outPath = fetchTarball { inherit (spec) url sha256; }; }
-  else
-    spec)
+    if builtins.hasAttr "outPath" spec then
+      abort "The values in versions.json should not have an 'outPath' attribute"
+    else if builtins.hasAttr "url" spec && builtins.hasAttr "sha256" spec then
+      spec // { outPath = fetchTarball { inherit (spec) url sha256; }; }
+    else
+      spec)
   versions
