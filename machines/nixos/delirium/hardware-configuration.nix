@@ -18,7 +18,7 @@
     efiSupport = true;
     mirroredBoots = [
       { devices = [ "nodev" ]; path = "/boot/ESP0"; }
-      { devices = [ "nodev" ]; path = "/boot/ESP1"; }
+      #{ devices = [ "nodev" ]; path = "/boot/ESP1"; }
     ];
   };
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,6 +29,14 @@
   environment.etc."mdadm.conf".text = ''
     HOMEHOST delirium
     MAILADDR sysops@unixpimps.net
+  '';
+
+  boot.initrd.preLVMCommands = ''
+    for dev in /dev/md*; do
+        if [ -b "$dev" ]; then
+            mdadm --run "$dev"
+        fi
+    done
   '';
 
   fileSystems."/" =
@@ -50,11 +58,11 @@
       fsType = "vfat";
     };
 
-  fileSystems."/boot/ESP1" =
-    {
-      device = "/dev/disk/by-label/esp1";
-      fsType = "vfat";
-    };
+  #fileSystems."/boot/ESP1" =
+  #{
+  #device = "/dev/disk/by-label/esp1";
+  #fsType = "vfat";
+  #};
 
   fileSystems."/var/borgbackup" =
     {

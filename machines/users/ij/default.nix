@@ -44,6 +44,12 @@
           forwardAgent = true;
           forwardGpgTo = "/run/user/1000/gnupg/S.gpg-agent";
         }
+        {
+          hostname = "pakhet.est.unixpimps.net";
+          forwardAgent = true;
+          forwardGpgTo = "/run/user/1000/gnupg/S.gpg-agent";
+        }
+
       ];
     };
   };

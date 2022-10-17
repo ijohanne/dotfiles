@@ -25,6 +25,12 @@ in
           };
         };
       };
+      "nordic-t.me" = {
+        http2 = true;
+        forceSSL = true;
+        enableACME = true;
+        root = "/var/www/nordic-t.me/html";
+      };
     };
   };
   virtualisation.oci-containers.containers.sniffy = {

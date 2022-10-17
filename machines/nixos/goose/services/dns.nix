@@ -44,6 +44,7 @@
           ''"chronos.est.unixpimps.net. IN A 10.255.101.202"''
           ''"hapi.est.unixpimps.net. IN A 10.255.101.242"''
           ''"r0.ipmi.est.unixpimps.net. IN A 10.255.254.210"''
+          ''"pakhet.est.unixpimps.net. IN A 10.255.101.200"''
           ''"fatty.ipmi.est.unixpimps.net. IN A 10.255.254.211"''
           ''"grafana.est.unixpimps.net. IN A 10.255.254.254"''
           ''"camera-entrance.est.unixpimps.net. IN A 10.255.100.220"''
