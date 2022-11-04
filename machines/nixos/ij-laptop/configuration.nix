@@ -29,4 +29,9 @@
   nix.extraOptions = ''
     builders-use-substitutes = true
   '';
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableExtensionPack = true;
+  };
+  users.extraGroups.vboxusers.members = [ "ij" ];
 }
