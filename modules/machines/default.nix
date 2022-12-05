@@ -48,8 +48,9 @@ with lib; {
         options = "--delete-older-than 30d";
       };
       settings = {
-        substituters = config.dotfiles.cachix.binaryCaches;
-        trusted-public-keys = config.dotfiles.cachix.binaryCachePublicKeys;
+        experimental-features = [ "nix-command" "flakes" ];
+        substituters = config.dotfiles.cachix.binaryCaches ++ [ "https://nix-community.cachix.org" "https://devenv.cachix.org" ];
+        trusted-public-keys = config.dotfiles.cachix.binaryCachePublicKeys ++ [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
       };
     };
     environment.systemPackages = [ pkgs.man-pages ];

@@ -65,7 +65,6 @@ in
       type = types.bool;
       description = "Enable dart compiler";
     };
-
     yaml.enable = mkOption {
       default = false;
       type = types.bool;
@@ -136,10 +135,15 @@ in
       type = types.bool;
       description = "Enable php compiler";
     };
+    devenv.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable devenv tool";
+    };
   };
 
   imports =
-    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ./act ./php ];
+    [ ./git ./niv ./lorri ./perl ./neovim ./direnv ./rust ./java ./json ./html ./python ./go ./bash ./c ./tex ./lua ./yaml ./nix ./vim-language ./type-script ./docker-language ./cmake-language ./haskell ./dart ./act ./php ./devenv ];
 
   config = mkIf (cfg.enable) {
     dotfiles.development-tools.bash.enable = true;
@@ -167,6 +171,7 @@ in
     dotfiles.development-tools.vim-language.enable = true;
     dotfiles.development-tools.cmake-language.enable = false;
     dotfiles.development-tools.docker-language.enable = true;
+    dotfiles.development-tools.devenv.enable = true;
   };
 
 }

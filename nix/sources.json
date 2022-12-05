@@ -23,6 +23,18 @@
         "url": "https://github.com/nix-community/NUR/archive/558c3039de1aaf37ef52e068933c941f94dbb04f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "devenv": {
+        "branch": "main",
+        "description": "Fast, Declarative, Reproducible, and Composable Developer Environments",
+        "homepage": "https://devenv.sh",
+        "owner": "cachix",
+        "repo": "devenv",
+        "rev": "dc858d195e9e97d2086848b54d2f1f13cd68a7aa",
+        "sha256": "0mgysg1dxh7g3hbdj0sg02qpjn11bsppc11hx7xa9r28vafbkblh",
+        "type": "tarball",
+        "url": "https://github.com/cachix/devenv/archive/dc858d195e9e97d2086848b54d2f1f13cd68a7aa.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "gitignore": {
         "branch": "main",
         "description": "A collection of useful .gitignore templates",
@@ -45,6 +57,18 @@
         "sha256": "0hl49ac76fddcs3381hk6fdz7k3kwjjcpksr5k0pcir8jr7z9ng0",
         "type": "tarball",
         "url": "https://github.com/nix-community/home-manager/archive/e1f1160284198a68ea8c7fffbbb1436f99e46ef9.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "home-manager-ijohanne": {
+        "branch": "fish-completions-getName",
+        "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
+        "homepage": "https://nix-community.github.io/home-manager/",
+        "owner": "ijohanne",
+        "repo": "home-manager",
+        "rev": "d52caa680de89482a166a317ae367b7eb8f04c78",
+        "sha256": "1i8mxn5p70vsy1dv27rmc4wvsc3i1phnx7m963y5lpfnd8p9l2r3",
+        "type": "tarball",
+        "url": "https://github.com/ijohanne/home-manager/archive/d52caa680de89482a166a317ae367b7eb8f04c78.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ijohanne-nur-packages": {

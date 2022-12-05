@@ -22,7 +22,7 @@ let
     keygrips=$(
       ${lib.getBin pkgs.gnupg}/bin/gpg-connect-agent 'keyinfo --list' /bye 2>/dev/null \
       | grep -v OK \
-      | awk '{if ($4 == "T") { print $3 ".key" }}')
+      | ${pkgs.gawk}/bin/awk '{if ($4 == "T") { print $3 ".key" }}')
     for f in $keygrips; do
       rm -v ~/.gnupg/private-keys-v1.d/$f
       done

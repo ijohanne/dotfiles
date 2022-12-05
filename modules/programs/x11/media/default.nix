@@ -14,6 +14,11 @@ in
       type = types.bool;
       description = "Enable spotify app";
     };
+    cider.enable = mkOption {
+      default = false;
+      type = types.bool;
+      description = "Enable cider app";
+    };
     obs-studio.enable = mkOption {
       default = false;
       type = types.bool;
@@ -31,11 +36,12 @@ in
     };
   };
 
-  imports = [ ./feh ./spotify ./obs-studio ./pavucontrol ./vlc ];
+  imports = [ ./feh ./spotify ./obs-studio ./pavucontrol ./vlc ./cider ];
 
   config = mkIf (cfg.enable) {
     dotfiles.x11.media.feh.enable = true;
     dotfiles.x11.media.spotify.enable = true;
+    dotfiles.x11.media.cider.enable = true;
     dotfiles.x11.media.obs-studio.enable = true;
     dotfiles.x11.media.pavucontrol.enable = true;
     dotfiles.x11.media.vlc.enable = true;
