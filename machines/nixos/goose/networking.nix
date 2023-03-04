@@ -1,4 +1,4 @@
-{ pkgs, interfaces, ... }:
+{ interfaces, ... }:
 
 {
   boot.kernel.sysctl = {
@@ -32,8 +32,21 @@
         id = 254;
         interface = "${interfaces.internal}";
       };
+      wan = {
+        id = 253;
+        interface = "${interfaces.internal}";
+      };
     };
 
+    bonds."${interfaces.internal}" = {
+      interfaces = interfaces.uplinks;
+      driverOptions = {
+        mode = "802.3ad";
+        miimon = "100";
+        downdelay = "200";
+        updelay = "200";
+      };
+    };
     interfaces = {
       "${interfaces.external}" = {
         ipv4 = {
@@ -83,9 +96,6 @@
         }];
       };
     };
-    localCommands = ''
-      ${pkgs.ethtool}/bin/ethtool -s ${interfaces.internal} speed 10000
-    '';
   };
 
   services.pppd = {

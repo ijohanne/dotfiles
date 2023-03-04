@@ -55,6 +55,9 @@ in
     programs.gpg = {
       enable = true;
       settings.pinentry-mode = "loopback";
+      scdaemonSettings = {
+        card-timeout = "1";
+      };
     };
 
     programs.fish.shellAliases = mkIf config.dotfiles.shell.gpg-agent.enable {

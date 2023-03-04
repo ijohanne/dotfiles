@@ -71,9 +71,14 @@
         fixed-address 10.255.101.241;
       }
 
-      host brother-office {
+      host printer-brother-hallway {
         hardware ethernet 4c:d5:77:ed:7d:1a;
         fixed-address 10.255.100.230;
+      }
+
+      host printer-canon-hallway {
+        hardware ethernet 6c:3c:7c:13:0c:cc;
+        fixed-address 10.255.100.236;
       }
 
       host Main-bridge {

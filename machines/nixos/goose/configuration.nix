@@ -4,8 +4,9 @@ let
   sources = (import /home/ij/.dotfiles/nix/sources.nix);
   ijohanne-nur = import sources.ijohanne-nur-packages { inherit pkgs; };
   interfaces = {
-    external = "enp5s0d1";
-    internal = "enp5s0";
+    external = "wan";
+    internal = "uplink";
+    uplinks = [ "enp5s0f0np0" "enp5s0f1np1" ];
   };
 in
 {

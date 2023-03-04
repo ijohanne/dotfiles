@@ -38,7 +38,8 @@
         local-data = [
           ''"r0.est.unixpimps.net. IN A 10.255.254.254"''
           ''"cloudkey.est.unixpimps.net. IN A 10.255.254.240"''
-          ''"brother-office.est.unixpimps.net. IN A 10.255.101.230"''
+          ''"brother-hallway.est.unixpimps.net. IN A 10.255.100.230"''
+          ''"canon-hallway.est.unixpimps.net. IN A 10.255.100.236"''
           ''"sobek.est.unixpimps.net. IN A 10.255.101.244"''
           ''"fatty.est.unixpimps.net. IN A 10.255.101.243"''
           ''"chronos.est.unixpimps.net. IN A 10.255.101.202"''
