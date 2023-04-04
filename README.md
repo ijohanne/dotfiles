@@ -21,6 +21,7 @@ This repository contains my NixOS and home-manager configs, configuration for Ne
   * [Maintenance](#maintenance)
 - [Installation (live-cd fixups)](#installation-live-cd-fixups)
   * [Mounting filesystems](#mounting-filesystems)
+  * [Reinstall bootloader](#reinstall-bootloader)
 - [Setting up a Raspberry Pi](#setting-up-a-raspberry-pi)
   * [Building the image and writing it to a SD card](#building-the-image-and-writing-it-to-a-sd-card)
   * [Installation on the device](#installation-on-the-device)
@@ -151,6 +152,16 @@ $> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
 $> export GITHUB_BRANCH="master" # Adapt if needed
 $> export DISK_FS="btrfs" # can be either btrfs or zfs
 $> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-rescue-mount.sh | bash -s $DISK_FS
+```
+
+## Reinstall bootloader
+```bash
+$> export GITHUB_REPO="ijohanne/dotfiles" # Adapt if needed
+$> export GITHUB_BRANCH="master" # Adapt if needed
+$> export DISK_FS="btrfs" # can be either btrfs or zfs
+$> curl https://raw.githubusercontent.com/$GITHUB_REPO/$GITHUB_BRANCH/nix-rescue-mount.sh | bash -s $DISK_FS
+$> nixos-enter /mnt
+$> sudo NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
 ```
 
 # Setting up a Raspberry Pi 
